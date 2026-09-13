@@ -25,9 +25,9 @@ Rules:
 
 | ID | Issue # | Title | Source | KPI or waste targeted | Target | Sprint opened | Owner role | Status |
 |---|---|---|---|---|---|---|---|---|
-| KZ-01 | | Enable branch protection on `main` (require PR, one review, CI green) | Rubric Sprint 1 deliverable; FMEA R08 | `first_time_right`, reproducibility | Protection active before first Sprint 1 PR | Formation | Scrum Master | Open |
-| KZ-02 | | Adopt a 48 h PR review SLA with reviewer rotation | FMEA R12; charter | `pr_first_review_hours` | median <= 48 h | Formation | Scrum Master | Open |
-| KZ-03 | | Automate the weekly metrics snapshot (GitHub Actions workflow `LSS metrics`) | LSS plan | All process KPIs | First automated PR merged by Sep 21 | Formation | Developers | Open |
+| KZ-01 | #9 | Enable branch protection on `main` (require PR, one review, CI green) | Rubric Sprint 1 deliverable; FMEA R08 | `first_time_right`, reproducibility | Protection active before first Sprint 1 PR | Formation | Scrum Master | Open |
+| KZ-02 | #10 | Adopt a 48 h PR review SLA with reviewer rotation | FMEA R12; charter | `pr_first_review_hours` | median <= 48 h | Formation | Scrum Master | Open |
+| KZ-03 | #11 | Automate the weekly metrics snapshot (GitHub Actions workflow `LSS metrics`) | LSS plan | All process KPIs | First automated PR merged by Sep 21 | Formation | Developers | Open |
 | KZ-04 | | Same-day issue creation for ideas raised in chat | Value stream map | Waiting (idea to issue) | < 1 day | Sprint 1 (planned) | Product Owner | Planned |
 | KZ-05 | | Definition of Ready enforced at planning | Value stream map | `rework_ratio` | <= 0.15 | Sprint 1 (planned) | Product Owner | Planned |
 | KZ-06 | | Split CI: unit tests on push, full pipeline on PRs to main and nightly | Value stream map | CI wait time | < 5 min on push | Sprint 2 (planned) | Developers | Planned |

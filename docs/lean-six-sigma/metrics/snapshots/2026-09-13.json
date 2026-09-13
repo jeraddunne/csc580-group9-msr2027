@@ -1,0 +1,1712 @@
+{
+  "generated_at": "2026-09-13T22:55:20.061700+00:00",
+  "window": {
+    "since": "2026-09-10T00:00:00+00:00",
+    "until": "2026-09-13T22:55:20.061700+00:00"
+  },
+  "counts": {
+    "issues": 40,
+    "prs": 0,
+    "reviews": 0,
+    "runs": 0,
+    "commits": 1
+  },
+  "targets": {
+    "cycle_time_days_target": 5.0,
+    "lead_time_days_target": 10.0,
+    "pr_first_review_hours_target": 48.0,
+    "pr_merge_hours_target": 96.0,
+    "commitment_reliability_target": 0.8,
+    "first_time_right_target": 0.75,
+    "rework_ratio_max": 0.15,
+    "contribution_share_min": 0.15,
+    "contribution_share_max": 0.45,
+    "ci_pass_rate_target": 0.9,
+    "kaizen_closure_rate_target": 0.7
+  },
+  "wip_limit": 5,
+  "sprints": [
+    {
+      "name": "Formation",
+      "start": "2026-09-10",
+      "end": "2026-09-16",
+      "total_issues": 11,
+      "committed_issues": 0,
+      "committed_points": 0,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 11,
+      "velocity": 0,
+      "commitment_reliability": null,
+      "escaped_defects": 0,
+      "status": "active"
+    },
+    {
+      "name": "Sprint 1",
+      "start": "2026-09-17",
+      "end": "2026-10-07",
+      "total_issues": 9,
+      "committed_issues": 9,
+      "committed_points": 22,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    },
+    {
+      "name": "Sprint 2",
+      "start": "2026-10-08",
+      "end": "2026-10-28",
+      "total_issues": 6,
+      "committed_issues": 6,
+      "committed_points": 16,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    },
+    {
+      "name": "Sprint 3",
+      "start": "2026-10-29",
+      "end": "2026-11-18",
+      "total_issues": 9,
+      "committed_issues": 9,
+      "committed_points": 29,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    },
+    {
+      "name": "Finalization",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "total_issues": 5,
+      "committed_issues": 5,
+      "committed_points": 10,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    }
+  ],
+  "kpis": {
+    "velocity": {
+      "value": 0,
+      "unit": "points",
+      "target": null,
+      "status": "info",
+      "per_sprint": {
+        "Formation": 0,
+        "Sprint 1": 0,
+        "Sprint 2": 0,
+        "Sprint 3": 0,
+        "Finalization": 0
+      }
+    },
+    "commitment_reliability": {
+      "value": null,
+      "sprint": "Formation",
+      "unit": "ratio",
+      "target": 0.8,
+      "status": "nodata"
+    },
+    "cycle_time_days": {
+      "value": null,
+      "median": null,
+      "mean": null,
+      "n": 0,
+      "approximated": 0,
+      "unit": "days",
+      "target": 5.0,
+      "status": "nodata"
+    },
+    "lead_time_days": {
+      "value": null,
+      "median": null,
+      "mean": null,
+      "n": 0,
+      "unit": "days",
+      "target": 10.0,
+      "status": "nodata"
+    },
+    "throughput_per_week": {
+      "value": 0.0,
+      "closed": 0,
+      "window_days": 4.0,
+      "unit": "issues/week",
+      "target": null,
+      "status": "info"
+    },
+    "wip": {
+      "value": 0,
+      "limit": 5,
+      "numbers": [],
+      "unit": "issues",
+      "target": 5,
+      "status": "ok"
+    },
+    "blocked_time_days": {
+      "value": 0,
+      "total": 0,
+      "mean": null,
+      "n": 0,
+      "open_blockers": 0,
+      "unit": "days",
+      "target": null,
+      "status": "info"
+    },
+    "pr_first_review_hours": {
+      "value": null,
+      "median": null,
+      "mean": null,
+      "n": 0,
+      "unreviewed_open": [],
+      "unreviewed_merged": [],
+      "unit": "hours",
+      "target": 48.0,
+      "status": "nodata"
+    },
+    "pr_merge_hours": {
+      "value": null,
+      "median": null,
+      "mean": null,
+      "n": 0,
+      "unit": "hours",
+      "target": 96.0,
+      "status": "nodata"
+    },
+    "first_time_right": {
+      "value": null,
+      "n": 0,
+      "merged_without_changes": 0,
+      "unit": "ratio",
+      "target": 0.75,
+      "status": "nodata"
+    },
+    "rework_ratio": {
+      "value": null,
+      "n_closed": 0,
+      "n_rework": 0,
+      "numbers": [],
+      "unit": "ratio",
+      "target": 0.15,
+      "status": "nodata"
+    },
+    "defect_count": {
+      "value": 0,
+      "open": 0,
+      "escaped_by_sprint": {
+        "Formation": 0,
+        "Sprint 1": 0,
+        "Sprint 2": 0,
+        "Sprint 3": 0,
+        "Finalization": 0
+      },
+      "unit": "issues",
+      "target": null,
+      "status": "info"
+    },
+    "ci_pass_rate": {
+      "value": null,
+      "n": 0,
+      "success": 0,
+      "unit": "ratio",
+      "target": 0.9,
+      "status": "nodata"
+    },
+    "contribution_gini": {
+      "value": 0.0,
+      "flagged": [
+        "jeraddunne"
+      ],
+      "band": [
+        0.15,
+        0.45
+      ],
+      "unit": "gini",
+      "target": null,
+      "status": "warn"
+    },
+    "kaizen_closure_rate": {
+      "value": 0.0,
+      "opened": 3,
+      "closed": 0,
+      "unit": "ratio",
+      "target": 0.7,
+      "status": "warn"
+    },
+    "reproducibility_check": {
+      "value": "nodata",
+      "workflow": "CI",
+      "unit": "pass/fail",
+      "target": "pass",
+      "status": "nodata"
+    }
+  },
+  "contribution": {
+    "members": {
+      "jeraddunne": {
+        "commits": 1,
+        "prs_authored": 0,
+        "reviews_given": 0,
+        "issues_closed": 0,
+        "share_commits": 1.0,
+        "share_prs_authored": null,
+        "share_reviews_given": null,
+        "share_issues_closed": null,
+        "share_overall": 1.0,
+        "flag": true
+      }
+    },
+    "others": {},
+    "totals": {
+      "commits": 1,
+      "prs_authored": 0,
+      "reviews_given": 0,
+      "issues_closed": 0
+    },
+    "gini": 0.0,
+    "band": [
+      0.15,
+      0.45
+    ]
+  },
+  "control_charts": {
+    "cycle_time": {
+      "points": [],
+      "limits": {
+        "n": 0,
+        "mean": null,
+        "mr_bar": null,
+        "ucl": null,
+        "lcl": null,
+        "mr_ucl": null
+      },
+      "signals": [],
+      "target": 5.0
+    },
+    "pr_first_review": {
+      "points": [],
+      "limits": {
+        "n": 0,
+        "mean": null,
+        "mr_bar": null,
+        "ucl": null,
+        "lcl": null,
+        "mr_ucl": null
+      },
+      "signals": [],
+      "target": 48.0
+    }
+  },
+  "open_blockers": [],
+  "open_prs_waiting_review": [],
+  "signals": [],
+  "repo": "jeraddunne/csc580-group9-msr2027",
+  "inputs": {
+    "issues": [
+      {
+        "number": 40,
+        "title": "Final: AI-use log and disclosure complete",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:47Z",
+        "closed_at": null,
+        "labels": [
+          "type:docs",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Finalization",
+        "body": "Acceptance: every AI-assisted PR has a log row; disclosure paragraph in the report matches the log.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:47Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:48Z",
+            "label": "type:docs",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:49Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 39,
+        "title": "Final: individual contribution and reflection (one per member)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:45Z",
+        "closed_at": null,
+        "labels": [
+          "type:docs",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Finalization",
+        "body": "Acceptance: four files in docs/reflections/ with links to evidence.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:45Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:46Z",
+            "label": "type:docs",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:47Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 38,
+        "title": "Final: presentation and live demonstration",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:44Z",
+        "closed_at": null,
+        "labels": [
+          "type:presentation",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Finalization",
+        "body": "Acceptance: rehearsed twice; backup recording available.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:44Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:45Z",
+            "label": "type:presentation",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:45Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 37,
+        "title": "Final: repository release v1.0.0 and fresh-machine reproduction by a non-author",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:42Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Finalization",
+        "body": "Acceptance: release with report PDF and figures attached; gemba walk recorded.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:42Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:43Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:43Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 36,
+        "title": "Final: respond to feedback and finalize the report",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:41Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Finalization",
+        "body": "Acceptance: feedback log in docs/sprints/finalization/checklist.md complete; report/final.pdf built.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:41Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:42Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:43Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 35,
+        "title": "S3: retrospective identifying the group's most important process improvement",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:39Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 9. Acceptance: improvement named with before/after KPI evidence.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:39Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:41Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:41Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 34,
+        "title": "S3: final demonstration plan and presentation materials",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:38Z",
+        "closed_at": null,
+        "labels": [
+          "type:presentation",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 8. See docs/PRESENTATION_PLAN.md.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:38Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:39Z",
+            "label": "type:presentation",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:39Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 33,
+        "title": "S3: documented release or tagged version of the repository",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:36Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 7. Acceptance: tag v0.9.0-rc1 with release notes; fresh clone reproduces primary results.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:36Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 32,
+        "title": "S3: threats-to-validity section (dataset bias, measurement error, confounding, missing data, reproducibility, generalizability)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:35Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 6.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:35Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 31,
+        "title": "S3: complete draft report with citations and clear separation of findings and interpretation",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:33Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 5.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:34Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:35Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 30,
+        "title": "S3: final figures and tables generated from the repository pipeline",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:32Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 4.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:32Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 29,
+        "title": "S3: error analysis and manually inspected examples",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:31Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 3.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:31Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:32Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 28,
+        "title": "S3: robustness checks, sensitivity analysis, or comparison across meaningful subgroups",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:29Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 2.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:29Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:30Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:30Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 27,
+        "title": "S3: final or near-final results addressing the research question",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:27Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 1.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:27Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:28Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:28Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 26,
+        "title": "S2: sprint review package and retrospective recording changes to question, method, scope, or interpretation",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:26Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 7 and acceptance criteria. Acceptance: review.md and retrospective.md complete; package submitted by 2026-10-28.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:26Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:27Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:27Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 25,
+        "title": "S2: updated research report (background, method, implementation, preliminary results)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:23Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 6. Acceptance: sections drafted with citations; observation and interpretation separated.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:24Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:25Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:25Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 24,
+        "title": "S2: preliminary results with reproducible figures or tables",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:21Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 4. Acceptance: results/ and figures/ regenerated by the pipeline; referenced in report/draft.md.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:21Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:23Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:23Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 23,
+        "title": "S2: validation sample, manual annotation protocol, or other evaluation design",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:19Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 3. Acceptance: written protocol; two annotators; agreement statistic reported; sample size justified.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:20Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:21Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:21Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 22,
+        "title": "S2: automated tests for parsing, transformation, matching, or metric functions",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:18Z",
+        "closed_at": null,
+        "labels": [
+          "type:test",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 2. Acceptance: every function whose output appears in the report has a test; CI green.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:18Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:19Z",
+            "label": "type:test",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:19Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 21,
+        "title": "S2: working implementation of the core mining, extraction, similarity, classification, traceability, or visualization method",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:16Z",
+        "closed_at": null,
+        "labels": [
+          "type:pipeline",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 1. Acceptance: runs end to end on the approved sample from `run_pipeline.sh`.\nEstimate: 8 (split at planning)",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:16Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:18Z",
+            "label": "type:pipeline",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:18Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 20,
+        "title": "S1: sprint review package and retrospective",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:14Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A retrospective explaining what the group learned and what changed in the backlog.'\n\nAcceptance: docs/sprints/sprint-1/review.md and retrospective.md complete; kaizen issues created; package submitted by 2026-10-07.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:14Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:16Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:16Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 19,
+        "title": "S1: baseline process metrics captured (Measure phase)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:13Z",
+        "closed_at": null,
+        "labels": [
+          "type:process"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "First three weekly metrics PRs merged; baseline values recorded in docs/lean-six-sigma/metrics/DASHBOARD.md and referenced in the retrospective.\n\nAcceptance: retrospective.md 'Data first' section filled from the dashboard.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:13Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:14Z",
+            "label": "type:process",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 18,
+        "title": "S1: primary risks and threats to validity identified",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:11Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric acceptance: 'the group has identified the primary risks and threats to validity.'\n\nAcceptance: THREATS_TO_VALIDITY.md rows for the chosen question have status set; FMEA top 5 reviewed at planning.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:11Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:13Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:13Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 17,
+        "title": "S1: repository practice: issues, milestones, branch protection, first reviewed pull request",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:09Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A repository with issues, milestones, branch protection or equivalent review practice, and a first pull request.'\n\nAcceptance: every member has authored and reviewed at least one merged PR.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:09Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:11Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:11Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 16,
+        "title": "S1: at least one exploratory table or visualization generated by code",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:08Z",
+        "closed_at": null,
+        "labels": [
+          "type:pipeline",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'At least one exploratory table or visualization generated by code.'\n\nAcceptance: a table in results/ and a figure in figures/ produced by the pipeline and referenced in report/draft.md.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:08Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:08Z",
+            "label": "type:pipeline",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:09Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 15,
+        "title": "S1: first working data-loading and extraction pipeline for the selected question",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:06Z",
+        "closed_at": null,
+        "labels": [
+          "type:pipeline",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A first working data-loading and extraction pipeline.'\n\nAcceptance: `python -m msr_pipeline <command>` runs end to end on the sample and writes results/; tested; documented in README.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:06Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:07Z",
+            "label": "type:pipeline",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:07Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 14,
+        "title": "S1: dataset acquisition or sampling instructions and data dictionary",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:04Z",
+        "closed_at": null,
+        "labels": [
+          "type:data",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'Dataset acquisition or sampling instructions and a data dictionary.'\n\nAcceptance: data/README.md instructions verified by a second member; MANIFEST.json hashes recorded; inclusion/exclusion rules implemented in code.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:04Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:06Z",
+            "label": "type:data",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:06Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 13,
+        "title": "S1: unit of analysis, population, sample, variables, outcome measures defined",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:02Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A defined unit of analysis, population, sample, variables, and outcome measures.'\n\nAcceptance: RESEARCH_QUESTION.md sections 5 and 6 and DATA_DICTIONARY.md Part B complete.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:03Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:04Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:04Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 12,
+        "title": "S1: precise research question with motivation, contribution, and competing explanation",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:01Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A selected MSR-inspired topic and a precise research question' and 'Motivation, expected contribution, and at least one competing or simpler explanation.'\n\nAcceptance: RESEARCH_QUESTION.md sections 1 to 4 and 7 complete and reviewed.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:01Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:02Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:02Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 11,
+        "title": "Kaizen: weekly process metrics automated",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:00Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "kaizen"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "The LSS metrics workflow opens a PR every Sunday; the Scrum Master reviews it at the Thursday check-in.\n\nMeasure: a metrics PR exists for every week of Sprint 1.",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:01Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:01Z",
+            "label": "kaizen",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "title": "Kaizen: 48-hour pull request review SLA tracked as a KPI",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:58Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "kaizen"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Reviewer rotation agreed at kickoff; PR first-review turnaround appears on the weekly dashboard with a 48 h target.\n\nMeasure: median first-review time under 48 h in Sprint 1.",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:58Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:59Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:59Z",
+            "label": "kaizen",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "title": "Kaizen: branch protection enabled on main",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:57Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "kaizen"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Ruleset: no direct pushes, one approving review, conversation resolution, no force push. Verified by an attempted direct push being rejected.\n\nRaised in: repository setup 2026-09-13.",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:57Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:58Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:58Z",
+            "label": "kaizen",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Formation: invite team members and instructor as collaborators",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:56Z",
+        "closed_at": null,
+        "labels": [
+          "type:process"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Add handles to project.yml as onboarding issues arrive, then `python scripts/invite_team.py --instructor`.\n\nAcceptance: all four members have push access; instructor invited.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:56Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:57Z",
+            "label": "type:process",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "title": "Formation: project board created from the instructor template with LSS fields",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:54Z",
+        "closed_at": null,
+        "labels": [
+          "type:process"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Run `python scripts/setup_project_board.py` (needs `gh auth refresh -s project`). Add WIP limits (5) on Todo and In progress in the Board view.\n\nAcceptance: board has Todo/In progress/Done/Block/Cancelled, Sprint, Estimate, Priority, Type fields; all open issues added.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:55Z",
+            "label": "type:process",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "title": "Formation: Sprint 1 backlog created, estimated, and on the board",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:52Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Create issues for every Sprint 1 rubric bullet mapped to the chosen question; estimate; assign; add to the project board.\n\nAcceptance: milestone Sprint 1 has issues covering all eight review bullets; each meets the Definition of Ready.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:52Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:53Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:53Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Formation: RESEARCH_QUESTION.md completed and topic brief submitted",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:51Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Product Owner fills every section from the winning proposal; topic brief submitted to the instructor.\n\nAcceptance: no placeholders remain in RESEARCH_QUESTION.md; brief submitted by 2026-09-16.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:51Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:52Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:52Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Formation: ballot vote tallied and topic decided (ADR-0004)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:50Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "decision"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Ballots in docs/proposals/votes/ballots/ by 2026-09-15 23:59; `make tally` at kickoff; ADR-0004 written.\n\nAcceptance: docs/proposals/RESULTS.md committed; ADR-0004 status Accepted.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:50Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:51Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:51Z",
+            "label": "decision",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Formation: topic proposals submitted (at least one per member)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:48Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Use the Project proposal issue form by 2026-09-14 23:59. See docs/proposals/README.md.\n\nAcceptance: at least four issues labelled `proposal`.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:48Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:49Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:50Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Formation: dataset samples inspected by every member",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:47Z",
+        "closed_at": null,
+        "labels": [
+          "type:data",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Run `make data` and `python -m msr_pipeline explore --dataset all`; read data/README.md and both upstream READMEs.\n\nAcceptance: each member comments here with the row counts printed by the download script.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:47Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:48Z",
+            "label": "type:data",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:48Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "title": "Formation: team charter signed by all four members",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:45Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric"
+        ],
+        "assignees": [],
+        "milestone": "Formation",
+        "body": "Every member signs TEAM_CHARTER.md section 13 in their first PR and completes the onboarding issue.\n\nAcceptance: four signature rows; four onboarding issues closed; four profiles in docs/team/.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:45Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:46Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:46Z",
+            "label": "rubric",
+            "assignee": null
+          }
+        ]
+      }
+    ],
+    "prs": [],
+    "reviews": [],
+    "runs": [],
+    "commits": [
+      {
+        "sha": "39c54029f95ed50ec6399ffc6b2e384f57c8cefe",
+        "author": "jeraddunne",
+        "date": "2026-09-13T22:53:16Z"
+      }
+    ]
+  }
+}

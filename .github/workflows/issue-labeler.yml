@@ -1,0 +1,48 @@
+name: Issue form labels
+
+# Poka-yoke: applies the Type label and Sprint milestone chosen in the Task issue form,
+# so nobody has to remember to set them by hand.
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || "";
+            const section = (heading) => {
+              const re = new RegExp(`### ${heading}\\s*\\n+([^\\n#]+)`, "i");
+              const m = body.match(re);
+              return m ? m[1].trim() : null;
+            };
+            const owner = context.repo.owner, repo = context.repo.repo;
+            const number = context.payload.issue.number;
+
+            const type = section("Type");
+            const validTypes = ["research","pipeline","data","docs","test","process","report","presentation"];
+            const labels = [];
+            if (type && validTypes.includes(type.toLowerCase())) labels.push(`type:${type.toLowerCase()}`);
+
+            const priority = section("Priority");
+            if (priority && ["high","medium","low"].includes(priority.toLowerCase())) labels.push(`priority:${priority.toLowerCase()}`);
+
+            if (labels.length) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: number, labels });
+            }
+
+            const sprint = section("Sprint");
+            if (sprint && !sprint.startsWith("Backlog")) {
+              const milestones = await github.rest.issues.listMilestones({ owner, repo, state: "open", per_page: 100 });
+              const ms = milestones.data.find(m => m.title.toLowerCase() === sprint.toLowerCase());
+              if (ms && context.payload.issue.milestone?.number !== ms.number) {
+                await github.rest.issues.update({ owner, repo, issue_number: number, milestone: ms.number });
+              }
+            }

@@ -1,0 +1,56 @@
+name: Tally topic votes
+
+# Runs whenever a ballot is added or changed in a pull request and posts the standings
+# as a PR comment. The final RESULTS.md is committed by the Scrum Master with `make tally`.
+
+on:
+  pull_request:
+    paths:
+      - "docs/proposals/votes/ballots/**"
+      - "src/msr_pipeline/voting.py"
+      - "scripts/tally_votes.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: write
+
+jobs:
+  tally:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install pyyaml
+      - name: Tally
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/tally_votes.py --out /tmp/RESULTS.md --quiet || true
+          cat /tmp/RESULTS.md
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: vote-results
+          path: /tmp/RESULTS.md
+      - name: Comment standings on the PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- tally-votes -->';
+            const body = marker + '\n' + fs.readFileSync('/tmp/RESULTS.md', 'utf8');
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const comments = await github.rest.issues.listComments({ owner, repo, issue_number, per_page: 100 });
+            const existing = comments.data.find(c => c.body && c.body.startsWith(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }

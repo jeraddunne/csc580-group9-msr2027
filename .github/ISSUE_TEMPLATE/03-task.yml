@@ -1,6 +1,5 @@
 name: "Task / backlog item"
 description: "A unit of work for the board. Must meet the Definition of Ready before entering a sprint."
-title: ""
 body:
   - type: markdown
     attributes:

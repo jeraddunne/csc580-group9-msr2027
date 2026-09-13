@@ -1,0 +1,72 @@
+name: "Task / backlog item"
+description: "A unit of work for the board. Must meet the Definition of Ready before entering a sprint."
+title: ""
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Title states the outcome ("SpecMine loader returns typed DataFrames"), not the activity ("work on loader").
+        The Type and Sprint you choose below are applied as the label and milestone automatically.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: ["research", "pipeline", "data", "docs", "test", "process", "report", "presentation"]
+    validations:
+      required: true
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      options: ["Formation", "Sprint 1", "Sprint 2", "Sprint 3", "Finalization", "Backlog (unscheduled)"]
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description and why
+      description: What needs to exist when this is done, and which rubric bullet or research need it serves.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Testable. A command, a file, a number, a reviewed document.
+      placeholder: |
+        - [ ] `python -m msr_pipeline explore --dataset specmine` writes results/specmine_tool_summary.csv
+        - [ ] Unit test covers empty input
+    validations:
+      required: true
+  - type: dropdown
+    id: estimate
+    attributes:
+      label: Estimate (story points)
+      options: ["1", "2", "3", "5", "8 (split before starting)"]
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: ["High", "Medium", "Low"]
+    validations:
+      required: true
+  - type: input
+    id: rubric
+    attributes:
+      label: Rubric or research link
+      placeholder: "Sprint 1: 'A first working data-loading and extraction pipeline'"
+  - type: input
+    id: dependencies
+    attributes:
+      label: Depends on
+      placeholder: "#12, #15"
+  - type: checkboxes
+    id: dor
+    attributes:
+      label: Definition of Ready
+      options:
+        - label: Owner assigned (assign yourself or the person who agreed)
+        - label: Acceptance criteria are testable
+        - label: Estimate is 5 or less, or this is a parent issue with sub-issues

@@ -1,0 +1,120 @@
+{
+  "now": "2026-10-01T12:00:00Z",
+  "issues": [
+    {
+      "number": 1, "title": "Write RESEARCH_QUESTION.md", "state": "closed", "state_reason": "completed",
+      "created_at": "2026-09-17T09:00:00Z", "closed_at": "2026-09-21T15:00:00Z",
+      "labels": ["type:research", "sp:3", "rubric"], "assignees": ["jeraddunne"], "milestone": "Sprint 1",
+      "body": "Acceptance: file merged.",
+      "events": [
+        {"event": "assigned", "created_at": "2026-09-17T10:00:00Z", "assignee": "jeraddunne"},
+        {"event": "closed", "created_at": "2026-09-21T15:00:00Z"}
+      ]
+    },
+    {
+      "number": 2, "title": "Download and checksum the GitSkills sample", "state": "closed", "state_reason": "completed",
+      "created_at": "2026-09-17T09:05:00Z", "closed_at": "2026-09-19T18:00:00Z",
+      "labels": ["type:data", "sp:2"], "assignees": ["leticia-a"], "milestone": "Sprint 1",
+      "body": "Estimate: 2",
+      "events": [
+        {"event": "labeled", "created_at": "2026-09-18T08:00:00Z", "label": "in progress"},
+        {"event": "closed", "created_at": "2026-09-19T18:00:00Z"}
+      ]
+    },
+    {
+      "number": 3, "title": "Loader for SpecMine parquet", "state": "closed", "state_reason": "completed",
+      "created_at": "2026-09-17T09:10:00Z", "closed_at": "2026-09-27T12:00:00Z",
+      "labels": ["type:pipeline", "sp:5", "rework"], "assignees": ["allie-h"], "milestone": "Sprint 1",
+      "body": "",
+      "events": [
+        {"event": "assigned", "created_at": "2026-09-20T08:00:00Z", "assignee": "allie-h"},
+        {"event": "labeled", "created_at": "2026-09-22T08:00:00Z", "label": "blocker"},
+        {"event": "unlabeled", "created_at": "2026-09-24T08:00:00Z", "label": "blocker"},
+        {"event": "closed", "created_at": "2026-09-25T12:00:00Z"},
+        {"event": "reopened", "created_at": "2026-09-26T09:00:00Z"},
+        {"event": "closed", "created_at": "2026-09-27T12:00:00Z"}
+      ]
+    },
+    {
+      "number": 4, "title": "Exploratory table: skills by location class", "state": "closed", "state_reason": "completed",
+      "created_at": "2026-09-22T09:00:00Z", "closed_at": "2026-09-29T09:00:00Z",
+      "labels": ["type:pipeline", "sp:3"], "assignees": ["hina-k"], "milestone": "Sprint 1",
+      "body": "",
+      "events": [
+        {"event": "assigned", "created_at": "2026-09-23T09:00:00Z", "assignee": "hina-k"},
+        {"event": "closed", "created_at": "2026-09-29T09:00:00Z"}
+      ]
+    },
+    {
+      "number": 5, "title": "Enable branch protection", "state": "closed", "state_reason": "completed",
+      "created_at": "2026-09-12T09:00:00Z", "closed_at": "2026-09-14T09:00:00Z",
+      "labels": ["kaizen", "type:process", "sp:1"], "assignees": ["jeraddunne"], "milestone": "Formation",
+      "body": "",
+      "events": [{"event": "closed", "created_at": "2026-09-14T09:00:00Z"}]
+    },
+    {
+      "number": 6, "title": "Adopt 48h PR review SLA", "state": "open", "state_reason": null,
+      "created_at": "2026-09-12T09:10:00Z", "closed_at": null,
+      "labels": ["kaizen", "type:process", "sp:1"], "assignees": [], "milestone": "Formation",
+      "body": "",
+      "events": []
+    },
+    {
+      "number": 7, "title": "Validation protocol draft", "state": "open", "state_reason": null,
+      "created_at": "2026-09-24T09:00:00Z", "closed_at": null,
+      "labels": ["type:research", "sp:3", "blocker"], "assignees": ["leticia-a"], "milestone": "Sprint 1",
+      "body": "",
+      "events": [
+        {"event": "assigned", "created_at": "2026-09-24T10:00:00Z", "assignee": "leticia-a"},
+        {"event": "labeled", "created_at": "2026-09-28T10:00:00Z", "label": "blocker"}
+      ]
+    },
+    {
+      "number": 8, "title": "Loader drops rows with mixed-case repo names", "state": "open", "state_reason": null,
+      "created_at": "2026-09-30T09:00:00Z", "closed_at": null,
+      "labels": ["bug", "sp:2"], "assignees": ["allie-h"], "milestone": "Sprint 1",
+      "body": "",
+      "events": [{"event": "assigned", "created_at": "2026-09-30T09:30:00Z", "assignee": "allie-h"}]
+    },
+    {
+      "number": 9, "title": "Spike: try the full 41 GB dump", "state": "closed", "state_reason": "not_planned",
+      "created_at": "2026-09-18T09:00:00Z", "closed_at": "2026-09-18T12:00:00Z",
+      "labels": ["type:data"], "assignees": [], "milestone": "Sprint 1",
+      "body": "",
+      "events": [{"event": "closed", "created_at": "2026-09-18T12:00:00Z"}]
+    }
+  ],
+  "prs": [
+    {"number": 10, "title": "docs: research question", "user": "jeraddunne", "created_at": "2026-09-19T10:00:00Z", "merged_at": "2026-09-21T14:00:00Z", "closed_at": "2026-09-21T14:00:00Z", "state": "closed", "draft": false},
+    {"number": 11, "title": "data: download script", "user": "leticia-a", "created_at": "2026-09-18T12:00:00Z", "merged_at": "2026-09-19T17:00:00Z", "closed_at": "2026-09-19T17:00:00Z", "state": "closed", "draft": false},
+    {"number": 12, "title": "pipeline: specmine loader", "user": "allie-h", "created_at": "2026-09-24T09:00:00Z", "merged_at": "2026-09-27T11:00:00Z", "closed_at": "2026-09-27T11:00:00Z", "state": "closed", "draft": false},
+    {"number": 13, "title": "pipeline: location class table", "user": "hina-k", "created_at": "2026-09-27T09:00:00Z", "merged_at": "2026-09-29T08:00:00Z", "closed_at": "2026-09-29T08:00:00Z", "state": "closed", "draft": false},
+    {"number": 14, "title": "docs: validation protocol", "user": "leticia-a", "created_at": "2026-09-28T09:00:00Z", "merged_at": null, "closed_at": null, "state": "open", "draft": false}
+  ],
+  "reviews": [
+    {"pull_number": 10, "user": "allie-h", "state": "APPROVED", "submitted_at": "2026-09-20T10:00:00Z"},
+    {"pull_number": 11, "user": "hina-k", "state": "APPROVED", "submitted_at": "2026-09-19T09:00:00Z"},
+    {"pull_number": 12, "user": "jeraddunne", "state": "CHANGES_REQUESTED", "submitted_at": "2026-09-25T09:00:00Z"},
+    {"pull_number": 12, "user": "jeraddunne", "state": "APPROVED", "submitted_at": "2026-09-27T10:00:00Z"},
+    {"pull_number": 13, "user": "leticia-a", "state": "APPROVED", "submitted_at": "2026-09-28T20:00:00Z"}
+  ],
+  "runs": [
+    {"id": 1, "name": "CI", "conclusion": "success", "status": "completed", "created_at": "2026-09-19T17:05:00Z", "head_branch": "main"},
+    {"id": 2, "name": "CI", "conclusion": "failure", "status": "completed", "created_at": "2026-09-25T09:30:00Z", "head_branch": "feature/loader"},
+    {"id": 3, "name": "CI", "conclusion": "success", "status": "completed", "created_at": "2026-09-27T11:05:00Z", "head_branch": "main"},
+    {"id": 4, "name": "CI", "conclusion": "success", "status": "completed", "created_at": "2026-09-29T08:05:00Z", "head_branch": "main"},
+    {"id": 5, "name": "LSS metrics", "conclusion": "success", "status": "completed", "created_at": "2026-09-27T06:00:00Z", "head_branch": "main"},
+    {"id": 6, "name": "CI", "conclusion": "cancelled", "status": "completed", "created_at": "2026-09-30T08:05:00Z", "head_branch": "main"}
+  ],
+  "commits": [
+    {"sha": "a1", "author": "jeraddunne", "date": "2026-09-19T10:00:00Z"},
+    {"sha": "a2", "author": "jeraddunne", "date": "2026-09-21T14:00:00Z"},
+    {"sha": "b1", "author": "leticia-a", "date": "2026-09-18T12:00:00Z"},
+    {"sha": "b2", "author": "leticia-a", "date": "2026-09-19T17:00:00Z"},
+    {"sha": "c1", "author": "allie-h", "date": "2026-09-24T09:00:00Z"},
+    {"sha": "c2", "author": "allie-h", "date": "2026-09-26T09:00:00Z"},
+    {"sha": "c3", "author": "allie-h", "date": "2026-09-27T11:00:00Z"},
+    {"sha": "d1", "author": "hina-k", "date": "2026-09-27T09:00:00Z"},
+    {"sha": "e1", "author": "github-actions[bot]", "date": "2026-09-27T06:01:00Z"}
+  ]
+}

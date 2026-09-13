@@ -1,0 +1,5 @@
+# Code owners are requested for review automatically.
+# Add teammates' handles after onboarding, for example:
+# /src/            @jeraddunne @handle2
+# /docs/lean-six-sigma/  @handle3
+*   @jeraddunne

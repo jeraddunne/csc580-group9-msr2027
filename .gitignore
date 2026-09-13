@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Data: samples are downloaded, never committed (277 MB SQLite, 100+ MB Parquet)
+data/samples/*
+!data/samples/.gitkeep
+!data/samples/README.md
+data/samples/MANIFEST.json
+data/full/
+
+# Generated intermediates that are large; final tables/figures ARE committed
+results/*.parquet
+results/tmp/
+*.db-journal
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Report build outputs (final.pdf is attached to the GitHub release instead)
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+
+# Secrets
+.env
+*.token

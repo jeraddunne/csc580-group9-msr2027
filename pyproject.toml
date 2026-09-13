@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "msr-pipeline"
+version = "0.1.0"
+description = "Group 9 mining and analysis pipeline for the MSR 2027 Mining Challenge datasets (GitSkills, SpecMine)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Leticia Aderhold" },
+  { name = "Jerad Dunne" },
+  { name = "Allie Hodges" },
+  { name = "Hina Kramer" },
+]
+keywords = ["mining-software-repositories", "msr-2027", "gitskills", "specmine", "agent-skills"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "pandas>=2.2",
+  "pyarrow>=16",
+  "matplotlib>=3.8",
+  "pyyaml>=6",
+  "requests>=2.31",
+  "duckdb>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-cov>=5",
+  "ruff>=0.5",
+  "jupyter",
+  "nbformat>=5.10",
+]
+
+[project.scripts]
+msr-pipeline = "msr_pipeline.cli:main"
+
+[project.urls]
+Repository = "https://github.com/jeraddunne/csc580-group9-msr2027"
+"MSR 2027 Mining Challenge" = "https://2027.msrconf.org/track/msr-2027-mining-challenge"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [".venv", "data", "results", "figures", "notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/bootstrap_github.py" = ["E501"]  # seed issue bodies are data

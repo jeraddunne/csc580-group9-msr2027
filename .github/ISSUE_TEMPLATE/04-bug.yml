@@ -1,0 +1,49 @@
+name: "Bug / defect"
+description: "Something produces a wrong result, crashes, or does not reproduce."
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What was expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps or command to reproduce
+      render: bash
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Windows 11, Python 3.12.4, commit abc1234, data/samples/MANIFEST.json sha ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "High: wrong numbers in results or report"
+        - "Medium: pipeline fails or is not reproducible"
+        - "Low: cosmetic or docs"
+    validations:
+      required: true
+  - type: dropdown
+    id: escaped
+    attributes:
+      label: Was the affected work already marked Done?
+      description: If yes, the Scrum Master adds the `rework` label; it counts toward the defect-escape and rework KPIs.
+      options: ["No", "Yes"]
+    validations:
+      required: true

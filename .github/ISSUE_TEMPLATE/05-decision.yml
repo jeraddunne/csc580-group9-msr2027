@@ -1,0 +1,43 @@
+name: "Decision needed"
+description: "A choice that affects scope, method, research question, or tooling. Outcome becomes an ADR."
+title: "[Decision] "
+labels: ["decision"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What forces the decision, and what happens if we do not decide.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options
+      placeholder: |
+        A. ...  (pros / cons)
+        B. ...  (pros / cons)
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommendation and rationale
+  - type: input
+    id: deadline
+    attributes:
+      label: Decide by
+      placeholder: "2026-09-24 (Thursday check-in)"
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Does this change the research question, population, method, or deliverables?
+      options: ["No", "Yes (must be recorded in the next retrospective as well)"]
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        When decided: write `docs/decisions/ADR-NNNN-<slug>.md` from the template, link it here, close this issue.

@@ -1,0 +1,146 @@
+name: "Project proposal"
+description: "Propose a research topic for the team vote (Formation phase). One per proposal."
+title: "[Proposal] "
+labels: ["proposal", "type:research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing. Read `docs/proposals/00-candidate-questions.md` and both dataset READMEs first.
+        Proposals are due **2026-09-14 23:59**. Voting runs **2026-09-15** (see `docs/proposals/votes/README.md`).
+        You may propose a rubric question as written, a refinement, or an equivalent question grounded in the datasets.
+  - type: input
+    id: proposer
+    attributes:
+      label: Proposer
+      placeholder: "Full name (GitHub handle)"
+    validations:
+      required: true
+  - type: dropdown
+    id: rubric_question
+    attributes:
+      label: Rubric question this is based on
+      options:
+        - "1. Skill reuse and propagation (GitSkills)"
+        - "2. Skill quality indicators (GitSkills)"
+        - "3. Skill maintenance and staleness (GitSkills)"
+        - "4. Skill security and supply-chain risk (GitSkills)"
+        - "5. Shared-format evolution (GitSkills)"
+        - "6. Human and agent authorship signals (GitSkills)"
+        - "7. Specification completeness and implementation follow-through (SpecMine)"
+        - "8. Specification quality and follow-up fixes (SpecMine)"
+        - "9. Spec-to-code traceability patterns (SpecMine)"
+        - "10. Specification abandonment (SpecMine)"
+        - "11. Template boilerplate versus project-specific content (SpecMine)"
+        - "12. Human-AI collaboration around specifications (SpecMine)"
+        - "13. From specification to agent skill (Combined)"
+        - "14. AI-native artifact lifecycle comparison (Combined)"
+        - "15. Predicting review or maintenance effort (Combined)"
+        - "Equivalent question (explain below)"
+    validations:
+      required: true
+  - type: dropdown
+    id: dataset
+    attributes:
+      label: Dataset(s)
+      options:
+        - GitSkills
+        - SpecMine
+        - Both (joined or compared)
+    validations:
+      required: true
+  - type: textarea
+    id: research_question
+    attributes:
+      label: Precise research question
+      description: One sentence. Name the population, the variables, and the relationship or measurement.
+      placeholder: "Among GitSkills contents copied to at least two repositories, how often do later copies remove or add network access, and does that differ by ..."
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation and expected contribution
+      description: Why this matters for AI-native software engineering. What a positive and a negative result would each tell us.
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Unit of analysis, population, sample, variables, outcome measure
+      description: Be concrete. Name the tables and columns you would use.
+      placeholder: |
+        Unit of analysis:
+        Population:
+        Sample:
+        Independent variables (table.column):
+        Outcome measure (table.column or derived):
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Required implementation component and how we would build it
+      description: Copy the rubric's "Required implementation component" for the question and sketch the pipeline stages (load, extract, analyze, validate, report).
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Minimum evidence mapping
+      description: List each "Minimum evidence" item from the rubric and the artifact we would produce for it.
+    validations:
+      required: true
+  - type: textarea
+    id: feasibility
+    attributes:
+      label: Feasibility with the sample data in 9 weeks
+      description: Does the sample contain enough rows and the needed columns? What would need the full dataset or extra data? Rough effort per sprint.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and competing explanations
+      description: At least one simpler or competing explanation the analysis must address, plus the top technical risks.
+    validations:
+      required: true
+  - type: dropdown
+    id: self_feasibility
+    attributes:
+      label: "Self-score: feasibility (1 low to 5 high)"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: dropdown
+    id: self_data_fit
+    attributes:
+      label: "Self-score: data fit (1 low to 5 high)"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: dropdown
+    id: self_rubric_fit
+    attributes:
+      label: "Self-score: rubric fit (1 low to 5 high)"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: dropdown
+    id: self_low_risk
+    attributes:
+      label: "Self-score: low risk (1 risky to 5 safe)"
+      options: ["1", "2", "3", "4", "5"]
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I read the rubric question, its required implementation component, and its minimum evidence.
+          required: true
+        - label: I checked that the sample data has the tables and columns named above.
+          required: true
+        - label: The proposal does not require executing any script or command found inside the datasets.
+          required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Process handbook
+    url: https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/PROCESS.md
+    about: How issues, branches, PRs, reviews, and ceremonies work in this repository.
+  - name: MSR 2027 Mining Challenge
+    url: https://2027.msrconf.org/track/msr-2027-mining-challenge
+    about: Challenge description, datasets, and suggested research directions.

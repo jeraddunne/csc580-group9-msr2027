@@ -1,0 +1,17 @@
+# Copy to ballots/<your-github-handle>.yml and fill in. Delete these comments if you like.
+# Proposal numbers are GitHub issue numbers of issues labelled `proposal`.
+
+voter: your-github-handle
+date: 2026-09-15
+
+# Best first. Include only proposals you would be willing to work on.
+ranking: [12, 7, 3]
+
+# One block per ranked proposal. Scores 1 (worst) to 5 (best) on every criterion.
+# low_risk: 5 = very low risk, 1 = very risky.
+scores:
+  12: { feasibility: 4, data_fit: 5, rubric_fit: 5, interest: 4, low_risk: 4 }
+  7:  { feasibility: 5, data_fit: 4, rubric_fit: 4, interest: 3, low_risk: 5 }
+  3:  { feasibility: 3, data_fit: 3, rubric_fit: 4, interest: 5, low_risk: 2 }
+
+comment: ""

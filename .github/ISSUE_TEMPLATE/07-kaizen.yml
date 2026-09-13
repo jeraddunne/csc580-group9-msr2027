@@ -1,0 +1,48 @@
+name: "Kaizen (process improvement)"
+description: "A process improvement from a retrospective, check-in, or observation. Must be measurable."
+title: "[Kaizen] "
+labels: ["kaizen", "type:process"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem observed, with data
+      description: Quote the KPI, dashboard row, or waste-log entry that shows it.
+      placeholder: "PR first-review time averaged 4.2 days in Sprint 1 against a 48-hour target (DASHBOARD.md, 2026-10-04)."
+    validations:
+      required: true
+  - type: textarea
+    id: root_cause
+    attributes:
+      label: Root cause (5 Whys summary)
+      description: Use docs/lean-six-sigma/ROOT_CAUSE_TEMPLATE.md for the full analysis; summarise the chain here.
+    validations:
+      required: true
+  - type: textarea
+    id: countermeasure
+    attributes:
+      label: Proposed countermeasure
+    validations:
+      required: true
+  - type: textarea
+    id: measure
+    attributes:
+      label: How we will know it worked
+      description: Which KPI moves, by how much, by when.
+      placeholder: "PR first-review median under 48 h for Sprint 2 (checked at the Oct 28 retrospective)."
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Raised in
+      placeholder: "Sprint 1 retrospective, 2026-10-07"
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - "Small: one issue, done within a sprint"
+        - "Large: needs an A3 (docs/lean-six-sigma/A3_TEMPLATE.md)"
+    validations:
+      required: true

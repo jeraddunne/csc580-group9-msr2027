@@ -1,0 +1,45 @@
+name: "Blocker / impediment"
+description: "You are stuck for more than a day. Raise it here so the Scrum Master can act."
+title: "[Blocker] "
+labels: ["blocker", "priority:high"]
+body:
+  - type: input
+    id: blocked
+    attributes:
+      label: Blocked issue or PR
+      placeholder: "#23"
+    validations:
+      required: true
+  - type: input
+    id: since
+    attributes:
+      label: Blocked since
+      placeholder: "2026-09-22"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is blocking and what you already tried
+    validations:
+      required: true
+  - type: textarea
+    id: unblock
+    attributes:
+      label: What would unblock you, and who could help
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact if not resolved this week
+      options:
+        - "Sprint goal at risk"
+        - "One deliverable slips"
+        - "Minor"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        The Scrum Master moves the blocked item to the Block column and follows up within one day. Blocked time is tracked as a KPI.

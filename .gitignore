@@ -21,6 +21,9 @@ data/samples/*
 data/samples/MANIFEST.json
 data/full/
 
+# Annotation reading packets contain dataset excerpts; never committed
+data/annotations/work/
+
 # Generated intermediates that are large; final tables/figures ARE committed
 results/*.parquet
 results/tmp/

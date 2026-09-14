@@ -1,0 +1,6 @@
+metric,value
+script_files_with_text,5153
+script_files_with_any_signal,805
+script_files_with_high_risk_signal,303
+skills_with_scanned_scripts,1326
+skills_with_high_risk_script,200

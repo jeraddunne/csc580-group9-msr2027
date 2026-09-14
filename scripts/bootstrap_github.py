@@ -48,6 +48,8 @@ LABELS: list[tuple[str, str, str]] = [
     ("priority:medium", "ffd33d", "Planned for this sprint"),
     ("priority:low", "cfd8dc", "Nice to have"),
     ("good first issue", "7057ff", "Small, well-defined, good for a first PR"),
+    ("finding", "5ab1ef", "Research finding with evidence (team workspace)"),
+    ("signup", "c5f015", "Work sign-up for a sprint (team workspace)"),
 ]
 
 # (milestone key, labels, title, body)

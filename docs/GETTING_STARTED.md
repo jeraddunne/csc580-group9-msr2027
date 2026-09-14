@@ -51,6 +51,7 @@ Time needed: about 15 minutes of reading, then 30 minutes of setup.
 | Need | Go to |
 |---|---|
 | What is due when | `docs/sprints/README.md` |
+| Sign up for work, log a finding, see decisions | `docs/workspace/README.md` |
 | The board | GitHub Projects tab of the repository |
 | How to write an issue or PR | Issue forms and PR template (they guide you) |
 | A decision we made | `docs/decisions/` |

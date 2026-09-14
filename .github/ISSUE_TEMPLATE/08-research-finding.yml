@@ -1,0 +1,81 @@
+name: "Research finding"
+description: "Record something we found in the data, the literature, or the tooling, with the evidence behind it."
+title: "[Finding] "
+labels: ["finding", "type:research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One finding per issue. Keep the observation separate from what you think it means.
+        Findings are collected into `docs/workspace/DIGEST.md` and reviewed at the Thursday check-in; confirmed ones are copied into `docs/workspace/FINDINGS_LOG.md`.
+  - type: dropdown
+    id: dataset
+    attributes:
+      label: Dataset or source
+      options:
+        - GitSkills
+        - SpecMine
+        - Both
+        - Literature
+        - Tooling or process
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: Observation
+      description: What you saw, stated so someone else could check it. No interpretation here.
+      placeholder: "56.4% of artifact rows in the GitSkills sample are copies of another row (16,786 of 29,786)."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence (command, query, file, or citation)
+      description: The exact command or query that reproduces the observation, or the citation.
+      render: bash
+    validations:
+      required: true
+  - type: input
+    id: snapshot
+    attributes:
+      label: Data snapshot
+      description: For dataset findings, the sha256 prefix from data/samples/MANIFEST.json.
+      placeholder: "agent_skills_sample.db sha256 683888c9"
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options:
+        - "Measured by code, not yet re-checked"
+        - "Re-checked by a second member"
+        - "Reported by dataset authors"
+        - "From peer-reviewed literature"
+        - "Hypothesis, needs checking"
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Interpretation (optional)
+      description: What you think it means. Alternative explanations are welcome.
+  - type: textarea
+    id: implication
+    attributes:
+      label: Implication for our project
+      description: Does it affect the research question, method, validation, threats to validity, or a proposal?
+    validations:
+      required: true
+  - type: input
+    id: related
+    attributes:
+      label: Related issues or proposals
+      placeholder: "#12, P-01"
+  - type: checkboxes
+    id: followup
+    attributes:
+      label: Follow-up
+      options:
+        - label: Needs a second member to re-check before we rely on it
+        - label: Should be added to THREATS_TO_VALIDITY.md
+        - label: Needs a team decision (open a Decision needed issue)

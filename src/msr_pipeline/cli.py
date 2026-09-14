@@ -8,7 +8,7 @@ from collections.abc import Sequence
 
 import pandas as pd
 
-from . import __version__, explore
+from . import __version__, explore, skill_risk
 from .config import get_paths, gitskills_db_path, specmine_dir
 from .load import (
     SPECMINE_ALL_TABLES,
@@ -192,6 +192,24 @@ def cmd_query(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_risk_pilot(args: argparse.Namespace) -> int:
+    paths = get_paths()
+    try:
+        produced = skill_risk.run_pilot(
+            gitskills_db_path(paths),
+            paths=paths,
+            rules_path=args.rules,
+            limit=args.limit,
+            min_similarity=args.min_similarity,
+        )
+    except DatasetNotFoundError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    for path in produced:
+        print(f"wrote {path}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="msr-pipeline",
@@ -215,6 +233,19 @@ def build_parser() -> argparse.ArgumentParser:
     p_query.add_argument("--sql", required=True, help="SQL statement to run.")
     p_query.add_argument("--max-rows", type=int, default=30)
     p_query.set_defaults(func=cmd_query)
+
+    p_risk = sub.add_parser(
+        "risk-pilot",
+        help="Proposal P-01 pilot: rule-based risk signals in GitSkills (static text only).",
+    )
+    p_risk.add_argument(
+        "--rules", default=None, help="Rule file (default rules/skill_risk_rules.yaml)."
+    )
+    p_risk.add_argument("--limit", type=int, default=None, help="Scan at most N distinct contents.")
+    p_risk.add_argument(
+        "--min-similarity", type=float, default=0.5, help="Jaccard threshold for variant lineage."
+    )
+    p_risk.set_defaults(func=cmd_risk_pilot)
     return parser
 
 

@@ -1,0 +1,11 @@
+metric,value
+families_with_2plus_variants,542.0
+variants_in_those_families,1631.0
+candidate_pairs,3517.0
+similarity_threshold,0.5
+lineage_pairs,245.0
+families_with_lineage_pairs,141.0
+lineage_pairs_differing_high_risk,18.0
+ordered_lineage_pairs,10.0
+ordered_pairs_newer_adds_high_risk,1.0
+ordered_pairs_newer_drops_high_risk,0.0

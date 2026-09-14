@@ -83,7 +83,9 @@ The reviewer:
 ## 7. Documentation rules
 
 - Meeting notes: `docs/meeting-notes/YYYY-MM-DD-<type>.md`, written by the Scrum Master within 24 hours.
-- Decisions: `docs/decisions/ADR-NNNN-<slug>.md` within 48 hours of the decision.
+- Decisions: `docs/decisions/ADR-NNNN-<slug>.md` within 48 hours of the decision, plus a row in `docs/workspace/DECISION_LOG.md` for every decision, big or small.
+- Findings: file a Research finding issue; the Scrum Master curates confirmed findings into `docs/workspace/FINDINGS_LOG.md` at the Thursday check-in.
+- Work choice: file a Work sign-up issue before each sprint planning (`docs/workspace/WORK_SIGNUP.md`).
 - Every number in the report links to the results file and the command that produced it.
 
 ## 8. Tooling checklist for each member

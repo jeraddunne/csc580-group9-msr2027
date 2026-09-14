@@ -36,6 +36,7 @@ Research question: **not yet selected**. See `RESEARCH_QUESTION.md` and `docs/pr
 2. Open a **Team member onboarding** issue (Issues > New issue).
 3. Sign `TEAM_CHARTER.md` and add your profile under `docs/team/` in your first pull request.
 4. Propose a topic with the **Project proposal** issue form, then cast your ballot (`docs/proposals/votes/README.md`).
+5. Bookmark the team workspace, `docs/workspace/README.md`: sign up for work, log findings, and see what the team decided.
 
 ## Setup
 
@@ -67,6 +68,8 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | `python -m msr_pipeline query --dataset gitskills --sql "..."` | Ad-hoc SQL against the GitSkills sample |
 | `python scripts/lss_metrics.py` | Computes process KPIs from GitHub and renders `docs/lean-six-sigma/metrics/DASHBOARD.md` |
 | `python scripts/tally_votes.py` | Tallies topic ballots into `docs/proposals/RESULTS.md` |
+| `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from sign-up, finding, and decision issues |
+| `python -m msr_pipeline risk-pilot` | Proposal P-01 pilot: rule-based risk signals in the GitSkills sample (static text only) |
 | `make reproduce` | Fresh end-to-end run: data, explore, test |
 
 The core research pipeline for the selected question will be added under `src/msr_pipeline/` in Sprint 1 and documented here.
@@ -89,13 +92,15 @@ The core research pipeline for the selected question will be added under `src/ms
 ├── pyproject.toml, requirements*.txt, Makefile, run_pipeline.sh
 ├── src/msr_pipeline/             loaders, exploration, voting, metrics, CLI
 ├── tests/                        offline unit tests
-├── scripts/                      download_samples, bootstrap_github, tally_votes, lss_metrics, ...
+├── scripts/                      download_samples, bootstrap_github, tally_votes, lss_metrics, workspace_digest, ...
+├── rules/                        reviewable rule files (P-01 pilot risk-signal rules)
 ├── notebooks/                    exploratory notebooks (never the sole source of a result)
 ├── data/README.md, data/samples/ dataset docs; samples downloaded, not committed
 ├── results/, figures/            generated evidence
 ├── report/                       draft.md, references.bib, build instructions
 ├── docs/
 │   ├── GETTING_STARTED.md, PROCESS.md, PRESENTATION_PLAN.md
+│   ├── workspace/                team hub: work sign-up, findings log, decision log, digest
 │   ├── sprints/                  planning, review, retrospective per sprint
 │   ├── proposals/                candidate questions, proposal template, ballots, results
 │   ├── lean-six-sigma/           DMAIC, KPIs, SIPOC/CTQ, VSM, FMEA, waste log, kaizen, metrics/

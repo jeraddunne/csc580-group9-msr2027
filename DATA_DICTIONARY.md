@@ -202,6 +202,21 @@ Produced by `python -m msr_pipeline explore` into `results/` (CSV) and `figures/
 | `specmine_feature_summary.csv` | one row per `has_*` flag (plus `is_tiny`) | `feature`, `specs_with_feature`, `share` | `explore.specmine_feature_summary` |
 | `specmine_pr_code_cochange.csv` | one row per PR `tool` | `tool`, `spec_prs`, `spec_and_code_prs`, `cochange_rate` | `explore.specmine_pr_code_cochange` |
 
-Each CSV has a same-named PNG bar chart in `figures/`. Topic-specific tables
+### Pilot tables for proposal P-01
+
+Produced by `python -m msr_pipeline risk-pilot` from the GitSkills sample. Signals are unvalidated keyword matches from `rules/skill_risk_rules.yaml`. Outputs contain no repository names.
+
+| File | Grain | Columns | Produced by |
+|---|---|---|---|
+| `pilot_skill_risk_rules.csv` | one row per rule, plus `ANY_HIGH_RISK` | `rule_id`, `category`, `severity`, `contents`, `content_share`, `occurrences`, `occurrence_share` | `skill_risk.rule_prevalence` |
+| `pilot_skill_risk_categories.csv` | one row per capability category | `category`, `max_rule_severity`, `contents`, `content_share`, `occurrences`, `occurrence_share` | `skill_risk.category_prevalence` |
+| `pilot_skill_risk_reach.csv` | two rows: with and without a high-risk signal | `group`, `contents`, `occurrences`, `mean_copies`, `median_copies`, `share_copied_2plus`, `share_cross_repo`, `max_copies` | `skill_risk.reach_by_risk` |
+| `pilot_skill_risk_family_summary.csv` | one row per metric | `metric`, `value` | `skill_risk.family_summary` |
+| `pilot_skill_risk_family_pairs.csv` | one row per near-duplicate pair sharing a front-matter name | `family`, `file_sha_a`, `file_sha_b`, `similarity`, `ordered`, `only_in_a`, `only_in_b`, `differs` | `skill_risk.family_pairs` |
+| `pilot_skill_risk_siblings_summary.csv` | one row per metric | `metric`, `value` | `skill_risk.sibling_summary` |
+
+Definitions: `contents` counts distinct `file_sha` values; `occurrences` counts every copy; a signal is *high risk* when a matching rule has severity 6 or more. In `family_pairs`, when `ordered` is true, `a` has the older `first_commit_at`, so `only_in_b` lists high-risk categories the newer variant added. The stratified validation sample is written to `results/tmp/` and is not committed.
+
+Each explore CSV has a same-named PNG bar chart in `figures/`; the pilot draws `pilot_skill_risk_categories.png`. Topic-specific tables
 will be added here as the analysis grows; the rule is one row in this table
 per file in `results/`.

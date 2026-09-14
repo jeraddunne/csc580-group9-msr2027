@@ -1,0 +1,3 @@
+scope,threshold,lineage_pairs,families,differing_pairs,families_with_differences,ordered_pairs,ordered_newer_adds,ordered_newer_drops
+all_families,0.5,245,141,18,6,10,1,0
+excluding_template_families,0.5,212,133,9,5,9,0,0

@@ -1,0 +1,3 @@
+group,contents,occurrences,mean_copies,median_copies,share_copied_2plus,share_copied_5plus,share_copied_10plus,share_cross_repo,max_copies
+high-risk signal,1159,3326,2.87,1.0,0.2934,0.1009,0.0414,0.2597,171
+no high-risk signal,11806,26353,2.232,1.0,0.2566,0.0756,0.0302,0.2158,188

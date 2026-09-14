@@ -9,7 +9,7 @@ else
   VENV_PY := $(VENV)/bin/python
 endif
 
-.PHONY: help setup data data-all test lint format explore metrics tally reproduce clean pipeline figures
+.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-12s %s\n", $$1, $$2}'
@@ -46,14 +46,16 @@ metrics: ## Compute the Lean Six Sigma sprint metrics from GitHub
 tally: ## Tally the topic proposal ballots
 	$(PY) scripts/tally_votes.py
 
-reproduce: data explore test ## Download data, regenerate outputs, and run tests
+reproduce: data explore analyze test ## Download data, regenerate outputs, and run tests
 
 clean: ## Remove generated outputs and caches (keeps downloaded data)
 	rm -rf results/*.csv figures/*.png .pytest_cache .ruff_cache .coverage htmlcov build dist src/*.egg-info
 	find . -name __pycache__ -type d -prune -exec rm -rf {} +
 
-# Aliases used in the sprint and report documents. Until the research pipeline for the
-# selected question exists, both run the exploratory pipeline.
-pipeline: explore ## Run the research pipeline end to end (alias, see docs/sprints)
+analyze: ## Run the P-01 research analysis (RQ1 to RQ3, sensitivity) into results/ and figures/
+	$(PY) -m msr_pipeline analyze
 
-figures: explore ## Regenerate every table and figure (alias)
+# Names used in the sprint and report documents.
+pipeline: analyze ## Run the research pipeline end to end (P-01 analysis)
+
+figures: analyze ## Regenerate every research table and figure

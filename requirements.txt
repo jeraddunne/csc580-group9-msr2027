@@ -7,3 +7,5 @@ matplotlib>=3.8,<4
 pyyaml>=6,<7
 requests>=2.31,<3
 duckdb>=1.0,<2
+scipy>=1.13,<2
+statsmodels>=0.14,<1

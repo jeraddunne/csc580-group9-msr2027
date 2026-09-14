@@ -1,8 +1,20 @@
 # Topic proposals and voting
 
-How to use: this folder runs the Formation-phase decision. Proposals are GitHub issues; ballots are small YAML files; the tally is a script; the decision is an ADR.
+> **Proposals and voting are closed.** The project became solo on 2026-09-14 and proposal P-01 was selected by the sole member ([ADR-0004](../decisions/ADR-0004-topic-selection.md), [ADR-0005](../decisions/ADR-0005-solo-execution.md)). The ranked-ballot vote is retired. The rest of this page is kept as the record of the original process.
 
-## Timeline
+## Selected proposal
+
+| ID | Proposer | Title | Dataset | Based on rubric question | Document | Issue | Status |
+|---|---|---|---|---|---|---|---|
+| P-01 | Jerad Dunne | Risky capabilities in copied agent skills: prevalence, reach, and drift | GitSkills | 4 (security and supply chain) with 1 (reuse and propagation) | [P-01](P-01-jerad-dunne-skill-risk-propagation.md) | [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) | Selected 2026-09-14 |
+
+Fallback topic if P-01 proves infeasible in Sprint 1: rubric question 2 (skill quality indicators), reusing the scanner output as features.
+
+## Original process (retired)
+
+The sections below describe the group process planned on 2026-09-13 (ADR-0002, superseded by ADR-0005).
+
+### Timeline (as planned)
 
 | Step | Deadline | Who |
 |---|---|---|
@@ -12,53 +24,26 @@ How to use: this folder runs the Formation-phase decision. Proposals are GitHub 
 | Cast a ballot (PR adding `votes/ballots/<handle>.yml`) | 2026-09-15 23:59 | everyone |
 | Tally (`make tally`), confirm at kickoff, write ADR-0004, fill `RESEARCH_QUESTION.md` | 2026-09-16 | Scrum Master, Product Owner |
 
-Dates come from `project.yml` (`proposals:` block). If the instructor shifts the calendar, change them there.
-
-## How to propose
+### How proposals were to be written
 
 1. Open **Issues > New issue > Project proposal**. The form asks for the precise research question, unit of analysis, tables and columns, the rubric's required implementation component and minimum evidence, feasibility, risks, and four self-scores.
 2. Prefer questions the **sample data** can answer. The full GitSkills dataset is 41 GB; using it is a decision, not a default.
-3. A proposal can refine a rubric question (narrower population, a specific outcome) or combine two. It must still meet the rubric's "Required implementation component" for its base question.
-4. Use `TEMPLATE-proposal.md` if you want to draft offline first, then paste into the form.
+3. A proposal can refine a rubric question or combine two, but must still meet the rubric's "Required implementation component" for its base question.
+4. `TEMPLATE-proposal.md` is an offline drafting template.
 
-## How the vote works
+### How the vote was to work
 
-- **Ballot:** every member ranks the proposals they find acceptable (best first) and scores each on five criteria from 1 to 5. Criteria and weights are in `project.yml`:
-
-  | Criterion | Weight | Question it answers |
-  |---|---|---|
-  | feasibility | 0.30 | Can four students implement and validate it in 9 weeks with the sample data? |
-  | data_fit | 0.20 | Do the dataset fields directly support the unit of analysis and outcome? |
-  | rubric_fit | 0.20 | Does it satisfy the required implementation component and minimum evidence? |
-  | interest | 0.15 | Team motivation and learning value |
-  | low_risk | 0.15 | Low dependence on the full dataset, external APIs, or unclear definitions |
-
-- **Winner:** instant-runoff on the rankings (majority of active ballots; lowest first-preference candidate eliminated each round). Ties are broken by the weighted-criteria score, then by Borda count. This is a Lean Six Sigma weighted decision matrix with a ranked vote on top, so the outcome is both a preference and a documented rationale.
-- **Transparency:** the tally workflow posts the current standings on every ballot PR, and `RESULTS.md` is committed with the final numbers. Anyone can re-run `python scripts/tally_votes.py`.
-- **Proposer voting:** you may rank your own proposal. Score it honestly; the self-scores in the proposal are visible to all.
-
-## After the vote
-
-1. `docs/decisions/ADR-0004-topic-selection.md`: winner, runner-up, rationale, and what would trigger a revisit.
-2. `RESEARCH_QUESTION.md`: filled by the Product Owner from the winning proposal.
-3. The winning proposal issue stays open as the parent of the Sprint 1 research issues; the others are closed with the label `proposal` kept for the record.
-4. Losing proposals are not wasted: their risk sections feed `THREATS_TO_VALIDITY.md` and the FMEA register.
-
-## Submitted proposals
-
-| ID | Proposer | Title | Dataset | Based on rubric question | Document | Issue |
-|---|---|---|---|---|---|---|
-| P-01 | Jerad Dunne | Risky capabilities in copied agent skills: prevalence, reach, and drift | GitSkills | 4 (security and supply chain) with 1 (reuse and propagation) | [P-01](P-01-jerad-dunne-skill-risk-propagation.md) | [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) |
-
-Add your row in the same pull request as your proposal document, or leave the document column blank if your proposal lives only in the issue.
+- **Ballot:** each voter ranks acceptable proposals (best first) and scores each on five weighted criteria from 1 to 5 (weights in `project.yml` under `proposals.criteria`): feasibility 0.30, data_fit 0.20, rubric_fit 0.20, interest 0.15, low_risk 0.15.
+- **Winner:** instant runoff on the rankings; ties broken by the weighted-criteria score, then by Borda count.
+- **Transparency:** `python scripts/tally_votes.py` computes the result and writes `RESULTS.md`. The code remains tested in `tests/test_voting.py`.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `00-candidate-questions.md` | The 15 rubric questions summarised with data-fit and feasibility notes |
-| `TEMPLATE-proposal.md` | Offline drafting template mirroring the issue form |
-| `votes/README.md`, `votes/TEMPLATE-ballot.yml` | How to vote and the ballot format |
-| `votes/ballots/` | One YAML ballot per member |
-| `RESULTS.md` | Generated by `scripts/tally_votes.py` |
-| `P-NN-<name>-<slug>.md` | Optional long-form proposal documents |
+| `00-candidate-questions.md` | The 15 rubric questions summarized with data-fit and feasibility notes |
+| `P-01-jerad-dunne-skill-risk-propagation.md` | The selected proposal |
+| `TEMPLATE-proposal.md` | Offline drafting template (retired process) |
+| `votes/README.md`, `votes/TEMPLATE-ballot.yml` | Ballot instructions and format (retired) |
+| `votes/ballots/` | Ballot folder (unused) |
+| `RESULTS.md` | Output of `scripts/tally_votes.py` (no ballots were cast) |

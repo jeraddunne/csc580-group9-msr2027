@@ -1,41 +1,41 @@
-# Team workspace
+# Project workspace
 
-How to use: this is the one place to answer three questions. What does each of us want to work on? What have we found? What have we decided? Everything else in the repository links back here.
+How to use: this is the one place to answer three questions. What am I working on, and when? What have I found? What was decided? Everything else in the repository links back here. The project is run solo by Jerad Dunne (ADR-0005), so this page is written for the author and for anyone reviewing or grading the work.
 
 | Question | Where to read it | How to add to it |
 |---|---|---|
-| **What do I want to work on?** | [WORK_SIGNUP.md](WORK_SIGNUP.md) (workstreams, rules, assignment matrix) and [DIGEST.md](DIGEST.md) (current sign-ups and who holds which issue) | [Work sign-up form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=09-work-signup.yml), then assign yourself to issues on the board |
-| **What have we found?** | [FINDINGS_LOG.md](FINDINGS_LOG.md) (curated, with evidence) and [DIGEST.md](DIGEST.md) (all finding issues) | [Research finding form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=08-research-finding.yml) |
-| **What have we decided?** | [DECISION_LOG.md](DECISION_LOG.md) (every decision, big or small) and [../decisions/](../decisions/) (full ADRs for big ones) | [Decision needed form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=05-decision.yml) |
-| **What topics are proposed?** | [../proposals/README.md](../proposals/README.md) | [Project proposal form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=01-project-proposal.yml) |
+| **What is being worked on, and when?** | [WORK_SIGNUP.md](WORK_SIGNUP.md) (solo workstream plan by sprint), the project board, and [DIGEST.md](DIGEST.md) (open issues) | Create a task issue; assign it; move it on the board |
+| **What has been found?** | [FINDINGS_LOG.md](FINDINGS_LOG.md) (curated, with evidence) and [DIGEST.md](DIGEST.md) (all finding issues) | [Research finding form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=08-research-finding.yml) |
+| **What was decided?** | [DECISION_LOG.md](DECISION_LOG.md) (every decision) and [../decisions/](../decisions/) (full ADRs for big ones) | [Decision needed form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=05-decision.yml) |
+| **What is the topic?** | [P-01 proposal](../proposals/P-01-jerad-dunne-skill-risk-propagation.md), [ADR-0004](../decisions/ADR-0004-topic-selection.md), and `RESEARCH_QUESTION.md` | Changes need a decision issue and an ADR |
 
 ## Why issues first, files second
 
-Issues need no pull request, so anyone can add a sign-up, finding, or decision request in two minutes, even with `main` protected. The Markdown logs are the curated record the rubric asks for ("the repository must contain a record of decisions, blockers, completed work, and changes to scope"). The Scrum Master moves items from issues into the logs at the Thursday check-in, in one small pull request.
+Issues need no pull request, so a finding or an open decision can be captured in two minutes even with `main` protected. The Markdown logs are the curated record the rubric asks for ("the repository must contain a record of decisions, blockers, completed work, and changes to scope"). At the Thursday check-in, confirmed items move from issues into the logs in one small pull request.
 
 ## Weekly rhythm
 
-| When | What happens here | Who |
-|---|---|---|
-| Any time | File findings and decision requests as issues | everyone |
-| Before sprint planning | File a Work sign-up for the coming sprint | everyone |
-| Sprint planning (Thursday, day 1) | Turn sign-ups into the assignment matrix in WORK_SIGNUP.md; members assign themselves to issues | Product Owner, Scrum Master |
-| Thursday check-in | Run `python scripts/workspace_digest.py`; review new findings (keep, re-check, or discard); decide open decision issues that are due; copy results into FINDINGS_LOG.md and DECISION_LOG.md | Scrum Master |
-| Sprint review and retrospective | Findings that changed the research question, method, or scope are listed in `retrospective.md` with links here | Product Owner |
+| When | What happens here |
+|---|---|
+| Any time | File findings and open decisions as issues |
+| Sprint planning (Thursday, day 1) | Update the sprint's rows in WORK_SIGNUP.md; create or assign the sprint's issues |
+| Monday, Wednesday, Friday | Short work-log entry in `docs/meeting-notes/` |
+| Thursday check-in | Run `python scripts/workspace_digest.py`; review new findings (keep, re-check, or discard); decide open decisions that are due; copy results into FINDINGS_LOG.md and DECISION_LOG.md |
+| Sprint review and retrospective | Findings that changed the research question, method, or scope are listed in `retrospective.md` with links here |
 
 ## Rules that keep the logs trustworthy
 
 1. **Observation and interpretation stay separate.** A finding states what was seen and how to reproduce it. Opinions go in the interpretation field.
-2. **Every number has a command.** If a finding has no reproducible evidence, its confidence is "Hypothesis, needs checking".
-3. **Nothing is "decided" until the team agrees.** A decision proposed by one person is logged as *Proposed* until it is confirmed at a ceremony, then *Agreed* with the date.
+2. **Every number has a command.** A finding without reproducible evidence is marked "Hypothesis, needs checking".
+3. **Nothing is final until it is dated.** A decision is *Proposed* until it is confirmed in a dated planning note or pull request, then *Agreed*.
 4. **Nothing is deleted.** Wrong findings are marked *Refuted* with the reason; reversed decisions are marked *Superseded* with a link to the new one.
-5. **Names, not blame.** Logs record who found or proposed something so contributions are visible, not to assign fault.
+5. **Re-check before relying.** Because there is no second team member, important findings are re-checked after a cooling-off period, or by an external reviewer when one is available.
 
 ## Files
 
 | File | Maintained by | Updated |
 |---|---|---|
-| `WORK_SIGNUP.md` | Scrum Master | at each sprint planning |
-| `FINDINGS_LOG.md` | Scrum Master, from finding issues | Thursday check-in |
-| `DECISION_LOG.md` | Scrum Master, from decision issues and ceremonies | within 48 hours of a decision |
+| `WORK_SIGNUP.md` | Jerad Dunne | at each sprint planning |
+| `FINDINGS_LOG.md` | Jerad Dunne, from finding issues | Thursday check-in |
+| `DECISION_LOG.md` | Jerad Dunne, from decision issues and ceremonies | within 48 hours of a decision |
 | `DIGEST.md` | generated by `scripts/workspace_digest.py` | Thursday check-in (or any time) |

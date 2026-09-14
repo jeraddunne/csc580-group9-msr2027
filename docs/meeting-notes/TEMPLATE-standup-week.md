@@ -1,39 +1,19 @@
-# Stand-up week of YYYY-MM-DD (Monday)
+# Work log, week of YYYY-MM-DD (Monday)
 
-How to use: copy to `docs/meeting-notes/YYYY-MM-DD-standup-week.md` dated the Monday. Each member adds their own row on Monday, Wednesday, and Friday before 21:00 local time. Keep entries to one line each. Link issue numbers. Hours are time spent since the last entry.
+How to use: copy to `docs/meeting-notes/YYYY-MM-DD-worklog-week.md`, dated the Monday. Add a row on Monday, Wednesday, and Friday before 21:00 local time. One line per cell; link issue numbers. Hours are the time spent since the last entry. (Solo project, ADR-0005; this template replaces the four-person stand-up.)
 
-Sprint: Sprint N. Scrum Master: <name>.
+Sprint: Sprint N.
 
-## Monday YYYY-MM-DD
+| Day | Date | Done since last entry | Next | Blockers (issue #) | Hours |
+|---|---|---|---|---|---|
+| Monday | | | | | |
+| Wednesday | | | | | |
+| Friday | | | | | |
 
-| Member | Done since last entry | Next | Blockers (issue #) | Hours |
-|---|---|---|---|---|
-| Leticia Aderhold | | | | |
-| Jerad Dunne | | | | |
-| Allie Hodges | | | | |
-| Hina Kramer | | | | |
+## Week summary (Friday)
 
-## Wednesday YYYY-MM-DD
-
-| Member | Done since last entry | Next | Blockers (issue #) | Hours |
-|---|---|---|---|---|
-| Leticia Aderhold | | | | |
-| Jerad Dunne | | | | |
-| Allie Hodges | | | | |
-| Hina Kramer | | | | |
-
-## Friday YYYY-MM-DD
-
-| Member | Done since last entry | Next | Blockers (issue #) | Hours |
-|---|---|---|---|---|
-| Leticia Aderhold | | | | |
-| Jerad Dunne | | | | |
-| Allie Hodges | | | | |
-| Hina Kramer | | | | |
-
-## Week summary (Scrum Master, Friday)
-
-- Board: Todo ___ / In progress ___ (WIP limit 5) / Block ___ / Done ___
-- Blockers open and who is unblocking them:
-- Hours this week (team total):
-- Anything for the Thursday check-in agenda:
+- Board: Todo ___ / In progress ___ (at most 2) / Block ___ / Done ___
+- Hours this week (planned / actual):
+- PRs opened / merged after at least 12 hours of cooling-off:
+- Findings or decisions to curate at the Thursday check-in:
+- Waste observed (add to `docs/lean-six-sigma/WASTE_LOG.md`):

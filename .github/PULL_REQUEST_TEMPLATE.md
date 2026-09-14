@@ -37,14 +37,21 @@ make test
 ## Author checklist
 
 - [ ] Branch named `<type>/<issue>-<slug>`; commits reference the issue
-- [ ] CI is green
+- [ ] Tests and lint pass (CI green once workflows are enabled)
 - [ ] Any number or claim in text is traceable to a results file
 - [ ] No dataset files, secrets, or personal data committed
 - [ ] Observation and interpretation are kept separate in any written text
 
-## Reviewer checklist (reviewer fills)
+## Self-review checklist (after at least 12 hours)
 
-- [ ] Pulled the branch and ran the tests or the pipeline
+Opened at: ______ Self-reviewed at: ______ (at least 12 hours later, or "trivial" for typo-level docs fixes; ADR-0005)
+
+- [ ] Pulled the branch into a clean environment and ran the tests or the pipeline
 - [ ] Outputs match the stated command
 - [ ] Acceptance criterion of the linked issue is met
-- [ ] Approval comment states what was verified
+- [ ] AI-assisted parts read line by line and logged
+- [ ] Review comment left on this PR summarizing what was verified
+
+## External reviewer (optional)
+
+Reviewer (instructor or classmate), if one was requested: ______

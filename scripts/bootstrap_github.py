@@ -437,7 +437,9 @@ def repo_settings(repo: str, dry: bool) -> None:
     )
 
 
-def ensure_ruleset(repo: str, required_checks: list[str], dry: bool) -> None:
+def ensure_ruleset(
+    repo: str, required_checks: list[str], dry: bool, min_approvals: int = 1
+) -> None:
     name = "protect-main"
     rules: list[dict] = [
         {"type": "deletion"},
@@ -445,7 +447,7 @@ def ensure_ruleset(repo: str, required_checks: list[str], dry: bool) -> None:
         {
             "type": "pull_request",
             "parameters": {
-                "required_approving_review_count": 1,
+                "required_approving_review_count": min_approvals,
                 "dismiss_stale_reviews_on_push": True,
                 "require_code_owner_review": False,
                 "require_last_push_approval": False,
@@ -517,11 +519,20 @@ def main(argv: list[str] | None = None) -> int:
         help="comma-separated CI check names to require in the ruleset",
     )
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--min-approvals",
+        type=int,
+        default=None,
+        help="required PR approvals (default: process.min_reviewers in project.yml, else 1)",
+    )
     args = parser.parse_args(argv)
 
     cfg = load_config()
     repo = cfg["repo"]
     steps = {s.strip() for s in args.only.split(",") if s.strip()}
+    min_approvals = args.min_approvals
+    if min_approvals is None:
+        min_approvals = int((cfg.get("process") or {}).get("min_reviewers", 1))
     dry = args.dry_run
     print(f"repository: {repo} (dry run: {dry})")
 
@@ -536,7 +547,7 @@ def main(argv: list[str] | None = None) -> int:
         repo_settings(repo, dry)
     if "ruleset" in steps:
         checks = [c.strip() for c in args.require_checks.split(",") if c.strip()]
-        ensure_ruleset(repo, checks, dry)
+        ensure_ruleset(repo, checks, dry, min_approvals)
     print("done")
     return 0
 

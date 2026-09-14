@@ -1,6 +1,6 @@
 # Team workspace digest
 
-Generated 2026-09-14 13:33 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-09-14 20:11 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
@@ -56,9 +56,9 @@ Generated 2026-09-14 13:33 UTC by `scripts/workspace_digest.py` from `jeraddunne
 | [#2](https://github.com/jeraddunne/csc580-group9-msr2027/issues/2) | Formation: dataset samples inspected by every member | Formation |
 | [#1](https://github.com/jeraddunne/csc580-group9-msr2027/issues/1) | Formation: team charter signed by all four members | Formation |
 
-## Work sign-ups
+## Work sign-ups (retired, ADR-0005)
 
-_No sign-ups yet. Use the Work sign-up form._
+_No sign-ups. The sign-up process is retired; see WORK_SIGNUP.md for the solo plan._
 
 ## Findings (issues labelled `finding`)
 

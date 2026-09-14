@@ -48,7 +48,7 @@ Dates come from `project.yml` (`proposals:` block). If the instructor shifts the
 
 | ID | Proposer | Title | Dataset | Based on rubric question | Document | Issue |
 |---|---|---|---|---|---|---|
-| P-01 | Jerad Dunne | Risky capabilities in copied agent skills: prevalence, reach, and drift | GitSkills | 4 (security and supply chain) with 1 (reuse and propagation) | [P-01](P-01-jerad-dunne-skill-risk-propagation.md) | pending |
+| P-01 | Jerad Dunne | Risky capabilities in copied agent skills: prevalence, reach, and drift | GitSkills | 4 (security and supply chain) with 1 (reuse and propagation) | [P-01](P-01-jerad-dunne-skill-risk-propagation.md) | [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) |
 
 Add your row in the same pull request as your proposal document, or leave the document column blank if your proposal lives only in the issue.
 

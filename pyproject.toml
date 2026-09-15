@@ -71,3 +71,4 @@ quote-style = "double"
 
 [tool.ruff.lint.per-file-ignores]
 "scripts/bootstrap_github.py" = ["E501"]  # seed issue bodies are data
+"src/msr_pipeline/label_ui.py" = ["E501"]  # embedded HTML and JavaScript template

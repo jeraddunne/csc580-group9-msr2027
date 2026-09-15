@@ -116,6 +116,6 @@ Changes are made by pull request to this file and recorded in `docs/workspace/DE
 
 | Name | Date | Pull request |
 |---|---|---|
-| Jerad Dunne | | |
+| Jerad Dunne | 2026-09-14 | #43 |
 
-Sign by adding the date and the pull request number when merging the solo conversion pull request.
+Signed by Jerad Dunne on 2026-09-14 in pull request #43.

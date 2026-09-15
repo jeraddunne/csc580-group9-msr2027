@@ -3,7 +3,7 @@
 How to use: this is the single schedule of record. Every ceremony below has a date. If the instructor moves a deadline, change it here first, then in `project.yml` and the GitHub milestones, then in `PROJECT_PLAN.md`.
 
 Course: SWE 380 / CSC 580, University of Michigan-Flint. Instructor: Prof. Mohamed Wiem Mkaouer (@mkaouer).
-Author: Jerad Dunne (solo project since 2026-09-14, pending instructor confirmation; ADR-0005).
+Author: Jerad Dunne (solo project since 2026-09-14; ADR-0005).
 
 ## Sprint calendar
 

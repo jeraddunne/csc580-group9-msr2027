@@ -1,7 +1,7 @@
 # Single source of truth for team, timeline, and process parameters.
 # Scripts (bootstrap_github.py, lss_metrics.py, tally_votes.py, workspace_digest.py) read this file.
 # Change dates here if the instructor adjusts the calendar, then re-run scripts/bootstrap_github.py.
-# Solo project since 2026-09-14 (docs/decisions/ADR-0005-solo-execution.md), pending instructor confirmation.
+# Solo project since 2026-09-14 (docs/decisions/ADR-0005-solo-execution.md).
 
 course: "SWE 380 / CSC 580 Group Project"
 institution: "University of Michigan-Flint"

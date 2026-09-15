@@ -8,7 +8,7 @@ How to use: the project is run solo (ADR-0005). This folder holds the author pro
 |---|---|---|
 | Jerad Dunne | @jeraddunne | `jerad-dunne.md` |
 
-The repository was set up on 2026-09-13 for a four-person group. On 2026-09-14 it became a solo project, pending instructor confirmation (ADR-0005).
+The repository was set up on 2026-09-13 for a four-person group. On 2026-09-14 it became a solo project (ADR-0005).
 
 ## Roles
 

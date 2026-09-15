@@ -1,9 +1,9 @@
 # ADR-0005: Run the project as a solo project
 
-- **Status:** Accepted by the student on 2026-09-14; pending instructor confirmation
+- **Status:** Accepted on 2026-09-14. Jerad Dunne confirmed on 2026-09-14 that a solo project is permitted.
 - **Date:** 2026-09-14
 - **Deciders:** Jerad Dunne. Confirmation requested from the instructor, Prof. Mohamed Wiem Mkaouer (@mkaouer).
-- **Decision issue:** to be linked when the instructor responds
+- **Confirmation:** stated by the student on 2026-09-14; attach the instructor's written confirmation here if one exists
 - **Affects research question / method / scope:** yes (review and validation method, workload scope)
 
 ## Context
@@ -20,7 +20,7 @@ On 2026-09-14 Jerad Dunne decided to complete the project alone, using the repos
 
 ## Decision
 
-Option 2, recorded as accepted by the student and pending instructor confirmation. The Scrum and Lean Six Sigma overlay (ADR-0001), the repository structure (ADR-0003), the sprint calendar and due dates, the findings and decision logs, and the project board plan stay. P-01 is the topic (ADR-0004).
+Option 2, accepted on 2026-09-14 after the student confirmed that a solo project is permitted. The Scrum and Lean Six Sigma overlay (ADR-0001), the repository structure (ADR-0003), the sprint calendar and due dates, the findings and decision logs, and the project board plan stay. P-01 is the topic (ADR-0004).
 
 Group practices are replaced as follows.
 

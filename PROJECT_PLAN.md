@@ -10,7 +10,7 @@
 | Project | Mining AI-Native Software Engineering: An MSR 2027 Challenge-Inspired Project |
 | Topic | P-01: Risky capabilities in copied agent skills: prevalence, reach, and drift (ADR-0004, issue #41) |
 | Sponsor / customer | Prof. Mohamed Wiem Mkaouer (instructor); secondary audience: MSR community |
-| Team | Jerad Dunne, solo (ADR-0005, pending instructor confirmation) |
+| Team | Jerad Dunne, solo (ADR-0005) |
 | Method | Scrum (3 sprints of 3 weeks, plus formation and finalization) with a Lean Six Sigma overlay (DMAIC) |
 | Dataset | GitSkills sample (MSR 2027 Mining Challenge, July 2026 snapshot) |
 | Repository | https://github.com/jeraddunne/csc580-group9-msr2027 |

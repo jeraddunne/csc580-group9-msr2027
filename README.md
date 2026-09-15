@@ -13,7 +13,7 @@ The project is run solo with **Scrum** (three sprints, as the assignment require
 |---|---|---|
 | Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | Product Owner, Scrum Master, Developer / Researcher (every sprint) |
 
-The repository was created on 2026-09-13 for a four-person Group 9 and became a solo project on 2026-09-14. The assignment describes groups of three to five, so solo execution is recorded as **pending instructor confirmation** in `docs/decisions/ADR-0005-solo-execution.md`.
+The repository was created on 2026-09-13 for a four-person Group 9 and became a solo project on 2026-09-14. The assignment describes groups of three to five, and the student confirmed on 2026-09-14 that a solo project is permitted, as recorded in `docs/decisions/ADR-0005-solo-execution.md`.
 
 ## Research question
 
@@ -27,7 +27,7 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 
 | Phase | Dates | Status |
 |---|---|---|
-| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: topic selected (P-01, ADR-0004); solo execution pending instructor confirmation (ADR-0005) |
+| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: topic selected (P-01, ADR-0004); solo execution confirmed as permitted (ADR-0005) |
 | Sprint 1 (Measure) | Sep 17 to Oct 7 | not started |
 | Sprint 2 (Analyze) | Oct 8 to Oct 28 | not started |
 | Sprint 3 (Improve) | Oct 29 to Nov 18 | not started |

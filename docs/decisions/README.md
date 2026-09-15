@@ -10,6 +10,6 @@ Status values: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | 0002 | Select the topic by proposal issues and a ranked ballot | Superseded by ADR-0005 | 2026-09-13 |
 | 0003 | Repository structure, tooling, and branch policy | Accepted | 2026-09-13 |
 | 0004 | Topic selection: proposal P-01 | Accepted | 2026-09-14 |
-| 0005 | Run the project as a solo project | Accepted by the student, pending instructor confirmation | 2026-09-14 |
+| 0005 | Run the project as a solo project | Accepted (solo project confirmed as permitted, 2026-09-14) | 2026-09-14 |
 
 Rubric note: the retrospective must also record changes to the research question, method, scope, or interpretation. Link the ADR from the retrospective file.

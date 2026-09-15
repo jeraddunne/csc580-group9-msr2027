@@ -7,7 +7,7 @@ What it does (idempotent):
      (default "Group 9 Team-Planning").
   2. Sets Status options to: Todo, In progress, Done, Block, Cancelled.
   3. Adds fields: Sprint (single select), Estimate (number), Priority (single select),
-     Type (single select), Start date, Target date.
+     Work type (single select; GitHub reserves the name "Type"), Start date, Target date.
   4. Links the repository and adds every open issue to the board.
   5. Sets the Sprint field of each item from its milestone.
 
@@ -187,12 +187,33 @@ def add_issues(number: int, owner: str, repo: str) -> None:
     print(f"issues added to board: {added} (already present: {len(present)})")
 
 
-def set_sprint_from_milestone(number: int, owner: str, project_id: str) -> None:
+def set_sprint_from_milestone(number: int, owner: str, project_id: str, repo: str) -> None:
+    """Set each board item's Sprint field from its issue milestone.
+
+    `gh project item-list` does not include milestones, so they are looked up by URL
+    from the repository's issue list.
+    """
     fields = list_fields(number, owner)
     sprint = fields.get("Sprint")
     if not sprint:
         return
     option_ids = {o["name"]: o["id"] for o in sprint.get("options", [])}
+    issues = (
+        gh_json(
+            "issue",
+            "list",
+            "--repo",
+            repo,
+            "--state",
+            "all",
+            "--limit",
+            "500",
+            "--json",
+            "url,milestone",
+        )
+        or []
+    )
+    milestone_by_url = {i["url"]: (i.get("milestone") or {}).get("title") for i in issues}
     items = (
         gh_json(
             "project",
@@ -209,10 +230,9 @@ def set_sprint_from_milestone(number: int, owner: str, project_id: str) -> None:
     )
     updated = 0
     for item in items.get("items", []):
-        ms = (item.get("content") or {}).get("milestone") or {}
-        title = ms.get("title") if isinstance(ms, dict) else None
-        current = item.get("sprint")
-        if title in option_ids and current != title:
+        url = (item.get("content") or {}).get("url")
+        title = milestone_by_url.get(url)
+        if title in option_ids and item.get("sprint") != title:
             sh(
                 "gh",
                 "project",
@@ -252,18 +272,21 @@ def main(argv: list[str] | None = None) -> int:
     ensure_field(number, args.owner, fields, "Sprint", "SINGLE_SELECT", SPRINT_OPTIONS)
     ensure_field(number, args.owner, fields, "Estimate", "NUMBER")
     ensure_field(number, args.owner, fields, "Priority", "SINGLE_SELECT", PRIORITY_OPTIONS)
-    ensure_field(number, args.owner, fields, "Type", "SINGLE_SELECT", TYPE_OPTIONS)
+    ensure_field(number, args.owner, fields, "Work type", "SINGLE_SELECT", TYPE_OPTIONS)
     ensure_field(number, args.owner, fields, "Start date", "DATE")
     ensure_field(number, args.owner, fields, "Target date", "DATE")
 
+    owner_login = (
+        args.owner if args.owner != "@me" else sh("gh", "api", "user", "--jq", ".login").strip()
+    )
     try:
-        sh("gh", "project", "link", str(number), "--owner", args.owner, "--repo", repo)
+        sh("gh", "project", "link", str(number), "--owner", owner_login, "--repo", repo)
         print(f"linked repository {repo}")
     except RuntimeError as exc:
-        print(f"link skipped: {exc.splitlines()[-1]}")
+        print(f"link skipped: {str(exc).splitlines()[-1]}")
 
     add_issues(number, args.owner, repo)
-    set_sprint_from_milestone(number, args.owner, project_id)
+    set_sprint_from_milestone(number, args.owner, project_id, repo)
 
     print(f"\nBoard: {project.get('url', '')}")
     print("Manual steps in the browser:")

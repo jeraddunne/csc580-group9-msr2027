@@ -4,6 +4,8 @@
 Usage:
     python scripts/annotation_kit.py sample                     # stratified ID lists (committed)
     python scripts/annotation_kit.py sheet --rater jd --round 1  # label CSVs + reading packets
+    python scripts/annotation_kit.py ui --rater jd --round 1     # local HTML labelling pages
+    python scripts/annotation_kit.py import <downloaded.csv>    # validate and save labels
     python scripts/annotation_kit.py status                     # labelling progress
     python scripts/annotation_kit.py score                      # precision, recall, agreement, FMEA
 
@@ -29,6 +31,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
+from msr_pipeline import label_ui  # noqa: E402
 from msr_pipeline import validation as v  # noqa: E402
 from msr_pipeline.config import Paths, get_paths, gitskills_db_path, repo_root  # noqa: E402
 from msr_pipeline.load import DatasetNotFoundError, query_gitskills  # noqa: E402
@@ -619,6 +622,63 @@ def cmd_score(_: argparse.Namespace) -> int:
 # ---------------------------------------------------------------------------
 
 
+def cmd_ui(args: argparse.Namespace) -> int:
+    """Write one local HTML labelling page per kind from the label sheet and packets."""
+    paths = get_paths()
+    try:
+        filenames = {k: v.label_filename(k, args.rater, args.round) for k in v.KINDS}
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    categories = list((read_rule_file().get("categories") or {}).keys())
+    ann = annotations_dir(paths)
+    kinds = [args.kind] if args.kind else list(v.KINDS)
+    written = 0
+    for kind in kinds:
+        label_path = ann / filenames[kind]
+        if not label_path.exists():
+            print(
+                f"{label_path} not found; run `annotation_kit.py sheet --rater {args.rater} "
+                f"--round {args.round}` first",
+                file=sys.stderr,
+            )
+            continue
+        labels = v.read_label_csv(label_path)
+        packet_dir = work_dir(paths) / f"{kind}_{args.rater}_r{args.round}"
+        items = label_ui.build_items(kind, labels, label_ui.read_packets(packet_dir, kind))
+        page = work_dir(paths) / f"label_{kind}_{args.rater}_r{args.round}.html"
+        page.parent.mkdir(parents=True, exist_ok=True)
+        page.write_text(
+            label_ui.build_html(kind, args.rater, args.round, items, categories),
+            encoding="utf-8",
+        )
+        missing = sum(1 for i in items if i["packet"].startswith("Reading packet not found"))
+        note = f", {missing} without packets" if missing else ""
+        print(f"wrote {page} ({len(items)} items, {len(labels)} label rows{note})")
+        written += 1
+    return 0 if written else 1
+
+
+def cmd_import(args: argparse.Namespace) -> int:
+    """Validate a label CSV downloaded from the labelling page and save it."""
+    paths = get_paths()
+    src = Path(args.file)
+    if not src.exists():
+        print(f"{src} not found", file=sys.stderr)
+        return 1
+    rules = load_rules()
+    categories = list((read_rule_file().get("categories") or {}).keys())
+    target, problems, labelled = label_ui.import_labels(
+        src, annotations_dir(paths), [r.id for r in rules], categories, replace=args.replace
+    )
+    if problems:
+        for problem in problems:
+            print(problem, file=sys.stderr)
+        return 1
+    print(f"imported {labelled} labelled rows into {target}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
@@ -649,6 +709,17 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = sub.add_parser("score", help="Score label files into results/validation_*.csv.")
     p.set_defaults(func=cmd_score)
+
+    p = sub.add_parser("ui", help="Write local HTML labelling pages (gitignored).")
+    p.add_argument("--rater", required=True, help="Short id, e.g. jd.")
+    p.add_argument("--round", type=int, default=1)
+    p.add_argument("--kind", choices=v.KINDS, default=None)
+    p.set_defaults(func=cmd_ui)
+
+    p = sub.add_parser("import", help="Validate a downloaded label CSV and save it.")
+    p.add_argument("file", help="CSV downloaded from the labelling page.")
+    p.add_argument("--replace", action="store_true", help="Overwrite labels that differ.")
+    p.set_defaults(func=cmd_import)
     return parser
 
 

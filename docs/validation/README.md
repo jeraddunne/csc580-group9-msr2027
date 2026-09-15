@@ -32,6 +32,8 @@ python scripts/annotation_kit.py sample
 # 2. Create blank label sheets and reading packets for round 1.
 #    Label CSVs go to data/annotations/ (committed); packets go to data/annotations/work/ (gitignored).
 python scripts/annotation_kit.py sheet --rater jd --round 1
+python scripts/annotation_kit.py ui --rater jd --round 1       # open data/annotations/work/label_signals_jd_r1.html
+python scripts/annotation_kit.py import ~/Downloads/signals_jd_r1.csv   # after each session
 
 # 3. Check progress at any time.
 python scripts/annotation_kit.py status
@@ -61,10 +63,10 @@ A flagged skill with several high-risk rule matches has one label row per matche
 
 | Dates | Step | Notes |
 |---|---|---|
-| Thu Oct 8 | Sprint 2 planning; confirm the guideline; draw the sample if not already drawn | The sample must not change after labelling starts |
-| Oct 8 to Oct 16 | Round 1 labelling: signals, then lineage, then drift | Aim to finish the first half by Oct 12 so the 7-day gap fits round 2 |
-| Oct 19 to Oct 23 | Round 2 intra-rater labelling | Only label an item whose round 1 label is at least 7 days old; record the date in `notes` |
-| By Tue Oct 27 | `score`, error analysis of NOT_PRESENT and BENIGN_CONTEXT cases, proposed rule changes | Rule changes follow the rule-file process: `status: proposed`, regression examples, pull request |
+| Sun Sep 14 | Sample drawn and frozen; round 1 starts early (decision D-017) | The sample must not change after labelling starts |
+| From Sep 14 | Round 1 labelling in the labelling page: signals, then lineage, then drift; run `import` after each session | An item's round 2 label can start 7 days after its round 1 label |
+| From Mon Sep 21 | Round 2 intra-rater labelling | Only label an item whose round 1 label is at least 7 days old; record the date in `notes` |
+| After round 2, and by Tue Oct 27 at the latest | `score`, error analysis of NOT_PRESENT and BENIGN_CONTEXT cases, proposed rule changes | Rule changes follow the rule-file process: `status: proposed`, regression examples, pull request |
 | Wed Oct 28 | Results presented in the Sprint 2 review | Precision, recall, kappa, lineage precision, drift distribution, FMEA ranking |
 
 Time estimate: about 3 minutes per signal item, 2 minutes per lineage pair, and 4 minutes per drift pair.

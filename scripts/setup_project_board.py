@@ -187,12 +187,33 @@ def add_issues(number: int, owner: str, repo: str) -> None:
     print(f"issues added to board: {added} (already present: {len(present)})")
 
 
-def set_sprint_from_milestone(number: int, owner: str, project_id: str) -> None:
+def set_sprint_from_milestone(number: int, owner: str, project_id: str, repo: str) -> None:
+    """Set each board item's Sprint field from its issue milestone.
+
+    `gh project item-list` does not include milestones, so they are looked up by URL
+    from the repository's issue list.
+    """
     fields = list_fields(number, owner)
     sprint = fields.get("Sprint")
     if not sprint:
         return
     option_ids = {o["name"]: o["id"] for o in sprint.get("options", [])}
+    issues = (
+        gh_json(
+            "issue",
+            "list",
+            "--repo",
+            repo,
+            "--state",
+            "all",
+            "--limit",
+            "500",
+            "--json",
+            "url,milestone",
+        )
+        or []
+    )
+    milestone_by_url = {i["url"]: (i.get("milestone") or {}).get("title") for i in issues}
     items = (
         gh_json(
             "project",
@@ -209,10 +230,9 @@ def set_sprint_from_milestone(number: int, owner: str, project_id: str) -> None:
     )
     updated = 0
     for item in items.get("items", []):
-        ms = (item.get("content") or {}).get("milestone") or {}
-        title = ms.get("title") if isinstance(ms, dict) else None
-        current = item.get("sprint")
-        if title in option_ids and current != title:
+        url = (item.get("content") or {}).get("url")
+        title = milestone_by_url.get(url)
+        if title in option_ids and item.get("sprint") != title:
             sh(
                 "gh",
                 "project",
@@ -266,7 +286,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"link skipped: {str(exc).splitlines()[-1]}")
 
     add_issues(number, args.owner, repo)
-    set_sprint_from_milestone(number, args.owner, project_id)
+    set_sprint_from_milestone(number, args.owner, project_id, repo)
 
     print(f"\nBoard: {project.get('url', '')}")
     print("Manual steps in the browser:")

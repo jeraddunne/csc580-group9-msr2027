@@ -135,7 +135,7 @@ By adding your date and pull request number below, in your own pull request, you
 | Member | Date | Pull request |
 |---|---|---|
 | Leticia Aderhold | | |
-| Jerad Dunne | | |
+| Jerad Dunne | 2026-09-15 | #49 |
 | Allie Hodges | | |
 | Hina Kramer | | |
 

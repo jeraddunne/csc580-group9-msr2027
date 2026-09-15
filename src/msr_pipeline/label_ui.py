@@ -21,9 +21,9 @@ import pandas as pd
 
 from . import validation as v
 
-_SIGNAL_SHA = re.compile(r"^- file_sha: `([0-9a-f]{7,64})`", re.M)
-_PAIR_A = re.compile(r"^- file_sha_a: `([0-9a-f]{7,64})`", re.M)
-_PAIR_B = re.compile(r"^- file_sha_b: `([0-9a-f]{7,64})`", re.M)
+_SIGNAL_SHA = re.compile(r"^- file_sha: `([^`\s]+)`", re.M)
+_PAIR_A = re.compile(r"^- file_sha_a: `([^`\s]+)`", re.M)
+_PAIR_B = re.compile(r"^- file_sha_b: `([^`\s]+)`", re.M)
 _LABEL_FILE = re.compile(r"^(signals|lineage|drift)_([a-z0-9][a-z0-9-]*)_r(\d+)\.csv$")
 _DOWNLOAD_SUFFIX = re.compile(r"\s*\(\d+\)(?=\.csv$)")
 

@@ -36,6 +36,7 @@ def test_packet_key_signals_and_pairs():
     pair = "- file_sha_a: `aaaaaaa1`\n- file_sha_b: `bbbbbbb2`\n"
     assert label_ui.packet_key("lineage", pair) == "aaaaaaa1|bbbbbbb2"
     assert label_ui.packet_key("drift", "no keys here") is None
+    assert label_ui.packet_key("signals", "- file_sha: `sha-A`\n") == "sha-A"
 
 
 def test_read_packets_skips_index_and_unkeyed(tmp_path: Path):
@@ -159,7 +160,7 @@ def test_kit_ui_and_import_end_to_end(data_root: Path, tmp_path: Path):
     data = _payload(page.read_text(encoding="utf-8"))
     labels = v.read_label_csv(ann / "signals_jd_r1.csv")
     assert sum(len(i["rows"]) for i in data["items"]) == len(labels)
-    assert all("not found" not in i["packet"] for i in data["items"])
+    assert not any(i["packet"].startswith("Reading packet not found") for i in data["items"])
 
     download = tmp_path / "signals_jd_r1.csv"
     labels["label"] = "NONE_PRESENT"

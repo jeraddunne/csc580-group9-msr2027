@@ -1,4 +1,4 @@
-# Annotation guideline (version 1.0, 2026-09-14)
+# Annotation guideline (version 1.1, 2026-09-15)
 
 How to use: read this once before labelling and keep it open while you label. Labels go into the CSV files under `data/annotations/`; the reading packets under `data/annotations/work/` show the text. Changes to this guideline after round 1 starts are recorded at the bottom with a date, and items labelled under an older version are noted in the report.
 
@@ -95,7 +95,10 @@ If both HARDENING and CAPABILITY_ADDITION apply, label the change with the highe
 ## 5. Recording and disagreement
 
 - Fill the label column exactly as written above (upper case). Leave `notes` short.
-- Do not look at your round 1 labels while doing round 2.
+- Label independently. A second rater never opens another rater's label file, and raters do not discuss specific items until both label files for that kind are committed.
+- Blindness rule: the primary rater's filled label files for a kind are committed only after the second rater's labels for that kind are committed (`docs/validation/README.md`).
+- A second rater's pull request contains only their own label file.
+- Do not look at your round 1 labels while doing the optional round 2.
 - After scoring, review every disagreement between rounds or raters. Write the adjudicated reading in the error analysis. Do not edit the original label files, because agreement must reflect independent labels.
 - If disagreements cluster on one rule or label, clarify this guideline, add a dated change note below, and say in the report which items were labelled before the change.
 
@@ -104,9 +107,10 @@ If both HARDENING and CAPABILITY_ADDITION apply, label the change with the highe
 An LLM may label a copy of the sample to show how it compares with human labels. The rules are:
 
 1. Use a rater id starting with `llm-` (for example `llm-claude`). The kit then reports it as `human-vs-llm` and never as human agreement or primary labels.
-2. Give it this guideline and the packet text only. Never give it repository names or anything from outside the packet.
+2. Give it this guideline and the packet text only. Never give it repository names, any human rater's labels, or anything from outside the packet.
 3. Record the tool, model, date, and prompt in `ai-use-log.md`, and state in the report that the LLM rater is not an independent human judgement.
 4. Never replace or edit human labels using LLM output.
+5. An LLM rater never replaces the teammate second rater and never counts toward inter-rater agreement.
 
 ## 7. Time estimates
 
@@ -132,3 +136,4 @@ The ranking prioritises follow-up work. It is not a verdict on any skill.
 | Date | Version | Change |
 |---|---|---|
 | 2026-09-14 | 1.0 | First version, written before any labelling |
+| 2026-09-15 | 1.1 | Added second-rater independence, the blindness rule, and the rule that an LLM rater never replaces the teammate second rater (ADR-0006). Label definitions and the decision order are unchanged, so round 1 labels made under 1.0 stay valid |

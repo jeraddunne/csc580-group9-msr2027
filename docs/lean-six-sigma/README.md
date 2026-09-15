@@ -2,13 +2,13 @@
 
 Scrum gives this project its delivery cadence: three sprints, a backlog, planning, reviews, and retrospectives. Lean Six Sigma (LSS) adds a measurement and improvement discipline on top of that cadence. Scrum decides *what is shipped and when*. LSS decides *how to know the process is healthy and how to fix it when it is not*.
 
-The rubric grades "Scrum practice" on whether planning, reviews, retrospectives, and backlog evolution are "visible and used to improve the work". LSS makes the "used to improve" part measurable rather than anecdotal. The project is run solo by Jerad Dunne (ADR-0005); section "Solo adaptations" lists what changed.
+The rubric grades "Scrum practice" on whether planning, reviews, retrospectives, and backlog evolution are "visible and used to improve the work". LSS makes the "used to improve" part measurable rather than anecdotal. The project is run by the four-person Group 9 (ADR-0006); section "Group notes" lists what that means for the tools below.
 
 ## The two layers
 
 | Layer | Owns | Cadence | Evidence |
 |---|---|---|---|
-| Scrum | Backlog, sprint goals, roles, ceremonies, Definition of Done | Sprint (3 weeks), weekly check-in, Mon/Wed/Fri work log | GitHub Issues, Project board, `docs/sprints/` |
+| Scrum | Backlog, sprint goals, roles, ceremonies, Definition of Done | Sprint (3 weeks), weekly check-in, Mon/Wed/Fri stand-ups | GitHub Issues, Project board, `docs/sprints/` |
 | Lean Six Sigma | KPIs, control charts, root-cause analysis, waste removal, risk register, tollgates | Weekly metrics snapshot, per-sprint tollgate, per-retro root cause | `docs/lean-six-sigma/`, `metrics/DASHBOARD.md`, `kaizen` issues |
 
 ## Where each LSS tool is used
@@ -20,36 +20,37 @@ The rubric grades "Scrum practice" on whether planning, reviews, retrospectives,
 | KPI catalogue | Thursday check-in, sprint review | [KPIS.md](KPIS.md) |
 | XmR control charts and run rules | Thursday check-in | [metrics/README.md](metrics/README.md), `metrics/charts/` |
 | Value stream map | Sprint 1 retrospective, revisited in Sprint 3 | [VALUE_STREAM_MAP.md](VALUE_STREAM_MAP.md) |
-| DOWNTIME waste log | Any work-log entry, formally reviewed at the retrospective | [WASTE_LOG.md](WASTE_LOG.md) |
+| DOWNTIME waste log | Any stand-up, formally reviewed at the retrospective | [WASTE_LOG.md](WASTE_LOG.md) |
 | FMEA risk register | Sprint planning (review top RPN items), sprint review (update) | [FMEA_RISK_REGISTER.md](FMEA_RISK_REGISTER.md) |
 | 5 Whys and fishbone | Retrospective, or whenever a control chart signals | [ROOT_CAUSE_TEMPLATE.md](ROOT_CAUSE_TEMPLATE.md) |
 | A3 problem solving | Retrospective actions too big for one kaizen issue | [A3_TEMPLATE.md](A3_TEMPLATE.md) |
 | Kaizen backlog | Retrospective output, tracked as `kaizen` issues | [KAIZEN_BACKLOG.md](KAIZEN_BACKLOG.md) |
-| Control plan and gemba walk | Sprint review (reproducibility walk), Finalization | [CONTROL_PLAN.md](CONTROL_PLAN.md) |
+| Control plan and gemba walk | Sprint review (reproducibility walk by a non-author), Finalization | [CONTROL_PLAN.md](CONTROL_PLAN.md) |
 
 ## Weekly rhythm
 
 | Day | What happens | LSS input |
 |---|---|---|
-| Sunday 06:00 UTC | GitHub Actions runs the LSS metrics workflow and opens a PR on branch `metrics/weekly` (once workflows are enabled) | Fresh snapshot, dashboard, charts |
-| Monday | Review and merge the metrics PR (it follows the cooling-off rule like any PR); work-log entry | Dashboard status column |
-| Wednesday | Work-log entry | Waste log entries if any |
-| Thursday | Self check-in and metrics review (15 minutes) | KPI table, run-rule signals, open blockers, top 3 FMEA risks |
-| Friday | Work-log entry | |
+| Sunday 06:00 UTC | GitHub Actions runs the LSS metrics workflow and opens a PR on branch `metrics/weekly` | Fresh snapshot, dashboard, charts |
+| Monday | Scrum Master reviews the metrics PR; another member approves and it is merged; stand-up | Dashboard status column |
+| Wednesday | Stand-up | Waste log entries if any |
+| Thursday | Team check-in and metrics review (15 minutes) | KPI table, run-rule signals, open blockers, contribution flags, top 3 FMEA risks |
+| Friday | Stand-up; Scrum Master week summary | PRs waiting more than 48 hours for review |
 | Last Wednesday of the sprint | Sprint review, then retrospective | Tollgate checklist, 5 Whys on the worst signal, kaizen items created |
 
-## Solo adaptations (ADR-0005)
+## Group notes (ADR-0006)
 
-| Group element | Solo status | Replacement |
+| Element | Status | Notes |
 |---|---|---|
-| Contribution-balance KPI | Retired; `project.yml` band set to [0.0, 1.0] so nobody is flagged | None needed |
-| PR first-review turnaround (48-hour peer review SLA) | Not applicable; there is no second reviewer | PR open-to-merge cycle time, target 48 hours |
-| Cross-member review | Replaced | Self-review cooling-off compliance: share of merged PRs merged at least 12 hours after opening, target 1.0 |
-| Async stand-ups by four members | Replaced | Mon/Wed/Fri work log |
-| Measurement system check by two members | Replaced | Two independent runs in different environments (working copy and a fresh clone) |
-| Two-annotator agreement | Replaced | Intra-rater kappa plus an optional second rater (see `docs/validation/`) |
+| Contribution-balance KPI | Active; band [0.15, 0.45] in `project.yml` | Read at every check-in; a flag starts a rebalancing conversation |
+| PR first-review turnaround | Active; target 48 hours | Matches the 48-hour review SLA in the charter |
+| PR open-to-merge cycle time | Active as an extra KPI; target 96 hours | Kept from the short solo period because it shows where merged work waits |
+| Cross-member review | Required; `main` needs one approving review from another member | First-time-right is read with the review comments |
+| Stand-ups | Written by all four members on Monday, Wednesday, and Friday | `docs/meeting-notes/YYYY-MM-DD-standup-week.md` |
+| Measurement system check | Two members run the pipeline independently on different machines | Sprint 1 item S1-10 |
+| Rater agreement | Primary rater plus a teammate second rater; inter-rater Cohen's kappa | `docs/validation/README.md` |
 
-All owner roles in these documents (Product Owner, Scrum Master, Developers) are held by Jerad Dunne.
+Owner roles in these documents (Product Owner, Scrum Master, Developers) follow the rotation in `project.yml`.
 
 ## 10-minute quick start for a reader
 
@@ -70,7 +71,7 @@ The output lands in `docs/lean-six-sigma/metrics/`. Commit it on a branch and op
 
 ## Rules of thumb
 
-- Metrics are for the process, not for judging the person. In a solo project their job is to show honestly where time went and whether changes helped.
+- Metrics are for the process, not for judging people. Their job is to show honestly where time went and whether changes helped.
 - A control chart signal is a question, not a verdict. It triggers a 5 Whys, nothing else.
 - Every retrospective produces at least one `kaizen` issue or an explicit note that none was needed.
 - Targets in `project.yml` may be changed at a retrospective; record the change in `docs/workspace/DECISION_LOG.md`.

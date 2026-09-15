@@ -4,7 +4,7 @@ DMAIC (Define, Measure, Analyze, Improve, Control) is the Six Sigma project stru
 
 | DMAIC phase | Course phase | Dates | Tollgate event |
 |---|---|---|---|
-| Define | Formation and discovery | 2026-09-10 to 2026-09-16 | Topic vote closed, topic brief submitted |
+| Define | Formation and discovery | 2026-09-10 to 2026-09-16 | Topic confirmed by the group, topic brief submitted |
 | Measure | Sprint 1: research framing and data foundation | 2026-09-17 to 2026-10-07 | Sprint 1 review (Oct 7) |
 | Analyze | Sprint 2: implementation and validation | 2026-10-08 to 2026-10-28 | Sprint 2 review (Oct 28) |
 | Improve | Sprint 3: analysis, integration, communication | 2026-10-29 to 2026-11-18 | Sprint 3 review (Nov 18) |
@@ -23,27 +23,27 @@ flowchart LR
 
 **Purpose.** Agree on the problem, the customer, and the scope before anyone writes pipeline code.
 
-**Inputs.** Assignment PDF, MSR 2027 challenge page, GitSkills and SpecMine sample READMEs, proposal P-01 (issue #41).
+**Inputs.** Assignment PDF, MSR 2027 challenge page, GitSkills and SpecMine sample READMEs, proposal P-01 (issue #41), ADR-0006 (group reinstated).
 
-**LSS tools.** SIPOC, CTQ tree, voice of the customer (the rubric), FMEA first pass, solo working agreement (TEAM_CHARTER.md).
+**LSS tools.** SIPOC, CTQ tree, voice of the customer (the rubric), FMEA first pass, team charter (`TEAM_CHARTER.md` v2.0).
 
-**Entry criteria.** Repository exists, the author profile is filled in, and at least one proposal is filed (solo project, ADR-0005).
+**Entry criteria.** Repository exists, every member has completed the onboarding issue, and at least one proposal is filed.
 
 **Exit criteria (tollgate).**
-- One research question selected by the documented vote, recorded in `RESEARCH_QUESTION.md` and an ADR in `docs/decisions/`.
+- One research question selected (P-01, ADR-0004) and confirmed by the group at the kickoff, or revisited through a Decision needed issue before 2026-09-17; recorded in `RESEARCH_QUESTION.md`.
 - SIPOC and CTQ tree completed for the chosen question.
 - Initial backlog: every Sprint 1 rubric deliverable exists as an issue with owner, acceptance criterion, milestone, and estimate.
 - FMEA register reviewed; the top five risks have a mitigation owner.
-- Solo working agreement (TEAM_CHARTER.md) signed and dated by Jerad Dunne; solo execution raised with the instructor (ADR-0005).
+- Team charter signed by all four members, each in their own pull request.
 
 **Evidence files.** `RESEARCH_QUESTION.md`, `docs/decisions/`, `docs/proposals/`, `docs/lean-six-sigma/SIPOC_AND_CTQ.md`, `docs/lean-six-sigma/FMEA_RISK_REGISTER.md`, `TEAM_CHARTER.md`.
 
 Tollgate checklist:
-- [ ] Vote results published and ADR merged
+- [ ] Topic ADR merged and confirmed by the group
 - [ ] SIPOC and CTQ tree reflect the chosen question
 - [ ] Sprint 1 issues exist with owners and estimates
 - [ ] FMEA top five have owners
-- [ ] Charter signed
+- [ ] Charter signed by all four members
 
 ## Measure (Sprint 1, Sep 17 to Oct 7)
 
@@ -51,7 +51,7 @@ Tollgate checklist:
 
 **Inputs.** Chosen question, approved sample dataset, CTQ tree.
 
-**LSS tools.** Operational definitions (variables, unit of analysis, population), data dictionary, measurement system check (a manually inspected sample agrees with what the extractor reports), first KPI snapshot, value stream map current state.
+**LSS tools.** Operational definitions (variables, unit of analysis, population), data dictionary, measurement system check (a manually inspected sample agrees with what the extractor reports, and two members' independent runs agree), first KPI snapshot, value stream map current state.
 
 **Entry criteria.** Define tollgate passed.
 
@@ -60,7 +60,7 @@ Tollgate checklist:
 - The data path is documented: `data/README.md` and `DATA_DICTIONARY.md` describe acquisition and every field used.
 - The pipeline runs on the approved sample from a clean clone and generates at least one exploratory table or figure into `results/` or `figures/`.
 - Measurement check: at least 20 records manually inspected and compared with extractor output, agreement recorded.
-- Repository practice: milestones, issues, branch protection or equivalent, and at least one merged PR.
+- Repository practice: milestones, issues, branch protection or equivalent, and at least one merged PR reviewed by another member.
 - Primary risks and threats to validity listed in `THREATS_TO_VALIDITY.md` and mirrored in the FMEA.
 - Retrospective written with at least one kaizen item.
 
@@ -81,28 +81,28 @@ Tollgate checklist:
 
 **Inputs.** Working loader, data dictionary, baseline table, Sprint 1 retrospective actions.
 
-**LSS tools.** Hypothesis statements, baseline comparison, validation protocol with agreement statistics, error analysis, control charts on process KPIs, 5 Whys on any signal.
+**LSS tools.** Hypothesis statements, baseline comparison, validation protocol with inter-rater agreement statistics, error analysis, control charts on process KPIs, 5 Whys on any signal.
 
 **Entry criteria.** Measure tollgate passed.
 
 **Exit criteria (tollgate).** Restating the Sprint 2 acceptance criteria from the rubric.
 - The core implementation runs end to end on the approved sample.
 - Automated tests cover the parsing, transformation, matching, or metric functions that the result depends on. CI is green on `main`.
-- A validation sample or annotation protocol exists and has been executed with recorded agreement.
+- A validation sample or annotation protocol exists and has been executed, with inter-rater agreement between the primary rater and a teammate second rater recorded.
 - Preliminary results are reproducible figures or tables generated by code, not screenshots.
-- At least one PR was reviewed by a member other than the author (rubric wording). Solo substitute: self-review after the cooling-off period, plus external review when available (ADR-0005).
+- At least one PR was reviewed by a member other than the author.
 - The report draft contains background, method, implementation, and preliminary results.
 - The retrospective records changes to question, method, scope, or interpretation.
-- First-time-right rate and cycle time reviewed against targets; signals investigated.
+- First-time-right rate, first-review turnaround, and cycle time reviewed against targets; signals investigated.
 
 **Evidence files.** `src/`, `tests/`, `results/`, `figures/`, `report/draft.md`, `docs/sprints/sprint-2/`, `docs/lean-six-sigma/metrics/`.
 
 Tollgate checklist:
 - [ ] End-to-end run documented in the sprint review
 - [ ] Tests present and CI green
-- [ ] Validation protocol executed, agreement recorded
+- [ ] Validation protocol executed, inter-rater agreement recorded
 - [ ] Figures generated by code
-- [ ] PR review evidenced (self-review checklist completed after cooling-off, or external review)
+- [ ] Cross-member PR review evidenced
 - [ ] Report draft sections present
 - [ ] Retrospective records scope and method changes
 
@@ -139,7 +139,7 @@ Tollgate checklist:
 
 ## Control (Finalization, Nov 30 to Dec 4)
 
-**Purpose.** Lock the result in so that it stays reproducible after the project ends.
+**Purpose.** Lock the result in so that it stays reproducible after the team stops working on it.
 
 **Inputs.** Sprint 3 deliverables, instructor feedback.
 
@@ -148,10 +148,10 @@ Tollgate checklist:
 **Entry criteria.** Improve tollgate passed.
 
 **Exit criteria (tollgate).**
-- A fresh clone on a different machine (or a clean environment) reproduces the primary results by following only the README; an external reviewer does this when available.
+- A member who did not write the README reproduces the primary results from a fresh clone following only the README.
 - Final report, repository release, and presentation submitted.
 - AI-use log complete and disclosure statement in the report.
-- Individual contribution statement and reflection filed in `docs/reflections/`.
+- Every member's contribution and reflection filed in `docs/reflections/`.
 - All major artifacts traceable to issues, commits, PRs, or decisions.
 
 **Evidence files.** `README.md`, GitHub release, `report/final.pdf` or `report/final.md`, `ai-use-log.md`, `docs/reflections/`, `docs/lean-six-sigma/CONTROL_PLAN.md`.

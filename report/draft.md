@@ -1,8 +1,11 @@
 ---
 title: "Risky Capabilities in Copied Agent Skills: Prevalence, Reach, and Drift in GitSkills"
-subtitle: "SWE 380 / CSC 580 Project, University of Michigan-Flint (solo project, ADR-0005)"
+subtitle: "SWE 380 / CSC 580 Group Project, Group 9, University of Michigan-Flint"
 author:
+  - Leticia Aderhold
   - Jerad Dunne
+  - Allie Hodges
+  - Hina Kramer
 date: "Draft, updated 2026-09-14"
 bibliography: references.bib
 link-citations: true
@@ -102,11 +105,11 @@ The pipeline runs with `python -m msr_pipeline analyze` (or `make pipeline`). It
 
 **Automated tests.** The test suite covers every rule's documented examples, the scanner, variant linking and ordering, missing-value handling, the statistics helpers, and the validation scoring. It runs offline against small fixtures.
 
-**Manual validation design.** Rule precision is measured on a stratified sample of 147 distinct contents: up to 10 per high-risk category plus 40 with no signal, drawn with seed 580. They yield 209 label rows, one per matched rule plus one per no-signal item. For each match, the annotator assigns one of three labels. *Risky* means the capability is present and would act with user permissions in context. *Benign in context* means the capability is present but described, warned against, or clearly sandboxed. *Not present* means the rule matched text that does not grant the capability. Strict precision counts only *risky*; capability precision counts *risky* and *benign in context*. Both carry Wilson intervals. The no-signal items estimate how often a high-risk capability is missed.
+**Manual validation design.** Rule precision is measured on a stratified sample of 147 distinct contents: up to 10 per high-risk category plus 40 with no signal, drawn with seed 580. They yield 209 label rows, one per matched rule plus one per no-signal item. For each match, a rater assigns one of three labels. *Risky* means the capability is present and would act with user permissions in context. *Benign in context* means the capability is present but described, warned against, or clearly sandboxed. *Not present* means the rule matched text that does not grant the capability. Strict precision counts only *risky*; capability precision counts *risky* and *benign in context*. Both carry Wilson intervals. The no-signal items estimate how often a high-risk capability is missed.
 
 A lineage sample of 58 variant pairs checks whether pairs really share a lineage: the 18 pairs whose high-risk categories differ, plus 40 random pairs. The 18 differing pairs are also classified as template update, local adaptation, hardening, capability addition, or unrelated. <!-- data/annotations/samples/SAMPLE_MANIFEST.json -->
 
-**Reliability.** This is a solo project, so there is one human annotator. Reliability is measured as intra-rater agreement. About 30% of items are re-labelled at least seven days after round one, blind to the first labels: 45 signal items, 18 lineage pairs, and 6 drift pairs. Cohen's kappa is reported [@cohen1960]. An optional second rater may be added. If an LLM is used as a second rater, it is disclosed and reported separately, never counted as human agreement. The guideline is in `docs/validation/ANNOTATION_GUIDELINE.md`.
+**Reliability.** One author is the primary rater, and a second author labels the same round 1 items independently. Inter-rater agreement is the primary reliability measure, reported as Cohen's kappa for each kind [@cohen1960]. To keep the labels independent, the primary rater's label files for a kind are committed only after the second rater's, and the second rater never sees them. An optional intra-rater check re-labels about 30% of items at least seven days after round one: 45 signal items, 18 lineage pairs, and 6 drift pairs. If an LLM is used as an additional rater, it is disclosed and reported separately, never counted as human agreement. The guideline is in `docs/validation/ANNOTATION_GUIDELINE.md`.
 
 **FMEA ranking.** Categories are ranked by severity (from the rule file), occurrence (validated prevalence), and detection (estimated miss rate), in the style of a failure mode and effects analysis. The ranking prioritises categories for review and is not a risk verdict.
 
@@ -158,10 +161,10 @@ The Mann-Whitney U test on copies gives p = 0.002 with a rank-biserial effect si
 
 The full register is in `THREATS_TO_VALIDITY.md`. The threats most specific to this study are summarised here [@wohlin2012; @kalliamvakou2014].
 
-- **Construct.** A keyword match is not a capability, so precision is measured before any claim about risk. Severity scores are the author's judgement, recorded with a rationale in the threat model and tested with alternative cutoffs.
+- **Construct.** A keyword match is not a capability, so precision is measured before any claim about risk. Severity scores are the authors' judgement, recorded with a rationale in the threat model and tested with alternative cutoffs.
 - **Internal.** Popular setup and DevOps skills may both use shell commands and be copied widely. That can link signals and reach without a causal relationship, and the regression controls and sensitivity runs address it only partly. The strong association of the canonical location with copies shows that where a skill sits matters more than its content signals.
 - **Lineage.** Pairing variants by name and text similarity can join unrelated skills with generic names, which is why lineage is checked manually. The template-family list also uses generic names.
-- **Measurement.** A single human annotator introduces personal bias, mitigated by a written guideline, blind re-labelling, and reported intra-rater kappa. Controls come from the representative row only, so other copies' repositories are ignored.
+- **Measurement.** Human labels carry rater bias. This is mitigated by a written guideline, independent labelling by two raters under a blindness rule, and reported inter-rater kappa. Controls come from the representative row only, so other copies' repositories are ignored.
 - **External.** The population is a lower bound on public default branches in July 2026. The sample's hash-based draw splits variant families, so drift results describe the sample only.
 - **Conclusion.** Copy distributions are heavily skewed, so non-parametric tests, bootstrap intervals, and a count model are used together, and the Holm correction covers the per-category tests.
 - **Reproducibility.** Results depend on the dataset snapshot and the rule file version, both recorded by hash for every run.
@@ -182,17 +185,17 @@ The full register is in `THREATS_TO_VALIDITY.md`. The threats most specific to t
 
 <!-- PENDING after validation: three or four sentences on what was learned. -->
 
-Future work that follows from the current results is clear. The full GitSkills dataset would supply enough dated variant families to test the direction of drift. More annotators would move reliability from intra-rater to inter-rater agreement. Dynamic analysis in an isolated sandbox is explicitly out of scope here. A linter for skill authors could turn the rule file into a practical tool.
+Future work that follows from the current results is clear. The full GitSkills dataset would supply enough dated variant families to test the direction of drift. Raters from outside the team would give a more independent reliability estimate than two team members. Dynamic analysis in an isolated sandbox is explicitly out of scope here. A linter for skill authors could turn the rule file into a practical tool.
 
 # Artifact appendix
 
 - **Repository.** https://github.com/jeraddunne/csc580-group9-msr2027. The release tag is to be set at the Sprint 3 review.
 - **Setup and data.** Run `make setup`, then `make data`. The GitSkills sample downloads to `data/samples/` and is not redistributed.
-- **Reproduce every table and figure.** Run `python -m msr_pipeline analyze` (286 seconds on the author's laptop).
+- **Reproduce every table and figure.** Run `python -m msr_pipeline analyze` (286 seconds on a laptop).
 - **Validation.** Run `python scripts/annotation_kit.py sample`, then `sheet --rater <id> --round 1`, label, then `score`. Label files live in `data/annotations/`, and reading packets are generated locally and never committed.
 - **Pilot.** `python -m msr_pipeline risk-pilot` reproduces the proposal's pilot tables.
 - **Data availability.** GitSkills full dataset: doi:10.5281/zenodo.21875637; sample: the dataset authors' GitHub repository. Dataset content is not redistributed in this repository.
-- **Process.** The project was run as Scrum with a Lean Six Sigma overlay [@schwaber2020; @george2002], by one person holding every role (ADR-0005). The most important process improvement, with before-and-after numbers, is to be added at the Sprint 3 retrospective.
+- **Process.** The project was run as Scrum with a Lean Six Sigma overlay [@schwaber2020; @george2002], by a four-person team with rotating Product Owner and Scrum Master roles (ADR-0006). The most important process improvement, with before-and-after numbers, is to be added at the Sprint 3 retrospective.
 - **AI-use disclosure.** AI assistance is logged in `ai-use-log.md`, including what was generated and how it was verified.
 
 # References

@@ -1,8 +1,9 @@
 # Sprint 1 retrospective
 
-How to use: run on Wed 2026-10-07 right after the review. Data first, then reflection, then root cause, then actions. Every action becomes a `kaizen` issue and a row in `docs/lean-six-sigma/KAIZEN_BACKLOG.md`. The rubric requires this retrospective to explain what was learned and what changed in the backlog.
+How to use: the Scrum Master facilitates on Wed 2026-10-07 right after the review. Data first, then discussion, then root cause, then actions. Every action becomes a `kaizen` issue and a row in `docs/lean-six-sigma/KAIZEN_BACKLOG.md`. The rubric requires this retrospective to explain what the group learned and what changed in the backlog.
 
-Date: 2026-10-07. Facilitator: Jerad Dunne (solo, ADR-0005).
+Date: 2026-10-07. Facilitator: Leticia Aderhold.
+Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer
 
 ## 1. Data first
 
@@ -10,14 +11,16 @@ Paste the Sprint 1 rows from `docs/lean-six-sigma/metrics/DASHBOARD.md`. Compare
 
 | KPI | Target | Sprint 1 value | In control? | Comment |
 |---|---|---|---|---|
-| Points completed / planned | | | | |
-| Median issue cycle time (days) | | | | |
-| Median PR open-to-merge time (hours) | 48 | | | |
-| PRs merged before 12 hours of cooling-off (not marked trivial) | 0 | | | |
-| CI pass rate on main | | | | |
+| Points completed / planned | 0.80 | | | |
+| Median issue cycle time (days) | 5 | | | |
+| Median PR first-review turnaround (hours) | 48 | | | |
+| Median PR open-to-merge time (hours) | 96 | | | |
+| PRs merged without an approving review from another member | 0 | | | |
+| CI pass rate on main | 0.90 | | | |
 | Rework items (`rework` label) | | | | |
-| Work-log entries posted / expected | | | | |
-| Hours logged (planned / actual) | | | | |
+| Stand-ups posted / expected | | | | |
+| Contribution share per member (min / max) | 0.15 to 0.45 | | | |
+| Hours logged per member (min / max) | | | | |
 
 ## 2. What went well
 
@@ -48,16 +51,16 @@ Use `docs/lean-six-sigma/ROOT_CAUSE_TEMPLATE.md` for the long form. Pick the sin
 
 ## 6. Kaizen actions
 
-| Action | Kaizen issue # | Due | How I will know it worked |
-|---|---|---|---|
-| | | | |
-| | | | |
+| Action | Owner | Kaizen issue # | Due | How we will know it worked |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
 
-## 7. What I learned (rubric)
+## 7. What we learned (rubric)
 
 - About the dataset:
 - About the research question:
-- About working solo (workload, focus, review quality):
+- About working together (onboarding, reviews, communication):
 
 ## 8. Changes recorded (rubric)
 
@@ -71,4 +74,5 @@ Use `docs/lean-six-sigma/ROOT_CAUSE_TEMPLATE.md` for the long form. Pick the sin
 
 ## 9. Retro on the retro
 
+- Does the charter still fit? yes / no. Proposed change:
 - Format worked: yes / no. Change for next time:

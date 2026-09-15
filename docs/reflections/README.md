@@ -1,16 +1,19 @@
 # Individual contribution and reflection
 
-How to use: copy `TEMPLATE-individual-reflection.md` to `docs/reflections/jeraddunne.md` and submit it by pull request by Fri 2026-12-04. This is the 5% individual component of the grade. The project is solo (ADR-0005), but the individual reflection is still required: it is the evidence of what was done, how it was reviewed, and what was learned. Be specific and link everything.
+How to use: each member copies `TEMPLATE-individual-reflection.md` to `docs/reflections/<github-handle>.md` (lower case) and submits it by PR by Fri 2026-12-04. This is the 5% individual component of the grade. It is also the evidence the instructor uses to see that every member contributes technical or research work and participates in review. Be specific and link everything.
 
 Files expected:
 
 | Member | File |
 |---|---|
+| Leticia Aderhold | `docs/reflections/angel06la.md` |
 | Jerad Dunne | `docs/reflections/jeraddunne.md` |
+| Allie Hodges | `docs/reflections/alliehgs.md` |
+| Hina Kramer | `docs/reflections/hinak786.md` |
 
 Rules:
-- Links, not claims. Every contribution row points to an issue, PR, review comment, commit range, or document.
-- Self-reviews, external reviews received, work logs, validation labelling, and figures all count as evidence.
-- Hours come from the work-log files, not memory.
+- Links, not claims. Every contribution row points to an issue, PR, review, commit range, or document.
+- Reviews count as contributions. So do meeting notes, stand-ups, validation labelling, and figures.
+- Hours come from the stand-up files, not memory.
 - The AI use statement must be consistent with `ai-use-log.md`.
-- Before merge, check every link resolves; ask a classmate to check accuracy if one is available.
+- A reflection is reviewed by one other member for accuracy before merge (not for content).

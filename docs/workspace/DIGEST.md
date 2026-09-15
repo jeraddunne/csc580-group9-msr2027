@@ -1,6 +1,6 @@
 # Team workspace digest
 
-Generated 2026-09-15 01:02 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-09-15 22:27 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
@@ -16,7 +16,7 @@ Generated 2026-09-15 01:02 UTC by `scripts/workspace_digest.py` from `jeraddunne
 |---|---|---|
 | [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: project workspace (solo project, P-01) | Formation |
 | [#40](https://github.com/jeraddunne/csc580-group9-msr2027/issues/40) | Final: AI-use log and disclosure complete | Finalization |
-| [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection | Finalization |
+| [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection (one per member) | Finalization |
 | [#38](https://github.com/jeraddunne/csc580-group9-msr2027/issues/38) | Final: presentation and live demonstration | Finalization |
 | [#37](https://github.com/jeraddunne/csc580-group9-msr2027/issues/37) | Final: repository release v1.0.0 and fresh-machine reproduction by a non-author | Finalization |
 | [#36](https://github.com/jeraddunne/csc580-group9-msr2027/issues/36) | Final: respond to feedback and finalize the report | Finalization |
@@ -40,14 +40,14 @@ Generated 2026-09-15 01:02 UTC by `scripts/workspace_digest.py` from `jeraddunne
 | [#17](https://github.com/jeraddunne/csc580-group9-msr2027/issues/17) | S1: repository practice: issues, milestones, branch protection, first reviewed pull request | Sprint 1 |
 | [#14](https://github.com/jeraddunne/csc580-group9-msr2027/issues/14) | S1: dataset acquisition or sampling instructions and data dictionary | Sprint 1 |
 | [#11](https://github.com/jeraddunne/csc580-group9-msr2027/issues/11) | Kaizen: weekly process metrics automated | Formation |
-| [#10](https://github.com/jeraddunne/csc580-group9-msr2027/issues/10) | Kaizen: PR open-to-merge cycle time under 48 hours with a 12-hour self-review cooling-off | Formation |
+| [#10](https://github.com/jeraddunne/csc580-group9-msr2027/issues/10) | Kaizen: 48-hour pull request review SLA by a member other than the author | Formation |
 | [#6](https://github.com/jeraddunne/csc580-group9-msr2027/issues/6) | Formation: Sprint 1 backlog created, estimated, and on the board | Formation |
 | [#5](https://github.com/jeraddunne/csc580-group9-msr2027/issues/5) | Formation: RESEARCH_QUESTION.md completed and topic brief submitted | Formation |
-| [#1](https://github.com/jeraddunne/csc580-group9-msr2027/issues/1) | Formation: solo working agreement signed and dated | Formation |
+| [#1](https://github.com/jeraddunne/csc580-group9-msr2027/issues/1) | Formation: team working agreement v2.0 signed by all four members | Formation |
 
-## Work sign-ups (retired, ADR-0005)
+## Work sign-ups
 
-_No sign-ups. The sign-up process is retired; see WORK_SIGNUP.md for the solo plan._
+_No sign-ups yet. Use the Work sign-up form._
 
 ## Findings (issues labelled `finding`)
 

@@ -1,6 +1,6 @@
 # Research Question
 
-Status: **selected, 2026-09-14.** The project is carried out by Jerad Dunne alone (ADR-0005). The topic is proposal P-01 ([issue #41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41), [full proposal](docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md)). The analysis runs with `python -m msr_pipeline analyze`.
+Status: **selected, 2026-09-14.** The project is carried out by Group 9: Leticia Aderhold, Jerad Dunne, Allie Hodges, and Hina Kramer (ADR-0006). Any member may open a Decision needed issue to revisit the topic before Sprint 1 planning on 2026-09-17. The topic is proposal P-01 ([issue #41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41), [full proposal](docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md)). The analysis runs with `python -m msr_pipeline analyze`.
 
 ## 1. Selected MSR-inspired topic
 
@@ -91,7 +91,7 @@ Minimum evidence: *"Threat model, detection rules, annotated examples, false-pos
 | Threat model | `docs/research/THREAT_MODEL.md`; report section | #12, #18 | 1 |
 | Detection rules | `rules/skill_risk_rules.yaml`, `src/msr_pipeline/skill_risk.py`, rule regression tests | #15, #21, #22 | 1 to 2 |
 | Scanner on scripts and changes across versions | `scan_siblings`; RQ3 lineage pairs (`results/rq3_*.csv`) | #21 | 2 |
-| Annotated examples | Validation sample, annotation guideline, labels, precision and intra-rater agreement | #23 | 2 |
+| Annotated examples | Validation sample, annotation guideline, labels, precision and inter-rater agreement | #23 | 2 |
 | Preliminary and final results | `results/rq1_*`, `rq2_*`, `rq3_*`, figures | #16, #24, #27, #30 | 1 to 3 |
 | False-positive discussion | Error analysis from validation labels | #29 | 3 |
 | Robustness | `results/sensitivity_summary.csv`, threshold sweep, Holm-adjusted category tests | #28 | 3 |
@@ -100,13 +100,17 @@ Minimum evidence: *"Threat model, detection rules, annotated examples, false-pos
 
 Issue map: Sprint 1 issues #12 to #20, Sprint 2 issues #21 to #26, Sprint 3 issues #27 to #35.
 
-### Validation design (solo)
+### Validation design (group)
 
-The project has one member, so the two-annotator design in the proposal is replaced (ADR-0005):
+The two-rater design in the proposal is used, with a teammate as the second rater (ADR-0006):
 
-1. A single annotator (Jerad Dunne) labels the stratified validation sample from a written guideline.
-2. **Intra-rater reliability.** At least seven days later, a random 30% of the sample is re-labelled blind to the first labels. Cohen's kappa between the two passes is reported.
-3. **Optional second rater.** If a classmate, the instructor, or a disclosed AI-assisted pass provides labels for a subset, inter-rater kappa is reported separately and the rater type is stated. AI-assisted labels are never merged into the primary labels.
+1. Jerad Dunne (rater id `jd`) is the primary rater and labels the stratified validation sample from a written guideline.
+2. **Inter-rater reliability.** A teammate labels round 1 of the same items independently: Leticia Aderhold (`la`), Allie Hodges (`ah`), or Hina Kramer (`hk`), with the split across kinds decided at the 2026-09-16 kickoff. Cohen's kappa between the two raters is the primary reliability measure.
+3. **Blindness rule.** The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed, and the second rater never opens the primary rater's labels.
+4. **Optional intra-rater check.** A random 30% of the sample may be re-labelled at least seven days later, blind to the first labels; that kappa is reported separately.
+5. **LLM raters.** An LLM rater is allowed only under an `llm-` rater id, is disclosed, and never counts as human agreement. Its labels are never merged into the primary labels.
+
+Protocol and dates: `docs/validation/README.md`.
 
 ## 9. Primary risks and threats
 
@@ -114,4 +118,4 @@ Full register: `THREATS_TO_VALIDITY.md` (rows marked "Active: P-01") and `docs/l
 
 1. **Construct validity.** Keyword signals are not capabilities. Mitigation: validated precision per rule, and results reported at three severity cutoffs.
 2. **Internal validity.** The popularity and purpose confound in reach. Mitigation: NB2 controls, per-category tests, and excluding the most-copied contents and template families.
-3. **Conclusion validity.** A single annotator and sparse history for RQ3. Mitigation: intra-rater kappa, drift scoped to descriptive case studies, and the limitation stated in the report.
+3. **Conclusion validity.** Rater disagreement and sparse history for RQ3. Mitigation: independent labels from a teammate second rater with inter-rater kappa, drift scoped to descriptive case studies, and the limitation stated in the report.

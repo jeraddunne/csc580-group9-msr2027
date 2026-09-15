@@ -146,6 +146,40 @@ def _split(value: str | None) -> list[str]:
     return [x for x in (value or "").split(";") if x]
 
 
+_PATH_LIKE = re.compile(r"^[\w./ -]+$")
+
+
+def is_symlink_stub(content: object) -> bool:
+    """True when content is a single short path-like line (a symlink target, not a skill)."""
+    text = _text(content).strip()
+    if not text or "\n" in text or len(text) >= 200:
+        return False
+    if not _PATH_LIKE.match(text):
+        return False
+    return "/" in text or text.lower().endswith(".md")
+
+
+def population_flags(reps: pd.DataFrame) -> pd.DataFrame:
+    """Per distinct content: has_content, is_symlink_stub, frontmatter_valid, in_main_population."""
+    contents = reps["content"] if "content" in reps.columns else pd.Series([None] * len(reps))
+    has_content = contents.map(lambda c: bool(_text(c).strip())).to_numpy()
+    stub = contents.map(is_symlink_stub).to_numpy()
+    if "frontmatter_valid" in reps.columns:
+        fm = pd.to_numeric(reps["frontmatter_valid"], errors="coerce").fillna(0).to_numpy() == 1
+    else:
+        fm = [False] * len(reps)
+    out = pd.DataFrame(
+        {
+            "file_sha": reps["file_sha"].to_numpy(),
+            "has_content": has_content,
+            "is_symlink_stub": stub,
+            "frontmatter_valid": fm,
+        }
+    )
+    out["in_main_population"] = out["has_content"] & ~out["is_symlink_stub"]
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Similarity
 # ---------------------------------------------------------------------------

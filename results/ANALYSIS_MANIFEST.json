@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-09-14T20:20:44+00:00",
+  "command": "python -m msr_pipeline analyze",
+  "seed": 580,
+  "gitskills_db": "agent_skills_sample.db",
+  "gitskills_db_sha256_from_manifest": "683888c923a51952fb66f83f21351ed5bf1127ddddf380e517592ae27c367658",
+  "rules_file": "skill_risk_rules.yaml",
+  "rules_file_sha256": "111aa8f78af22e8274f047106dcd27c18ca4f735c1669fba4775b8dbc84efab5",
+  "rules_active": 19,
+  "high_risk_severity_cutoff": 6,
+  "main_similarity_threshold": 0.5,
+  "row_counts": {
+    "occurrences": 29786,
+    "representatives": 13000,
+    "main_population": 12965,
+    "script_files_scanned": 5153,
+    "lineage_pairs_at_lowest_threshold": 332
+  },
+  "versions": {
+    "python": "3.12.10",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2",
+    "pyyaml": "6.0.3"
+  },
+  "outputs": [
+    "population_flow.csv",
+    "rq1_prevalence_by_rule.csv",
+    "rq1_prevalence_by_category.csv",
+    "rq2_reach_summary.csv",
+    "rq2_mannwhitney.csv",
+    "rq2_bootstrap.csv",
+    "rq2_negbin.csv",
+    "rq2_category_tests.csv",
+    "rq3_threshold_sweep.csv",
+    "rq3_summary.csv",
+    "rq3_lineage_pairs.csv",
+    "rq3_differing_pairs.csv",
+    "scripts_summary.csv",
+    "sensitivity_summary.csv",
+    "rq1_prevalence_by_category.png",
+    "rq2_copies_by_group.png",
+    "rq3_threshold_sweep.png"
+  ],
+  "runtime_seconds": 216.2
+}

@@ -8,7 +8,7 @@ from collections.abc import Sequence
 
 import pandas as pd
 
-from . import __version__, explore, skill_risk
+from . import __version__, analysis, explore, skill_risk
 from .config import get_paths, gitskills_db_path, specmine_dir
 from .load import (
     SPECMINE_ALL_TABLES,
@@ -210,6 +210,20 @@ def cmd_risk_pilot(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_analyze(args: argparse.Namespace) -> int:
+    paths = get_paths()
+    try:
+        produced = analysis.run_analysis(
+            gitskills_db_path(paths), paths=paths, rules_path=args.rules, seed=args.seed
+        )
+    except DatasetNotFoundError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    for path in produced:
+        print(f"wrote {path}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="msr-pipeline",
@@ -246,6 +260,18 @@ def build_parser() -> argparse.ArgumentParser:
         "--min-similarity", type=float, default=0.5, help="Jaccard threshold for variant lineage."
     )
     p_risk.set_defaults(func=cmd_risk_pilot)
+
+    p_analyze = sub.add_parser(
+        "analyze",
+        help="P-01 research analysis: RQ1 prevalence, RQ2 reach, RQ3 drift, sensitivity.",
+    )
+    p_analyze.add_argument(
+        "--rules", default=None, help="Rule file (default rules/skill_risk_rules.yaml)."
+    )
+    p_analyze.add_argument(
+        "--seed", type=int, default=580, help="Random seed for the bootstrap (default 580)."
+    )
+    p_analyze.set_defaults(func=cmd_analyze)
     return parser
 
 

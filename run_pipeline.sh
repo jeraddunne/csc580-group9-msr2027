@@ -3,7 +3,7 @@
 #
 # Creates a virtual environment, installs the package, downloads the dataset
 # samples if they are missing, regenerates the exploratory tables and figures,
-# and runs the test suite. Safe to re-run; each step skips work already done.
+# runs the P-01 research analysis, and runs the test suite. Safe to re-run; each step skips work already done.
 #
 # Usage:
 #   ./run_pipeline.sh              # full run
@@ -53,6 +53,9 @@ fi
 
 log "Regenerating exploratory tables and figures"
 python -m msr_pipeline explore --dataset all
+
+log "Running the P-01 research analysis (several minutes)"
+python -m msr_pipeline analyze
 
 if [ "${SKIP_TESTS:-0}" != "1" ]; then
   log "Running the test suite"

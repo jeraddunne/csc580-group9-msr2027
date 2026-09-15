@@ -3,8 +3,8 @@
 Three parts:
 
 - **Part A** describes the source datasets as distributed (GitSkills and SpecMine).
-- **Part B** defines the project variables we derive from them. It is a
-  template until the topic vote closes and the research question is fixed.
+- **Part B** defines the variables derived for the P-01 research question
+  (`RESEARCH_QUESTION.md`).
 - **Part C** lists the derived tables the pipeline writes to `results/`.
 
 Every string is UTF-8; timestamps are ISO-8601 UTC unless stated. See
@@ -165,21 +165,68 @@ metadata references).
 
 ---
 
-## Part B. Project variables (fill in after the topic vote)
+## Part B. Project variables (P-01)
 
-One row per variable used in the analysis. Update this table in the same pull
-request that introduces the code computing the variable, and reference the
-row from `RESEARCH_QUESTION.md`.
+One row per variable used in the P-01 analysis (`python -m msr_pipeline analyze`).
+Update this table in the same pull request that changes the code computing the
+variable. `RESEARCH_QUESTION.md` section 6 references these rows. Threat ids
+(P1 to P8, N1, R5, and so on) refer to `THREATS_TO_VALIDITY.md`.
+
+### B.1 Unit, population, and flags
 
 | Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
 |---|---|---|---|---|---|---|
-| `unit_of_analysis` | TODO: e.g. one distinct skill content, one spec file, one repository | key | TODO | TODO | n/a | Decided in Sprint 1 planning |
-| `population` | TODO: which rows are in scope (filters on location, front matter, tool, dates) | filter | TODO | TODO | n/a | Document exclusions and counts |
-| `outcome_1` | TODO: primary outcome or quality proxy | numeric / boolean | TODO | TODO | TODO | Why this proxy is defensible |
-| `predictor_1` | TODO | numeric / categorical | TODO | TODO | TODO | Measurement error |
-| `predictor_2` | TODO | numeric / categorical | TODO | TODO | TODO | |
-| `control_1` | TODO: e.g. repository stars, age, language | numeric | TODO | TODO | TODO | Confounding |
-| `validation_label` | TODO: manual annotation label | categorical | `results/validation_sample.csv` | Manual protocol in `docs/` | n/a | Inter-rater agreement |
+| `file_sha` | Unit of analysis: one distinct skill content | key | `artifacts.file_sha` on the row with `dedup_primary = 1` | as distributed | n/a | Copies are an outcome, not separate units (N1) |
+| `has_content` | Representative text was fetched and is not empty | boolean | `artifacts.content` | stripped content is not empty | n/a | R2 |
+| `is_symlink_stub` | Content is a symlink target path, not instructions | boolean | `artifacts.content` | `skill_risk.is_symlink_stub`: a single stripped line under 200 characters, only word characters, `.`, `/`, space, or `-`, and containing `/` or ending in `.md` | n/a | R5; counts in `results/population_flow.csv` |
+| `in_main_population` | Included in the main analysis | boolean | derived | `has_content` and not `is_symlink_stub` | n/a | |
+| `frontmatter_valid` | YAML front matter parsed | boolean | `artifacts.frontmatter_valid` | value equals 1 (null counts as 0) | n/a | Sensitivity subset; E5 |
+
+### B.2 Risk signals (independent variables)
+
+| Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
+|---|---|---|---|---|---|---|
+| `rule_ids` | Active rules whose patterns match the content | list, `;`-joined | `artifacts.content`, `rules/skill_risk_rules.yaml` | `skill_risk.scan_contents` | rule ids | Keyword signal, not capability (P1) |
+| `categories` | Capability categories of all matching rules | list | derived from `rule_ids` | rule category lookup | category names | Includes context categories (SHELL, severity below 6) |
+| `max_severity` | Highest severity among matching rules | integer 0 to 10 | derived from `rule_ids` | maximum rule severity; 0 when no rule matches | severity score | Severity scale in `docs/research/THREAT_MODEL.md` |
+| `high_risk_categories` | Categories of matching rules with severity at or above the cutoff | list | derived from `rule_ids` | cutoff 6 (main); 5 and 7 via `analysis.with_severity_cutoff` | category names | Cutoff sensitivity in `results/sensitivity_summary.csv` |
+| `high_risk` | At least one high-risk category | boolean | derived | `high_risk_categories` is not empty | n/a | Primary independent variable for RQ2 |
+| script `rule_ids`, `high_risk` | Same signals for bundled script files | list, boolean | `artifact_siblings.content` (files with script extensions) | `skill_risk.scan_siblings` | n/a | Text only, never executed (R6) |
+
+### B.3 Outcomes
+
+| Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
+|---|---|---|---|---|---|---|
+| `copies` | Occurrences sharing the `file_sha` | count, at least 1 | `artifacts` | row count by `file_sha` | occurrences | RQ1 weight; RQ2 outcome; the NB2 model uses `copies - 1` (additional copies); heavy-tailed (N2) |
+| `repos` | Distinct repositories holding the `file_sha` | count, at least 1 | `artifacts.repo_full_name` | distinct count by `file_sha` | repositories | RQ2 secondary outcome; repository names are never written to outputs |
+| `content_share`, `occurrence_share` | Share of distinct contents or of occurrences with a signal | proportion | derived | count divided by main-population contents or occurrences | proportion | Wilson 95% interval on `content_share` |
+
+### B.4 Controls (RQ2 model)
+
+| Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
+|---|---|---|---|---|---|---|
+| `body_chars` | Body length after front matter | integer | `artifacts.body_chars` | `log1p` in the model | characters | |
+| `has_scripts` | Folder bundles scripts | boolean | `artifacts.has_scripts` | null treated as 0 | n/a | 10 nulls in the sample |
+| `location_class` | Canonical, skills-dir, or other | categorical | `artifacts.location_class` | dummy variables; the most frequent class is the baseline | n/a | |
+| `stars` | Stars of the representative's repository | integer | `repos.stars` joined on `artifacts.repo_full_name` | `log1p`; null treated as 0 | stars | Representative row only (P7); I1 |
+| `language` | Primary language of the representative's repository | categorical | `repos.language` | top 8 languages plus `other`; empty becomes `(none)`; the most frequent is the baseline | n/a | P7 |
+
+### B.5 Variants (RQ3)
+
+| Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
+|---|---|---|---|---|---|---|
+| `family` | Front-matter name used to group variants | text | `artifacts.name` | lower-cased and trimmed; empty names excluded | n/a | Generic names can group unrelated skills (P4) |
+| `similarity` | Lineage evidence between two variants | float 0 to 1 | `artifacts.content` | Jaccard similarity of hashed word 5-shingles (`skill_risk.shingles`, `jaccard`) | n/a | Pairs computed at 0.3, reported from 0.3 to 0.8, main threshold 0.5 (C2) |
+| `ordered` | Both variants have first-commit dates and they differ | boolean | `artifacts.first_commit_at` | when true, `a` is the older variant | n/a | Sparse history (P5, I3, I4) |
+| `only_in_a`, `only_in_b` | High-risk categories present only in variant a or only in b | list | derived | set difference of `high_risk_categories` | category names | When ordered, `only_in_b` means added in the newer variant |
+| `differs` | The two variants' high-risk categories differ | boolean | derived | | n/a | |
+| `is_template_family` | Family name is in the documented template list | boolean | derived | `analysis.TEMPLATE_FAMILIES` | n/a | Template inheritance (P2) |
+
+### B.6 Validation
+
+| Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
+|---|---|---|---|---|---|---|
+| `validation_label` | Manual label for a sampled rule match | categorical: risky in context, benign in context, not present | label files produced with the annotation kit | guideline in `docs/validation/` | n/a | Single annotator with intra-rater kappa (P6, N5) |
 
 Conventions:
 
@@ -216,6 +263,32 @@ Produced by `python -m msr_pipeline risk-pilot` from the GitSkills sample. Signa
 | `pilot_skill_risk_siblings_summary.csv` | one row per metric | `metric`, `value` | `skill_risk.sibling_summary` |
 
 Definitions: `contents` counts distinct `file_sha` values; `occurrences` counts every copy; a signal is *high risk* when a matching rule has severity 6 or more. In `family_pairs`, when `ordered` is true, `a` has the older `first_commit_at`, so `only_in_b` lists high-risk categories the newer variant added. The stratified validation sample is written to `results/tmp/` and is not committed.
+
+### P-01 research analysis tables
+
+Produced by `python -m msr_pipeline analyze` (module `analysis`) from the GitSkills sample, on the main population unless stated. Signals are keyword matches from `rules/skill_risk_rules.yaml`; precision is established separately by validation. Outputs contain no repository or account names. `ANALYSIS_MANIFEST.json` records the run: database and rule-file hashes, seed, package versions, row counts, and runtime.
+
+| File | Grain | Columns | Produced by |
+|---|---|---|---|
+| `population_flow.csv` | one row per inclusion step | `step`, `description`, `distinct_contents`, `occurrences` | `analysis.population_flow` |
+| `rq1_prevalence_by_rule.csv` | one row per rule, plus `ANY_HIGH_RISK` | `rule_id`, `category`, `severity`, `contents`, `content_share`, `occurrences`, `occurrence_share`, `content_ci_low`, `content_ci_high` | `analysis.rq1_tables` |
+| `rq1_prevalence_by_category.csv` | one row per capability category | `category`, `max_rule_severity`, `contents`, `content_share`, `occurrences`, `occurrence_share`, `content_ci_low`, `content_ci_high`, `high_risk_contents`, `high_risk_share`, `high_risk_ci_low`, `high_risk_ci_high`, `high_risk_occurrences`, `high_risk_occurrence_share` (high-risk rules only) | `analysis.rq1_tables` |
+| `rq2_reach_summary.csv` | two rows: with and without a high-risk signal | `group`, `contents`, `occurrences`, `mean_copies`, `median_copies`, `share_copied_2plus`, `share_copied_5plus`, `share_copied_10plus`, `share_cross_repo`, `max_copies` | `analysis.rq2_reach_summary` |
+| `rq2_mannwhitney.csv` | one row per outcome (`copies`, `repos`) | `outcome`, `group`, `n_group`, `n_reference`, `median_group`, `median_reference`, `mean_group`, `mean_reference`, `u_statistic`, `p_value`, `rank_biserial`, `status` | `analysis.rq2_mannwhitney` |
+| `rq2_bootstrap.csv` | one row per bootstrapped difference | `metric`, `estimate`, `ci_low`, `ci_high`, `n_boot`, `seed`, `status` | `analysis.rq2_bootstrap` |
+| `rq2_negbin.csv` | one row per model term (including `alpha`), or one `not estimable` row | `term`, `coef`, `irr`, `irr_ci_low`, `irr_ci_high`, `p_value`, `n`, `status`, `note` | `analysis.rq2_negbin` |
+| `rq2_category_tests.csv` | one row per high-risk category | `category`, `contents`, `reference_contents`, `tested`, `mean_copies`, `reference_mean_copies`, `u_statistic`, `p_value`, `rank_biserial`, `p_holm`, `significant_holm_05` | `analysis.rq2_category_tests` |
+| `rq3_threshold_sweep.csv` | one row per similarity threshold (0.3 to 0.8) | `threshold`, `lineage_pairs`, `families`, `differing_pairs`, `families_with_differences`, `ordered_pairs`, `ordered_newer_adds`, `ordered_newer_drops` | `analysis.threshold_sweep` |
+| `rq3_summary.csv` | two rows: all families, excluding template families (threshold 0.5) | `scope`, `threshold`, then the sweep counts | `analysis.rq3_summary` |
+| `rq3_lineage_pairs.csv` | one row per same-name pair with similarity of at least 0.5 | `family`, `file_sha_a`, `file_sha_b`, `similarity`, `ordered`, `only_in_a`, `only_in_b`, `differs`, `is_template_family` | `skill_risk.family_pairs`, `analysis.mark_templates` |
+| `rq3_differing_pairs.csv` | lineage pairs whose high-risk categories differ | same as `rq3_lineage_pairs.csv` | `analysis.run_analysis` |
+| `scripts_summary.csv` | one row per metric | `metric`, `value` (includes `script_files_high_risk_<CATEGORY>`) | `analysis.scripts_summary` |
+| `sensitivity_summary.csv` | one row per scenario (main; severity cutoff 5; cutoff 7; front-matter-valid subset; excluding the 10 most-copied contents; excluding template families) | `scenario`, `contents`, `high_risk_contents`, `high_risk_share`, `share_ci_low`, `share_ci_high`, `mean_copies_high_risk`, `mean_copies_other`, `mean_copies_ratio`, `mwu_p_copies`, `rank_biserial_copies` | `analysis.sensitivity_summary` |
+| `ANALYSIS_MANIFEST.json` | one object per run | `generated_at`, `command`, `seed`, `gitskills_db`, `gitskills_db_sha256_from_manifest`, `rules_file`, `rules_file_sha256`, `rules_active`, `high_risk_severity_cutoff`, `main_similarity_threshold`, `row_counts`, `versions`, `outputs`, `runtime_seconds` | `analysis.run_analysis` |
+
+Figures: `rq1_prevalence_by_category.png` (shares with 95% Wilson intervals), `rq2_copies_by_group.png` (share copied 2, 5, and 10 or more times by group), `rq3_threshold_sweep.png` (pair counts by threshold).
+
+Statistical definitions: Wilson score intervals at 95%; Mann-Whitney U is two-sided, with rank-biserial correlation `2U / (n1 n2) - 1`, positive when the high-risk group tends to have more copies; the bootstrap uses 2,000 independent resamples per group with seed 580 and percentile intervals; NB2 is `statsmodels` discrete `NegativeBinomial` on `copies - 1`, reported as incidence rate ratios; per-category p-values use the Holm step-down adjustment.
 
 Each explore CSV has a same-named PNG bar chart in `figures/`; the pilot draws `pilot_skill_risk_categories.png`. Topic-specific tables
 will be added here as the analysis grows; the rule is one row in this table

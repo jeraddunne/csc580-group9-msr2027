@@ -5,7 +5,7 @@
 | Proposer | Jerad Dunne (@jeraddunne) |
 | Based on | Rubric question 4, *Skill security and supply-chain risk*, using the similarity method from question 1, *Skill reuse and propagation* |
 | Dataset | GitSkills sample, July 2026 snapshot (`agent_skills_sample.db`, sha256 `683888c9...`, upstream commit `fff3df9`) |
-| Status | Submitted for the topic vote, 2026-09-14, as issue [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) |
+| Status | Selected 2026-09-14 (ADR-0004). Background statements in section 4 confirmed by the proposer on 2026-09-14. Issue [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) |
 | Pilot | `python -m msr_pipeline risk-pilot` (results in `results/pilot_skill_risk_*.csv`) |
 
 ## 1. Summary

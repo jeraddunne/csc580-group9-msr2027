@@ -1,11 +1,12 @@
 name: "Project proposal"
-description: "Propose a research topic for the team vote (Formation phase). One per proposal."
+description: "Closed: topic P-01 was selected on 2026-09-14 (ADR-0004, ADR-0005). Kept for the record."
 title: "[Proposal] "
 labels: ["proposal", "type:research"]
 body:
   - type: markdown
     attributes:
       value: |
+        **Proposals are closed.** Topic P-01 was selected on 2026-09-14 (ADR-0004, ADR-0005); this form is kept for the record.
         Thanks for proposing. Read `docs/proposals/00-candidate-questions.md` and both dataset READMEs first.
         Proposals are due **2026-09-14 23:59**. Voting runs **2026-09-15** (see `docs/proposals/votes/README.md`).
         You may propose a rubric question as written, a refinement, or an equivalent question grounded in the datasets.

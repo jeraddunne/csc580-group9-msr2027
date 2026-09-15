@@ -13,17 +13,26 @@ This is the authoritative list of what the team measures. Every KPI here is emit
 | Throughput | `kpis.throughput_per_week` | issues closed per week | none (trend only) | info |
 | WIP | `kpis.wip` | open in-progress issues | <= `wip_limit` (5) | ok if <= limit |
 | Blocked time | `kpis.blocked_time_days` | days (total and mean) | none (trend only) | info |
-| PR first-review turnaround | `kpis.pr_first_review_hours` | hours (median) | <= 48 | ok if median <= target |
-| PR merge turnaround | `kpis.pr_merge_hours` | hours (median) | <= 96 | ok if median <= target |
+| PR first-review turnaround (not applicable solo) | `kpis.pr_first_review_hours` | hours (median) | not used solo (was <= 48) | info only |
+| PR open-to-merge cycle time | `kpis.pr_merge_hours` | hours (median) | <= 48 (solo; was <= 96) | ok if median <= target |
+| Self-review cooling-off compliance | none yet (computed at the sprint review) | ratio | 1.0 | ok if every non-trivial merged PR waited at least 12 hours |
 | First-time-right | `kpis.first_time_right` | ratio | >= 0.75 | ok if >= target |
 | Rework ratio | `kpis.rework_ratio` | ratio | <= 0.15 | ok if <= max |
 | Defect count | `kpis.defect_count` | count | none (trend only) | info |
 | CI pass rate | `kpis.ci_pass_rate` | ratio | >= 0.90 | ok if >= target |
-| Contribution balance | `kpis.contribution_gini` and `contribution.*` | Gini, shares | each share in [0.15, 0.45] | warn if any member outside |
+| Contribution balance (retired solo) | `kpis.contribution_gini` and `contribution.*` | Gini, shares | band set to [0.0, 1.0] solo | not used |
 | Kaizen closure rate | `kpis.kaizen_closure_rate` | ratio | >= 0.70 (informational until Sprint 3) | ok if >= 0.70 |
 | Reproducibility check | `kpis.reproducibility_check` | pass / fail / nodata | pass | ok if pass |
 
 Status values used in the dashboard: `ok`, `warn`, `info`, `nodata`. A `warn` on a targeted KPI is reviewed at the Thursday check-in; two consecutive weeks of `warn` on the same KPI require a 5 Whys.
+
+## Solo adaptations (ADR-0005)
+
+The project is run solo by Jerad Dunne, who holds every owner role named below.
+
+- **Not applicable:** PR first-review turnaround (there is no second reviewer) and contribution balance (one member always holds 100 percent). The script still emits both; they are not acted on.
+- **Added:** PR open-to-merge cycle time (the existing `pr_merge_hours` value with a 48-hour target in `project.yml`) and self-review cooling-off compliance, which the script does not emit yet and which is computed at each sprint review from PR `created_at` and `merged_at`.
+- **First-time-right** stays, but in a solo project a `CHANGES_REQUESTED` review only comes from an external reviewer, so it is read together with the self-review comments.
 
 ## Definitions
 
@@ -78,11 +87,19 @@ Status values used in the dashboard: `ok`, `warn`, `info`, `nodata`. A `warn` on
 - **Control chart.** XmR individuals chart in PR creation order.
 - **Target.** median <= 48 hours. **Owner.** Scrum Master.
 - **Signal action.** Above target for two weeks: enforce the review SLA in the charter and rotate reviewer duty.
+- **Solo (ADR-0005).** Not applicable. Reviews appear only when an external reviewer (instructor or classmate) is requested; they are reported but not targeted.
 
-### PR merge turnaround
+### PR open-to-merge cycle time (PR merge turnaround)
 - **Definition.** Hours from PR creation to merge.
 - **Formula.** `(merged_at - created_at) / 1 hour`, median and mean over merged PRs.
-- **Target.** median <= 96 hours. **Owner.** Scrum Master.
+- **Target.** median <= 48 hours (solo target in `project.yml`; the group target was 96). The median cannot usefully fall below the 12-hour cooling-off period. **Owner.** Scrum Master.
+- **Signal action.** Above target for two weeks: PRs are too large or reviews are being postponed; split PRs and schedule self-review time.
+
+### Self-review cooling-off compliance
+- **Definition.** Share of merged PRs that were merged at least 12 hours after they were opened, excluding PRs marked "trivial".
+- **Formula.** `count(merged_at - created_at >= 12 hours) / count(non-trivial merged PRs)`. Not emitted by `scripts/lss_metrics.py` yet; computed at each sprint review from the PR list (`gh pr list --state merged --json number,createdAt,mergedAt,title`).
+- **Target.** 1.0. **Owner.** Scrum Master.
+- **Signal action.** Any miss is noted in the retrospective with the reason; two misses in a sprint trigger a 5 Whys on review discipline.
 
 ### First-time-right rate
 - **Definition.** Share of merged PRs that were approved without any `CHANGES_REQUESTED` review.
@@ -113,6 +130,7 @@ Status values used in the dashboard: `ok`, `warn`, `info`, `nodata`. A `warn` on
 - **Target.** Every member `share_overall` in [0.15, 0.45]; `flag` is set on members outside the band.
 - **Owner.** Scrum Master.
 - **Signal action.** A flagged member is a conversation at the Thursday check-in about rebalancing assignments, not a judgment.
+- **Solo (ADR-0005).** Retired. With one member the share is always 1.0; `project.yml` sets the band to [0.0, 1.0] so no flag is raised.
 
 ### Kaizen closure rate
 - **Definition.** Share of process-improvement items that were completed.
@@ -129,10 +147,10 @@ Status values used in the dashboard: `ok`, `warn`, `info`, `nodata`. A `warn` on
 
 | When | Who | What is read |
 |---|---|---|
-| Monday | Scrum Master | Merge the weekly metrics PR, note any `warn` |
-| Thursday check-in | Whole team, 15 minutes | KPI table, run-rule signals, open blockers, contribution flags |
-| Sprint review | Whole team | Sprint summary table (velocity, reliability, added after planning) |
-| Retrospective | Whole team | Two-week trend of any `warn`, waste log, kaizen closure |
+| Monday | Jerad Dunne | Merge the weekly metrics PR, note any `warn` |
+| Thursday check-in | Jerad Dunne, 15 minutes | KPI table, run-rule signals, open blockers |
+| Sprint review | Jerad Dunne | Sprint summary table (velocity, reliability, added after planning) |
+| Retrospective | Jerad Dunne | Two-week trend of any `warn`, waste log, kaizen closure |
 
 ## Data window
 

@@ -1,61 +1,64 @@
-# Group 9: Mining AI-Native Software Engineering
+# Mining AI-Native Software Engineering: Risky Capabilities in Copied Agent Skills
 
 [![CI](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/ci.yml/badge.svg)](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/ci.yml)
 [![LSS metrics](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/lss-metrics.yml/badge.svg)](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/lss-metrics.yml)
 
-An MSR 2027 Mining Challenge-inspired semester project for SWE 380 / CSC 580 (University of Michigan-Flint, instructor Prof. Mohamed Wiem Mkaouer). We select one research question about AI-native software-engineering artifacts, build a reproducible mining and analysis pipeline over the [GitSkills](https://github.com/giuseppedestefanis/gitskills-sample) and/or [SpecMine](https://github.com/shyamagarwal13/specmine-official) datasets, and report evidence-based findings.
+An MSR 2027 Mining Challenge-inspired semester project for SWE 380 / CSC 580 (University of Michigan-Flint, instructor Prof. Mohamed Wiem Mkaouer). It builds a reproducible, static, rule-based analysis of risk-relevant capabilities in agent skills from the [GitSkills](https://github.com/giuseppedestefanis/gitskills-sample) dataset and reports evidence-based findings. Loaders for [SpecMine](https://github.com/shyamagarwal13/specmine-official) remain available but are not used by the selected question.
 
-The repository is run with **Scrum** (three sprints, as the assignment requires) and tracked with a **Lean Six Sigma** overlay (DMAIC tollgates, KPIs with control charts, FMEA risk register, kaizen loop). See `docs/PROCESS.md`.
+The project is run solo with **Scrum** (three sprints, as the assignment requires) and a **Lean Six Sigma** overlay (DMAIC tollgates, KPIs with control charts, FMEA risk register, kaizen loop). See `docs/PROCESS.md`.
 
-## Team
+## Author
 
-| Member | GitHub | Sprint 1 role |
+| Name | GitHub | Roles |
 |---|---|---|
-| Leticia Aderhold | _pending onboarding_ | Scrum Master |
-| Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | Product Owner |
-| Allie Hodges | _pending onboarding_ | Developer / Researcher |
-| Hina Kramer | _pending onboarding_ | Developer / Researcher |
+| Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | Product Owner, Scrum Master, Developer / Researcher (every sprint) |
 
-Roles rotate every sprint (`TEAM_CHARTER.md` section 3). Everyone is a Developer / Researcher every sprint.
+The repository was created on 2026-09-13 for a four-person Group 9 and became a solo project on 2026-09-14. The assignment describes groups of three to five, and the student confirmed on 2026-09-14 that a solo project is permitted, as recorded in `docs/decisions/ADR-0005-solo-execution.md`.
+
+## Research question
+
+Proposal P-01 was selected on 2026-09-14 (`docs/decisions/ADR-0004-topic-selection.md`, issue #41):
+
+> In the GitSkills July 2026 sample, how prevalent are skill instructions and bundled scripts that enable risk-relevant capabilities, do skills carrying them reach more repositories through verbatim copying, and do modified variants of the same skill add or remove those capabilities?
+
+The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ3). Details are in `RESEARCH_QUESTION.md` and `docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md`.
 
 ## Project status
 
 | Phase | Dates | Status |
 |---|---|---|
-| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: proposals due Sep 14, vote closes Sep 15, decision Sep 16 |
+| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: topic selected (P-01, ADR-0004); solo execution confirmed as permitted (ADR-0005) |
 | Sprint 1 (Measure) | Sep 17 to Oct 7 | not started |
 | Sprint 2 (Analyze) | Oct 8 to Oct 28 | not started |
 | Sprint 3 (Improve) | Oct 29 to Nov 18 | not started |
 | Finalization (Control) | Nov 30 to Dec 4 | not started |
 
-Research question: **not yet selected**. See `RESEARCH_QUESTION.md` and `docs/proposals/README.md`.
+## Start here (reader or grader)
 
-## New member? Start here
-
-1. Read `docs/GETTING_STARTED.md` (15 minutes).
-2. Open a **Team member onboarding** issue (Issues > New issue).
-3. Sign `TEAM_CHARTER.md` and add your profile under `docs/team/` in your first pull request.
-4. Propose a topic with the **Project proposal** issue form, then cast your ballot (`docs/proposals/votes/README.md`).
-5. Bookmark the team workspace, `docs/workspace/README.md`: sign up for work, log findings, and see what the team decided.
+1. `RESEARCH_QUESTION.md` and the P-01 proposal: what is asked and why.
+2. `docs/GETTING_STARTED.md`: reproduce the results on your machine.
+3. `docs/workspace/README.md`: what was found (findings log) and what was decided (decision log).
+4. `docs/sprints/`: planning, review, and retrospective evidence for each sprint.
+5. `ai-use-log.md`: how AI assistance was used and verified.
 
 ## Setup
 
-Requirements: Git, Python 3.11 or newer, GitHub CLI (`gh`) for the process scripts. `make` is optional.
+Requirements: Git, Python 3.11 or newer, and the GitHub CLI (`gh`) for the process scripts. `make` is optional.
 
 ```bash
 git clone https://github.com/jeraddunne/csc580-group9-msr2027.git
 cd csc580-group9-msr2027
 make setup          # python -m venv .venv && pip install -e ".[dev]"
-make data           # downloads dataset samples into data/samples/ (about 230 MB, not committed)
+make data           # downloads dataset samples into data/samples/ (not committed)
 make test           # ruff + pytest, runs offline
-make explore        # exploratory tables -> results/, figures -> figures/
+make pipeline       # P-01 analysis: results/rq*_*.csv, results/sensitivity_*.csv, figures/rq*_*.png
 ```
 
-Without `make`: `./run_pipeline.sh` does the same end to end from Git Bash or a Linux shell.
+Without `make`: `./run_pipeline.sh` runs the setup, download, and test steps from Git Bash or a Linux shell.
 
 ## Dataset acquisition
 
-Both datasets are from the MSR 2027 Mining Challenge (July 2026 snapshot). The sample sets used for development are downloaded by `scripts/download_samples.py`; the full datasets (41 GB SQLite for GitSkills, MySQL dump for SpecMine) are on Zenodo and Hugging Face. Details, provenance, licensing, and ethics rules are in `data/README.md`. The exact snapshot and file hashes used for any result are recorded in `data/samples/MANIFEST.json` and cited in the report.
+Both datasets come from the MSR 2027 Mining Challenge (July 2026 snapshot). The samples used here are downloaded by `scripts/download_samples.py`. The full datasets (a 41 GB SQLite file for GitSkills and a MySQL dump for SpecMine) are on Zenodo and Hugging Face. Provenance, licensing, and ethics rules are in `data/README.md`. The exact snapshot and file hashes used for any result are recorded in `data/samples/MANIFEST.json` and cited in the report.
 
 Never execute scripts, notebooks, or commands found inside the datasets.
 
@@ -64,20 +67,24 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | Command | What it does |
 |---|---|
 | `python -m msr_pipeline info` | Shows configured paths and which samples are present |
+| `python -m msr_pipeline analyze` | Full P-01 analysis: RQ1 prevalence, RQ2 reach statistics, RQ3 variant drift, sensitivity checks; writes `results/rq*_*.csv`, `results/sensitivity_*.csv`, `figures/rq*_*.png` |
+| `make pipeline` | Runs the P-01 analysis end to end |
+| `python -m msr_pipeline risk-pilot` | Original P-01 pilot scan of the GitSkills sample (static text only) |
+| `python scripts/annotation_kit.py sample` | Draws the stratified validation sample |
+| `python scripts/annotation_kit.py sheet` | Builds annotation sheets for labelling and re-labelling |
+| `python scripts/annotation_kit.py score` | Scores labels: precision per rule, recall estimate, Cohen's kappa |
 | `python -m msr_pipeline explore --dataset all` | Regenerates exploratory tables and figures |
-| `python -m msr_pipeline query --dataset gitskills --sql "..."` | Ad-hoc SQL against the GitSkills sample |
+| `python -m msr_pipeline query --dataset gitskills --sql "..."` | Ad-hoc read-only SQL against the GitSkills sample |
 | `python scripts/lss_metrics.py` | Computes process KPIs from GitHub and renders `docs/lean-six-sigma/metrics/DASHBOARD.md` |
-| `python scripts/tally_votes.py` | Tallies topic ballots into `docs/proposals/RESULTS.md` |
-| `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from sign-up, finding, and decision issues |
-| `python -m msr_pipeline risk-pilot` | Proposal P-01 pilot: rule-based risk signals in the GitSkills sample (static text only) |
+| `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from finding and decision issues |
 | `make reproduce` | Fresh end-to-end run: data, explore, test |
 
-The core research pipeline for the selected question will be added under `src/msr_pipeline/` in Sprint 1 and documented here.
+Retired: `python scripts/tally_votes.py` (topic vote, superseded by ADR-0005).
 
 ## Outputs
 
-- `results/` tables (CSV) generated by code
-- `figures/` figures (PNG/SVG) generated by code
+- `results/` tables (CSV) generated by code, including `rq*_*.csv` and `sensitivity_*.csv`
+- `figures/` figures (PNG) generated by code
 - `report/draft.md` living report; `report/final.pdf` attached to the release
 - `docs/lean-six-sigma/metrics/DASHBOARD.md` weekly process metrics
 
@@ -86,38 +93,44 @@ The core research pipeline for the selected question will be added under `src/ms
 ```
 .
 ├── README.md, RESEARCH_QUESTION.md, DATA_DICTIONARY.md, THREATS_TO_VALIDITY.md
-├── TEAM_CHARTER.md, PROJECT_PLAN.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, LICENSE
+├── TEAM_CHARTER.md (solo working agreement), PROJECT_PLAN.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, LICENSE
 ├── ai-use-log.md                 AI assistance disclosure log (required by the rubric)
-├── project.yml                   single source of truth: team, dates, roles, KPI targets
+├── project.yml                   single source of truth: author, dates, roles, KPI targets
 ├── pyproject.toml, requirements*.txt, Makefile, run_pipeline.sh
-├── src/msr_pipeline/             loaders, exploration, voting, metrics, CLI
+├── src/msr_pipeline/             loaders, scanner, analysis, metrics, CLI
 ├── tests/                        offline unit tests
-├── scripts/                      download_samples, bootstrap_github, tally_votes, lss_metrics, workspace_digest, ...
-├── rules/                        reviewable rule files (P-01 pilot risk-signal rules)
+├── scripts/                      download_samples, annotation_kit, bootstrap_github, lss_metrics, workspace_digest, ...
+├── rules/                        reviewable rule files (P-01 risk-signal rules)
 ├── notebooks/                    exploratory notebooks (never the sole source of a result)
 ├── data/README.md, data/samples/ dataset docs; samples downloaded, not committed
 ├── results/, figures/            generated evidence
 ├── report/                       draft.md, references.bib, build instructions
 ├── docs/
 │   ├── GETTING_STARTED.md, PROCESS.md, PRESENTATION_PLAN.md
-│   ├── workspace/                team hub: work sign-up, findings log, decision log, digest
+│   ├── workspace/                findings log, decision log, solo workstream plan, digest
+│   ├── research/                 threat model and research notes
+│   ├── validation/               annotation guideline and validation protocol
 │   ├── sprints/                  planning, review, retrospective per sprint
-│   ├── proposals/                candidate questions, proposal template, ballots, results
+│   ├── proposals/                candidate questions, P-01 proposal, retired vote
 │   ├── lean-six-sigma/           DMAIC, KPIs, SIPOC/CTQ, VSM, FMEA, waste log, kaizen, metrics/
 │   ├── decisions/                architecture and process decision records (ADRs)
-│   ├── meeting-notes/            stand-ups, check-ins, reviews, retros
-│   ├── team/                     member profiles, RACI
+│   ├── meeting-notes/            work logs, check-ins, reviews, retros
+│   ├── team/                     author profile (RACI retired)
 │   └── reflections/              individual contribution and reflection
-└── .github/                      issue forms, PR template, CI, metrics and voting workflows
+└── .github/                      issue forms, PR template, CI, metrics workflows
 ```
 
 ## Process in one paragraph
 
-Work is tracked as GitHub issues on the Group 9 project board (Todo, In progress, Done, Block, Cancelled; WIP limit 5). Sprints run Thursday to Wednesday with planning on day one, written stand-ups Monday/Wednesday/Friday, a Thursday check-in where the weekly metrics PR is reviewed, and a review plus retrospective on the last Wednesday. Every retrospective starts from data, finds a root cause, and produces `kaizen` issues. Decisions are recorded as ADRs in `docs/decisions/`. Nothing merges to `main` without a review by another member and a green CI run.
+Work is tracked as GitHub issues on the project board (Todo, In progress, Done, Block, Cancelled; WIP limit 5). Sprints run Thursday to Wednesday, with written planning on day one, a short work log on Monday, Wednesday, and Friday, a Thursday self check-in with the metrics dashboard, and a review plus retrospective on the last Wednesday. Every retrospective starts from data, finds a root cause, and produces `kaizen` issues. Decisions are recorded in `docs/workspace/DECISION_LOG.md` and, when significant, as ADRs. Every change reaches `main` through a pull request that passes a self-review after a cooling-off period of at least 12 hours, and a green CI run once workflows are enabled. Major pull requests may request an external review from the instructor or a classmate.
+
+## Repository visibility
+
+The repository is public. If it is made private during development, branch protection needs GitHub Pro (free with the GitHub Student Developer Pack), and the instructor must be invited as a collaborator.
 
 ## Limitations
 
-To be completed as the project progresses. Known dataset limitations are already listed in `THREATS_TO_VALIDITY.md`.
+To be completed as the project progresses. Known dataset limitations are already listed in `THREATS_TO_VALIDITY.md`. The solo-specific limits (self-review instead of peer review, single-annotator validation) are described in ADR-0005.
 
 ## Citation
 

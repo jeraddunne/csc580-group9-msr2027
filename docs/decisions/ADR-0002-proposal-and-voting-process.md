@@ -1,6 +1,6 @@
 # ADR-0002: Select the topic by proposal issues and a ranked ballot
 
-- **Status:** Accepted
+- **Status:** Superseded by ADR-0005 (2026-09-14). The project became solo, so no vote was held; P-01 was selected directly (ADR-0004).
 - **Date:** 2026-09-13
 - **Deciders:** Jerad Dunne (proposed); ratified by use during Formation
 - **Decision issue:** Formation issue "Topic proposals submitted"

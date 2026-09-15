@@ -1,9 +1,8 @@
 # Sprint 1 retrospective
 
-How to use: the Scrum Master facilitates on Wed 2026-10-07 right after the review. Data first, then discussion, then root cause, then actions. Every action becomes a `kaizen` issue and a row in `docs/lean-six-sigma/KAIZEN_BACKLOG.md`. The rubric requires this retrospective to explain what the group learned and what changed in the backlog.
+How to use: run on Wed 2026-10-07 right after the review. Data first, then reflection, then root cause, then actions. Every action becomes a `kaizen` issue and a row in `docs/lean-six-sigma/KAIZEN_BACKLOG.md`. The rubric requires this retrospective to explain what was learned and what changed in the backlog.
 
-Date: 2026-10-07. Facilitator: Leticia Aderhold.
-Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer
+Date: 2026-10-07. Facilitator: Jerad Dunne (solo, ADR-0005).
 
 ## 1. Data first
 
@@ -13,12 +12,12 @@ Paste the Sprint 1 rows from `docs/lean-six-sigma/metrics/DASHBOARD.md`. Compare
 |---|---|---|---|---|
 | Points completed / planned | | | | |
 | Median issue cycle time (days) | | | | |
-| Median PR review turnaround (hours) | | | | |
-| PRs merged without cross-member review | 0 | | | |
+| Median PR open-to-merge time (hours) | 48 | | | |
+| PRs merged before 12 hours of cooling-off (not marked trivial) | 0 | | | |
 | CI pass rate on main | | | | |
 | Rework items (`rework` label) | | | | |
-| Stand-ups posted / expected | | | | |
-| Hours logged per member (min / max) | | | | |
+| Work-log entries posted / expected | | | | |
+| Hours logged (planned / actual) | | | | |
 
 ## 2. What went well
 
@@ -49,16 +48,16 @@ Use `docs/lean-six-sigma/ROOT_CAUSE_TEMPLATE.md` for the long form. Pick the sin
 
 ## 6. Kaizen actions
 
-| Action | Owner | Kaizen issue # | Due | How we will know it worked |
-|---|---|---|---|---|
-| | | | | |
-| | | | | |
+| Action | Kaizen issue # | Due | How I will know it worked |
+|---|---|---|---|
+| | | | |
+| | | | |
 
-## 7. What we learned (rubric)
+## 7. What I learned (rubric)
 
-- About the datasets:
+- About the dataset:
 - About the research question:
-- About working together:
+- About working solo (workload, focus, review quality):
 
 ## 8. Changes recorded (rubric)
 

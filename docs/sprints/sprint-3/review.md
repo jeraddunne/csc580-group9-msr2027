@@ -1,9 +1,9 @@
 # Sprint 3 review: analysis, integration, and communication
 
-How to use: the Product Owner runs the review on Wed 2026-11-18. Every rubric bullet must have a link to evidence in this repository. Rubric weight: 25%.
+How to use: run the review on Wed 2026-11-18 as Product Owner. Every rubric bullet must link to evidence in this repository. Rubric weight: 25%.
 
-Date: 2026-11-18. Product Owner: Leticia Aderhold. Scrum Master: Jerad Dunne.
-Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer [ ] Instructor (if present)
+Date: 2026-11-18. Product Owner and Scrum Master: Jerad Dunne (solo, ADR-0005).
+Present: [ ] Jerad Dunne [ ] Instructor or external reviewer (if present)
 
 ## Sprint goal check
 
@@ -41,30 +41,30 @@ The Sprint 3 review must include:
 
 ## Demo script (15 minutes, rehearsal for the final)
 
-1. Question and why it matters (1 min). Presenter:
-2. Data: snapshot, sample, unit of analysis, key variables (2 min). Presenter:
-3. Live: fresh clone, `make pipeline`, `make figures` (4 min). Presenter:
-4. Results: main table, main figure, robustness check (4 min). Presenter:
-5. Error analysis and limitations (2 min). Presenter:
-6. Process story: velocity, cycle time, and the biggest process improvement with numbers (2 min). Presenter:
+1. Question and why it matters (1 min).
+2. Data: snapshot, sample, unit of analysis, key variables (2 min).
+3. Live: fresh clone, `make pipeline`, `make figures` (4 min).
+4. Results: main table, main figure, robustness check (4 min).
+5. Error analysis and limitations, including the solo validation and review substitutes (2 min).
+6. Process story: velocity, cycle time, and the biggest process improvement with numbers (2 min).
 
 ## Gemba walk: fresh-clone reproduction record
 
 | Field | Value |
 |---|---|
-| Who (did not write the pipeline) | |
+| Who and environment (external person if available; README only, no help) | |
 | Date | |
 | Tag or commit SHA | |
-| Steps followed (from README only, no help) | |
+| Steps followed | |
 | Time to primary result (minutes) | |
 | Result matched committed output | yes / no |
 | Problems found (open issues) | |
 
 ## Instructor feedback
 
-| Feedback | Action | Issue # | Owner | Due (finalization) |
-|---|---|---|---|---|
-| | | | | |
+| Feedback | Action | Issue # | Due (finalization) |
+|---|---|---|---|
+| | | | |
 
 ## Velocity and KPIs at review
 
@@ -72,9 +72,10 @@ The Sprint 3 review must include:
 |---|---|---|---|
 | Points planned / completed | | | |
 | Issues closed | | | |
-| PRs merged / reviewed by a different member | | | |
+| PRs merged / merged after at least 12 hours of cooling-off | | | |
+| External reviews obtained | | | |
 | Median cycle time (days) | | | |
-| Median review turnaround (hours) | | | |
+| Median PR open-to-merge time (hours) | | | |
 | CI pass rate | | | |
 | Rework items | | | |
 | Test count / coverage | | | |

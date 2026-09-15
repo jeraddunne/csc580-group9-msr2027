@@ -1,182 +1,184 @@
 # Project Plan
 
-**Group 9, SWE 380 / CSC 580, Fall 2026**
-**Version 1.0, 2026-09-13.** Living document, revised at every sprint retrospective; changes recorded in `docs/decisions/`.
+**SWE 380 / CSC 580, Group 9 (solo), Fall 2026**
+**Version 2.0, 2026-09-14.** Living document, revised at every sprint retrospective; changes recorded in `docs/workspace/DECISION_LOG.md` and `docs/decisions/`. Version 1.0 (the four-person plan) is in git history.
 
 ## 1. Overview
 
 | Item | Value |
 |---|---|
 | Project | Mining AI-Native Software Engineering: An MSR 2027 Challenge-Inspired Project |
+| Topic | P-01: Risky capabilities in copied agent skills: prevalence, reach, and drift (ADR-0004, issue #41) |
 | Sponsor / customer | Prof. Mohamed Wiem Mkaouer (instructor); secondary audience: MSR community |
-| Team | Leticia Aderhold, Jerad Dunne, Allie Hodges, Hina Kramer |
-| Method | Scrum (3 sprints of 3 weeks + formation + finalization) with a Lean Six Sigma overlay (DMAIC) |
-| Datasets | GitSkills and/or SpecMine (MSR 2027 Mining Challenge, July 2026 snapshot) |
+| Team | Jerad Dunne, solo (ADR-0005) |
+| Method | Scrum (3 sprints of 3 weeks, plus formation and finalization) with a Lean Six Sigma overlay (DMAIC) |
+| Dataset | GitSkills sample (MSR 2027 Mining Challenge, July 2026 snapshot) |
 | Repository | https://github.com/jeraddunne/csc580-group9-msr2027 |
-| Final deliverables | Research report, reproducible repository release, working prototype, final demonstration, individual reflections |
+| Final deliverables | Research report, reproducible repository release, working prototype, final demonstration, individual reflection |
 
 ### Objectives
 
-1. Select an implementation-oriented research question inspired by the MSR 2027 Mining Challenge by 2026-09-16.
-2. Deliver a working, tested, reproducible pipeline that answers it with validated evidence by 2026-11-18.
+1. Complete `RESEARCH_QUESTION.md` from P-01 and submit the topic brief, including the request to confirm solo execution, by 2026-09-16.
+2. Deliver a working, tested, reproducible pipeline that answers RQ1 to RQ3 with validated evidence by 2026-11-18.
 3. Communicate method, evidence, results, limitations, and implications in a report and demonstration by 2026-12-04.
-4. Make the process itself measurable and improving: every sprint's KPIs are reviewed, and at least one process improvement per sprint is implemented and verified.
+4. Make the process measurable and improving: every sprint's KPIs are reviewed, and at least one process improvement per sprint is implemented and verified.
 
 ## 2. Scope
 
-**In scope:** one research question (rubric Part I or an approved equivalent); the required implementation component and minimum evidence for that question; data loading, extraction, analysis, validation, visualization; automated tests; a data dictionary; threats to validity; the report; the presentation; full Scrum and LSS process records in GitHub.
+**In scope:** the P-01 research question (RQ1 prevalence, RQ2 reach, RQ3 variant drift) on the GitSkills sample; a static rule-based scanner of SKILL.md text and bundled script text; near-duplicate variant linking; statistics and sensitivity checks; single-annotator validation with intra-rater agreement and an optional second rater; a data dictionary; threats to validity; the report; the presentation; full Scrum and Lean Six Sigma records in GitHub.
 
-**Out of scope:** submitting to the MSR 2027 conference; processing the full 41 GB GitSkills dataset unless the sample proves insufficient (decision by ADR); building a general-purpose tool beyond the question; collecting new data from GitHub APIs unless documented as BYOD with an ethics note.
+**Out of scope:** submitting to MSR 2027; executing, importing, or fetching anything found in the dataset; naming repositories or accounts in outputs; the full 41 GB GitSkills dataset, unless an ADR in Sprint 1 approves one streamed pass over the `artifacts` table for RQ3; SpecMine analysis.
 
-**Scope control:** any change to the research question, population, method, or deliverables requires a `decision` issue, team agreement at a ceremony, and an ADR. Changes are also recorded in the sprint retrospective as the rubric requires.
+**Scope control:** any change to the research question, population, method, or deliverables needs a `decision` issue and an ADR, and is recorded in the sprint retrospective. If workload threatens the sprint goal, apply the descope order in `TEAM_CHARTER.md` section 9.
 
 ## 3. Deliverables and assessment mapping
 
-| Rubric component | Weight | Due | Our deliverable | Evidence location |
+| Rubric component | Weight | Due | Deliverable | Evidence location |
 |---|---|---|---|---|
-| Topic selection, research question, initial backlog | 10% | Sep 16 | Topic brief, `RESEARCH_QUESTION.md`, ADR-0004, Sprint 1 backlog on the board | `docs/proposals/RESULTS.md`, milestone "Sprint 1" |
+| Topic selection, research question, initial backlog | 10% | Sep 16 | Topic brief, `RESEARCH_QUESTION.md`, ADR-0004, ADR-0005, Sprint 1 backlog | `docs/sprints/00-formation/review.md`, issue #41, milestone "Sprint 1" |
 | Sprint 1: research framing and data foundation | 20% | Oct 7 | Sprint 1 research-and-data package | `docs/sprints/sprint-1/review.md` |
 | Sprint 2: implementation and validation | 20% | Oct 28 | Sprint 2 implementation-and-evidence package | `docs/sprints/sprint-2/review.md` |
 | Sprint 3: analysis, integration, final report | 25% | Nov 18 | Complete draft, tagged release, demo plan | `docs/sprints/sprint-3/review.md`, release tag |
 | Final demonstration and presentation | 20% | Nov 30 to Dec 4 | Presentation, live demo, final report, release v1.0.0 | `docs/PRESENTATION_PLAN.md`, GitHub release |
-| Individual contribution and reflection | 5% | Dec 4 | One reflection per member | `docs/reflections/` |
+| Individual contribution and reflection | 5% | Dec 4 | One reflection | `docs/reflections/jeraddunne.md` |
 
 ## 4. Work breakdown structure
 
-Each numbered item becomes a `rubric`-labelled parent issue; bullets become sub-issues at sprint planning.
+Each numbered item maps to a `rubric` issue created on 2026-09-13; bullets become sub-issues at sprint planning.
 
-### 0. Formation (Sep 10 to Sep 16) - Define
+### 0. Formation (Sep 10 to Sep 16), Define
 
-- 0.1 Repository, board, labels, milestones, protection, CI (done 2026-09-13)
-- 0.2 Team charter signed by all members; onboarding issues; member profiles
-- 0.3 Dataset inspection: samples downloaded, exploratory tables generated, both READMEs read
-- 0.4 Topic proposals (at least one per member) and ranked-ballot vote; ADR-0004
-- 0.5 `RESEARCH_QUESTION.md` filled; topic brief submitted; Sprint 1 backlog created and estimated
+- 0.1 Repository, labels, milestones, protection, CI configuration (done 2026-09-13)
+- 0.2 Solo working agreement (`TEAM_CHARTER.md`) signed; author profile in `docs/team/`
+- 0.3 Dataset inspection: GitSkills sample downloaded and profiled (done 2026-09-14, findings F-006 to F-012)
+- 0.4 Topic decision (ADR-0004) and solo execution record (ADR-0005); instructor confirmation requested
+- 0.5 `RESEARCH_QUESTION.md` filled; topic brief submitted; Sprint 1 backlog estimated
 
-### 1. Sprint 1 (Sep 17 to Oct 7) - Measure
+### 1. Sprint 1 (Sep 17 to Oct 7), Measure
 
-- 1.1 Precise research question, motivation, contribution, competing explanation
-- 1.2 Unit of analysis, population, sample, variables, outcome measures; `DATA_DICTIONARY.md` Part B
-- 1.3 Data acquisition and sampling instructions; MANIFEST with hashes
-- 1.4 First working data-loading and extraction pipeline for the chosen question
-- 1.5 At least one exploratory table or visualization generated by code
-- 1.6 Repository practice: issues, milestones, branch protection, first reviewed PR
-- 1.7 Baseline process metrics captured (LSS Measure); `THREATS_TO_VALIDITY.md` first pass
-- 1.8 Sprint 1 review package and retrospective
+- 1.1 Precise research question, motivation, contribution, competing explanation (#12)
+- 1.2 Unit of analysis, population, sample, variables, outcome measures; `DATA_DICTIONARY.md` Part B (#13)
+- 1.3 Acquisition instructions, inclusion rules, MANIFEST snapshot statement (#14)
+- 1.4 `python -m msr_pipeline analyze` and `make pipeline` running on the sample (#15)
+- 1.5 At least one exploratory table or visualization generated by code (#16)
+- 1.6 Repository practice: issues, milestones, branch protection, first pull request under the self-review protocol (#17)
+- 1.7 Threat model; `THREATS_TO_VALIDITY.md` first pass; FMEA review; ADR on sample only versus a full-dataset pass (#18)
+- 1.8 Baseline process metrics captured (#19)
+- 1.9 Sprint 1 review package and retrospective (#20)
 
-### 2. Sprint 2 (Oct 8 to Oct 28) - Analyze
+### 2. Sprint 2 (Oct 8 to Oct 28), Analyze
 
-- 2.1 Core implementation of the required component (mining, similarity, classification, traceability, or visualization)
-- 2.2 Automated tests for parsing, transformation, matching, and metric functions
-- 2.3 Validation design: manual annotation protocol, validation sample, agreement statistics
-- 2.4 Preliminary results with reproducible tables and figures
-- 2.5 Cross-member PR reviews on every major change
-- 2.6 Report update: background, method, implementation, preliminary results
-- 2.7 Root-cause analysis on the largest process problem from Sprint 1; kaizen verified
-- 2.8 Sprint 2 review package and retrospective (record changes to question, method, scope)
+- 2.1 Core implementation: scanner, variant linking, RQ2 statistics (#21)
+- 2.2 Automated tests for parsing, matching, and metric functions (#22)
+- 2.3 Validation: guideline in `docs/validation/`, `python scripts/annotation_kit.py sample`, `sheet`, `score`; first batch of labels; intra-rater re-label at least 7 days later; optional second rater (#23)
+- 2.4 Preliminary results with reproducible tables and figures (#24)
+- 2.5 External review requested on the validation or report pull request (solo substitute for cross-member review)
+- 2.6 Report update: background, method, implementation, preliminary results (#25)
+- 2.7 Root-cause analysis on the largest Sprint 1 process problem; kaizen verified
+- 2.8 Sprint 2 review package and retrospective recording changes to question, method, scope, or interpretation (#26)
 
-### 3. Sprint 3 (Oct 29 to Nov 18) - Improve
+### 3. Sprint 3 (Oct 29 to Nov 18), Improve
 
-- 3.1 Final results; robustness checks, sensitivity analysis, subgroup comparison
-- 3.2 Error analysis and manually inspected examples
-- 3.3 Final figures and tables from the pipeline
-- 3.4 Complete draft report with citations; observation and interpretation separated
-- 3.5 Threats to validity: dataset bias, measurement error, confounding, missing data, reproducibility, generalizability
-- 3.6 Documented release (tag, release notes, artifact appendix)
-- 3.7 Demonstration plan and presentation materials
-- 3.8 Retrospective naming the most important process improvement of the semester
+- 3.1 Final RQ1 to RQ3 results (#27)
+- 3.2 Sensitivity checks: similarity threshold, severity cutoff, front-matter-valid subset, excluding the most copied contents (#28)
+- 3.3 Error analysis and manually inspected examples (#29)
+- 3.4 Final figures and tables from the pipeline (#30)
+- 3.5 Complete draft report with a safe-reporting section; observation and interpretation separated (#31)
+- 3.6 Threats to validity, including single-annotator and self-review limits (#32)
+- 3.7 Documented release `v0.9.0-rc1` (#33)
+- 3.8 Demonstration plan and presentation materials (#34)
+- 3.9 Retrospective naming the most important process improvement (#35)
 
-### 4. Finalization (Nov 30 to Dec 4) - Control
+### 4. Finalization (Nov 30 to Dec 4), Control
 
-- 4.1 Respond to instructor feedback; final report; final release v1.0.0
-- 4.2 Fresh-machine reproduction by a non-author (gemba walk) recorded
-- 4.3 Presentation and live demo; rehearsals
-- 4.4 Individual contribution statements and reflections; AI-use log completeness check
-- 4.5 Control plan sign-off: all rubric checklist items verified with links
+- 4.1 Respond to instructor feedback; final report; release v1.0.0 (#36, #37)
+- 4.2 Fresh-clone reproduction in a clean environment, by an external person if available
+- 4.3 Presentation and live demo; rehearsals (#38)
+- 4.4 Individual reflection; AI-use log completeness check (#39, #40)
+- 4.5 Control plan sign-off: every rubric checklist item verified with links
 
 ## 5. Schedule
 
 | Period | Dates (Thu to Wed) | DMAIC | Planning | Check-ins | Review + Retro | Rubric due |
 |---|---|---|---|---|---|---|
-| Formation | Sep 10 to Sep 16 | Define | Sep 13 (async) | Sep 14, Sep 15 (async) | Sep 16 kickoff | Sep 16 |
+| Formation | Sep 10 to Sep 16 | Define | Sep 14 (topic and solo decisions) | | Wed Sep 16 solo kickoff | Sep 16 |
 | Sprint 1 | Sep 17 to Oct 7 | Measure | Thu Sep 17 | Thu Sep 24, Thu Oct 1 | Wed Oct 7 | Oct 7 |
 | Sprint 2 | Oct 8 to Oct 28 | Analyze | Thu Oct 8 | Thu Oct 15, Thu Oct 22 | Wed Oct 28 | Oct 28 |
 | Sprint 3 | Oct 29 to Nov 18 | Improve | Thu Oct 29 | Thu Nov 5, Thu Nov 12 | Wed Nov 18 | Nov 18 |
 | Break | Nov 19 to Nov 29 | | | (Thanksgiving Nov 26) | | |
 | Finalization | Nov 30 to Dec 4 | Control | Mon Nov 30 | Wed Dec 2 | Fri Dec 4 | Dec 4 |
 
-Written stand-ups every Monday, Wednesday, and Friday. Weekly metrics snapshot every Sunday (automated). The instructor may adjust dates; if so, update `project.yml` and re-run `scripts/bootstrap_github.py` to move milestone due dates.
+Work-log entries every Monday, Wednesday, and Friday. Weekly metrics snapshot every Sunday (automated once workflows are enabled). If the instructor changes dates, update `project.yml` and re-run `scripts/bootstrap_github.py` to move milestone due dates.
 
 ## 6. Roles and responsibilities
 
-Rotation is in `TEAM_CHARTER.md` section 3 and `project.yml`. Activity-level responsibilities are in `docs/team/RACI.md`. Two standing rules: every member contributes technical and research work every sprint, and every member reviews at least one PR per week.
+Jerad Dunne holds Product Owner, Scrum Master, and Developer/Researcher in every period (`TEAM_CHARTER.md` section 3). The instructor is consulted on solo execution, scope, and optional external review, and is informed through the sprint packages. The RACI matrix is retired (`docs/team/RACI.md`).
 
 ## 7. Process
 
-Scrum ceremonies and the Lean Six Sigma overlay are defined in `docs/PROCESS.md` and `docs/lean-six-sigma/README.md`. Summary of the LSS overlay:
+Scrum ceremonies and the Lean Six Sigma overlay are defined in `docs/PROCESS.md` and `docs/lean-six-sigma/README.md`.
 
 | DMAIC phase | Sprint | Tollgate question | Primary tools |
 |---|---|---|---|
-| Define | Formation | Is the problem, customer, and scope clear? | Charter, SIPOC, CTQ tree, FMEA |
-| Measure | Sprint 1 | Can we measure the outcome and the process reliably? | Data dictionary, MANIFEST, baseline KPIs, validation protocol design |
-| Analyze | Sprint 2 | Do we know what drives the result and what drives our delays? | Tests, validation agreement, 5 Whys, control charts |
-| Improve | Sprint 3 | Have we improved the result's robustness and our process? | Robustness checks, error analysis, kaizen verification |
-| Control | Finalization | Will it stay reproducible after we stop? | Control plan, release, README gemba walk |
+| Define | Formation | Is the problem, customer, and scope clear? | Working agreement, SIPOC, CTQ tree, FMEA |
+| Measure | Sprint 1 | Can the outcome and the process be measured reliably? | Data dictionary, MANIFEST, baseline KPIs, validation design |
+| Analyze | Sprint 2 | What drives the result, and what drives delays? | Tests, validation agreement, 5 Whys, control charts |
+| Improve | Sprint 3 | Is the result robust, and has the process improved? | Sensitivity checks, error analysis, kaizen verification |
+| Control | Finalization | Will it stay reproducible after the semester? | Control plan, release, README gemba walk |
+
+Solo substitutes (ADR-0005): self-review after a cooling-off period of at least 12 hours instead of cross-member review; intra-rater agreement instead of two annotators; PR open-to-merge cycle time instead of the contribution-balance KPI.
 
 ## 8. Quality plan
 
 | Quality attribute | Practice | Check |
 |---|---|---|
-| Correctness | Unit tests for every parsing, matching, and metric function; CI on every PR | CI green required to merge |
-| Reproducibility | `run_pipeline.sh` from a clean environment; pinned dependencies; MANIFEST hashes | Gemba walk at each review |
-| Validity | Manual validation sample with a written protocol; agreement statistic; error analysis | Sprint 2 and 3 review checklists |
-| Research reasoning | Variables and assumptions explicit; observation separated from interpretation; competing explanations | PR review checklist item |
-| Documentation | README, data dictionary, threats file updated in the same PR as the change | Definition of Done |
-| Responsible AI | `ai-use-log.md` entries verified by a human | PR template checkbox |
+| Correctness | Unit tests for every parsing, matching, and metric function; CI on every pull request | CI green required to merge once enabled |
+| Reproducibility | `make pipeline` from a clean environment; pinned dependencies; MANIFEST hashes | Gemba walk at each review |
+| Validity | Written annotation guideline; stratified validation sample; precision per rule; intra-rater Cohen's kappa; optional second rater | Sprint 2 and Sprint 3 review checklists |
+| Review | Self-review protocol: pull request, cooling-off period, checklist, review comment; external review on major pull requests when possible | PR template; cooling-off compliance KPI |
+| Research reasoning | Variables and assumptions explicit; observation separated from interpretation; competing explanations | Self-review checklist item |
+| Documentation | README, data dictionary, threats file updated in the same pull request as the change | Definition of Done |
+| Responsible AI | `ai-use-log.md` entries reviewed before merge | PR template checkbox |
 | Process quality | KPIs against targets in `project.yml`; run rules on control charts | Thursday check-in |
 
 ## 9. Risk management
 
-The FMEA-style register in `docs/lean-six-sigma/FMEA_RISK_REGISTER.md` is reviewed at every planning and check-in. Top risks at plan time:
+The FMEA register in `docs/lean-six-sigma/FMEA_RISK_REGISTER.md` is reviewed at every planning and check-in. Top risks:
 
-1. Sample data insufficient for the chosen question (mitigation: check data fit before voting; scoring criterion `data_fit`).
-2. Uneven contribution (mitigation: contribution-balance KPI, pull-based board, escalation path).
-3. Pipeline not reproducible on another machine (mitigation: CI, gemba walk each sprint, no notebooks as sole source).
-4. Scope creep after the vote (mitigation: ADR required for any scope change; PO orders backlog against rubric).
-5. Late PR reviews stalling work (mitigation: 48-hour SLA tracked as a KPI; reviewer rotation).
+1. **Single-person workload.** Mitigation: hours plan in `docs/workspace/WORK_SIGNUP.md`, commitment reliability tracked weekly, descope order in `TEAM_CHARTER.md` section 9.
+2. **Rubric group requirement.** The assignment describes groups of three to five. Mitigation: request instructor confirmation at the start of Sprint 1; revisit ADR-0005 if not confirmed by 2026-10-07.
+3. **Low precision of keyword signals.** Mitigation: validation before any claim; only validated precision is reported.
+4. **Single-annotator bias.** Mitigation: written guideline, intra-rater re-label, optional second rater, limitation reported.
+5. **Pipeline not reproducible elsewhere.** Mitigation: CI, gemba walk at every review, no notebook as a sole source.
+6. **RQ3 underpowered in the sample.** Mitigation: scoped to case studies; ADR in Sprint 1 on a full-dataset pass.
 
 ## 10. Communication plan
 
-| Audience | What | Channel | Frequency | Owner |
+| Audience | What | Channel | When | Owner |
 |---|---|---|---|---|
-| Team | Stand-ups | `docs/meeting-notes/` | Mon/Wed/Fri | each member |
-| Team | Board, PRs, issues | GitHub | continuous | all |
-| Team | Check-in, review, retro | video call + notes | weekly / per sprint | Scrum Master |
-| Instructor | Sprint package | repository + course submission | Oct 7, Oct 28, Nov 18 | Product Owner |
-| Instructor | Questions, date changes | course channel | as needed | Scrum Master |
+| Instructor | Topic brief and request to confirm solo execution | Course email or message | Sep 16 | Jerad Dunne |
+| Instructor | Sprint packages | Repository link and course submission | Oct 7, Oct 28, Nov 18 | Jerad Dunne |
+| Instructor | Questions, date changes, suspected malicious dataset content | Course channel | As needed | Jerad Dunne |
+| Instructor or classmate | Optional external review of a major pull request | Review request on the pull request | Sprint 2 and Sprint 3 | Jerad Dunne |
+| Future readers | Work log, board, decision and findings logs | Repository | Continuous | Jerad Dunne |
 
 ## 11. Change management
 
-- Backlog changes: any member may add issues; the Product Owner orders them; the sprint commitment changes only at a check-in with a note in the sprint planning file.
-- Research changes: `decision` issue, discussion, ADR, and a line in the retrospective.
-- Process changes: `kaizen` issue with a measurable expected effect; verified at the next retrospective.
-- Charter changes: PR approved by all other members.
+- **Backlog changes:** issues can be added at any time; the sprint commitment changes only at a check-in, with a note in the sprint planning file.
+- **Research changes:** a `decision` issue, an ADR, and a line in the retrospective.
+- **Process changes:** a `kaizen` issue with a measurable expected effect, verified at the next retrospective.
+- **Working-agreement changes:** a pull request to `TEAM_CHARTER.md` and a row in the decision log.
 
 ## 12. Tooling
 
-Python 3.11+, pandas, pyarrow, DuckDB (optional), matplotlib, pytest, ruff; GitHub Issues, Projects, Actions; GitHub CLI for scripts; pandoc for the report PDF. All chosen for zero cost and reproducibility on Windows, macOS, and Linux.
+Python 3.11+, pandas, pyarrow, matplotlib, the statistical libraries added with the analysis pipeline, pytest, and ruff. GitHub Issues, Projects, and Actions; the GitHub CLI for scripts; pandoc for the report PDF. All tools are free and reproducible on Windows, macOS, and Linux.
 
 ## 13. Success metrics
 
-Product: all rubric acceptance criteria met with evidence; reproduction by a non-author succeeds; validation agreement reported. Process (targets from `project.yml`): commitment reliability at or above 80%, PR first review under 48 hours, first-time-right rate at or above 75%, rework ratio at or below 15%, every member between 15% and 45% of contributions, CI pass rate at or above 90%, and at least one verified kaizen per sprint. Individual: each member holds a Scrum role at least once and can explain every pipeline stage.
+- **Product:** all rubric acceptance criteria met with evidence and documented solo substitutes; reproduction from a fresh clone succeeds; precision per rule and intra-rater agreement reported.
+- **Process (targets from `project.yml`):** commitment reliability at or above 0.8; PR open-to-merge median at or under 48 hours; every merged pull request waited at least 12 hours (except trivial fixes); first-time-right rate at or above 0.75; rework ratio at or below 0.15; CI pass rate at or above 0.9; at least one verified kaizen per sprint.
+- **Individual:** reflection with links to every contribution.
 
-## 14. Topic selection plan (Formation)
+## 14. Topic decision
 
-| Step | When | Who | Output |
-|---|---|---|---|
-| Read candidate questions and dataset READMEs | Sep 13 to 14 | all | |
-| Submit proposals (issue form) | by Sep 14 23:59 | all (at least one each) | `proposal` issues |
-| Read all proposals; ask questions in the issues | Sep 15 | all | issue comments |
-| Cast ballot (PR with YAML ballot) | by Sep 15 23:59 | all | `docs/proposals/votes/ballots/` |
-| Tally, confirm at kickoff, record ADR-0004 | Sep 16 | Scrum Master, all | `docs/proposals/RESULTS.md`, ADR-0004, `RESEARCH_QUESTION.md` |
-| Create and estimate Sprint 1 backlog; submit topic brief | Sep 16 | Product Owner, all | milestone "Sprint 1" issues |
+P-01 was selected on 2026-09-14 by the sole member (ADR-0004). The ranked-ballot vote planned in ADR-0002 was retired when the project became solo (ADR-0005). Fallback: rubric question 2 (skill quality indicators), reusing the scanner output as features. Revisit trigger: the Sprint 1 criterion "the question is answerable with the selected data" is not met by Thu 2026-10-01.

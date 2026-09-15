@@ -156,11 +156,11 @@ def render_digest(
         who = login if login == "(unassigned)" else f"@{login}"
         lines += [f"### {who} ({len(rows)})", ""]
         lines += _table(["Issue", "Title", "Milestone"], rows, "none")
-    lines += ["## Work sign-ups", ""]
+    lines += ["## Work sign-ups (retired, ADR-0005)", ""]
     lines += _table(
         ["Member", "Sprint", "1st", "2nd", "3rd", "Hours", "Wants issues", "Issue"],
         signup_rows(signups),
-        "No sign-ups yet. Use the Work sign-up form.",
+        "No sign-ups. The sign-up process is retired; see WORK_SIGNUP.md for the solo plan.",
     )
     lines += ["## Findings (issues labelled `finding`)", ""]
     lines += _table(

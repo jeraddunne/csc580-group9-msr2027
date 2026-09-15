@@ -1,6 +1,7 @@
 # Single source of truth for team, timeline, and process parameters.
-# Scripts (bootstrap_github.py, lss_metrics.py, tally_votes.py) read this file.
+# Scripts (bootstrap_github.py, lss_metrics.py, tally_votes.py, workspace_digest.py) read this file.
 # Change dates here if the instructor adjusts the calendar, then re-run scripts/bootstrap_github.py.
+# Solo project since 2026-09-14 (docs/decisions/ADR-0005-solo-execution.md).
 
 course: "SWE 380 / CSC 580 Group Project"
 institution: "University of Michigan-Flint"
@@ -13,24 +14,18 @@ instructor:
   github: "mkaouer"
   board_template: "https://github.com/users/mkaouer/projects/5"
 
-# Add GitHub handles as members complete their onboarding issue.
+# Solo project: one member (ADR-0005).
 team:
-  - name: "Leticia Aderhold"
-    github: ""
   - name: "Jerad Dunne"
     github: "jeraddunne"
-  - name: "Allie Hodges"
-    github: ""
-  - name: "Hina Kramer"
-    github: ""
 
-# Proposed role rotation. Confirm or change at the 2026-09-16 kickoff.
+# Jerad Dunne holds Product Owner, Scrum Master, and Developer/Researcher in every period.
 roles:
-  formation:    { product_owner: "Jerad Dunne",     scrum_master: "Jerad Dunne" }
-  sprint-1:     { product_owner: "Jerad Dunne",     scrum_master: "Leticia Aderhold" }
-  sprint-2:     { product_owner: "Allie Hodges",    scrum_master: "Hina Kramer" }
-  sprint-3:     { product_owner: "Leticia Aderhold", scrum_master: "Jerad Dunne" }
-  finalization: { product_owner: "Hina Kramer",     scrum_master: "Allie Hodges" }
+  formation:    { product_owner: "Jerad Dunne", scrum_master: "Jerad Dunne" }
+  sprint-1:     { product_owner: "Jerad Dunne", scrum_master: "Jerad Dunne" }
+  sprint-2:     { product_owner: "Jerad Dunne", scrum_master: "Jerad Dunne" }
+  sprint-3:     { product_owner: "Jerad Dunne", scrum_master: "Jerad Dunne" }
+  finalization: { product_owner: "Jerad Dunne", scrum_master: "Jerad Dunne" }
 
 # Semester calendar from the assignment (V2026.09.10). Sprints run Thursday to Wednesday.
 timeline:
@@ -40,37 +35,46 @@ timeline:
   sprint-3:     { title: "Sprint 3",     start: 2026-10-29, end: 2026-11-18, dmaic: "Improve", weight: 25 }
   finalization: { title: "Finalization", start: 2026-11-30, end: 2026-12-04, dmaic: "Control", weight: 20 }
 
-# Topic proposal and vote window (Formation phase).
+# Topic decision (docs/decisions/ADR-0004-topic-selection.md).
+topic:
+  selected: "P-01"
+  issue: 41
+  decided: 2026-09-14
+  method: "sole member decision"
+  previous_method: "ranked ballot (retired)"
+
+# RETIRED (ADR-0005): the ranked-ballot topic vote is no longer used.
+# Kept because scripts/tally_votes.py reads proposals.criteria.
 proposals:
-  proposals_due: 2026-09-14
-  vote_close:    2026-09-15
-  decision:      2026-09-16
+  status: "retired"
   # Weighted decision matrix (Pugh-style). Weights must sum to 1.0.
   criteria:
-    feasibility: { weight: 0.30, description: "Can four students implement and validate it in 9 weeks with the sample data?" }
+    feasibility: { weight: 0.30, description: "Can it be implemented and validated in 9 weeks with the sample data?" }
     data_fit:    { weight: 0.20, description: "Do the dataset fields directly support the unit of analysis and outcome?" }
     rubric_fit:  { weight: 0.20, description: "Does it satisfy the required implementation component and minimum evidence?" }
-    interest:    { weight: 0.15, description: "Team motivation and learning value." }
+    interest:    { weight: 0.15, description: "Motivation and learning value." }
     low_risk:    { weight: 0.15, description: "Low dependency on the 41 GB full dataset, external APIs, or unclear definitions." }
-  vote_method: "instant_runoff"   # winner by IRV on rankings; ties broken by weighted score, then Borda
+  vote_method: "instant_runoff"   # retired; winner by IRV on rankings, ties broken by weighted score, then Borda
 
 process:
+  mode: solo
   wip_limit: 5
   estimate_scale: [1, 2, 3, 5, 8]
-  standup_days: ["Mon", "Wed", "Fri"]
+  standup_days: ["Mon", "Wed", "Fri"]   # solo: work-log days
   checkin_day: "Thu"
   review_retro_day: "Wed"
-  pr_review_sla_hours: 48
-  min_reviewers: 1
+  pr_review_sla_hours: 48               # solo: target for PR open-to-merge cycle time
+  min_reviewers: 0                      # solo: ruleset requires a PR with 0 approvals
+  self_review_cooling_off_hours: 12
 
 metrics:
   cycle_time_days_target: 5
   lead_time_days_target: 10
-  pr_first_review_hours_target: 48
-  pr_merge_hours_target: 96
+  pr_first_review_hours_target: 48      # solo: not applicable (no second reviewer)
+  pr_merge_hours_target: 48             # solo: PR open-to-merge cycle time target (was 96 for the group)
   commitment_reliability_target: 0.8
   first_time_right_target: 0.75
   rework_ratio_max: 0.15
-  contribution_share_min: 0.15
-  contribution_share_max: 0.45
+  contribution_share_min: 0.0           # solo: contribution balance not applicable
+  contribution_share_max: 1.0           # solo: contribution balance not applicable
   ci_pass_rate_target: 0.9

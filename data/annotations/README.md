@@ -18,8 +18,8 @@ How to use: manual labels for validating the P-01 scanner. Create files with `py
 
 ## Naming
 
-- `<rater>`: a short lower-case id such as `jd`. Ids starting with `llm-` mark a non-human rater.
-- `<round>`: `1` for the first pass, `2` for the intra-rater re-label of the 30% subset.
+- `<rater>`: a short lower-case id. Team ids are `jd` (Jerad Dunne, primary rater), `la` (Leticia Aderhold), `ah` (Allie Hodges), and `hk` (Hina Kramer). Ids starting with `llm-` mark a non-human rater.
+- `<round>`: `1` for the first pass (every rater), `2` for the optional intra-rater re-label of the 30% subset.
 
 ## Rules
 
@@ -28,3 +28,5 @@ How to use: manual labels for validating the P-01 scanner. Create files with `py
 3. **Only IDs, labels, and short notes are committed.** No dataset text, no repository or account names.
 4. **Round 2 labels are independent.** Do not open round 1 files while labelling round 2.
 5. Label values are upper case exactly as in the guideline. `python scripts/annotation_kit.py score` lists any invalid values.
+6. **Blindness rule.** Do not commit primary-rater (`jd`) label files with labels for a kind until the second rater's labels for that kind are committed. The committed `*_jd_r1.csv` files are blank sheets. A second rater never opens another rater's label files.
+7. **One rater per pull request.** A second rater's pull request contains only their own label file.

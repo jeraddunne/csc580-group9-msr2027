@@ -1,6 +1,6 @@
 # Topic proposals and voting
 
-> **Proposals and voting are closed.** The project became solo on 2026-09-14 and proposal P-01 was selected by the sole member ([ADR-0004](../decisions/ADR-0004-topic-selection.md), [ADR-0005](../decisions/ADR-0005-solo-execution.md)). The ranked-ballot vote is retired. The rest of this page is kept as the record of the original process.
+> **Proposals and voting are closed.** Proposal P-01 was selected on 2026-09-14 ([ADR-0004](../decisions/ADR-0004-topic-selection.md)), while the project was briefly solo ([ADR-0005](../decisions/ADR-0005-solo-execution.md)). The four-person group was reinstated on 2026-09-15 ([ADR-0006](../decisions/ADR-0006-group-reinstated.md)), and P-01 remains selected. Any member may open a [Decision needed issue](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=05-decision.yml) to revisit the topic before Sprint 1 planning on Thu 2026-09-17. The ranked-ballot vote stays retired. The rest of this page is kept as the record of the original process.
 
 ## Selected proposal
 

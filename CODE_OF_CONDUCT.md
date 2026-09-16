@@ -1,11 +1,14 @@
 # Code of Conduct
 
-This is a solo project (ADR-0005), but the repository is shared with the instructor, reviewers, and the public, and it studies other people's work. These standards apply to the author and to anyone who reviews or comments.
+Group 9 commits to a respectful, honest, and inclusive working environment. These standards apply to every member, and to anyone who reviews or comments in this repository.
 
-- Treat reviewers, the instructor, and classmates with respect. Disagree with ideas, not people, and give feedback that is specific and actionable.
-- Credit work accurately. Never claim work that was not done; disclose help received, including AI assistance (`ai-use-log.md`).
+- Treat every member as a peer. Disagree with ideas, not people.
+- Assume good intent and ask before concluding. Written text loses tone.
+- Give feedback in pull requests that is specific, kind, and actionable.
+- Credit work accurately. Never claim work you did not do; disclose help received, including AI assistance (`ai-use-log.md`).
 - Follow the university academic integrity policy and the course AI-use policy (`TEAM_CHARTER.md` section 11).
 - Respect the people behind the datasets: do not attempt to deanonymize author codes, do not contact repository owners about findings, and do not name repositories or accounts in outputs.
 - Treat suspected malicious content responsibly: never execute it, stop the analysis of that item, and raise it with the instructor.
+- Raise concerns early: first with the person, then with the Scrum Master of the sprint, then with the whole team, then with the instructor.
 
-Concerns about conduct in this repository can be raised with the instructor through the course channel.
+Violations are handled through the escalation path in `TEAM_CHARTER.md` section 10.

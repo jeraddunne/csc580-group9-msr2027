@@ -2,7 +2,7 @@
 
 How to use: this is a living register, required by the assignment. The research question is fixed as proposal P-01 (`RESEARCH_QUESTION.md`), so rows are marked **Active: P-01** when they apply and **Not applicable** otherwise (kept for the record). Update the Status column at every sprint review (Sprint 1: identified; Sprint 2: mitigation designed; Sprint 3: mitigated, accepted, or open). The final report's threats section addresses, at minimum, dataset bias, measurement error, confounding, missing data, reproducibility, and generalizability.
 
-Status values: Active: P-01 (with stage: identified, mitigation planned, mitigated, accepted, open), Not applicable. Question numbers (Q1 to Q15) refer to the assignment's proposed research questions. The project is run solo (ADR-0005), so the Owner of every row is Jerad Dunne.
+Status values: Active: P-01 (with stage: identified, mitigation planned, mitigated, accepted, open), Not applicable. Question numbers (Q1 to Q15) refer to the assignment's proposed research questions. The project is run by the four-person Group 9 (ADR-0006). Rows with Jerad Dunne as Owner were assigned while one member held every role (ADR-0005); owners are reassigned at Sprint 1 planning.
 
 ## P-01 specific threats
 
@@ -13,7 +13,7 @@ Status values: Active: P-01 (with stage: identified, mitigation planned, mitigat
 | P3 | Popularity and purpose confound. Setup, DevOps, and deployment skills need shell and network commands and are also copied more, so a reach difference may reflect purpose, not risk | Internal | NB2 regression with size, scripts, location, stars, and language controls; per-category tests with Holm adjustment; scenario excluding the 10 most-copied contents | `results/rq2_negbin.csv`, `results/rq2_category_tests.csv`, `results/sensitivity_summary.csv` | Active: P-01, mitigation planned |
 | P4 | Lineage by name plus similarity can pair unrelated skills that share a generic name, and miss renamed descendants | Construct | Threshold sweep from 0.3 to 0.8; manual check of every differing pair at 0.5; results framed as same-name near-duplicates, not proven lineage | `results/rq3_threshold_sweep.csv`, `results/rq3_differing_pairs.csv` | Active: P-01, mitigation planned |
 | P5 | Sparse history. Few variant pairs have first-commit dates for both variants, so the direction of drift is underpowered, and dates follow the current path (I3) | Conclusion | RQ3 is descriptive with case studies; no direction test is claimed; the count of ordered pairs is reported at every threshold | `results/rq3_threshold_sweep.csv` | Active: P-01, accepted (scoped) |
-| P6 | Single annotator. Labels reflect one person's judgement, with no inter-rater agreement | Construct / conclusion | Written guideline before labelling; blind re-label of 30% after at least 7 days with intra-rater Cohen's kappa; optional second rater reported separately; AI-assisted labels never merged into primary labels | annotation kit agreement output | Active: P-01, mitigation planned |
+| P6 | Rater bias and disagreement. Labels reflect human judgement that can differ between raters, and a second rater who sees the primary labels is no longer independent | Construct / conclusion | Written guideline before labelling; a teammate second rater labels round 1 independently; blindness rule (primary-rater label files committed only after the second rater's file for the same kind); inter-rater Cohen's kappa reported per kind; optional intra-rater re-label of 30%; LLM labels reported separately and never merged into primary labels | annotation kit agreement output | Active: P-01, mitigation planned |
 | P7 | Representative-row controls. Stars, language, and location come from the representative copy's repository, not from every repository holding a copy | Internal | Stated in the model note; secondary outcome `repos` counts all repositories; interpret controls as describing the representative only | `results/rq2_negbin.csv` (note column) | Active: P-01, accepted |
 | P8 | Lower-bound population. Code search misses non-default branches, large files, and most forks, and the sample is 0.7% of distinct contents | External | Population stated as "skills discoverable by GitHub code search in July 2026"; no claims about all skills; prevalence reported with confidence intervals for the sample only | `results/population_flow.csv` | Active: P-01, accepted |
 
@@ -33,7 +33,7 @@ Status values: Active: P-01 (with stage: identified, mitigation planned, mitigat
 |---|---|---|---|---|---|
 | C1 | Quality proxy is not quality: copy count, edit count, or survival may reflect visibility or templating rather than usefulness | Q2, Q8, Q15 | P-01 uses copies as reach, not as quality | | Not applicable |
 | C2 | Similarity threshold defines "reuse" or "boilerplate": different thresholds give different populations | Q1, Q11 | Threshold sweep 0.3 to 0.8 (`results/rq3_threshold_sweep.csv`); see P4 | Jerad Dunne | Active: P-01, mitigation planned |
-| C3 | "Stale", "abandoned", "complete", and "risky" are operational definitions we invent | Q3, Q4, Q7, Q10 | "Risky" is defined in `docs/research/THREAT_MODEL.md` before analysis; validated against labels; single annotator with intra-rater kappa (P6) | Jerad Dunne | Active: P-01, mitigation planned |
+| C3 | "Stale", "abandoned", "complete", and "risky" are operational definitions we invent | Q3, Q4, Q7, Q10 | "Risky" is defined in `docs/research/THREAT_MODEL.md` before analysis; validated against labels from two independent raters with inter-rater kappa (P6) | Jerad Dunne | Active: P-01, mitigation planned |
 | C4 | Authorship signals are heuristics, not ground truth; GitSkills author identities are one-way codes, bots keep logins | Q6, Q12 | Not used | | Not applicable |
 | C5 | Tool attribution in SpecMine is by path fingerprint, not by verified tool use | Any SpecMine tool-family comparison (Q5, Q11, Q13) | Not used | | Not applicable |
 | C6 | Text metrics (readability, length, headings) on Markdown may be distorted by code fences, front matter, and non-English content | Q2, Q5, Q11 | Only `body_chars` is used, as a control; rules run on the full text including code fences, by design | Jerad Dunne | Active: P-01, accepted |
@@ -57,7 +57,7 @@ Status values: Active: P-01 (with stage: identified, mitigation planned, mitigat
 | N2 | Heavy-tailed distributions (copies, stars, sizes) make means misleading | Any quantitative comparison | Mann-Whitney U with rank-biserial effect size as the primary test; medians and share copied 2, 5, 10 or more; NB2 for counts; log1p transforms | Jerad Dunne | Active: P-01, mitigated |
 | N3 | Multiple comparisons across many features or tool families inflate false positives | Q2, Q5, Q8, Q15 | One pre-stated primary comparison (H2); per-category tests Holm-adjusted (`results/rq2_category_tests.csv`) | Jerad Dunne | Active: P-01, mitigated |
 | N4 | Correlation presented as causation | Q2, Q8, Q15 | Reach results are associations; report separates observation from interpretation; competing explanations in `RESEARCH_QUESTION.md` section 4 | Jerad Dunne | Active: P-01, mitigation planned |
-| N5 | Small manual validation sample gives wide uncertainty on precision and agreement | Any validated classifier or detector | Stratified sample of about 150; precision with Wilson intervals; intra-rater kappa (P6) | Jerad Dunne | Active: P-01, mitigation planned |
+| N5 | Small manual validation sample gives wide uncertainty on precision and agreement | Any validated classifier or detector | Stratified sample of about 150; precision with Wilson intervals; inter-rater kappa (P6) | Jerad Dunne | Active: P-01, mitigation planned |
 
 ## Reproducibility validity (can someone else get the same result?)
 
@@ -76,7 +76,7 @@ Status values: Active: P-01 (with stage: identified, mitigation planned, mitigat
 |---|---|---|---|
 | X1 | Deanonymization of GitSkills author codes | Never attempt re-identification; aggregate reporting; no repository or account names in `results/` | Active: P-01, mitigated |
 | X2 | License compliance when quoting skill content in the report | Quote minimally and only as needed for false-positive discussion; no runnable payloads; respect the repository license | Active: P-01, mitigation planned |
-| X3 | AI-generated analysis or text presented without verification | Every AI-assisted artifact is logged in `ai-use-log.md` and reviewed by the author before merge | Active: P-01, mitigation planned |
+| X3 | AI-generated analysis or text presented without verification | Every AI-assisted artifact is logged in `ai-use-log.md` and reviewed by a member other than the author before merge | Active: P-01, mitigation planned |
 | X4 | Reporting suspected malicious skills could harm maintainers or spread payloads | Report categories and rates only; if something appears actively malicious, stop and raise it with the instructor before any further step | Active: P-01, mitigation planned |
 
 ## Change log
@@ -85,3 +85,4 @@ Status values: Active: P-01 (with stage: identified, mitigation planned, mitigat
 |---|---|---|---|
 | 2026-09-13 | Formation | Initial register from the dataset documentation and the assignment | Group 9 |
 | 2026-09-14 | Formation | Research question fixed as P-01; rows marked Active or Not applicable; P-01 threats P1 to P8 and X4 added; mitigations point to `python -m msr_pipeline analyze` outputs | Jerad Dunne |
+| 2026-09-15 | Formation | Group reinstated (ADR-0006): P6 rewritten for rater disagreement and independence with a teammate second rater; C3 and N5 now cite inter-rater kappa; X3 requires review by another member; row owners to be reassigned at Sprint 1 planning | Jerad Dunne |

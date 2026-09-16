@@ -68,7 +68,7 @@ def test_render_digest_sections_and_empty_states():
     ts = datetime(2026, 9, 14, 12, 0, tzinfo=UTC)
     empty = render_digest([], [], [], [], generated_at=ts)
     assert "Generated 2026-09-14 12:00 UTC" in empty
-    assert "sign-up process is retired" in empty and "No findings filed yet" in empty
+    assert "No sign-ups yet" in empty and "No findings filed yet" in empty
 
     signup = {"number": 30, "title": "[Sign-up] Allie", "body": SIGNUP_BODY, "url": "u30"}
     finding = {

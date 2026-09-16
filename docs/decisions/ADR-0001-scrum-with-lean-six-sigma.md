@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-09-13
-- **Deciders:** Jerad Dunne (proposed 2026-09-13; confirmed 2026-09-14 as sole member, see ADR-0005)
+- **Deciders:** Jerad Dunne (proposed 2026-09-13); confirmed by all four members at the 2026-09-16 kickoff (ADR-0006)
 - **Decision issue:** Formation issue "Team charter signed by all four members"
 - **Affects research question / method / scope:** no (process only)
 

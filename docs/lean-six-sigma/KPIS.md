@@ -13,26 +13,19 @@ This is the authoritative list of what the team measures. Every KPI here is emit
 | Throughput | `kpis.throughput_per_week` | issues closed per week | none (trend only) | info |
 | WIP | `kpis.wip` | open in-progress issues | <= `wip_limit` (5) | ok if <= limit |
 | Blocked time | `kpis.blocked_time_days` | days (total and mean) | none (trend only) | info |
-| PR first-review turnaround (not applicable solo) | `kpis.pr_first_review_hours` | hours (median) | not used solo (was <= 48) | info only |
-| PR open-to-merge cycle time | `kpis.pr_merge_hours` | hours (median) | <= 48 (solo; was <= 96) | ok if median <= target |
-| Self-review cooling-off compliance | none yet (computed at the sprint review) | ratio | 1.0 | ok if every non-trivial merged PR waited at least 12 hours |
+| PR first-review turnaround | `kpis.pr_first_review_hours` | hours (median) | <= 48 | ok if median <= target |
+| PR open-to-merge cycle time (extra KPI) | `kpis.pr_merge_hours` | hours (median) | <= 96 | ok if median <= target |
 | First-time-right | `kpis.first_time_right` | ratio | >= 0.75 | ok if >= target |
 | Rework ratio | `kpis.rework_ratio` | ratio | <= 0.15 | ok if <= max |
 | Defect count | `kpis.defect_count` | count | none (trend only) | info |
 | CI pass rate | `kpis.ci_pass_rate` | ratio | >= 0.90 | ok if >= target |
-| Contribution balance (retired solo) | `kpis.contribution_gini` and `contribution.*` | Gini, shares | band set to [0.0, 1.0] solo | not used |
+| Contribution balance | `kpis.contribution_gini` and `contribution.*` | Gini, shares | each share in [0.15, 0.45] | warn if any member outside |
 | Kaizen closure rate | `kpis.kaizen_closure_rate` | ratio | >= 0.70 (informational until Sprint 3) | ok if >= 0.70 |
 | Reproducibility check | `kpis.reproducibility_check` | pass / fail / nodata | pass | ok if pass |
 
 Status values used in the dashboard: `ok`, `warn`, `info`, `nodata`. A `warn` on a targeted KPI is reviewed at the Thursday check-in; two consecutive weeks of `warn` on the same KPI require a 5 Whys.
 
-## Solo adaptations (ADR-0005)
-
-The project is run solo by Jerad Dunne, who holds every owner role named below.
-
-- **Not applicable:** PR first-review turnaround (there is no second reviewer) and contribution balance (one member always holds 100 percent). The script still emits both; they are not acted on.
-- **Added:** PR open-to-merge cycle time (the existing `pr_merge_hours` value with a 48-hour target in `project.yml`) and self-review cooling-off compliance, which the script does not emit yet and which is computed at each sprint review from PR `created_at` and `merged_at`.
-- **First-time-right** stays, but in a solo project a `CHANGES_REQUESTED` review only comes from an external reviewer, so it is read together with the self-review comments.
+History: while the project was briefly run by one member (2026-09-14, ADR-0005), contribution balance and first-review turnaround were paused. Both were restored on 2026-09-15 (ADR-0006, decision D-021). PR open-to-merge cycle time was kept as an extra KPI.
 
 ## Definitions
 
@@ -85,21 +78,14 @@ The project is run solo by Jerad Dunne, who holds every owner role named below.
 - **Definition.** Hours from PR creation to the first review submitted by someone other than the PR author (any review state, including comments).
 - **Formula.** `(first_review.submitted_at - pr.created_at) / 1 hour`, median and mean over PRs that received a review. PRs without a review are counted separately as `unreviewed_open` and `unreviewed_merged`.
 - **Control chart.** XmR individuals chart in PR creation order.
-- **Target.** median <= 48 hours. **Owner.** Scrum Master.
-- **Signal action.** Above target for two weeks: enforce the review SLA in the charter and rotate reviewer duty.
-- **Solo (ADR-0005).** Not applicable. Reviews appear only when an external reviewer (instructor or classmate) is requested; they are reported but not targeted.
+- **Target.** median <= 48 hours (`pr_first_review_hours_target`). **Owner.** Scrum Master.
+- **Signal action.** Above target for two weeks: enforce the review SLA in the charter and rotate reviewer duty. Any `unreviewed_merged` PR is raised at the next check-in, because `main` requires one approving review.
 
-### PR open-to-merge cycle time (PR merge turnaround)
+### PR open-to-merge cycle time (extra KPI)
 - **Definition.** Hours from PR creation to merge.
 - **Formula.** `(merged_at - created_at) / 1 hour`, median and mean over merged PRs.
-- **Target.** median <= 48 hours (solo target in `project.yml`; the group target was 96). The median cannot usefully fall below the 12-hour cooling-off period. **Owner.** Scrum Master.
-- **Signal action.** Above target for two weeks: PRs are too large or reviews are being postponed; split PRs and schedule self-review time.
-
-### Self-review cooling-off compliance
-- **Definition.** Share of merged PRs that were merged at least 12 hours after they were opened, excluding PRs marked "trivial".
-- **Formula.** `count(merged_at - created_at >= 12 hours) / count(non-trivial merged PRs)`. Not emitted by `scripts/lss_metrics.py` yet; computed at each sprint review from the PR list (`gh pr list --state merged --json number,createdAt,mergedAt,title`).
-- **Target.** 1.0. **Owner.** Scrum Master.
-- **Signal action.** Any miss is noted in the retrospective with the reason; two misses in a sprint trigger a 5 Whys on review discipline.
+- **Target.** median <= 96 hours (`pr_merge_hours_target`). **Owner.** Scrum Master.
+- **Signal action.** Above target for two weeks while first review is within target: PRs are too large or review comments wait too long for a response; split PRs and agree a response time for authors.
 
 ### First-time-right rate
 - **Definition.** Share of merged PRs that were approved without any `CHANGES_REQUESTED` review.
@@ -127,10 +113,9 @@ The project is run solo by Jerad Dunne, who holds every owner role named below.
 ### Contribution balance
 - **Definition.** How evenly work is shared across the four members.
 - **Formula.** For each member: `commits`, `prs_authored`, `reviews_given`, `issues_closed` (issue closed as completed with the member as assignee). Share per category = member count divided by the category total. `share_overall` = mean of the category shares over categories whose total is > 0. `contribution_gini` = Gini coefficient of the `share_overall` vector (0 = perfectly even, 1 = one person did everything). Members are taken from `project.yml` `team[].github`; other authors (bots, instructor) are listed under `others`.
-- **Target.** Every member `share_overall` in [0.15, 0.45]; `flag` is set on members outside the band.
+- **Target.** Every member `share_overall` in [0.15, 0.45] (`contribution_share_min`, `contribution_share_max`); `flag` is set on members outside the band.
 - **Owner.** Scrum Master.
-- **Signal action.** A flagged member is a conversation at the Thursday check-in about rebalancing assignments, not a judgment.
-- **Solo (ADR-0005).** Retired. With one member the share is always 1.0; `project.yml` sets the band to [0.0, 1.0] so no flag is raised.
+- **Signal action.** A flagged member is a conversation at the Thursday check-in about rebalancing assignments, not a judgment. Early Sprint 1 values are skewed by the repository setup work done before the group was reinstated; read the trend, not the first snapshot.
 
 ### Kaizen closure rate
 - **Definition.** Share of process-improvement items that were completed.
@@ -147,10 +132,10 @@ The project is run solo by Jerad Dunne, who holds every owner role named below.
 
 | When | Who | What is read |
 |---|---|---|
-| Monday | Jerad Dunne | Merge the weekly metrics PR, note any `warn` |
-| Thursday check-in | Jerad Dunne, 15 minutes | KPI table, run-rule signals, open blockers |
-| Sprint review | Jerad Dunne | Sprint summary table (velocity, reliability, added after planning) |
-| Retrospective | Jerad Dunne | Two-week trend of any `warn`, waste log, kaizen closure |
+| Monday | Scrum Master, with one approving reviewer | Merge the weekly metrics PR, note any `warn` |
+| Thursday check-in | Whole team, 15 minutes | KPI table, run-rule signals, open blockers, contribution flags |
+| Sprint review | Whole team, Product Owner presents | Sprint summary table (velocity, reliability, added after planning) |
+| Retrospective | Whole team, Scrum Master facilitates | Two-week trend of any `warn`, waste log, kaizen closure |
 
 ## Data window
 

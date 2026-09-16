@@ -1,6 +1,6 @@
 # Contributing
 
-This is a solo course project run by Jerad Dunne (ADR-0005). This file is the short version of `docs/PROCESS.md`: the rules the author follows, and what an external reviewer (the instructor or a classmate) should know.
+This file is the short version of `docs/PROCESS.md`. Read that once; use this daily.
 
 ## Setup
 
@@ -13,18 +13,18 @@ make test           # runs lint and tests
 make pipeline       # runs the P-01 analysis
 ```
 
-On Windows without `make`, use `./run_pipeline.sh` from Git Bash, or run the commands in the Makefile by hand.
+On Windows without `make`, use `./run_pipeline.sh` from Git Bash, or run the commands in the Makefile by hand. Clone outside OneDrive or iCloud.
 
 ## Branch, commit, pull request
 
-1. Every change starts from an issue.
+1. Every change starts from an issue. Create one with the issue forms if none exists, and assign yourself.
 2. Branch: `git switch -c <type>/<issue>-<slug>`, where type is one of `research`, `pipeline`, `data`, `docs`, `test`, `process`, `report`, `presentation`, `fix`.
 3. Commit in imperative mood with the issue number: `Add variant linking (#21)`.
 4. Push and open a pull request using the template. Fill every section.
-5. Self-review after at least 12 hours using the template's self-review checklist, and leave a review comment saying what was verified.
-6. Squash-merge once the checklist is complete and CI is green (once workflows are enabled). Delete the branch.
+5. Request a review from a member who did not write the change. Rotate reviewers. Reviews are due within 48 hours.
+6. Squash-merge after one approval and green CI. Delete the branch.
 
-`main` is protected: a pull request is required, merges are squash only, and force pushes are blocked.
+`main` is protected: a pull request and one approving review from another member are required, merges are squash only, and force pushes are blocked. Nobody, including the repository owner, pushes to it directly.
 
 ## What must be in a pull request
 
@@ -35,9 +35,13 @@ On Windows without `make`, use `./run_pipeline.sh` from Git Bash, or run the com
 - Documentation updates (README, DATA_DICTIONARY.md, THREATS_TO_VALIDITY.md) if affected
 - An `ai-use-log.md` entry if an AI tool assisted
 
-## External reviewers
+## Reviewing a pull request
 
-Reviews from the instructor or classmates are welcome, especially on the validation, report, and release pull requests. To review: pull the branch, run `make test` (and `make pipeline` if the pipeline changed), check that the outputs match the stated command, and leave a review on the pull request. Suggestions for other changes are best opened as issues first.
+- Pull the branch (`gh pr checkout <number>`) and run `make test`, plus `make pipeline` if the pipeline changed.
+- Check that outputs match the stated command and that the issue's acceptance criterion is met.
+- Check that text separates observation from interpretation and that numbers trace to a results file.
+- Use "Request changes" only for correctness or rubric issues; style suggestions are comments.
+- Approve with a one-line summary of what you verified.
 
 ## Code standards
 
@@ -54,6 +58,7 @@ Reviews from the instructor or classmates are welcome, especially on the validat
 - Never attempt to deanonymize author codes, and never name repositories or accounts in outputs.
 - Never paste dataset text that may contain personal data into external AI tools.
 - State the exact dataset snapshot (release, source, MANIFEST.json hash) for any result.
+- Validation labels follow the blindness rule in `docs/validation/README.md`.
 
 ## Writing rules
 
@@ -61,6 +66,6 @@ Reviews from the instructor or classmates are welcome, especially on the validat
 - Every reported number links to the results file and command.
 - Cite with keys from `report/references.bib`.
 
-## Process changes
+## Process contributions
 
-Retrospective actions become `kaizen` issues. Changes to the working agreement or process are made by pull request to `TEAM_CHARTER.md` or `docs/PROCESS.md` and recorded in `docs/workspace/DECISION_LOG.md`.
+Retrospective actions become `kaizen` issues. Anyone can propose a process change through a `kaizen` issue or a pull request to `TEAM_CHARTER.md` or `docs/PROCESS.md`, recorded in `docs/workspace/DECISION_LOG.md`.

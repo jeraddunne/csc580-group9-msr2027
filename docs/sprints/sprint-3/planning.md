@@ -1,9 +1,9 @@
 # Sprint 3 planning: analysis, integration, and communication (Improve phase)
 
-How to use: fill this in during Sprint 3 planning on Thu 2026-10-29. Candidate items become GitHub issues in milestone `Sprint 3`. This sprint carries the largest weight (25%) and feeds the final demonstration (20%). Plan the report and presentation work as first-class backlog items, not leftovers.
+How to use: the Scrum Master fills this in during Sprint 3 planning on Thu 2026-10-29. Candidate items become GitHub issues in milestone `Sprint 3`. This sprint carries the largest weight (25%) and feeds the final demonstration (20%). Plan the report and presentation work as first-class backlog items, not leftovers.
 
 Dates: Thu 2026-10-29 to Wed 2026-11-18. Review and retro: Wed 2026-11-18. Check-ins: Thu 2026-11-05, Thu 2026-11-12 (also rehearsal 1).
-Product Owner, Scrum Master, Developer/Researcher: Jerad Dunne (solo, ADR-0005).
+Product Owner: Leticia Aderhold. Scrum Master: Jerad Dunne. Developers/Researchers: all four.
 
 ## Sprint goal
 
@@ -15,33 +15,38 @@ Sprint goal:
 
 | Member | Available hours this sprint | Planned points | Notes |
 |---|---|---|---|
-| Jerad Dunne | | | Sprint 2 velocity: ___ points |
+| Leticia Aderhold | | | |
+| Jerad Dunne | | | |
+| Allie Hodges | | | |
+| Hina Kramer | | | |
+| Total | | | Sprint 2 velocity: ___ points |
 
 ## Candidate backlog (rubric deliverables for Sprint 3)
 
-| # | Item (rubric deliverable) | Acceptance criteria | Estimate | Issue # |
-|---|---|---|---|---|
-| S3-1 | Final or near-final results addressing the research question | Results section states the answer with numbers produced by the pipeline | | #27 |
-| S3-2 | Robustness checks, sensitivity analysis, or comparison across meaningful subgroups | Similarity threshold, severity cutoff, front-matter-valid subset, and top-copied exclusion checks, each as a script and a table (`results/sensitivity_*.csv`) | | #28 |
-| S3-3 | Error analysis and manually inspected examples | Error taxonomy with counts and at least five inspected examples in the report | | #29 |
-| S3-4 | Final figures and tables generated from the repository pipeline | `make figures` regenerates every figure in `figures/`; no hand-edited images | | #30 |
-| S3-5 | Complete draft report with citations and a clear separation between findings and interpretation | All rubric sections drafted in `report/draft.md`; Results contains observations only; Discussion contains interpretation | | #31 |
-| S3-6 | Threat-to-validity section addressing dataset bias, measurement error, confounding, missing data, reproducibility, and generalizability | `THREATS_TO_VALIDITY.md` complete, including single-annotator and self-review limits, and mirrored in the report | | #32 |
-| S3-7 | Documented release or tagged version of the repository | Tag `v0.9.0-rc1` with release notes listing commands and outputs | | #33 |
-| S3-8 | Final demonstration plan and presentation materials | `docs/PRESENTATION_PLAN.md` filled; slides in `report/` or linked; rehearsal 1 done Nov 12 | | #34 |
-| S3-9 | Retrospective identifying the group's most important process improvement | `docs/sprints/sprint-3/retrospective.md` section 9 completed | | #35 |
-| S3-10 | README reproduction in a clean environment | Fresh clone in a clean environment following only the README reproduces the primary table; a classmate or the instructor if available; time and problems recorded | | |
-| S3-11 | Traceability audit | Every figure, table, and decision in the report links to an issue, PR, commit, or ADR (checklist in the review) | | |
-| S3-12 | Related work section with real citations | At least six sources in `report/references.bib`, each checked against its DOI or arXiv page | | |
-| S3-13 | FMEA-style ranking of capability categories | Severity from the rule file, occurrence from validated prevalence, detection from validated recall; table in `results/` | | |
+| # | Item (rubric deliverable) | Acceptance criteria | Estimate | Owner | Issue # |
+|---|---|---|---|---|---|
+| S3-1 | Final or near-final results addressing the research question | Results section states the answer with numbers produced by the pipeline | | | #27 |
+| S3-2 | Robustness checks, sensitivity analysis, or comparison across meaningful subgroups | Similarity threshold, severity cutoff, front-matter-valid subset, and top-copied exclusion checks, each as a script and a table (`results/sensitivity_*.csv`) | | | #28 |
+| S3-3 | Error analysis and manually inspected examples | Error taxonomy with counts, adjudicated rater disagreements, and at least five inspected examples in the report | | | #29 |
+| S3-4 | Final figures and tables generated from the repository pipeline | `make figures` regenerates every figure in `figures/`; no hand-edited images | | | #30 |
+| S3-5 | Complete draft report with citations and a clear separation between findings and interpretation | All rubric sections drafted in `report/draft.md`; Results contains observations only; Discussion contains interpretation; each section reviewed by a member who did not write it | | | #31 |
+| S3-6 | Threat-to-validity section addressing dataset bias, measurement error, confounding, missing data, reproducibility, and generalizability | `THREATS_TO_VALIDITY.md` complete, including rater agreement and sample limits, and mirrored in the report | | | #32 |
+| S3-7 | Documented release or tagged version of the repository | Tag `v0.9.0-rc1` with release notes listing commands and outputs | | | #33 |
+| S3-8 | Final demonstration plan and presentation materials | `docs/PRESENTATION_PLAN.md` filled with a speaker for every segment; slides in `report/` or linked; rehearsal 1 done Nov 12 | | | #34 |
+| S3-9 | Retrospective identifying the group's most important process improvement | `docs/sprints/sprint-3/retrospective.md` section 9 completed | | | #35 |
+| S3-10 | README reproduction in a clean environment | A member who did not write the README reproduces the primary table from a fresh clone following only the README; time and problems recorded | | | |
+| S3-11 | Traceability audit | Every figure, table, and decision in the report links to an issue, PR, commit, or ADR (checklist in the review) | | | |
+| S3-12 | Related work section with real citations | At least six sources in `report/references.bib`, each checked against its DOI or arXiv page | | | |
+| S3-13 | FMEA-style ranking of capability categories | Severity from the rule file, occurrence from validated prevalence, detection from validated recall; table in `results/` | | | |
 
 ## Risks pulled from the FMEA register
 
-| Risk | RPN | Mitigation this sprint |
-|---|---|---|
-| Results change late and figures go stale | | Figures only through `make figures`; CI regenerates on PR |
-| Report and analysis compete for one person's time | | Report sections scheduled as weekly issues; descope order in `TEAM_CHARTER.md` section 9 |
-| Demo fails live | | Pre-recorded run and static figures as backup (see `docs/PRESENTATION_PLAN.md`) |
+| Risk | RPN | Mitigation this sprint | Owner |
+|---|---|---|---|
+| Results change late and figures go stale | | Figures only through `make figures`; CI regenerates on PR | |
+| Report writing concentrated on one member (R06) | 147 | Report sections owned by different members (W8 in `docs/workspace/WORK_SIGNUP.md`); descope order in P-01 section 10 if time runs short | Product Owner |
+| A member is unavailable near the deadline (R05) | 108 | A backup for every report section and demo segment | Scrum Master |
+| Demo fails live | | Pre-recorded run and static figures as backup (see `docs/PRESENTATION_PLAN.md`) | |
 
 ## Improve phase exit criteria (DMAIC)
 
@@ -49,11 +54,12 @@ Sprint goal:
 - [ ] The process improvement with the largest measured effect this semester is named with before and after numbers.
 - [ ] Every report figure and table is reproducible from a tagged commit.
 - [ ] The threats-to-validity table has a status for every row.
-- [ ] Control plan drafted for finalization (`docs/lean-six-sigma/CONTROL_PLAN.md`): what is checked, and when, before submission.
+- [ ] Control plan drafted for finalization (`docs/lean-six-sigma/CONTROL_PLAN.md`): what is checked, by whom, and when, before submission.
 
-## Planning notes
+## Planning meeting notes
 
 - Date: 2026-10-29. Facilitator: Jerad Dunne.
+- Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer
 - Items pulled into the sprint (issue numbers):
 - Items explicitly deferred and why:
 - Carry-over from Sprint 2:

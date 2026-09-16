@@ -1,19 +1,42 @@
-# Work log, week of YYYY-MM-DD (Monday)
+# Stand-up week of YYYY-MM-DD (Monday)
 
-How to use: copy to `docs/meeting-notes/YYYY-MM-DD-worklog-week.md`, dated the Monday. Add a row on Monday, Wednesday, and Friday before 21:00 local time. One line per cell; link issue numbers. Hours are the time spent since the last entry. (Solo project, ADR-0005; this template replaces the four-person stand-up.)
+How to use: copy to `docs/meeting-notes/YYYY-MM-DD-standup-week.md` dated the Monday. Each member adds their own row on Monday, Wednesday, and Friday before 21:00 local time. Keep entries to one line each. Link issue numbers. Hours are time spent since the last entry.
 
-Sprint: Sprint N.
+Sprint: Sprint N. Scrum Master: <name>.
 
-| Day | Date | Done since last entry | Next | Blockers (issue #) | Hours |
-|---|---|---|---|---|---|
-| Monday | | | | | |
-| Wednesday | | | | | |
-| Friday | | | | | |
+## Monday YYYY-MM-DD
 
-## Week summary (Friday)
+| Member | Done since last entry | Next | Blockers (issue #) | Hours |
+|---|---|---|---|---|
+| Leticia Aderhold | | | | |
+| Jerad Dunne | | | | |
+| Allie Hodges | | | | |
+| Hina Kramer | | | | |
 
-- Board: Todo ___ / In progress ___ (at most 2) / Block ___ / Done ___
-- Hours this week (planned / actual):
-- PRs opened / merged after at least 12 hours of cooling-off:
+## Wednesday YYYY-MM-DD
+
+| Member | Done since last entry | Next | Blockers (issue #) | Hours |
+|---|---|---|---|---|
+| Leticia Aderhold | | | | |
+| Jerad Dunne | | | | |
+| Allie Hodges | | | | |
+| Hina Kramer | | | | |
+
+## Friday YYYY-MM-DD
+
+| Member | Done since last entry | Next | Blockers (issue #) | Hours |
+|---|---|---|---|---|
+| Leticia Aderhold | | | | |
+| Jerad Dunne | | | | |
+| Allie Hodges | | | | |
+| Hina Kramer | | | | |
+
+## Week summary (Scrum Master, Friday)
+
+- Board: Todo ___ / In progress ___ (WIP limit 5) / Block ___ / Done ___
+- Blockers open and who is unblocking them:
+- PRs waiting more than 48 hours for a first review (numbers and requested reviewers):
+- Hours this week (team total, and per member min / max):
 - Findings or decisions to curate at the Thursday check-in:
 - Waste observed (add to `docs/lean-six-sigma/WASTE_LOG.md`):
+- Anything for the Thursday check-in agenda:

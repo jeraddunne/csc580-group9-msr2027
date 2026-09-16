@@ -1,6 +1,6 @@
 # ADR-0005: Run the project as a solo project
 
-- **Status:** Accepted on 2026-09-14. Jerad Dunne confirmed on 2026-09-14 that a solo project is permitted.
+- **Status:** Superseded by ADR-0006 (2026-09-15). Originally accepted on 2026-09-14, when Jerad Dunne confirmed that a solo project is permitted.
 - **Date:** 2026-09-14
 - **Deciders:** Jerad Dunne. Confirmation requested from the instructor, Prof. Mohamed Wiem Mkaouer (@mkaouer).
 - **Confirmation:** stated by the student on 2026-09-14; attach the instructor's written confirmation here if one exists

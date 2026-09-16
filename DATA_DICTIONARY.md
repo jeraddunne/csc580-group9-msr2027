@@ -226,7 +226,7 @@ variable. `RESEARCH_QUESTION.md` section 6 references these rows. Threat ids
 
 | Variable | Definition | Type | Source (table.column) | Derivation | Unit | Notes / threats |
 |---|---|---|---|---|---|---|
-| `validation_label` | Manual label for a sampled rule match | categorical: risky in context, benign in context, not present | label files produced with the annotation kit | guideline in `docs/validation/` | n/a | Single annotator with intra-rater kappa (P6, N5) |
+| `validation_label` | Manual label for a sampled rule match | categorical: risky in context, benign in context, not present | label files produced with the annotation kit | guideline in `docs/validation/` | n/a | Primary rater plus a teammate second rater; inter-rater kappa, intra-rater kappa optional (P6, N5) |
 
 Conventions:
 

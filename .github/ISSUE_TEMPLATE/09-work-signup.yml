@@ -1,0 +1,94 @@
+name: "Work sign-up"
+description: "Tell the team what you want to work on next sprint. One per member per sprint, before planning."
+title: "[Sign-up] "
+labels: ["signup", "type:process"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Workstreams are described in `docs/workspace/WORK_SIGNUP.md`. Choices are preferences; assignments are agreed at sprint planning and recorded there.
+        Title suggestion: `[Sign-up] <your name>, <sprint>`.
+  - type: input
+    id: member
+    attributes:
+      label: Member
+      placeholder: "Full name (@handle)"
+    validations:
+      required: true
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      options: ["Formation", "Sprint 1", "Sprint 2", "Sprint 3", "Finalization"]
+    validations:
+      required: true
+  - type: dropdown
+    id: hours
+    attributes:
+      label: Hours available this sprint (per week)
+      options: ["4 to 6", "7 to 9", "10 to 12", "13 or more"]
+    validations:
+      required: true
+  - type: dropdown
+    id: first
+    attributes:
+      label: First choice
+      options:
+        - "W1 Research framing and related work"
+        - "W2 Data acquisition and data dictionary"
+        - "W3 Extraction pipeline and loaders"
+        - "W4 Analysis and statistics"
+        - "W5 Validation and annotation"
+        - "W6 Testing, CI, and reproducibility"
+        - "W7 Visualization and results tables"
+        - "W8 Report writing"
+        - "W9 Presentation and demo"
+        - "W10 Process and Lean Six Sigma metrics"
+    validations:
+      required: true
+  - type: dropdown
+    id: second
+    attributes:
+      label: Second choice
+      options:
+        - "W1 Research framing and related work"
+        - "W2 Data acquisition and data dictionary"
+        - "W3 Extraction pipeline and loaders"
+        - "W4 Analysis and statistics"
+        - "W5 Validation and annotation"
+        - "W6 Testing, CI, and reproducibility"
+        - "W7 Visualization and results tables"
+        - "W8 Report writing"
+        - "W9 Presentation and demo"
+        - "W10 Process and Lean Six Sigma metrics"
+    validations:
+      required: true
+  - type: dropdown
+    id: third
+    attributes:
+      label: Third choice
+      options:
+        - "W1 Research framing and related work"
+        - "W2 Data acquisition and data dictionary"
+        - "W3 Extraction pipeline and loaders"
+        - "W4 Analysis and statistics"
+        - "W5 Validation and annotation"
+        - "W6 Testing, CI, and reproducibility"
+        - "W7 Visualization and results tables"
+        - "W8 Report writing"
+        - "W9 Presentation and demo"
+        - "W10 Process and Lean Six Sigma metrics"
+  - type: input
+    id: issues
+    attributes:
+      label: Specific issues you want
+      placeholder: "#14, #16"
+  - type: textarea
+    id: learn
+    attributes:
+      label: What you want to learn or pair on
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints this sprint
+      description: Exams, travel, work deadlines, days you are unavailable.

@@ -1,6 +1,6 @@
 # Voting
 
-> **Retired (ADR-0005).** The project became solo on 2026-09-14 and proposal P-01 was selected without a vote (ADR-0004). This page is kept as the record of the original process.
+> **Retired.** Proposal P-01 was selected without a vote on 2026-09-14 (ADR-0004). The vote stays retired after the group was reinstated on 2026-09-15 (ADR-0006); a topic change now goes through a Decision needed issue. This page is kept as the record of the original process.
 
 How to use: one ballot per member, submitted as a pull request. The vote closes 2026-09-15 23:59.
 

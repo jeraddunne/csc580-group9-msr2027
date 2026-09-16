@@ -58,7 +58,7 @@ SEED_ISSUES: list[tuple[str, str, str, str]] = [
         "formation",
         "rubric,type:process",
         "Formation: team charter signed by all four members",
-        "Every member signs TEAM_CHARTER.md section 13 in their first PR and completes the onboarding issue.\n\n"
+        "Every member signs TEAM_CHARTER.md section 14 in their first PR and completes the onboarding issue.\n\n"
         "Acceptance: four signature rows; four onboarding issues closed; four profiles in docs/team/.\nEstimate: 1",
     ),
     (

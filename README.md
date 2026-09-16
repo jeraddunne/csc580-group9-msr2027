@@ -3,17 +3,20 @@
 [![CI](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/ci.yml/badge.svg)](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/ci.yml)
 [![LSS metrics](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/lss-metrics.yml/badge.svg)](https://github.com/jeraddunne/csc580-group9-msr2027/actions/workflows/lss-metrics.yml)
 
-An MSR 2027 Mining Challenge-inspired semester project for SWE 380 / CSC 580 (University of Michigan-Flint, instructor Prof. Mohamed Wiem Mkaouer). It builds a reproducible, static, rule-based analysis of risk-relevant capabilities in agent skills from the [GitSkills](https://github.com/giuseppedestefanis/gitskills-sample) dataset and reports evidence-based findings. Loaders for [SpecMine](https://github.com/shyamagarwal13/specmine-official) remain available but are not used by the selected question.
+An MSR 2027 Mining Challenge-inspired semester project for SWE 380 / CSC 580 (University of Michigan-Flint, instructor Prof. Mohamed Wiem Mkaouer), carried out by Group 9. It builds a reproducible, static, rule-based analysis of risk-relevant capabilities in agent skills from the [GitSkills](https://github.com/giuseppedestefanis/gitskills-sample) dataset and reports evidence-based findings. Loaders for [SpecMine](https://github.com/shyamagarwal13/specmine-official) remain available but are not used by the selected question.
 
-The project is run solo with **Scrum** (three sprints, as the assignment requires) and a **Lean Six Sigma** overlay (DMAIC tollgates, KPIs with control charts, FMEA risk register, kaizen loop). See `docs/PROCESS.md`.
+The group works with **Scrum** (three sprints, as the assignment requires) and a **Lean Six Sigma** overlay (DMAIC tollgates, KPIs with control charts, FMEA risk register, kaizen loop). See `docs/PROCESS.md`.
 
-## Author
+## Team
 
-| Name | GitHub | Roles |
+| Member | GitHub | Sprint 1 role (proposed) |
 |---|---|---|
-| Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | Product Owner, Scrum Master, Developer / Researcher (every sprint) |
+| Leticia Aderhold | [@angel06la](https://github.com/angel06la) | Scrum Master, Developer / Researcher |
+| Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | Product Owner, Developer / Researcher |
+| Allie Hodges | [@AllieHgs](https://github.com/AllieHgs) | Developer / Researcher |
+| Hina Kramer | [@hinak786](https://github.com/hinak786) | Developer / Researcher |
 
-The repository was created on 2026-09-13 for a four-person Group 9 and became a solo project on 2026-09-14. The assignment describes groups of three to five, and the student confirmed on 2026-09-14 that a solo project is permitted, as recorded in `docs/decisions/ADR-0005-solo-execution.md`.
+Roles rotate every sprint (`TEAM_CHARTER.md` section 3) and are confirmed at the kickoff on 2026-09-16. Everyone is a Developer / Researcher every sprint. The repository briefly ran as a solo project on 2026-09-14 (ADR-0005); the four-person group was reinstated on 2026-09-15 (`docs/decisions/ADR-0006-group-reinstated.md`).
 
 ## Research question
 
@@ -21,17 +24,25 @@ Proposal P-01 was selected on 2026-09-14 (`docs/decisions/ADR-0004-topic-selecti
 
 > In the GitSkills July 2026 sample, how prevalent are skill instructions and bundled scripts that enable risk-relevant capabilities, do skills carrying them reach more repositories through verbatim copying, and do modified variants of the same skill add or remove those capabilities?
 
-The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ3). Details are in `RESEARCH_QUESTION.md` and `docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md`.
+The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ3). Details are in `RESEARCH_QUESTION.md` and `docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md`. Any member may open a Decision needed issue to revisit the topic before Sprint 1 planning on 2026-09-17.
 
 ## Project status
 
 | Phase | Dates | Status |
 |---|---|---|
-| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: topic selected (P-01, ADR-0004); solo execution confirmed as permitted (ADR-0005) |
+| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: topic selected (P-01); group reinstated (ADR-0006); members onboarding and signing the charter |
 | Sprint 1 (Measure) | Sep 17 to Oct 7 | not started |
 | Sprint 2 (Analyze) | Oct 8 to Oct 28 | not started |
 | Sprint 3 (Improve) | Oct 29 to Nov 18 | not started |
 | Finalization (Control) | Nov 30 to Dec 4 | not started |
+
+## New member? Start here
+
+1. Accept the repository invitation: https://github.com/jeraddunne/csc580-group9-msr2027/invitations
+2. Read `docs/GETTING_STARTED.md` and follow the onboarding path (setup, onboarding issue, first pull request).
+3. Sign `TEAM_CHARTER.md` section 14 and add your profile under `docs/team/` in that first pull request; another member reviews it.
+4. If you are a second rater for validation, follow `docs/validation/README.md`.
+5. Bookmark the team workspace, `docs/workspace/README.md`: sign up for work, log findings, and see what the team decided.
 
 ## Start here (reader or grader)
 
@@ -70,16 +81,17 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | `python -m msr_pipeline analyze` | Full P-01 analysis: RQ1 prevalence, RQ2 reach statistics, RQ3 variant drift, sensitivity checks; writes `results/rq*_*.csv`, `results/sensitivity_*.csv`, `figures/rq*_*.png` |
 | `make pipeline` | Runs the P-01 analysis end to end |
 | `python -m msr_pipeline risk-pilot` | Original P-01 pilot scan of the GitSkills sample (static text only) |
-| `python scripts/annotation_kit.py sample` | Draws the stratified validation sample |
-| `python scripts/annotation_kit.py sheet` | Builds annotation sheets for labelling and re-labelling |
+| `python scripts/annotation_kit.py sheet --rater <id> --round 1` | Builds your label sheets and reading packets |
+| `python scripts/annotation_kit.py ui --rater <id> --round 1` | Writes local labelling pages to `data/annotations/work/` |
+| `python scripts/annotation_kit.py import <downloaded.csv>` | Validates and saves labels downloaded from a labelling page |
 | `python scripts/annotation_kit.py score` | Scores labels: precision per rule, recall estimate, Cohen's kappa |
 | `python -m msr_pipeline explore --dataset all` | Regenerates exploratory tables and figures |
 | `python -m msr_pipeline query --dataset gitskills --sql "..."` | Ad-hoc read-only SQL against the GitSkills sample |
 | `python scripts/lss_metrics.py` | Computes process KPIs from GitHub and renders `docs/lean-six-sigma/metrics/DASHBOARD.md` |
-| `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from finding and decision issues |
+| `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from sign-up, finding, and decision issues |
 | `make reproduce` | Fresh end-to-end run: data, explore, test |
 
-Retired: `python scripts/tally_votes.py` (topic vote, superseded by ADR-0005).
+Retired: `python scripts/tally_votes.py` (the topic vote was not held; P-01 was selected directly, ADR-0004).
 
 ## Outputs
 
@@ -93,36 +105,37 @@ Retired: `python scripts/tally_votes.py` (topic vote, superseded by ADR-0005).
 ```
 .
 ├── README.md, RESEARCH_QUESTION.md, DATA_DICTIONARY.md, THREATS_TO_VALIDITY.md
-├── TEAM_CHARTER.md (solo working agreement), PROJECT_PLAN.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, LICENSE
+├── TEAM_CHARTER.md (working agreement v2.0), PROJECT_PLAN.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, LICENSE
 ├── ai-use-log.md                 AI assistance disclosure log (required by the rubric)
-├── project.yml                   single source of truth: author, dates, roles, KPI targets
+├── project.yml                   single source of truth: team, dates, roles, raters, KPI targets
 ├── pyproject.toml, requirements*.txt, Makefile, run_pipeline.sh
-├── src/msr_pipeline/             loaders, scanner, analysis, metrics, CLI
+├── src/msr_pipeline/             loaders, scanner, analysis, validation, metrics, CLI
 ├── tests/                        offline unit tests
 ├── scripts/                      download_samples, annotation_kit, bootstrap_github, lss_metrics, workspace_digest, ...
 ├── rules/                        reviewable rule files (P-01 risk-signal rules)
 ├── notebooks/                    exploratory notebooks (never the sole source of a result)
 ├── data/README.md, data/samples/ dataset docs; samples downloaded, not committed
+├── data/annotations/             validation samples and label files (reading packets stay local)
 ├── results/, figures/            generated evidence
 ├── report/                       draft.md, references.bib, build instructions
 ├── docs/
 │   ├── GETTING_STARTED.md, PROCESS.md, PRESENTATION_PLAN.md
-│   ├── workspace/                findings log, decision log, solo workstream plan, digest
+│   ├── workspace/                work sign-up, findings log, decision log, digest
 │   ├── research/                 threat model and research notes
-│   ├── validation/               annotation guideline and validation protocol
+│   ├── validation/               annotation guideline and second-rater protocol
 │   ├── sprints/                  planning, review, retrospective per sprint
 │   ├── proposals/                candidate questions, P-01 proposal, retired vote
 │   ├── lean-six-sigma/           DMAIC, KPIs, SIPOC/CTQ, VSM, FMEA, waste log, kaizen, metrics/
 │   ├── decisions/                architecture and process decision records (ADRs)
-│   ├── meeting-notes/            work logs, check-ins, reviews, retros
-│   ├── team/                     author profile (RACI retired)
-│   └── reflections/              individual contribution and reflection
+│   ├── meeting-notes/            stand-ups, check-ins, reviews, retros
+│   ├── team/                     member profiles, RACI
+│   └── reflections/              individual contribution and reflection (one per member)
 └── .github/                      issue forms, PR template, CI, metrics workflows
 ```
 
 ## Process in one paragraph
 
-Work is tracked as GitHub issues on the project board (Todo, In progress, Done, Block, Cancelled; WIP limit 5). Sprints run Thursday to Wednesday, with written planning on day one, a short work log on Monday, Wednesday, and Friday, a Thursday self check-in with the metrics dashboard, and a review plus retrospective on the last Wednesday. Every retrospective starts from data, finds a root cause, and produces `kaizen` issues. Decisions are recorded in `docs/workspace/DECISION_LOG.md` and, when significant, as ADRs. Every change reaches `main` through a pull request that passes a self-review after a cooling-off period of at least 12 hours, and a green CI run once workflows are enabled. Major pull requests may request an external review from the instructor or a classmate.
+Work is tracked as GitHub issues on the project board (Todo, In progress, Done, Block, Cancelled; WIP limit 5). Sprints run Thursday to Wednesday, with planning on day one, written stand-ups on Monday, Wednesday, and Friday, a Thursday check-in with the metrics dashboard, and a review plus retrospective on the last Wednesday. Members choose work through the Work sign-up form before each planning. Every retrospective starts from data, finds a root cause, and produces `kaizen` issues. Decisions are recorded in `docs/workspace/DECISION_LOG.md` and, when significant, as ADRs. Every change reaches `main` through a pull request approved by a member other than the author, with a green CI run.
 
 ## Repository visibility
 
@@ -130,7 +143,7 @@ The repository is public. If it is made private during development, branch prote
 
 ## Limitations
 
-To be completed as the project progresses. Known dataset limitations are already listed in `THREATS_TO_VALIDITY.md`. The solo-specific limits (self-review instead of peer review, single-annotator validation) are described in ADR-0005.
+To be completed as the project progresses. Known dataset and validation limitations are listed in `THREATS_TO_VALIDITY.md`.
 
 ## Citation
 

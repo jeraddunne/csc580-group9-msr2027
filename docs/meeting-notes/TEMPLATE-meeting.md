@@ -7,7 +7,7 @@ How to use: copy to `docs/meeting-notes/YYYY-MM-DD-<type>.md`. Fill the agenda b
 - Location or call link (no personal details):
 - Facilitator:
 - Note taker:
-- Attendees: [ ] Jerad Dunne [ ] Instructor (if present) [ ] External reviewer (if present)
+- Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer [ ] Instructor (if present)
 - Related sprint document: `docs/sprints/<sprint>/<file>.md`
 
 ## Agenda (with time boxes)

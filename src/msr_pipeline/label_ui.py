@@ -145,6 +145,8 @@ def build_html(kind: str, rater: str, round_: int, items: list[dict], categories
             "pair": list(v.LINEAGE_LABELS if kind == "lineage" else v.DRIFT_LABELS),
         },
         "help": LABEL_HELP,
+        "justifyLabels": list(v.JUSTIFY_LABELS[kind]),
+        "minNote": v.MIN_JUSTIFICATION_CHARS,
         "categories": list(categories),
         "items": items,
     }
@@ -254,6 +256,8 @@ label.choice .help { grid-column: 2; color: var(--muted); font-size: 12px; }
 .key { display: inline-block; min-width: 1.4em; text-align: center; border: 1px solid var(--line);
   border-radius: 4px; font-size: 11px; margin-right: 4px; color: var(--muted); }
 input[type=text], select { width: 100%; margin-top: 6px; }
+input[type=text].needs-reason { border: 2px solid #c2410c; background: #fff7ed; }
+.reason-hint { margin-top: 4px; font-size: 0.85em; opacity: 0.8; }
 .state-done { color: var(--ok); } .state-todo { color: var(--warn); }
 nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 #status { font-size: 12px; color: var(--muted); }
@@ -310,9 +314,16 @@ function persist() {
   try { localStorage.setItem(storeKey, JSON.stringify(out)); $("status").textContent = "Saved in this browser"; }
   catch (e) { $("status").textContent = "Browser storage unavailable: download the CSV often"; }
 }
+function needsReason(row) {
+  return DATA.justifyLabels.indexOf(row.label) !== -1;
+}
+function hasReason(row) {
+  return (row.notes || "").trim().length >= DATA.minNote;
+}
 function rowDone(row) {
   if (!row.label) return false;
   if (row.label === "MISSED_RISKY" && !row.missed_category) return false;
+  if (needsReason(row) && !hasReason(row)) return false;
   return true;
 }
 function itemDone(item) { return item.rows.every(rowDone); }
@@ -369,13 +380,37 @@ function renderPanel() {
     }
     const notes = document.createElement("input");
     notes.type = "text";
-    notes.placeholder = "Notes (optional; round 2: add today's date)";
+    const mustJustify = needsReason(row);
+    notes.placeholder = mustJustify
+      ? "Why this label? Required (" + DATA.minNote + "+ chars) - quote the evidence, no repo names"
+      : "Notes (optional; round 2: add today's date)";
     notes.value = row.notes || "";
-    notes.addEventListener("input", () => { row.notes = notes.value; persist(); });
+    notes.className = mustJustify && !hasReason(row) ? "needs-reason" : "";
+    // Update in place rather than re-rendering: a re-render on every keystroke
+    // would rebuild this input and drop the caret.
+    notes.addEventListener("input", () => {
+      row.notes = notes.value;
+      notes.className = needsReason(row) && !hasReason(row) ? "needs-reason" : "";
+      const state = document.getElementById("itemState");
+      if (state) {
+        const done = itemDone(item);
+        state.textContent = done ? "Item complete" : "Item needs labels";
+        state.className = done ? "state-done" : "state-todo";
+      }
+      persist();
+    });
     box.appendChild(notes);
+    if (mustJustify) {
+      const hint = el("div",
+        "This label disagrees with the detector, so it feeds precision or recall. "
+        + "Say what the matched text actually was and why it is not what the rule claims.",
+        "reason-hint");
+      box.appendChild(hint);
+    }
     panel.appendChild(box);
   });
   const state = el("div", itemDone(item) ? "Item complete" : "Item needs labels", itemDone(item) ? "state-done" : "state-todo");
+  state.id = "itemState";
   panel.appendChild(state);
 }
 function firstOpenRow(item) {

@@ -1,4 +1,4 @@
-# Annotation guideline (version 1.1, 2026-09-15)
+# Annotation guideline (version 1.2, 2026-09-17)
 
 How to use: read this once before labelling and keep it open while you label. Labels go into the CSV files under `data/annotations/`; the reading packets under `data/annotations/work/` show the text. Changes to this guideline after round 1 starts are recorded at the bottom with a date, and items labelled under an older version are noted in the report.
 
@@ -94,7 +94,20 @@ If both HARDENING and CAPABILITY_ADDITION apply, label the change with the highe
 
 ## 5. Recording and disagreement
 
-- Fill the label column exactly as written above (upper case). Leave `notes` short.
+- Fill the label column exactly as written above (upper case).
+- **A reason is required for any label that disagrees with the detector or is uncertain.** These labels move a precision, recall or drift number, so each one carries at least 15 characters in `notes` saying what the matched text actually was and why the label is right. The kit refuses to import a file that is missing one, and the labelling page marks the box until it is filled.
+
+| Kind | Labels that require a reason | Why |
+|---|---|---|
+| signals | `NOT_PRESENT`, `BENIGN_CONTEXT`, `MISSED_RISKY` | The first two are the rule's false positives and set precision; the third is a miss and sets recall |
+| lineage | `NO`, `UNSURE` | A rejected or uncertain pair is a judgement against the similarity score |
+| drift | `HARDENING`, `CAPABILITY_ADDITION` | These are the substantive drift findings the report interprets |
+
+Labels that simply agree with the detector (`RISKY`, `NONE_PRESENT`, `YES`, `TEMPLATE_UPDATE`, `LOCAL_ADAPTATION`, `UNRELATED`) do not need a reason. That keeps the requirement on roughly a fifth of rows instead of taxing all 285.
+
+A reason states the evidence, not the conclusion. "false positive" is not a reason; "matched `sudo` inside the identifier `SUDO_USER` in a prose sentence, not an instruction" is. Quote at most a few words and never a repository name.
+
+- **What you would change belongs in `docs/validation/RULE_CHANGE_PROPOSALS.md`, not in the row.** False positives cluster by rule, so the fix is a property of the rule and is written once. Run `python scripts/annotation_kit.py proposals` to refresh the counts and evidence; the two prose lines under each rule are yours to write and are preserved across runs. Proposals become issues and are applied in a later round, never by editing labels already made.
 - Label independently. A second rater never opens another rater's label file, and raters do not discuss specific items until both label files for that kind are committed.
 - Blindness rule: the primary rater's filled label files for a kind are committed only after the second rater's labels for that kind are committed (`docs/validation/README.md`).
 - A second rater's pull request contains only their own label file.
@@ -137,3 +150,4 @@ The ranking prioritises follow-up work. It is not a verdict on any skill.
 |---|---|---|
 | 2026-09-14 | 1.0 | First version, written before any labelling |
 | 2026-09-15 | 1.1 | Added second-rater independence, the blindness rule, and the rule that an LLM rater never replaces the teammate second rater (ADR-0006). Label definitions and the decision order are unchanged, so round 1 labels made under 1.0 stay valid |
+| 2026-09-17 | 1.2 | Required a written reason for labels that disagree with the detector or are uncertain (signals `NOT_PRESENT`, `BENIGN_CONTEXT`, `MISSED_RISKY`; lineage `NO`, `UNSURE`; drift `HARDENING`, `CAPABILITY_ADDITION`), enforced by the kit and the labelling page. Added `RULE_CHANGE_PROPOSALS.md` for rule-level fixes. Label definitions and the decision order are unchanged, and no labels existed under 1.1, so nothing needs relabelling |

@@ -432,14 +432,34 @@ def test_proposals_aggregates_false_positives_by_rule(data_root: Path, tmp_path:
     rule = RULES[0].id
     pd.DataFrame(
         [
-            {"file_sha": "aaaaaaaa11", "rule_id": rule, "label": "NOT_PRESENT",
-             "missed_category": "", "notes": "matched inside identifier SUDO_USER"},
-            {"file_sha": "bbbbbbbb22", "rule_id": rule, "label": "BENIGN_CONTEXT",
-             "missed_category": "", "notes": "shown as an example of what not to do"},
-            {"file_sha": "cccccccc33", "rule_id": rule, "label": "RISKY",
-             "missed_category": "", "notes": ""},
-            {"file_sha": "dddddddd44", "rule_id": "NONE", "label": "NONE_PRESENT",
-             "missed_category": "", "notes": ""},
+            {
+                "file_sha": "aaaaaaaa11",
+                "rule_id": rule,
+                "label": "NOT_PRESENT",
+                "missed_category": "",
+                "notes": "matched inside identifier SUDO_USER",
+            },
+            {
+                "file_sha": "bbbbbbbb22",
+                "rule_id": rule,
+                "label": "BENIGN_CONTEXT",
+                "missed_category": "",
+                "notes": "shown as an example of what not to do",
+            },
+            {
+                "file_sha": "cccccccc33",
+                "rule_id": rule,
+                "label": "RISKY",
+                "missed_category": "",
+                "notes": "",
+            },
+            {
+                "file_sha": "dddddddd44",
+                "rule_id": "NONE",
+                "label": "NONE_PRESENT",
+                "missed_category": "",
+                "notes": "",
+            },
         ]
     ).to_csv(ann / "signals_jd_r1.csv", index=False)
 
@@ -455,8 +475,9 @@ def test_proposals_aggregates_false_positives_by_rule(data_root: Path, tmp_path:
 
     # The rater's prose survives a regeneration; the counts do not.
     out.write_text(
-        text.replace("Why it misfires: TODO", "Why it misfires: matches bare tokens")
-            .replace("What I would do: TODO", "What I would do: require a fenced shell block"),
+        text.replace("Why it misfires: TODO", "Why it misfires: matches bare tokens").replace(
+            "What I would do: TODO", "What I would do: require a fenced shell block"
+        ),
         encoding="utf-8",
     )
     assert kit.main(["proposals", "--out", str(out)]) == 0

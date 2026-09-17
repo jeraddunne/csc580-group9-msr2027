@@ -6,8 +6,9 @@ Usage:
     python scripts/annotation_kit.py sheet --rater jd --round 1  # label CSVs + reading packets
     python scripts/annotation_kit.py ui --rater jd --round 1     # local HTML labelling pages
     python scripts/annotation_kit.py import <downloaded.csv>    # validate and save labels
-    python scripts/annotation_kit.py status                     # labelling progress
+    python scripts/annotation_kit.py status                     # labelling progress + reason coverage
     python scripts/annotation_kit.py score                      # precision, recall, agreement, FMEA
+    python scripts/annotation_kit.py proposals                  # rule change proposals from false positives
 
 Safety: dataset text is only read and shown as indented excerpts in gitignored
 reading packets. Nothing from the dataset is executed, imported, or fetched.
@@ -545,7 +546,8 @@ def cmd_proposals(args: argparse.Namespace) -> int:
         else repo_root() / "docs" / "validation" / "RULE_CHANGE_PROPOSALS.md"
     )
     files = [
-        f for f in v.discover_label_files(annotations_dir(paths))
+        f
+        for f in v.discover_label_files(annotations_dir(paths))
         if f.kind == "signals" and (args.include_llm or f.is_human)
     ]
     if not files:
@@ -571,9 +573,7 @@ def cmd_proposals(args: argparse.Namespace) -> int:
         for rec in rows.to_dict("records"):
             rule = str(rec["rule_id"]).strip()
             label = str(rec["label"]).strip()
-            d = per_rule.setdefault(
-                rule, {"matches": 0, "fp": 0, "evidence": [], "by_label": {}}
-            )
+            d = per_rule.setdefault(rule, {"matches": 0, "fp": 0, "evidence": [], "by_label": {}})
             d["matches"] += 1
             d["by_label"][label] = d["by_label"].get(label, 0) + 1
             if label in ("NOT_PRESENT", "BENIGN_CONTEXT"):
@@ -584,9 +584,7 @@ def cmd_proposals(args: argparse.Namespace) -> int:
     misfiring = {r: d for r, d in per_rule.items() if d["fp"]}
     lines = [PROPOSALS_HEADER]
     if not misfiring:
-        lines.append(
-            "\nNo false positives labelled yet. Label some signal rows, then rerun.\n"
-        )
+        lines.append("\nNo false positives labelled yet. Label some signal rows, then rerun.\n")
     for rule in sorted(misfiring, key=lambda r: (-misfiring[r]["fp"], r)):
         d = misfiring[rule]
         precision = 1 - d["fp"] / d["matches"] if d["matches"] else 0.0

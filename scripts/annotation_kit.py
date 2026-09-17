@@ -6,9 +6,9 @@ Usage:
     python scripts/annotation_kit.py sheet --rater jd --round 1  # label CSVs + reading packets
     python scripts/annotation_kit.py ui --rater jd --round 1     # local HTML labelling pages
     python scripts/annotation_kit.py import <downloaded.csv>    # validate and save labels
-    python scripts/annotation_kit.py status                     # labelling progress + reason coverage
+    python scripts/annotation_kit.py status                     # progress + reason coverage
     python scripts/annotation_kit.py score                      # precision, recall, agreement, FMEA
-    python scripts/annotation_kit.py proposals                  # rule change proposals from false positives
+    python scripts/annotation_kit.py proposals                  # rule changes from false positives
 
 Safety: dataset text is only read and shown as indented excerpts in gitignored
 reading packets. Nothing from the dataset is executed, imported, or fetched.

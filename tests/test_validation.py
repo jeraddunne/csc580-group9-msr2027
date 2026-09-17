@@ -315,6 +315,8 @@ def test_kit_end_to_end(data_root: Path, capsys: pytest.CaptureFixture[str]):
     labels["label"] = "NONE_PRESENT"
     labels.loc[0, "label"] = "MISSED_RISKY"
     labels.loc[0, "missed_category"] = "REMOTE_CODE"
+    # MISSED_RISKY is a judgement call, so it carries a written reason.
+    labels.loc[0, "notes"] = "downloads and pipes a remote installer to a shell"
     labels.to_csv(label_path, index=False)
     assert kit.main(["sheet", "--rater", "jd", "--round", "1"]) == 0  # does not overwrite labels
     assert v.read_label_csv(label_path).loc[0, "label"] == "MISSED_RISKY"
@@ -328,6 +330,7 @@ def test_kit_end_to_end(data_root: Path, capsys: pytest.CaptureFixture[str]):
     )
     round2["label"] = merged["label_r1"].tolist()
     round2["missed_category"] = merged["missed_category_r1"].tolist()
+    round2["notes"] = merged["notes_r1"].tolist()
     round2.to_csv(ann / "signals_jd_r2.csv", index=False)
 
     assert kit.main(["status"]) == 0
@@ -359,3 +362,125 @@ def test_kit_end_to_end(data_root: Path, capsys: pytest.CaptureFixture[str]):
     bad.loc[1, "label"] = "RISKY"
     bad.to_csv(label_path, index=False)
     assert kit.main(["score"]) == 2  # problems reported, scores still written
+
+
+def test_justification_required_only_for_judgement_labels():
+    """Labels that contradict the detector need a written reason; agreeing ones do not."""
+    frame = pd.DataFrame(
+        {
+            "file_sha": ["a", "b", "c", "d"],
+            "rule_id": ["R-A", "R-A", "R-A", "NONE"],
+            "label": ["RISKY", "NOT_PRESENT", "BENIGN_CONTEXT", "NONE_PRESENT"],
+            "missed_category": ["", "", "", ""],
+            "notes": ["", "", "quoted as an example of what not to do", ""],
+        }
+    )
+    problems = v.validate_labels(frame, "signals", rule_ids=["R-A"])
+    joined = " ".join(problems)
+    assert "line 2" not in joined, "RISKY agrees with the rule and needs no reason"
+    assert "line 5" not in joined, "NONE_PRESENT agrees with the rule and needs no reason"
+    assert "line 3" in joined, "NOT_PRESENT without a reason must be reported"
+    assert "line 4" not in joined, "BENIGN_CONTEXT with a reason is fine"
+
+    cov = v.justification_coverage(frame, "signals")
+    assert cov == {"owed": 2, "given": 1, "missing": 1}
+
+
+def test_justification_rejects_a_token_reason():
+    frame = pd.DataFrame(
+        {
+            "file_sha": ["a"],
+            "rule_id": ["R-A"],
+            "label": ["NOT_PRESENT"],
+            "missed_category": [""],
+            "notes": ["fp"],  # too short to be a reason
+        }
+    )
+    problems = v.validate_labels(frame, "signals", rule_ids=["R-A"])
+    assert any("needs a reason" in p for p in problems)
+
+
+def test_justification_applies_to_lineage_and_drift():
+    lineage = pd.DataFrame(
+        {
+            "file_sha_a": ["a", "b"],
+            "file_sha_b": ["x", "y"],
+            "same_lineage": ["YES", "UNSURE"],
+            "notes": ["", ""],
+        }
+    )
+    problems = v.validate_labels(lineage, "lineage")
+    assert len(problems) == 1 and "UNSURE" in problems[0]
+
+    drift = pd.DataFrame(
+        {
+            "file_sha_a": ["a", "b"],
+            "file_sha_b": ["x", "y"],
+            "change_type": ["TEMPLATE_UPDATE", "HARDENING"],
+            "notes": ["", ""],
+        }
+    )
+    problems = v.validate_labels(drift, "drift")
+    assert len(problems) == 1 and "HARDENING" in problems[0]
+
+
+def test_proposals_aggregates_false_positives_by_rule(data_root: Path, tmp_path: Path):
+    """Rule-level rollup: counts and evidence generated, rater prose preserved."""
+    kit = _kit()
+    ann = data_root / "data" / "annotations"
+    ann.mkdir(parents=True, exist_ok=True)
+    rule = RULES[0].id
+    pd.DataFrame(
+        [
+            {
+                "file_sha": "aaaaaaaa11",
+                "rule_id": rule,
+                "label": "NOT_PRESENT",
+                "missed_category": "",
+                "notes": "matched inside identifier SUDO_USER",
+            },
+            {
+                "file_sha": "bbbbbbbb22",
+                "rule_id": rule,
+                "label": "BENIGN_CONTEXT",
+                "missed_category": "",
+                "notes": "shown as an example of what not to do",
+            },
+            {
+                "file_sha": "cccccccc33",
+                "rule_id": rule,
+                "label": "RISKY",
+                "missed_category": "",
+                "notes": "",
+            },
+            {
+                "file_sha": "dddddddd44",
+                "rule_id": "NONE",
+                "label": "NONE_PRESENT",
+                "missed_category": "",
+                "notes": "",
+            },
+        ]
+    ).to_csv(ann / "signals_jd_r1.csv", index=False)
+
+    out = tmp_path / "RULE_CHANGE_PROPOSALS.md"
+    assert kit.main(["proposals", "--out", str(out)]) == 0
+    text = out.read_text(encoding="utf-8")
+    assert f"## {rule}" in text
+    assert "false positives: 2" in text
+    assert "observed precision: 0.33" in text  # 1 RISKY of 3 labelled matches
+    assert "matched inside identifier SUDO_USER" in text
+    assert "Why it misfires: TODO" in text
+    assert "NONE" not in text.split("## ")[1]  # NONE rows are not a rule
+
+    # The rater's prose survives a regeneration; the counts do not.
+    out.write_text(
+        text.replace("Why it misfires: TODO", "Why it misfires: matches bare tokens").replace(
+            "What I would do: TODO", "What I would do: require a fenced shell block"
+        ),
+        encoding="utf-8",
+    )
+    assert kit.main(["proposals", "--out", str(out)]) == 0
+    text2 = out.read_text(encoding="utf-8")
+    assert "Why it misfires: matches bare tokens" in text2
+    assert "What I would do: require a fenced shell block" in text2

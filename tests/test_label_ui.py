@@ -122,6 +122,8 @@ def test_import_labels_validates_and_protects_existing(tmp_path: Path):
 
     changed = good.copy()
     changed.loc[0, "label"] = "NOT_PRESENT"
+    # NOT_PRESENT contradicts the rule, so the contract requires a reason.
+    changed.loc[0, "notes"] = "matched inside the identifier SUDO_USER, not a command"
     changed.to_csv(download, index=False)
     target, problems, _ = label_ui.import_labels(download, ann, ["R-A"], ["REMOTE_CODE"])
     assert target is None and "differ" in problems[0]

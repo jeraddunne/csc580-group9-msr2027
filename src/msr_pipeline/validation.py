@@ -43,6 +43,18 @@ DRIFT_LABELS = (
     "CAPABILITY_ADDITION",
     "UNRELATED",
 )
+# Labels that either contradict the detector's own output or are inherently
+# uncertain. Each one moves a precision, recall or drift number, so it carries a
+# written reason. Labels that simply agree with the detector do not need one,
+# which keeps the requirement on the ~20% of rows where judgement is doing the
+# work rather than taxing all 285.
+JUSTIFY_LABELS = {
+    "signals": ("BENIGN_CONTEXT", "NOT_PRESENT", "MISSED_RISKY"),
+    "lineage": ("NO", "UNSURE"),
+    "drift": ("HARDENING", "CAPABILITY_ADDITION"),
+}
+MIN_JUSTIFICATION_CHARS = 15
+
 KINDS = ("signals", "lineage", "drift")
 KIND_COLUMNS = {
     "signals": ["file_sha", "rule_id", "label", "missed_category", "notes"],
@@ -208,7 +220,28 @@ def validate_labels(
             allowed = LINEAGE_LABELS if kind == "lineage" else DRIFT_LABELS
             if label not in allowed:
                 problems.append(f"{where}line {i}: {label_col} {label!r} not in {allowed}")
+        if label in JUSTIFY_LABELS[kind]:
+            note = str(row.get("notes", "") or "").strip()
+            if len(note) < MIN_JUSTIFICATION_CHARS:
+                problems.append(
+                    f"{where}line {i}: {label} is a judgement call against the rule output "
+                    f"and needs a reason in notes "
+                    f"(at least {MIN_JUSTIFICATION_CHARS} characters)"
+                )
     return problems
+
+
+def justification_coverage(df: pd.DataFrame, kind: str) -> dict[str, int]:
+    """How many labelled rows owe a written reason, and how many have one."""
+    rows = valid_labelled_rows(df, kind)
+    col = KIND_LABEL_COLUMN[kind]
+    owed = rows[rows[col].astype(str).str.strip().isin(JUSTIFY_LABELS[kind])]
+    if "notes" in owed.columns:
+        notes = owed["notes"].astype(str).str.strip()
+        given = int((notes.str.len() >= MIN_JUSTIFICATION_CHARS).sum())
+    else:
+        given = 0
+    return {"owed": len(owed), "given": given, "missing": len(owed) - given}
 
 
 def valid_labelled_rows(df: pd.DataFrame, kind: str) -> pd.DataFrame:

@@ -435,24 +435,37 @@ def vr_03() -> Result:
 
 
 def vr_04() -> Result:
+    """Each interview record answers every prepared question in the five columns the
+    assignment requires, and gives each answer a verification result."""
+    import yaml
+
+    asked = [
+        q["id"]
+        for q in yaml.safe_load(
+            (ROOT / "elicitation" / "questions.yaml").read_text(encoding="utf-8")
+        )["questions"]
+    ]
     parts, problems = [], []
     for name in ("google-notebook-interview.md", "notebook-interview.md"):
         record = (ROOT / "elicitation" / name).read_text(encoding="utf-8")
-        blocks = re.split(r"^### (NB-Q\d+a?)\s*$", record, flags=re.M)[1:]
-        statuses = {}
-        for qid, body in zip(blocks[::2], blocks[1::2], strict=True):
-            match = re.search(
-                r"\| Verification \| \*\*(Verified|Partly verified|Unverified|"
-                r"Contradicted)",
-                body,
+        header = "| Question | Notebook answer | Source cited by notebook | Team interpretation "
+        if header + "| Follow-up or uncertainty |" not in record:
+            problems.append(f"{name}: the interview table is missing the required headers")
+        rows = set(re.findall(r"^\| \*\*(NB-Q\d+a?)\*\*", record, flags=re.M))
+        statuses = dict(
+            re.findall(
+                r"^\| (NB-Q\d+a?) \| \*\*(Verified|Partly verified|Unverified|Contradicted)",
+                record,
+                flags=re.M,
             )
-            statuses[qid] = match.group(1) if match else None
-        missing = [q for q, s in statuses.items() if s is None]
-        if not statuses or missing:
-            problems.append(f"{name}: no verification status for {', '.join(missing) or 'any'}")
+        )
+        if missing := [q for q in asked if q not in rows]:
+            problems.append(f"{name}: no interview row for {', '.join(missing)}")
+        if unrated := [q for q in asked if q not in statuses]:
+            problems.append(f"{name}: no verification result for {', '.join(unrated)}")
         counts = {s: sum(1 for v in statuses.values() if v == s) for s in set(statuses.values())}
         parts.append(
-            f"{name.removesuffix('-interview.md')}: {len(statuses)} answers ("
+            f"{name.removesuffix('-interview.md')}: {len(rows)} answers ("
             + ", ".join(f"{k} {v}" for k, v in sorted(counts.items(), key=lambda kv: str(kv[0])))
             + ")"
         )

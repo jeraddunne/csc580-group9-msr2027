@@ -1,30 +1,30 @@
 requirement,title,spec_status,result,evidence,checked_at
-RR-01,Unit of analysis and team-defined constructs,Implemented,PASS,population_flow first step 13000 contents / 29786 occurrences; database 13000 / 29786,2026-09-19T22:20:10Z
-RR-02,Reach compared across two populations,Implemented,PASS,Mann-Whitney rows for copies and repos: ok; NB2 high_risk term: ok; 'used more' claims in report/draft.md: 0,2026-09-19T22:20:10Z
-RR-03,Drift is descriptive and scoped,In,PARTIAL,sweep 0.3 to 0.8 with ordered_pairs; 2 summary scopes; ordered pairs by location class not reported yet (NB-Q06),2026-09-19T22:20:10Z
-RR-04,Robustness of the headline results,Implemented,PASS,"6 scenarios: main (severity 6, main population), severity cutoff 5, severity cutoff 7, front-matter-valid subset, excluding top 10 most-copied contents, excluding template families",2026-09-19T22:20:10Z
-DR-01,Version identity of every result,Implemented,PASS,rule file hash matches the last analysis run; database SHA-256 matches both manifests; sample commit fff3df9; data/README.md SpecMine version label ok,2026-09-19T22:20:10Z
-DR-02,"Every field, filter, and output documented",Implemented,PASS,21 of 21 results files documented,2026-09-19T22:20:10Z
-DR-03,Population rules applied and counted,Implemented,PASS,"steps ['all_occurrences', 'with_content', 'excluded_symlink_stubs', 'main_population', 'frontmatter_valid_subset']; main population 12965",2026-09-19T22:20:10Z
-DR-04,"Unreadable inputs counted, not dropped",Planned,PENDING,"scripts_summary.csv has no unreadable-input count (missing script_files_without_text, skills_with_truncated_listing, skills_without_folder_listing)",2026-09-19T22:20:10Z
-FR-01,Read-only loading,Implemented,PASS,pytest tests/test_load.py::test_query_gitskills tests/test_load.py::test_missing_gitskills_raises_helpful_error: 2 passed in 0.34s,2026-09-19T22:20:10Z
-FR-02,Reviewable rule file,Implemented,PASS,pytest tests/test_skill_risk.py::test_rule_examples tests/test_skill_risk.py::test_rule_file_is_consistent: 20 passed in 1.10s,2026-09-19T22:20:10Z
-FR-03,The pipeline writes the analysis tables,Implemented,PASS,"17 outputs checked against DATA_DICTIONARY Part C: all present, non-empty, columns match",2026-09-19T22:20:10Z
-FR-04,Bundled scripts scanned as text,Implemented,PASS,pytest tests/test_skill_risk.py::test_scan_siblings_only_scripts: 1 passed in 1.17s; script files scanned 5153,2026-09-19T22:20:10Z
-FR-05,Validation scoring,Implemented,PASS,pytest tests/test_validation.py::test_kit_end_to_end tests/test_validation.py::test_precision_by_rule_and_category tests/test_validation.py::test_cohen_kappa_textbook_example: 3 passed in 0.80s,2026-09-19T22:20:10Z
-FR-06,Variant linking,Implemented,PASS,pytest tests/test_skill_risk.py::test_family_pairs_direction_and_threshold tests/test_analysis.py::test_threshold_sweep_is_monotone_and_counts_direction: 2 passed in 0.79s,2026-09-19T22:20:10Z
-FR-07,Elicitation notebook,Implemented,PASS,pytest tests/test_elicitation.py::test_scopes_restrict_tiers_and_datasets tests/test_elicitation.py::test_transcript_has_provenance_and_locators tests/test_elicitation.py::test_interview_record_quotes_every_question_word_for_word: 3 passed in 0.79s,2026-09-19T22:20:10Z
-NFR-01,Reproducible from a clean environment,Implemented,PASS,declared versions admit the recorded environment. Fresh-clone run by a non-author is recorded at sprint review (S1-10),2026-09-19T22:20:10Z
-NFR-02,Deterministic outputs,Implemented,MANUAL,run `python scripts/verify_spec.py --determinism` (two full analyses),2026-09-19T22:20:10Z
-NFR-03,Offline tests on every pull request,Implemented,PASS,pytest tests: 154 passed in 9.92s,2026-09-19T22:20:10Z
-NFR-04,Scale,Implemented,PASS,last analysis run took 216 s (limit 900 s),2026-09-19T22:20:10Z
-NFR-05,Change control of this specification,Implemented,MANUAL,"each merged pull request that edits RESEARCH_SPEC.md, rules, or the research question links a decision issue; checked at sprint review",2026-09-19T22:20:10Z
-VR-01,Rule precision from a labelled sample,In,BLOCKED,stratified sample of 147 signal items (seed 580) ready; primary-rater labels stay uncommitted under the blindness rule until a second rater's labels are merged (#53),2026-09-19T22:20:10Z
-VR-02,Independent second rater,In,BLOCKED,"no teammate labels yet for signals, lineage, drift (issue #53; due 2026-10-16). Kappa code tested: PASS",2026-09-19T22:20:10Z
-VR-03,Lineage and drift validation,In,BLOCKED,lineage (58 pairs) and drift (18 pairs) samples ready; second-rater labels not yet available (#53),2026-09-19T22:20:10Z
-VR-04,Elicited facts verified,Implemented,PASS,"google-notebook: 18 answers (Partly verified 6, Verified 12); notebook: 18 answers (Partly verified 8, Unverified 1, Verified 9)",2026-09-19T22:20:10Z
-ER-01,Licensing and quoting,Planned,MANUAL,"reviewer confirms every quoted skill excerpt in the report is short, needed, non-runnable, and from a permissively licensed repository",2026-09-19T22:20:10Z
-ER-02,"No personal data, no deanonymisation",Implemented,PASS,"scanned 23 files for 11,841 repository names, 2,426 author codes, and 8 bot logins: no matches",2026-09-19T22:20:10Z
-ER-03,Never execute dataset content,Implemented,PASS,19 files that read the dataset scanned for code-execution calls: none; allowed: 3 (fixed `git rev-parse` and `git status` arguments; runs this repository's own pytest),2026-09-19T22:20:10Z
-ER-04,Responsible reporting of risky skills,Implemented,MANUAL,"no suspected actively malicious skill found; if one is, stop and raise it with the instructor before any further step (THREATS X4)",2026-09-19T22:20:10Z
-ER-05,AI assistance disclosed and verified,Implemented,PASS,ai-use-log.md has the 2026-09-18 entry for the elicitation notebook and this specification,2026-09-19T22:20:10Z
+RR-01,Unit of analysis and team-defined constructs,Implemented,PASS,population_flow first step 13000 contents / 29786 occurrences; database 13000 / 29786,2026-09-19T22:42:35Z
+RR-02,Reach compared across two populations,Implemented,PASS,Mann-Whitney rows for copies and repos: ok; NB2 high_risk term: ok; 'used more' claims in report/draft.md: 0,2026-09-19T22:42:35Z
+RR-03,Drift is descriptive and scoped,In,PARTIAL,sweep 0.3 to 0.8 with ordered_pairs; 2 summary scopes; ordered pairs by location class not reported yet (NB-Q06),2026-09-19T22:42:35Z
+RR-04,Robustness of the headline results,Implemented,PASS,"6 scenarios: main (severity 6, main population), severity cutoff 5, severity cutoff 7, front-matter-valid subset, excluding top 10 most-copied contents, excluding template families",2026-09-19T22:42:35Z
+DR-01,Version identity of every result,Implemented,PASS,rule file hash matches the last analysis run; database SHA-256 matches both manifests; sample commit fff3df9; data/README.md SpecMine version label ok,2026-09-19T22:42:35Z
+DR-02,"Every field, filter, and output documented",Implemented,PASS,21 of 21 results files documented,2026-09-19T22:42:35Z
+DR-03,Population rules applied and counted,Implemented,PASS,"steps ['all_occurrences', 'with_content', 'excluded_symlink_stubs', 'main_population', 'frontmatter_valid_subset']; main population 12965",2026-09-19T22:42:35Z
+DR-04,"Unreadable inputs counted, not dropped",Planned,PENDING,"scripts_summary.csv has no unreadable-input count (missing script_files_without_text, skills_with_truncated_listing, skills_without_folder_listing)",2026-09-19T22:42:35Z
+FR-01,Read-only loading,Implemented,PASS,pytest tests/test_load.py::test_query_gitskills tests/test_load.py::test_missing_gitskills_raises_helpful_error: 2 passed in 0.27s,2026-09-19T22:42:35Z
+FR-02,Reviewable rule file,Implemented,PASS,pytest tests/test_skill_risk.py::test_rule_examples tests/test_skill_risk.py::test_rule_file_is_consistent: 20 passed in 0.82s,2026-09-19T22:42:35Z
+FR-03,The pipeline writes the analysis tables,Implemented,PASS,"17 outputs checked against DATA_DICTIONARY Part C: all present, non-empty, columns match",2026-09-19T22:42:35Z
+FR-04,Bundled scripts scanned as text,Implemented,PASS,pytest tests/test_skill_risk.py::test_scan_siblings_only_scripts: 1 passed in 0.63s; script files scanned 5153,2026-09-19T22:42:35Z
+FR-05,Validation scoring,Implemented,PASS,pytest tests/test_validation.py::test_kit_end_to_end tests/test_validation.py::test_precision_by_rule_and_category tests/test_validation.py::test_cohen_kappa_textbook_example: 3 passed in 0.65s,2026-09-19T22:42:35Z
+FR-06,Variant linking,Implemented,PASS,pytest tests/test_skill_risk.py::test_family_pairs_direction_and_threshold tests/test_analysis.py::test_threshold_sweep_is_monotone_and_counts_direction: 2 passed in 0.61s,2026-09-19T22:42:35Z
+FR-07,Elicitation notebook,Implemented,PASS,pytest tests/test_elicitation.py::test_scopes_restrict_tiers_and_datasets tests/test_elicitation.py::test_transcript_has_provenance_and_locators tests/test_elicitation.py::test_interview_record_quotes_every_question_word_for_word: 4 passed in 0.64s,2026-09-19T22:42:35Z
+NFR-01,Reproducible from a clean environment,Implemented,PASS,declared versions admit the recorded environment. Fresh-clone run by a non-author is recorded at sprint review (S1-10),2026-09-19T22:42:35Z
+NFR-02,Deterministic outputs,Implemented,MANUAL,run `python scripts/verify_spec.py --determinism` (two full analyses),2026-09-19T22:42:35Z
+NFR-03,Offline tests on every pull request,Implemented,PASS,pytest tests: 155 passed in 7.74s,2026-09-19T22:42:35Z
+NFR-04,Scale,Implemented,PASS,last analysis run took 216 s (limit 900 s),2026-09-19T22:42:35Z
+NFR-05,Change control of this specification,Implemented,MANUAL,"each merged pull request that edits RESEARCH_SPEC.md, rules, or the research question links a decision issue; checked at sprint review",2026-09-19T22:42:35Z
+VR-01,Rule precision from a labelled sample,In,BLOCKED,stratified sample of 147 signal items (seed 580) ready; primary-rater labels stay uncommitted under the blindness rule until a second rater's labels are merged (#53),2026-09-19T22:42:35Z
+VR-02,Independent second rater,In,BLOCKED,"no teammate labels yet for signals, lineage, drift (issue #53; due 2026-10-16). Kappa code tested: PASS",2026-09-19T22:42:35Z
+VR-03,Lineage and drift validation,In,BLOCKED,lineage (58 pairs) and drift (18 pairs) samples ready; second-rater labels not yet available (#53),2026-09-19T22:42:35Z
+VR-04,Elicited facts verified,Implemented,PASS,"google-notebook: 18 answers (Partly verified 6, Verified 12); notebook: 18 answers (Partly verified 8, Unverified 1, Verified 9)",2026-09-19T22:42:35Z
+ER-01,Licensing and quoting,Planned,MANUAL,"reviewer confirms every quoted skill excerpt in the report is short, needed, non-runnable, and from a permissively licensed repository",2026-09-19T22:42:35Z
+ER-02,"No personal data, no deanonymisation",Implemented,PASS,"scanned 23 files for 11,841 repository names, 2,426 author codes, and 8 bot logins: no matches",2026-09-19T22:42:35Z
+ER-03,Never execute dataset content,Implemented,PASS,19 files that read the dataset scanned for code-execution calls: none; allowed: 3 (fixed `git rev-parse` and `git status` arguments; runs this repository's own pytest),2026-09-19T22:42:35Z
+ER-04,Responsible reporting of risky skills,Implemented,MANUAL,"no suspected actively malicious skill found; if one is, stop and raise it with the instructor before any further step (THREATS X4)",2026-09-19T22:42:35Z
+ER-05,AI assistance disclosed and verified,Implemented,PASS,ai-use-log.md has the 2026-09-18 entry for the elicitation notebook and this specification,2026-09-19T22:42:35Z

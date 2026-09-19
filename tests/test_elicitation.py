@@ -200,12 +200,19 @@ def test_prepared_questions_meet_the_assignment() -> None:
         assert any(label in kinds for label in labels), f"no {need} question"
 
 
-def test_interview_record_quotes_every_question_word_for_word() -> None:
-    record = (ROOT / "elicitation" / "notebook-interview.md").read_text(encoding="utf-8")
+@pytest.mark.parametrize("record_name", ["notebook-interview.md", "google-notebook-interview.md"])
+def test_interview_record_quotes_every_question_word_for_word(record_name: str) -> None:
+    """Both records must carry every question verbatim, in a row of the table whose
+    headers are the five the assignment requires."""
+    record = (ROOT / "elicitation" / record_name).read_text(encoding="utf-8")
     flat = re.sub(r"\s+", " ", record)
+    assert (
+        "| Question | Notebook answer | Source cited by notebook | Team interpretation "
+        "| Follow-up or uncertainty |" in record
+    )
     for q in el.load_questions(ROOT / "elicitation" / "questions.yaml"):
         assert re.sub(r"\s+", " ", q["question"]) in flat, q["id"]
-        assert f"### {q['id']}" in record, q["id"]
+        assert f"| **{q['id']}**" in record, q["id"]
 
 
 # --- the builder's pure functions --------------------------------------------------------

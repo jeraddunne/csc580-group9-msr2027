@@ -279,7 +279,7 @@ Produced by `python -m msr_pipeline analyze` (module `analysis`) from the GitSki
 | `rq2_negbin.csv` | one row per model term (including `alpha`), or one `not estimable` row | `term`, `coef`, `irr`, `irr_ci_low`, `irr_ci_high`, `p_value`, `n`, `status`, `note` | `analysis.rq2_negbin` |
 | `rq2_category_tests.csv` | one row per high-risk category | `category`, `contents`, `reference_contents`, `tested`, `mean_copies`, `reference_mean_copies`, `u_statistic`, `p_value`, `rank_biserial`, `p_holm`, `significant_holm_05` | `analysis.rq2_category_tests` |
 | `rq3_threshold_sweep.csv` | one row per similarity threshold (0.3 to 0.8) | `threshold`, `lineage_pairs`, `families`, `differing_pairs`, `families_with_differences`, `ordered_pairs`, `ordered_newer_adds`, `ordered_newer_drops` | `analysis.threshold_sweep` |
-| `rq3_summary.csv` | two rows: all families, excluding template families (threshold 0.5) | `scope`, `threshold`, then the sweep counts | `analysis.rq3_summary` |
+| `rq3_summary.csv` | two rows: all families, excluding template families (threshold 0.5) | `scope`, `threshold`, `lineage_pairs`, `families`, `differing_pairs`, `families_with_differences`, `ordered_pairs`, `ordered_newer_adds`, `ordered_newer_drops` | `analysis.rq3_summary` |
 | `rq3_lineage_pairs.csv` | one row per same-name pair with similarity of at least 0.5 | `family`, `file_sha_a`, `file_sha_b`, `similarity`, `ordered`, `only_in_a`, `only_in_b`, `differs`, `is_template_family` | `skill_risk.family_pairs`, `analysis.mark_templates` |
 | `rq3_differing_pairs.csv` | lineage pairs whose high-risk categories differ | same as `rq3_lineage_pairs.csv` | `analysis.run_analysis` |
 | `scripts_summary.csv` | one row per metric | `metric`, `value` (includes `script_files_high_risk_<CATEGORY>`) | `analysis.scripts_summary` |
@@ -289,6 +289,14 @@ Produced by `python -m msr_pipeline analyze` (module `analysis`) from the GitSki
 Figures: `rq1_prevalence_by_category.png` (shares with 95% Wilson intervals), `rq2_copies_by_group.png` (share copied 2, 5, and 10 or more times by group), `rq3_threshold_sweep.png` (pair counts by threshold).
 
 Statistical definitions: Wilson score intervals at 95%; Mann-Whitney U is two-sided, with rank-biserial correlation `2U / (n1 n2) - 1`, positive when the high-risk group tends to have more copies; the bootstrap uses 2,000 independent resamples per group with seed 580 and percentile intervals; NB2 is `statsmodels` discrete `NegativeBinomial` on `copies - 1`, reported as incidence rate ratios; per-category p-values use the Holm step-down adjustment.
+
+### Specification verification
+
+Produced by `python scripts/verify_spec.py` (`make verify-spec`) from the acceptance tests in `RESEARCH_SPEC.md`. It holds no dataset content.
+
+| File | Grain | Columns | Produced by |
+|---|---|---|---|
+| `spec_verification.csv` | one row per requirement in `RESEARCH_SPEC.md` | `requirement`, `title`, `spec_status`, `result`, `evidence`, `checked_at` | `scripts/verify_spec.py` |
 
 Each explore CSV has a same-named PNG bar chart in `figures/`; the pilot draws `pilot_skill_risk_categories.png`. Topic-specific tables
 will be added here as the analysis grows; the rule is one row in this table

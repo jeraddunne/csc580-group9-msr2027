@@ -123,8 +123,13 @@ Use this wording in the report and cite the exact snapshot:
 > Data: GitSkills and SpecMine, July 2026 release, as distributed in the
 > Mining Challenge sample repositories on GitHub (upstream commit SHA and file
 > SHA-256 values recorded in `data/samples/MANIFEST.json`). Full datasets:
-> Zenodo DOIs 10.5281/zenodo.21875637 (GitSkills) and 10.5281/zenodo.22102779
-> (SpecMine v1.1).
+> Zenodo DOIs 10.5281/zenodo.21875637 (GitSkills, version 1.0.0) and
+> 10.5281/zenodo.22102779 (SpecMine; a concept DOI that resolves to the latest
+> version, 1.0 as of September 2026, record 22102780).
+
+The SpecMine **GitHub sample** is v1.1; the Zenodo release is version 1.0. Do not
+mix the two labels (found in the Phase B interview, `elicitation/notebook-interview.md`
+NB-Q03). Preprints: cite arXiv 2608.10906v3 and 2608.25202v3.
 
 ## Licensing and ethics
 

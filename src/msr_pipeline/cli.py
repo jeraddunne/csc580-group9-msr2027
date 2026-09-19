@@ -5,10 +5,11 @@ from __future__ import annotations
 import argparse
 import sys
 from collections.abc import Sequence
+from pathlib import Path
 
 import pandas as pd
 
-from . import __version__, analysis, explore, skill_risk
+from . import __version__, analysis, elicitation, explore, skill_risk
 from .config import get_paths, gitskills_db_path, specmine_dir
 from .load import (
     SPECMINE_ALL_TABLES,
@@ -224,6 +225,32 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_elicit(args: argparse.Namespace) -> int:
+    root = get_paths().ROOT
+    pack = Path(args.pack) if args.pack else root / "build" / "notebook_sources"
+    try:
+        notebook = elicitation.Notebook.from_pack(pack)
+    except FileNotFoundError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    if args.ask:
+        print(notebook.ask(args.ask, args.scope, args.k).to_markdown())
+        return 0
+    questions = elicitation.load_questions(
+        args.questions or root / "elicitation" / "questions.yaml"
+    )
+    answers = notebook.interview(questions, args.k)
+    out = Path(args.out) if args.out else root / "elicitation" / "notebook-transcript.md"
+    out.write_text(elicitation.render_transcript(answers, notebook, args.k), encoding="utf-8")
+    for ans in answers:
+        print(
+            f"{ans.qid}: {ans.status} ({len(ans.covered)}/{len(ans.terms)} terms), "
+            f"sources {', '.join(ans.sources_cited) or 'none'}"
+        )
+    print(f"wrote {out}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="msr-pipeline",
@@ -272,6 +299,29 @@ def build_parser() -> argparse.ArgumentParser:
         "--seed", type=int, default=580, help="Random seed for the bootstrap (default 580)."
     )
     p_analyze.set_defaults(func=cmd_analyze)
+
+    p_elicit = sub.add_parser(
+        "elicit",
+        help="Interview the elicitation notebook: answer questions from the source pack only.",
+    )
+    p_elicit.add_argument(
+        "--pack", default=None, help="Source pack directory (default build/notebook_sources)."
+    )
+    p_elicit.add_argument(
+        "--questions", default=None, help="Question file (default elicitation/questions.yaml)."
+    )
+    p_elicit.add_argument(
+        "--out", default=None, help="Transcript (default elicitation/notebook-transcript.md)."
+    )
+    p_elicit.add_argument("--ask", default=None, help="Ask one question instead of the set.")
+    p_elicit.add_argument(
+        "--scope",
+        choices=sorted(elicitation.SCOPES),
+        default="dataset",
+        help="Tiers searched by --ask (default dataset: authoritative sources only).",
+    )
+    p_elicit.add_argument("-k", type=int, default=3, help="Passages per answer (default 3).")
+    p_elicit.set_defaults(func=cmd_elicit)
     return parser
 
 

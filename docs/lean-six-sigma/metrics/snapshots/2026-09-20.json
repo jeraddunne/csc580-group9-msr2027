@@ -1,0 +1,3911 @@
+{
+  "generated_at": "2026-09-20T10:15:36.065679+00:00",
+  "window": {
+    "since": "2026-09-10T00:00:00+00:00",
+    "until": "2026-09-20T10:15:36.065679+00:00"
+  },
+  "counts": {
+    "issues": 46,
+    "prs": 9,
+    "reviews": 1,
+    "runs": 70,
+    "commits": 13
+  },
+  "targets": {
+    "cycle_time_days_target": 5.0,
+    "lead_time_days_target": 10.0,
+    "pr_first_review_hours_target": 48.0,
+    "pr_merge_hours_target": 96.0,
+    "commitment_reliability_target": 0.8,
+    "first_time_right_target": 0.75,
+    "rework_ratio_max": 0.15,
+    "contribution_share_min": 0.15,
+    "contribution_share_max": 0.45,
+    "ci_pass_rate_target": 0.9,
+    "kaizen_closure_rate_target": 0.7
+  },
+  "wip_limit": 5,
+  "sprints": [
+    {
+      "name": "Formation",
+      "start": "2026-09-10",
+      "end": "2026-09-16",
+      "total_issues": 16,
+      "committed_issues": 0,
+      "committed_points": 0,
+      "done_issues": 3,
+      "done_points": 2,
+      "added_after_planning": 16,
+      "velocity": 2,
+      "commitment_reliability": null,
+      "escaped_defects": 0,
+      "status": "past"
+    },
+    {
+      "name": "Sprint 1",
+      "start": "2026-09-17",
+      "end": "2026-10-07",
+      "total_issues": 9,
+      "committed_issues": 9,
+      "committed_points": 22,
+      "done_issues": 4,
+      "done_points": 13,
+      "added_after_planning": 0,
+      "velocity": 13,
+      "commitment_reliability": 0.591,
+      "escaped_defects": 0,
+      "status": "active"
+    },
+    {
+      "name": "Sprint 2",
+      "start": "2026-10-08",
+      "end": "2026-10-28",
+      "total_issues": 7,
+      "committed_issues": 7,
+      "committed_points": 16,
+      "done_issues": 1,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    },
+    {
+      "name": "Sprint 3",
+      "start": "2026-10-29",
+      "end": "2026-11-18",
+      "total_issues": 9,
+      "committed_issues": 9,
+      "committed_points": 29,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    },
+    {
+      "name": "Finalization",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "total_issues": 5,
+      "committed_issues": 5,
+      "committed_points": 10,
+      "done_issues": 0,
+      "done_points": 0,
+      "added_after_planning": 0,
+      "velocity": 0,
+      "commitment_reliability": 0.0,
+      "escaped_defects": 0,
+      "status": "future"
+    }
+  ],
+  "kpis": {
+    "velocity": {
+      "value": 15,
+      "unit": "points",
+      "target": null,
+      "status": "info",
+      "per_sprint": {
+        "Formation": 2,
+        "Sprint 1": 13,
+        "Sprint 2": 0,
+        "Sprint 3": 0,
+        "Finalization": 0
+      }
+    },
+    "commitment_reliability": {
+      "value": 0.591,
+      "sprint": "Sprint 1",
+      "unit": "ratio",
+      "target": 0.8,
+      "status": "warn"
+    },
+    "cycle_time_days": {
+      "value": 0.0,
+      "median": 0.0,
+      "mean": 0.0,
+      "n": 8,
+      "approximated": 0,
+      "unit": "days",
+      "target": 5.0,
+      "status": "ok"
+    },
+    "lead_time_days": {
+      "value": 1.087,
+      "median": 1.087,
+      "mean": 1.074,
+      "n": 8,
+      "unit": "days",
+      "target": 10.0,
+      "status": "ok"
+    },
+    "throughput_per_week": {
+      "value": 5.37,
+      "closed": 8,
+      "window_days": 10.4,
+      "unit": "issues/week",
+      "target": null,
+      "status": "info"
+    },
+    "wip": {
+      "value": 35,
+      "limit": 5,
+      "numbers": [
+        53,
+        52,
+        51,
+        50,
+        42,
+        41,
+        40,
+        39,
+        38,
+        37,
+        36,
+        35,
+        34,
+        33,
+        32,
+        31,
+        30,
+        29,
+        28,
+        27,
+        26,
+        25,
+        24,
+        23,
+        22,
+        20,
+        19,
+        18,
+        17,
+        14,
+        11,
+        10,
+        6,
+        5,
+        1
+      ],
+      "unit": "issues",
+      "target": 5,
+      "status": "warn"
+    },
+    "blocked_time_days": {
+      "value": 0,
+      "total": 0,
+      "mean": null,
+      "n": 0,
+      "open_blockers": 0,
+      "unit": "days",
+      "target": null,
+      "status": "info"
+    },
+    "pr_first_review_hours": {
+      "value": 19.059,
+      "median": 19.059,
+      "mean": 19.059,
+      "n": 1,
+      "unreviewed_open": [
+        55
+      ],
+      "unreviewed_merged": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        54
+      ],
+      "unit": "hours",
+      "target": 48.0,
+      "status": "ok"
+    },
+    "pr_merge_hours": {
+      "value": 1.167,
+      "median": 1.167,
+      "mean": 2.782,
+      "n": 8,
+      "unit": "hours",
+      "target": 96.0,
+      "status": "ok"
+    },
+    "first_time_right": {
+      "value": 1.0,
+      "n": 8,
+      "merged_without_changes": 8,
+      "unit": "ratio",
+      "target": 0.75,
+      "status": "ok"
+    },
+    "rework_ratio": {
+      "value": 0.0,
+      "n_closed": 11,
+      "n_rework": 0,
+      "numbers": [],
+      "unit": "ratio",
+      "target": 0.15,
+      "status": "ok"
+    },
+    "defect_count": {
+      "value": 0,
+      "open": 0,
+      "escaped_by_sprint": {
+        "Formation": 0,
+        "Sprint 1": 0,
+        "Sprint 2": 0,
+        "Sprint 3": 0,
+        "Finalization": 0
+      },
+      "unit": "issues",
+      "target": null,
+      "status": "info"
+    },
+    "ci_pass_rate": {
+      "value": 0.984,
+      "n": 62,
+      "success": 61,
+      "unit": "ratio",
+      "target": 0.9,
+      "status": "ok"
+    },
+    "contribution_gini": {
+      "value": 0.625,
+      "flagged": [
+        "angel06la",
+        "jeraddunne",
+        "AllieHgs"
+      ],
+      "band": [
+        0.15,
+        0.45
+      ],
+      "unit": "gini",
+      "target": null,
+      "status": "warn"
+    },
+    "kaizen_closure_rate": {
+      "value": 0.333,
+      "opened": 3,
+      "closed": 1,
+      "unit": "ratio",
+      "target": 0.7,
+      "status": "warn"
+    },
+    "reproducibility_check": {
+      "value": "pass",
+      "workflow": "CI",
+      "unit": "pass/fail",
+      "target": "pass",
+      "status": "ok"
+    }
+  },
+  "contribution": {
+    "members": {
+      "angel06la": {
+        "commits": 0,
+        "prs_authored": 0,
+        "reviews_given": 0,
+        "issues_closed": 0,
+        "share_commits": 0.0,
+        "share_prs_authored": 0.0,
+        "share_reviews_given": 0.0,
+        "share_issues_closed": 0.0,
+        "share_overall": 0.0,
+        "flag": true
+      },
+      "jeraddunne": {
+        "commits": 13,
+        "prs_authored": 9,
+        "reviews_given": 0,
+        "issues_closed": 8,
+        "share_commits": 1.0,
+        "share_prs_authored": 1.0,
+        "share_reviews_given": 0.0,
+        "share_issues_closed": 1.0,
+        "share_overall": 0.75,
+        "flag": true
+      },
+      "AllieHgs": {
+        "commits": 0,
+        "prs_authored": 0,
+        "reviews_given": 0,
+        "issues_closed": 0,
+        "share_commits": 0.0,
+        "share_prs_authored": 0.0,
+        "share_reviews_given": 0.0,
+        "share_issues_closed": 0.0,
+        "share_overall": 0.0,
+        "flag": true
+      },
+      "hinak786": {
+        "commits": 0,
+        "prs_authored": 0,
+        "reviews_given": 1,
+        "issues_closed": 0,
+        "share_commits": 0.0,
+        "share_prs_authored": 0.0,
+        "share_reviews_given": 1.0,
+        "share_issues_closed": 0.0,
+        "share_overall": 0.25,
+        "flag": false
+      }
+    },
+    "others": {},
+    "totals": {
+      "commits": 13,
+      "prs_authored": 9,
+      "reviews_given": 1,
+      "issues_closed": 8
+    },
+    "gini": 0.625,
+    "band": [
+      0.15,
+      0.45
+    ]
+  },
+  "control_charts": {
+    "cycle_time": {
+      "points": [
+        {
+          "number": 9,
+          "title": "Kaizen: branch protection enabled on main",
+          "days": 0.0,
+          "start": "2026-09-14T23:46:36+00:00",
+          "closed_at": "2026-09-14T23:46:36+00:00",
+          "approximated": false
+        },
+        {
+          "number": 2,
+          "title": "Formation: dataset samples inspected",
+          "days": 0.0,
+          "start": "2026-09-14T23:46:40+00:00",
+          "closed_at": "2026-09-14T23:46:40+00:00",
+          "approximated": false
+        },
+        {
+          "number": 7,
+          "title": "Formation: project board created from the instructor template with LSS fields",
+          "days": 0.0,
+          "start": "2026-09-15T00:52:05+00:00",
+          "closed_at": "2026-09-15T00:52:05+00:00",
+          "approximated": false
+        },
+        {
+          "number": 12,
+          "title": "S1: precise research question with motivation, contribution, and competing explanation",
+          "days": 0.0,
+          "start": "2026-09-15T00:59:12+00:00",
+          "closed_at": "2026-09-15T00:59:12+00:00",
+          "approximated": false
+        },
+        {
+          "number": 15,
+          "title": "S1: first working data-loading and extraction pipeline for the selected question",
+          "days": 0.0,
+          "start": "2026-09-15T00:59:13+00:00",
+          "closed_at": "2026-09-15T00:59:13+00:00",
+          "approximated": false
+        },
+        {
+          "number": 13,
+          "title": "S1: unit of analysis, population, sample, variables, outcome measures defined",
+          "days": 0.0,
+          "start": "2026-09-15T00:59:13+00:00",
+          "closed_at": "2026-09-15T00:59:13+00:00",
+          "approximated": false
+        },
+        {
+          "number": 21,
+          "title": "S2: working implementation of the core mining, extraction, similarity, classification, traceability, or visualization method",
+          "days": 0.0,
+          "start": "2026-09-15T00:59:14+00:00",
+          "closed_at": "2026-09-15T00:59:14+00:00",
+          "approximated": false
+        },
+        {
+          "number": 16,
+          "title": "S1: at least one exploratory table or visualization generated by code",
+          "days": 0.0,
+          "start": "2026-09-15T00:59:14+00:00",
+          "closed_at": "2026-09-15T00:59:14+00:00",
+          "approximated": false
+        }
+      ],
+      "limits": {
+        "n": 8,
+        "mean": 0.0,
+        "mr_bar": 0.0,
+        "ucl": 0.0,
+        "lcl": 0.0,
+        "mr_ucl": 0.0
+      },
+      "signals": [],
+      "target": 5.0
+    },
+    "pr_first_review": {
+      "points": [
+        {
+          "number": 49,
+          "title": "Reinstate the four-person group (ADR-0006)",
+          "hours": 19.059,
+          "created_at": "2026-09-15T22:27:24+00:00",
+          "first_review_at": "2026-09-16T17:30:56+00:00"
+        }
+      ],
+      "limits": {
+        "n": 0,
+        "mean": null,
+        "mr_bar": null,
+        "ucl": null,
+        "lcl": null,
+        "mr_ucl": null
+      },
+      "signals": [],
+      "target": 48.0
+    }
+  },
+  "open_blockers": [],
+  "open_prs_waiting_review": [
+    {
+      "number": 55,
+      "title": "Requirements engineering: notebook elicitation (Phase B) and RESEARCH_SPEC (Phase F)",
+      "user": "jeraddunne",
+      "hours_open": 11.8
+    }
+  ],
+  "signals": [],
+  "repo": "jeraddunne/csc580-group9-msr2027",
+  "inputs": {
+    "issues": [
+      {
+        "number": 53,
+        "title": "Validation: choose the teammate second rater for each label kind",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-15T22:28:32Z",
+        "closed_at": null,
+        "labels": [
+          "type:test",
+          "decision",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Refs #23, #49\n\nA teammate labels the validation sample on their own as the second rater. Agreement between Jerad (`jd`) and the second rater, measured by inter-rater Cohen's kappa, is the main reliability result for the report.\n\n**Decide at the kickoff on Wed 2026-09-16.** Comment below with the kind you will take. One person can take several kinds, or the three can be split across teammates.\n\n| Kind | Items | Label rows | Rough effort |\n|---|---|---|---|\n| Signals | 147 skills | 209 | the largest set |\n| Lineage | 58 variant pairs | 58 | medium |\n| Drift | 18 variant pairs | 18 | small |\n\n**Rater ids:** Leticia `la`, Allie `ah`, Hina `hk`.\n\n**Workflow** (the full steps are in docs/validation/README.md once #49 merges):\n1. Run `make data`, then `python scripts/annotation_kit.py sheet --rater <id> --round 1`.\n2. Run `python scripts/annotation_kit.py ui --rater <id> --round 1`, then label in the page.\n3. Download the CSV, then run `python scripts/annotation_kit.py import <csv>`.\n4. Open a pull request containing only your label file.\n\n**Blindness rule:** never open Jerad's label files. Jerad does not commit his labels for a kind until your labels for that kind are merged.\n\n**Dates:** second-rater round 1 by Fri 2026-10-16. Scoring by Tue 2026-10-27. Results go to the Sprint 2 review on Wed 2026-10-28.\n\n| Kind | Second rater |\n|---|---|\n| Signals | |\n| Lineage | |\n| Drift | |\n\nAcceptance: each of the three kinds (Signals, Lineage, Drift) has a named second rater recorded in this issue and in docs/validation/README.md, and the decision is captured as an ADR.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-15T22:28:32Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:35Z",
+            "label": "type:test",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:35Z",
+            "label": "decision",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:36Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:52Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 52,
+        "title": "Onboarding: Hina Kramer (@hinak786)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-15T22:28:30Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "onboarding",
+          "priority:high"
+        ],
+        "assignees": [
+          "hinak786"
+        ],
+        "milestone": "Formation",
+        "body": "Welcome to Group 9, @hinak786. This issue lists your onboarding steps. Tick each box as you finish it.\n\n- [x] Accept the repository invitation at https://github.com/jeraddunne/csc580-group9-msr2027/invitations. Invitations expire 7 days after 2026-09-15.\n- [x] Review #49, which reinstates the four-person group and the working agreement v2.0. Approve it, or request changes. It needs one approval from a member other than the author before it can merge.\n- [x] Set up your machine using [docs/GETTING_STARTED.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/process/group-reinstated/docs/GETTING_STARTED.md): run `gh auth login`, clone outside OneDrive, then run `make setup`, `make test`, and `make data`.\n- [x] Fill in the **Team member onboarding** form (Issues, then New issue). It records your availability and strengths.\n- [x] After #49 merges, open your first pull request. In it, fill in `docs/team/hina-kramer.md`, and sign section 14 of TEAM_CHARTER.md with the date and your pull request number. Ask another member to review it.\n- [x] Before kickoff on Wed 2026-09-16, read [docs/validation/README.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/process/group-reinstated/docs/validation/README.md). Your rater id is `hk`. At kickoff, confirm roles and choose the validation kind you will second-rate (see the second-rater issue).\n\nQuestions: comment here.\n\nAcceptance: all checklist boxes are ticked: invitation accepted, `make setup`, `make test` and `make data` pass locally, onboarding form submitted, and a first pull request merged containing the docs/team/ profile and the TEAM_CHARTER.md section 14 signature.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-15T22:28:30Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:31Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:28:32Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:32Z",
+            "label": "onboarding",
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:28:32Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-15T23:22:49Z",
+            "label": null,
+            "assignee": "hinak786"
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-16T00:06:16Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-16T00:06:16Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:50Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 51,
+        "title": "Onboarding: Allie Hodges (@AllieHgs)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-15T22:28:29Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "onboarding",
+          "priority:high"
+        ],
+        "assignees": [
+          "AllieHgs"
+        ],
+        "milestone": "Formation",
+        "body": "Welcome to Group 9, @AllieHgs. This issue lists your onboarding steps. Tick each box as you finish it.\n\n- [x] Accept the repository invitation at https://github.com/jeraddunne/csc580-group9-msr2027/invitations. Invitations expire 7 days after 2026-09-15.\n- [x] Review #49, which reinstates the four-person group and the working agreement v2.0. Approve it, or request changes. It needs one approval from a member other than the author before it can merge.\n- [ ] Set up your machine using [docs/GETTING_STARTED.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/process/group-reinstated/docs/GETTING_STARTED.md): run `gh auth login`, clone outside OneDrive, then run `make setup`, `make test`, and `make data`.\n- [ ] Fill in the **Team member onboarding** form (Issues, then New issue). It records your availability and strengths.\n- [ ] After #49 merges, open your first pull request. In it, fill in `docs/team/allie-hodges.md`, and sign section 14 of TEAM_CHARTER.md with the date and your pull request number. Ask another member to review it.\n- [ ] Before kickoff on Wed 2026-09-16, read [docs/validation/README.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/process/group-reinstated/docs/validation/README.md). Your rater id is `ah`. At kickoff, confirm roles and choose the validation kind you will second-rate (see the second-rater issue).\n\nQuestions: comment here.\n\nAcceptance: all checklist boxes are ticked: invitation accepted, `make setup`, `make test` and `make data` pass locally, onboarding form submitted, and a first pull request merged containing the docs/team/ profile and the TEAM_CHARTER.md section 14 signature.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-15T22:28:29Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:30Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:28:30Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:30Z",
+            "label": "onboarding",
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:28:30Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-15T22:29:01Z",
+            "label": null,
+            "assignee": "AllieHgs"
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-16T00:06:15Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-16T00:06:15Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:48Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 50,
+        "title": "Onboarding: Leticia Aderhold (@angel06la)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-15T22:28:27Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "onboarding",
+          "priority:high"
+        ],
+        "assignees": [
+          "angel06la"
+        ],
+        "milestone": "Formation",
+        "body": "Welcome to Group 9, @angel06la. This issue lists your onboarding steps. Tick each box as you finish it.\n\n- [x] Accept the repository invitation at https://github.com/jeraddunne/csc580-group9-msr2027/invitations. Invitations expire 7 days after 2026-09-15.\n- [x] Review #49, which reinstates the four-person group and the working agreement v2.0. Approve it, or request changes. It needs one approval from a member other than the author before it can merge.\n- [ ] Set up your machine using [docs/GETTING_STARTED.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/process/group-reinstated/docs/GETTING_STARTED.md): run `gh auth login`, clone outside OneDrive, then run `make setup`, `make test`, and `make data`.\n- [ ] Fill in the **Team member onboarding** form (Issues, then New issue). It records your availability and strengths.\n- [x] After #49 merges, open your first pull request. In it, fill in `docs/team/leticia-aderhold.md`, and sign section 14 of TEAM_CHARTER.md with the date and your pull request number. Ask another member to review it.\n- [ ] Before kickoff on Wed 2026-09-16, read [docs/validation/README.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/process/group-reinstated/docs/validation/README.md). Your rater id is `la`. At kickoff, confirm roles and choose the validation kind you will second-rate (see the second-rater issue).\n\nQuestions: comment here.\n\nAcceptance: all checklist boxes are ticked: invitation accepted, `make setup`, `make test` and `make data` pass locally, onboarding form submitted, and a first pull request merged containing the docs/team/ profile and the TEAM_CHARTER.md section 14 signature.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-15T22:28:27Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:29Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:28:29Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:28:29Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-15T22:28:29Z",
+            "label": "onboarding",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": "angel06la"
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-16T00:06:14Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-16T00:06:14Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:46Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 42,
+        "title": "Start here: Group 9 project workspace (P-01)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-14T13:33:05Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "The front door to the project. **Group 9** has four members: Jerad Dunne (@jeraddunne), Leticia Aderhold (@angel06la), Allie Hodges (@AllieHgs), and Hina Kramer (@hinak786). The group was reinstated on 2026-09-15 by ADR-0006, merged in #49. The topic is **P-01: risky capabilities in copied agent skills** (#41).\n\n## What we are researching\n\n**Rubric question:** #4, *Skill security and supply-chain risk*, which the brief states as:\n\n> Do modified or reused skills introduce command execution, file-system access, network access, or other risky behavior that was absent from an earlier version or source artifact?\n\nWe answer that using the similarity and copy-tracing method from rubric question #1, *Skill reuse and propagation*, because you cannot tell whether a copy **added** a capability until you can first tell which skills are copies of each other.\n\n**Our question** (`RESEARCH_QUESTION.md` section 2, selected 2026-09-14 in ADR-0004 from proposal P-01, #41):\n\n> In the GitSkills July 2026 sample, how prevalent are skill instructions and bundled scripts that enable risk-relevant capabilities, do skills carrying them reach more repositories through verbatim copying, and do modified variants of the same skill add or remove those capabilities?\n\n**In plain terms.** Agent skills are copied between repositories by hand. There is no registry, no package manager, and nothing that checks them. An agent that follows a skill acts with the user's own permissions. So we ask: how often do skills tell an agent to do something risky, do those skills spread further than safe ones, and when someone edits a copy, do they make it safer or riskier?\n\n**Three sub-questions:**\n\n| | Question | What it measures |\n|---|---|---|\n| RQ1 | Prevalence | Share of distinct skill contents, and of copy-weighted occurrences, carrying each capability category |\n| RQ2 | Reach | Whether high-risk contents have more copies and reach more repositories, controlling for size, bundled scripts, location, repository stars and language |\n| RQ3 | Drift | Among near-duplicate variants of the same skill, how often high-risk capabilities differ, and in which direction |\n\n**\"Risk-relevant capability\"** means one of the eleven categories defined in `docs/research/THREAT_MODEL.md`: remote code execution, oversight bypass, exfiltration endpoints, credential access, hard-coded network endpoints, persistence, obfuscation, destructive operations, privilege elevation, dynamic code execution, and unscoped shell tool grants.\n\n**Dataset:** the official GitSkills July 2026 sample, `agent_skills_sample.db`, sha256 `683888c9...`, upstream commit `fff3df9`. 13,000 distinct skill contents across 29,786 occurrences.\n\n**Read more:** [RESEARCH_QUESTION.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/RESEARCH_QUESTION.md) \u00b7 [ADR-0004](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/decisions/ADR-0004-topic-selection.md) \u00b7 [proposal P-01](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md) \u00b7 [THREAT_MODEL.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/research/THREAT_MODEL.md)\n\nAny member may still open a *Decision needed* issue to revisit the topic.\n\n## New members: start here\n\n1. **Accept the repository invitation** at https://github.com/jeraddunne/csc580-group9-msr2027/invitations. Leticia and Allie have accepted; Hina's invitation is still open.\n2. **Open your onboarding issue** and work the checklist: #50 (Leticia), #51 (Allie), #52 (Hina).\n3. **Set up your machine** using [docs/GETTING_STARTED.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/GETTING_STARTED.md): `gh auth login`, clone outside OneDrive, then `make setup`, `make test`, `make data`. You are set up when `make test` is green.\n4. **Open your first pull request.** Fill in your profile in `docs/team/` and sign section 14 of `TEAM_CHARTER.md` with the date and your pull request number. Nobody signs on anyone else's behalf. Signature progress is tracked in #1. Every pull request needs one approving review from a member other than the author.\n5. **Take a second-rater kind in #53.** This is the one thing currently blocking the results, and it is explained under *Validation* below.\n\n## Validation needs a second rater\n\nInter-rater agreement (Cohen's kappa) between the primary rater and a teammate is the **primary reliability measure** for the whole report. It cannot be produced by one person, and an LLM is explicitly not allowed to stand in for it.\n\nThree kinds are open in **#53** and any of them can be claimed: Signals (147 items), Lineage (58 pairs), Drift (18 pairs). One person may take several, or the three may be split.\n\nTwo things to know before starting:\n\n- **Round 1 labels are due Fri 2026-10-16**, so scoring can finish before the Sprint 2 review on 10-28.\n- **The blindness rule** means the primary rater's filled label files for a kind stay uncommitted until the second rater's file for that kind is merged. An unclaimed kind therefore blocks the primary rater's work as well as the second rater's.\n\nRead [docs/validation/README.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/validation/README.md) and [ANNOTATION_GUIDELINE.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/validation/ANNOTATION_GUIDELINE.md) (now version 1.2: labels that disagree with the detector need a written reason). Rater ids are `la`, `ah`, `hk`.\n\n## Where to look\n\n- **Board:** https://github.com/users/jeraddunne/projects/1\n- **Work plan and sign-ups:** [docs/workspace/WORK_SIGNUP.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/workspace/WORK_SIGNUP.md)\n- **Findings:** [docs/workspace/FINDINGS_LOG.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/workspace/FINDINGS_LOG.md)\n- **Decisions:** [docs/workspace/DECISION_LOG.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/workspace/DECISION_LOG.md)\n- **Sprint 1 plan:** [docs/sprints/sprint-1/planning.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/sprints/sprint-1/planning.md)\n- **Report draft:** [report/draft.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/report/draft.md)\n\n## Record something\n\n- [Research finding form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=08-research-finding.yml)\n- [Decision needed form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=05-decision.yml)\n- [Task form](https://github.com/jeraddunne/csc580-group9-msr2027/issues/new?template=03-task.yml)\n\n## Dates\n\n| Date | Milestone | Status |\n|---|---|---|\n| Wed 2026-09-16 | Kickoff: confirm roles, sign the charter, choose second raters, topic brief | Past. Second raters were **not** chosen; #53 is still open |\n| Thu 2026-09-17 | Sprint 1 planning | Done: [sprint-1/planning.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/sprints/sprint-1/planning.md) |\n| Wed 2026-10-07 | Sprint 1 review and retrospective | Upcoming |\n| Fri 2026-10-16 | Second-rater round 1 labels due | **Upcoming, unassigned** |\n| Wed 2026-10-28 | Sprint 2 review and retrospective | Upcoming |\n| Wed 2026-11-18 | Sprint 3 review and retrospective | Upcoming |\n| Fri 2026-12-04 | Final report, release and presentation | Upcoming |\n\nAcceptance: every member has accepted their invitation, opened their onboarding issue and merged a first pull request; the issue remains pinned and accurate for the whole semester.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-14T13:33:05Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "pinned",
+            "created_at": "2026-09-14T13:33:06Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-14T13:33:06Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-14T23:50:04Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-15T22:28:39Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:28:59Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T22:29:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:34Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:45Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 41,
+        "title": "[Proposal] P-01: Risky capabilities in copied agent skills: prevalence, reach, and drift",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-14T13:32:51Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "proposal",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "### Proposer\n\nJerad Dunne (@jeraddunne)\n\n### Rubric question this is based on\n\n4. Skill security and supply-chain risk (GitSkills)\n\n### Dataset(s)\n\nGitSkills\n\n### Precise research question\n\nIn the GitSkills July 2026 sample, how prevalent are skill instructions and bundled scripts that enable risk-relevant capabilities (remote code execution, destructive operations, privilege elevation, credential access, unscoped shell tool grants, oversight bypass, persistence, obfuscation, exfiltration endpoints), do skills carrying them reach more repositories through verbatim copying, and do modified variants of the same skill add or remove those capabilities?\n\n- RQ1 Prevalence: content-weighted and copy-weighted share with each validated capability.\n- RQ2 Reach: copies and repositories per content, with versus without a high-risk capability.\n- RQ3 Drift: among near-duplicate variants of the same skill, how often capabilities differ and in which direction (scoped to case studies; see the full proposal).\n\nFull proposal: [docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md)\n\n### Motivation and expected contribution\n\nSkills are copied between repositories by hand, with no package manager and no verifier, and an agent follows them with the user's tool permissions. That makes a skill both copied like code and read like instructions. It sits where software supply-chain risk and indirect prompt injection meet.\n\nContribution: a reviewable, tested rule set with measured precision; a prevalence and reach profile in a real population; and a careful description of how variants differ. High precision with high prevalence argues for skill review tooling. A reach difference says risky skills spread rather than stall. Low precision is also useful, because it quantifies why keyword scanning is not enough.\n\nIt builds on my security research on threat models for AI-agent integrations, my work on propagation modeling, the rule-file and annotation-rubric pattern from my ARI 510 project, and Lean Six Sigma FMEA practice. I also use 32 installed skills and have written 8 of my own. Section 4 of the full proposal shows where each lands.\n\n### Unit of analysis, population, sample, variables, outcome measure\n\nUnit of analysis: one distinct skill content (`artifacts.file_sha`) with its copies\nPopulation: SKILL.md files on public GitHub default branches, July 2026 snapshot (lower bound)\nSample: the 13,000 distinct contents in the official sample with all 29,786 occurrences (`dedup_primary = 1` for scanning)\nIndependent variables (table.column): validated capability categories derived from `artifacts.content` and `artifact_siblings.content`; controls `artifacts.location_class`, `body_chars`, `has_scripts`, `repos.stars`, `repos.language`\nOutcome measure (table.column or derived): RQ1 prevalence; RQ2 copies and distinct repositories per `file_sha`; RQ3 category added, removed, or unchanged per near-duplicate pair (same `name`, word-shingle Jaccard of at least 0.5, ordered by `first_commit_at` when available)\n\n### Required implementation component and how we would build it\n\nRubric: \"Implement a static analyzer or rule-based scanner for executable commands, URLs, scripts, file operations, credential-related instructions, and changes across skill versions.\"\n\n- Load: `msr_pipeline.load` reads the SQLite sample read-only.\n- Extract: `msr_pipeline.skill_risk` applies `rules/skill_risk_rules.yaml` (19 rules, each with a severity, a status, and match and no-match examples enforced by tests) to SKILL.md text and bundled script text. It never executes anything.\n- Link versions: word-shingle Jaccard within front-matter name families.\n- Analyze: prevalence, reach (Mann-Whitney U, bootstrap intervals, negative binomial regression with controls), and variant differences.\n- Validate: stratified sample of about 150 skills, two annotators, Cohen's kappa, precision per rule, recall from the no-signal stratum.\n- Report: aggregate tables and figures, and a safe-reporting section with no repository names.\n\nA working pilot already runs end to end: `python -m msr_pipeline risk-pilot`.\n\n### Minimum evidence mapping\n\n| Minimum evidence | Artifact | Sprint |\n|---|---|---|\n| Threat model | Report section plus ADR fixing capability categories | 1 |\n| Detection rules | `rules/skill_risk_rules.yaml` with regression tests | 1 to 2 |\n| Annotated examples | Annotation guideline, labelled validation sample, kappa and precision tables | 2 |\n| False-positive discussion | Error analysis of main false-positive patterns | 2 to 3 |\n| Safe reporting artifact | Aggregate results with no repository names or runnable payloads | 3 |\n| No execution of untrusted scripts | Static text scanning only | all |\n\n### Feasibility with the sample data in 9 weeks\n\nPilot measured on 2026-09-14. These are unvalidated keyword signals, not confirmed risk.\n\n- 1,159 of 13,000 distinct contents (8.9%) match a high-risk rule; copy-weighted, 3,326 of 29,786 occurrences (11.2%).\n- Contents with a high-risk signal average 2.87 copies versus 2.24 for the rest (29.3% versus 25.7% copied at least twice). This is descriptive only.\n- 200 of 1,326 skills with readable bundled scripts (15.1%) have a script matching a high-risk rule.\n- 245 near-duplicate variant pairs exist, but only 18 differ in high-risk categories and only 10 have dates for both. So RQ3 is scoped to case studies, with an optional full-dataset pass decided by ADR in Sprint 1.\n- The full pilot runs in about 3 minutes; tests run offline.\n\nThe main effort is annotation: about 150 skills, two annotators, 8 to 10 hours each in Sprint 2. Descope path: drop the RQ3 extension first, then the regression model. RQ1 plus RQ2 still meet every question 4 evidence item.\n\n### Risks and competing explanations\n\n- A keyword match is not a capability, because skills often describe unsafe patterns to warn against them. Validation labels separate risky from benign-in-context.\n- Template inheritance explains variant differences: 9 of the 18 differing pairs come from one widely copied template. Results will be reported with and without template families.\n- Popularity confound: setup and DevOps skills both use shell commands and get copied. Controls and stratification address this.\n- Sampling by content hash splits variant families, and commit history is sparse, so drift direction may stay inconclusive.\n- Name plus similarity can pair unrelated generic skills. Lineage pairs get a manual check and threshold sensitivity.\n- Safety: never execute or fetch dataset content; aggregate reporting only; raise anything that looks actively malicious with the instructor first.\n\n### Self-score: feasibility (1 low to 5 high)\n\n4\n\n### Self-score: data fit (1 low to 5 high)\n\n4\n\n### Self-score: rubric fit (1 low to 5 high)\n\n5\n\n### Self-score: low risk (1 risky to 5 safe)\n\n3\n\n### Confirmations\n\n- [X] I read the rubric question, its required implementation component, and its minimum evidence.\n- [X] I checked that the sample data has the tables and columns named above.\n- [X] The proposal does not require executing any script or command found inside the datasets.\n\nAcceptance: the proposal is reviewed at Formation and the outcome is recorded in an ADR; if selected, RESEARCH_QUESTION.md states the question, unit of analysis, variables and outcome measures.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-14T13:32:51Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-14T13:32:53Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-14T13:32:53Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-14T13:32:53Z",
+            "label": "proposal",
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-14T13:32:53Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-14T13:32:53Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "referenced",
+            "created_at": "2026-09-14T13:33:49Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:43Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 40,
+        "title": "Final: AI-use log and disclosure complete",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:47Z",
+        "closed_at": null,
+        "labels": [
+          "type:docs",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Finalization",
+        "body": "Complete ai-use-log.md and the report's AI-use disclosure so that AI assistance is disclosed and the generated work is verified, per the Responsible AI quality criterion.\n\nAcceptance: every AI-assisted PR has a log row; disclosure paragraph in the report matches the log.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:47Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:48Z",
+            "label": "type:docs",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:49Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:32Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:41Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 39,
+        "title": "Final: individual contribution and reflection (one per member)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:45Z",
+        "closed_at": null,
+        "labels": [
+          "type:docs",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Finalization",
+        "body": "Every member documents an individual contribution and reflection, as required by the submission checklist and the individual contribution component of the grade.\n\nAcceptance: four files in docs/reflections/ with links to evidence.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:45Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:46Z",
+            "label": "type:docs",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:47Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-14T23:46:34Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-15T21:57:56Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:30Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:39Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 38,
+        "title": "Final: presentation and live demonstration",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:44Z",
+        "closed_at": null,
+        "labels": [
+          "type:presentation",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Finalization",
+        "body": "Deliver the final demonstration and presentation covering the research question, pipeline, implementation, results and limitations (project product 4).\n\nAcceptance: rehearsed twice; backup recording available.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:44Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:45Z",
+            "label": "type:presentation",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:45Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:28Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:38Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 37,
+        "title": "Final: repository release v1.0.0 and fresh-machine reproduction by a non-author",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:42Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Finalization",
+        "body": "Tag and document a v1.0.0 release containing the complete project history and artifacts, then have a non-author reproduce the primary results on a clean machine by following the README alone, as the submission checklist requires.\n\nAcceptance: release with report PDF and figures attached; gemba walk recorded.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:42Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:43Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:43Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:26Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:36Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 36,
+        "title": "Final: respond to feedback and finalize the report",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:41Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Finalization",
+        "body": "Finalization phase: respond to instructor and peer feedback, then finalize the report. Work through the feedback log, apply the agreed changes, and rebuild the final PDF from the committed report sources.\n\nAcceptance: feedback log in docs/sprints/finalization/checklist.md complete; report/final.pdf built.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:41Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:42Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:43Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:24Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:35Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 35,
+        "title": "S3: retrospective identifying the group's most important process improvement",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:39Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 9. Acceptance: improvement named with before/after KPI evidence.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:39Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:41Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:41Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:22Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:33Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 34,
+        "title": "S3: final demonstration plan and presentation materials",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:38Z",
+        "closed_at": null,
+        "labels": [
+          "type:presentation",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 8. See docs/PRESENTATION_PLAN.md.\n\nAcceptance: docs/PRESENTATION_PLAN.md covers the research question, pipeline, implementation, results and limitations; slides are complete; the demonstration runs end to end in at least one rehearsal.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:38Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:39Z",
+            "label": "type:presentation",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:39Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:20Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:31Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 33,
+        "title": "S3: documented release or tagged version of the repository",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:36Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 7. Acceptance: tag v0.9.0-rc1 with release notes; fresh clone reproduces primary results.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:36Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:17Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:30Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 32,
+        "title": "S3: threats-to-validity section (dataset bias, measurement error, confounding, missing data, reproducibility, generalizability)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:35Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 6.\n\nAcceptance: THREATS_TO_VALIDITY.md covers dataset bias, measurement error, confounding, missing data, reproducibility and generalizability, each with a stated mitigation or acknowledged limitation.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:35Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:37Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:16Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:28Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 31,
+        "title": "S3: complete draft report with citations and clear separation of findings and interpretation",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:33Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 5.\n\nAcceptance: all report sections are drafted with citations; findings and interpretation appear in separate sections; the draft is reviewed by a member other than the author.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:34Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:35Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:14Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:26Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 30,
+        "title": "S3: final figures and tables generated from the repository pipeline",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:32Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 4.\n\nAcceptance: every figure and table in the report regenerates from a `make` target on a clean checkout; no figure or table is hand-edited.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:32Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:12Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:25Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 29,
+        "title": "S3: error analysis and manually inspected examples",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:31Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 3.\n\nAcceptance: a documented sample of false positives and false negatives is manually inspected; failure modes are categorised, with at least one worked example for each category.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:31Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:32Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:33Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:10Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:23Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 28,
+        "title": "S3: robustness checks, sensitivity analysis, or comparison across meaningful subgroups",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:29Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 2.\n\nAcceptance: at least one sensitivity analysis over a detection threshold or parameter, plus one comparison across a meaningful subgroup; the direction and size of any change in the result is reported.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:29Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:30Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:30Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:07Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:21Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 27,
+        "title": "S3: final or near-final results addressing the research question",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:27Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 3",
+        "body": "Rubric Sprint 3 bullet 1.\n\nAcceptance: every research sub-question has a result generated by the committed pipeline from the validated label set; each reported number is traceable to a command in the repository.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:27Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:28Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:28Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:06Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:20Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 26,
+        "title": "S2: sprint review package and retrospective recording changes to question, method, scope, or interpretation",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:26Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 7 and acceptance criteria. Acceptance: review.md and retrospective.md complete; package submitted by 2026-10-28.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:26Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:27Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:27Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:03Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:18Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 25,
+        "title": "S2: updated research report (background, method, implementation, preliminary results)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:23Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 6. Acceptance: sections drafted with citations; observation and interpretation separated.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:24Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:25Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:25Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:18:01Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:16Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 24,
+        "title": "S2: preliminary results with reproducible figures or tables",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:21Z",
+        "closed_at": null,
+        "labels": [
+          "type:report",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 4. Acceptance: results/ and figures/ regenerated by the pipeline; referenced in report/draft.md.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:21Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:23Z",
+            "label": "type:report",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:23Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:59Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:15Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 23,
+        "title": "S2: validation sample, manual annotation protocol, or other evaluation design",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:19Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 3. Acceptance: written protocol; two annotators; agreement statistic reported; sample size justified.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:20Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:21Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:21Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:58Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:13Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 22,
+        "title": "S2: automated tests for parsing, transformation, matching, or metric functions",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:18Z",
+        "closed_at": null,
+        "labels": [
+          "type:test",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 2. Acceptance: every function whose output appears in the report has a test; CI green.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:18Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:19Z",
+            "label": "type:test",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:19Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:55Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:11Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 21,
+        "title": "S2: working implementation of the core mining, extraction, similarity, classification, traceability, or visualization method",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:54:16Z",
+        "closed_at": "2026-09-15T00:59:14Z",
+        "labels": [
+          "type:pipeline",
+          "rubric",
+          "priority:medium"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 2",
+        "body": "Rubric Sprint 2 bullet 1. Acceptance: runs end to end on the approved sample from `run_pipeline.sh`.\nEstimate: 8 (split at planning)",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:16Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:18Z",
+            "label": "type:pipeline",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:18Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-15T00:59:14Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:54Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:09Z",
+            "label": "priority:medium",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 20,
+        "title": "S1: sprint review package and retrospective",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:14Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A retrospective explaining what the group learned and what changed in the backlog.'\n\nAcceptance: docs/sprints/sprint-1/review.md and retrospective.md complete; kaizen issues created; package submitted by 2026-10-07.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:14Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:16Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:16Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:52Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:08Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 19,
+        "title": "S1: baseline process metrics captured (Measure phase)",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:13Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "First three weekly metrics PRs merged; baseline values recorded in docs/lean-six-sigma/metrics/DASHBOARD.md and referenced in the retrospective.\n\nAcceptance: retrospective.md 'Data first' section filled from the dashboard.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:13Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:14Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:50Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:06Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 18,
+        "title": "S1: primary risks and threats to validity identified",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:11Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric acceptance: 'the group has identified the primary risks and threats to validity.'\n\nAcceptance: THREATS_TO_VALIDITY.md rows for the chosen question have status set; FMEA top 5 reviewed at planning.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:11Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:13Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:13Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:48Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:04Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 17,
+        "title": "S1: repository practice: issues, milestones, branch protection, first reviewed pull request",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:09Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A repository with issues, milestones, branch protection or equivalent review practice, and a first pull request.'\n\nAcceptance: every member has authored and reviewed at least one merged PR.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:09Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:11Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:11Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:46Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:03Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 16,
+        "title": "S1: at least one exploratory table or visualization generated by code",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:54:08Z",
+        "closed_at": "2026-09-15T00:59:14Z",
+        "labels": [
+          "type:pipeline",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'At least one exploratory table or visualization generated by code.'\n\nAcceptance: a table in results/ and a figure in figures/ produced by the pipeline and referenced in report/draft.md.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:08Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:08Z",
+            "label": "type:pipeline",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:09Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-15T00:59:14Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:44Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:26:01Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 15,
+        "title": "S1: first working data-loading and extraction pipeline for the selected question",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:54:06Z",
+        "closed_at": "2026-09-15T00:59:13Z",
+        "labels": [
+          "type:pipeline",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A first working data-loading and extraction pipeline.'\n\nAcceptance: `python -m msr_pipeline <command>` runs end to end on the sample and writes results/; tested; documented in README.\nEstimate: 5",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:06Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:07Z",
+            "label": "type:pipeline",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:07Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-15T00:59:13Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:42Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:59Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 14,
+        "title": "S1: dataset acquisition or sampling instructions and data dictionary",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:04Z",
+        "closed_at": null,
+        "labels": [
+          "type:data",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'Dataset acquisition or sampling instructions and a data dictionary.'\n\nAcceptance: data/README.md instructions verified by a second member; MANIFEST.json hashes recorded; inclusion/exclusion rules implemented in code.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:04Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:06Z",
+            "label": "type:data",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:06Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:40Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:57Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 13,
+        "title": "S1: unit of analysis, population, sample, variables, outcome measures defined",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:54:02Z",
+        "closed_at": "2026-09-15T00:59:13Z",
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A defined unit of analysis, population, sample, variables, and outcome measures.'\n\nAcceptance: RESEARCH_QUESTION.md sections 5 and 6 and DATA_DICTIONARY.md Part B complete.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:03Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:04Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:04Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-15T00:59:13Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:38Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:55Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 12,
+        "title": "S1: precise research question with motivation, contribution, and competing explanation",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:54:01Z",
+        "closed_at": "2026-09-15T00:59:12Z",
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Sprint 1",
+        "body": "Rubric: 'A selected MSR-inspired topic and a precise research question' and 'Motivation, expected contribution, and at least one competing or simpler explanation.'\n\nAcceptance: RESEARCH_QUESTION.md sections 1 to 4 and 7 complete and reviewed.\nEstimate: 3",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:01Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:02Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:02Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-15T00:59:13Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:36Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:54Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 11,
+        "title": "Kaizen: weekly process metrics automated",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:54:00Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "kaizen",
+          "priority:low"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "The LSS metrics workflow opens a PR every Sunday; the Scrum Master reviews it at the Thursday check-in.\n\nMeasure: a metrics PR exists for every week of Sprint 1.\n\nAcceptance: the LSS metrics workflow runs on schedule and opens a snapshot PR each week; a metrics PR exists for every week of Sprint 1; each snapshot is reviewed at the Thursday check-in.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:54:00Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:01Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:54:01Z",
+            "label": "kaizen",
+            "assignee": null
+          },
+          {
+            "event": "referenced",
+            "created_at": "2026-09-13T22:56:17Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:34Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:52Z",
+            "label": "priority:low",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "title": "Kaizen: 48-hour pull request review SLA by a member other than the author",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:58Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "kaizen",
+          "priority:low"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Reviewer rotation agreed at kickoff; PR first-review turnaround appears on the weekly dashboard with a 48 h target.\n\nMeasure: median first-review time under 48 h in Sprint 1.\n\nAcceptance: a reviewer rotation is recorded in the working agreement; PR first-review time appears on the weekly dashboard; median first-review time is under 48 hours across Sprint 1.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:58Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:59Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:59Z",
+            "label": "kaizen",
+            "assignee": null
+          },
+          {
+            "event": "referenced",
+            "created_at": "2026-09-13T22:56:17Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-14T23:46:32Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-15T21:57:53Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:32Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:50Z",
+            "label": "priority:low",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "title": "Kaizen: branch protection enabled on main",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:53:57Z",
+        "closed_at": "2026-09-14T23:46:36Z",
+        "labels": [
+          "type:process",
+          "kaizen",
+          "priority:low"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Ruleset: no direct pushes, one approving review, conversation resolution, no force push. Verified by an attempted direct push being rejected.\n\nRaised in: repository setup 2026-09-13.\n\nAcceptance: the `main` ruleset blocks direct pushes, force pushes and deletion, and requires one approving review plus conversation resolution; verified by an attempted direct push being rejected.\n",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:57Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:58Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:58Z",
+            "label": "kaizen",
+            "assignee": null
+          },
+          {
+            "event": "referenced",
+            "created_at": "2026-09-13T22:56:17Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-14T23:46:36Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:30Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:48Z",
+            "label": "priority:low",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Formation: invite team members and instructor as collaborators",
+        "state": "closed",
+        "state_reason": "not_planned",
+        "created_at": "2026-09-13T22:53:56Z",
+        "closed_at": "2026-09-14T23:46:45Z",
+        "labels": [
+          "type:process",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Add handles to project.yml as onboarding issues arrive, then `python scripts/invite_team.py --instructor`.\n\nAcceptance: all four members have push access; instructor invited.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:56Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:57Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-14T23:46:45Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:53:21Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:53:21Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:53:21Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:53:21Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:53:22Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:53:22Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:28Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:47Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "title": "Formation: project board created from the instructor template with LSS fields",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:53:54Z",
+        "closed_at": "2026-09-15T00:52:05Z",
+        "labels": [
+          "type:process",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Run `python scripts/setup_project_board.py` (needs `gh auth refresh -s project`). Add WIP limits (5) on Todo and In progress in the Board view.\n\nAcceptance: board has Todo/In progress/Done/Block/Cancelled, Sprint, Estimate, Priority, Type fields; all open issues added.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:55Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-15T00:52:05Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:26Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:45Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "title": "Formation: Sprint 1 backlog created, estimated, and on the board",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:52Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Create issues for every Sprint 1 rubric bullet mapped to the chosen question; estimate; assign; add to the project board.\n\nAcceptance: milestone Sprint 1 has issues covering all eight review bullets; each meets the Definition of Ready.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:52Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:53Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:53Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:24Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:43Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Formation: RESEARCH_QUESTION.md completed and topic brief submitted",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:51Z",
+        "closed_at": null,
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Product Owner fills every section from the winning proposal; topic brief submitted to the instructor.\n\nAcceptance: no placeholders remain in RESEARCH_QUESTION.md; brief submitted by 2026-09-16.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:51Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:52Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:52Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:22Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:41Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Formation: ballot vote tallied and topic decided (ADR-0004)",
+        "state": "closed",
+        "state_reason": "not_planned",
+        "created_at": "2026-09-13T22:53:50Z",
+        "closed_at": "2026-09-14T23:46:43Z",
+        "labels": [
+          "type:process",
+          "decision",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Ballots in docs/proposals/votes/ballots/ by 2026-09-15 23:59; `make tally` at kickoff; ADR-0004 written.\n\nAcceptance: docs/proposals/RESULTS.md committed; ADR-0004 status Accepted.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:50Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:51Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:51Z",
+            "label": "decision",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-14T23:46:43Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:20Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:39Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Formation: topic proposals submitted (at least one per member)",
+        "state": "closed",
+        "state_reason": "not_planned",
+        "created_at": "2026-09-13T22:53:48Z",
+        "closed_at": "2026-09-14T23:46:41Z",
+        "labels": [
+          "type:research",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Use the Project proposal issue form by 2026-09-14 23:59. See docs/proposals/README.md.\n\nAcceptance: at least four issues labelled `proposal`.\nEstimate: 2",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:48Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:49Z",
+            "label": "type:research",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:50Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-14T23:46:42Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:18Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:37Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Formation: dataset samples inspected",
+        "state": "closed",
+        "state_reason": "completed",
+        "created_at": "2026-09-13T22:53:47Z",
+        "closed_at": "2026-09-14T23:46:40Z",
+        "labels": [
+          "type:data",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Run `make data` and `python -m msr_pipeline explore --dataset all`; read data/README.md and both upstream READMEs.\n\nAcceptance: each member comments here with the row counts printed by the download script.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:47Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:48Z",
+            "label": "type:data",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:48Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-14T23:46:39Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "closed",
+            "created_at": "2026-09-14T23:46:40Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:16Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:36Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      },
+      {
+        "number": 1,
+        "title": "Formation: team working agreement v2.0 signed by all four members",
+        "state": "open",
+        "state_reason": null,
+        "created_at": "2026-09-13T22:53:45Z",
+        "closed_at": null,
+        "labels": [
+          "type:process",
+          "rubric",
+          "priority:high"
+        ],
+        "assignees": [
+          "jeraddunne"
+        ],
+        "milestone": "Formation",
+        "body": "Every member signs TEAM_CHARTER.md section 13 in their first PR and completes the onboarding issue.\n\nAcceptance: four signature rows; four onboarding issues closed; four profiles in docs/team/.\nEstimate: 1",
+        "events": [
+          {
+            "event": "milestoned",
+            "created_at": "2026-09-13T22:53:45Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:46Z",
+            "label": "type:process",
+            "assignee": null
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-13T22:53:46Z",
+            "label": "rubric",
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-14T23:46:31Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "renamed",
+            "created_at": "2026-09-15T21:57:51Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:57:53Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:57:53Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:57:53Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:57:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:57:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:57:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T21:57:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T21:57:54Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T23:57:22Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T23:57:22Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T23:57:22Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T23:57:22Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T23:57:23Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T23:57:23Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "mentioned",
+            "created_at": "2026-09-15T23:57:23Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "subscribed",
+            "created_at": "2026-09-15T23:57:23Z",
+            "label": null,
+            "assignee": null
+          },
+          {
+            "event": "assigned",
+            "created_at": "2026-09-16T15:17:14Z",
+            "label": null,
+            "assignee": "jeraddunne"
+          },
+          {
+            "event": "labeled",
+            "created_at": "2026-09-16T15:25:34Z",
+            "label": "priority:high",
+            "assignee": null
+          }
+        ]
+      }
+    ],
+    "prs": [
+      {
+        "number": 55,
+        "title": "Requirements engineering: notebook elicitation (Phase B) and RESEARCH_SPEC (Phase F)",
+        "user": "jeraddunne",
+        "created_at": "2026-09-19T22:27:35Z",
+        "merged_at": null,
+        "closed_at": null,
+        "state": "open",
+        "draft": false,
+        "head_branch": "docs/re-elicitation-and-spec"
+      },
+      {
+        "number": 54,
+        "title": "Require a written reason for judgement-call labels (guideline 1.2)",
+        "user": "jeraddunne",
+        "created_at": "2026-09-17T20:05:38Z",
+        "merged_at": "2026-09-17T21:32:46Z",
+        "closed_at": "2026-09-17T21:32:46Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "feat/justification-labelling"
+      },
+      {
+        "number": 49,
+        "title": "Reinstate the four-person group (ADR-0006)",
+        "user": "jeraddunne",
+        "created_at": "2026-09-15T22:27:24Z",
+        "merged_at": "2026-09-16T14:21:05Z",
+        "closed_at": "2026-09-16T14:21:05Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "process/group-reinstated"
+      },
+      {
+        "number": 48,
+        "title": "chore(lss): weekly metrics snapshot",
+        "user": "jeraddunne",
+        "created_at": "2026-09-15T01:03:37Z",
+        "merged_at": "2026-09-15T01:04:57Z",
+        "closed_at": "2026-09-15T01:04:57Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "metrics/weekly"
+      },
+      {
+        "number": 47,
+        "title": "Add GitHub Actions: CI, weekly LSS metrics, issue-form labels, vote tally",
+        "user": "jeraddunne",
+        "created_at": "2026-09-15T00:45:56Z",
+        "merged_at": "2026-09-15T00:58:49Z",
+        "closed_at": "2026-09-15T00:58:50Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "ci/add-workflows"
+      },
+      {
+        "number": 46,
+        "title": "Report draft v1 with unvalidated results",
+        "user": "jeraddunne",
+        "created_at": "2026-09-14T23:49:33Z",
+        "merged_at": "2026-09-15T00:59:33Z",
+        "closed_at": "2026-09-15T00:59:34Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "report/25-draft-v1"
+      },
+      {
+        "number": 45,
+        "title": "P-01 validation kit: guideline, samples, and scoring",
+        "user": "jeraddunne",
+        "created_at": "2026-09-14T23:49:27Z",
+        "merged_at": "2026-09-15T00:59:23Z",
+        "closed_at": "2026-09-15T00:59:23Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "test/23-validation-kit"
+      },
+      {
+        "number": 44,
+        "title": "P-01 analysis: prevalence, reach statistics, drift, and sensitivity",
+        "user": "jeraddunne",
+        "created_at": "2026-09-14T23:49:08Z",
+        "merged_at": "2026-09-15T00:59:11Z",
+        "closed_at": "2026-09-15T00:59:11Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "pipeline/21-p01-analysis"
+      },
+      {
+        "number": 43,
+        "title": "Convert to a solo project (ADR-0005)",
+        "user": "jeraddunne",
+        "created_at": "2026-09-14T23:48:43Z",
+        "merged_at": "2026-09-15T00:59:01Z",
+        "closed_at": "2026-09-15T00:59:01Z",
+        "state": "closed",
+        "draft": false,
+        "head_branch": "process/41-solo-conversion"
+      }
+    ],
+    "reviews": [
+      {
+        "pull_number": 49,
+        "user": "hinak786",
+        "state": "COMMENTED",
+        "submitted_at": "2026-09-16T17:30:56Z"
+      }
+    ],
+    "runs": [
+      {
+        "id": 35504508050,
+        "name": "LSS metrics",
+        "conclusion": null,
+        "status": "in_progress",
+        "created_at": "2026-09-20T10:14:32Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35474126659,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-19T22:43:13Z",
+        "head_branch": "docs/re-elicitation-and-spec"
+      },
+      {
+        "id": 35473391445,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-19T22:27:38Z",
+        "head_branch": "docs/re-elicitation-and-spec"
+      },
+      {
+        "id": 35462513467,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-19T18:51:13Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35277279188,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-17T21:32:49Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35269013628,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-17T20:08:27Z",
+        "head_branch": "feat/justification-labelling"
+      },
+      {
+        "id": 35268953340,
+        "name": "CI",
+        "conclusion": "cancelled",
+        "status": "completed",
+        "created_at": "2026-09-17T20:07:51Z",
+        "head_branch": "feat/justification-labelling"
+      },
+      {
+        "id": 35268742133,
+        "name": "CI",
+        "conclusion": "failure",
+        "status": "completed",
+        "created_at": "2026-09-17T20:05:42Z",
+        "head_branch": "feat/justification-labelling"
+      },
+      {
+        "id": 35236877544,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-17T14:55:58Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35236853977,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-17T14:55:44Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35236745393,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-17T14:54:44Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35163691859,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T23:45:35Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35163471218,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T23:42:29Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35163459690,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T23:42:20Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35126446797,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T17:09:45Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35126444054,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T17:09:44Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35126187860,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T17:07:17Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35126182572,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T17:07:14Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35125559050,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T17:01:16Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35124883694,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T16:54:44Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115975650,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:31:58Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115971476,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:31:57Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115966639,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:31:54Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115962579,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:31:52Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115958734,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:31:50Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115209642,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:14Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115205092,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:11Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115203482,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:10Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115198816,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:08Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115194088,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:06Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115190708,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:04Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115185856,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:02Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115183666,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:25:01Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115178949,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:58Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115179290,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:58Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115170038,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:53Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115170392,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:53Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115166903,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:51Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115160711,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:48Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115156368,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:45Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35115151607,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T15:24:43Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35107928024,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T14:21:08Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35092306534,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-16T11:48:29Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35048639907,
+        "name": "LSS metrics",
+        "conclusion": "cancelled",
+        "status": "completed",
+        "created_at": "2026-09-16T02:36:31Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35037910926,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T23:57:23Z",
+        "head_branch": "process/group-reinstated"
+      },
+      {
+        "id": 35031174380,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:53Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031174085,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:53Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031174797,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:53Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031173308,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:52Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031160418,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:42Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031151833,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:36Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031147521,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:33Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031146247,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:32Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031143840,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:28:30Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35031056902,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T22:27:27Z",
+        "head_branch": "process/group-reinstated"
+      },
+      {
+        "id": 35028488633,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T21:57:59Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35028485152,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T21:57:57Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 35028481608,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T21:57:54Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915822273,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T01:04:59Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915726992,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T01:03:40Z",
+        "head_branch": "metrics/weekly"
+      },
+      {
+        "id": 34915679572,
+        "name": "Issue form labels",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T01:03:00Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915574804,
+        "name": "LSS metrics",
+        "conclusion": "failure",
+        "status": "completed",
+        "created_at": "2026-09-15T01:01:27Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915437178,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T00:59:35Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915425970,
+        "name": "CI",
+        "conclusion": "cancelled",
+        "status": "completed",
+        "created_at": "2026-09-15T00:59:25Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915413872,
+        "name": "CI",
+        "conclusion": "cancelled",
+        "status": "completed",
+        "created_at": "2026-09-15T00:59:14Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915401392,
+        "name": "CI",
+        "conclusion": "cancelled",
+        "status": "completed",
+        "created_at": "2026-09-15T00:59:03Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34915389387,
+        "name": "CI",
+        "conclusion": "cancelled",
+        "status": "completed",
+        "created_at": "2026-09-15T00:58:52Z",
+        "head_branch": "main"
+      },
+      {
+        "id": 34914878547,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T00:51:13Z",
+        "head_branch": "ci/add-workflows"
+      },
+      {
+        "id": 34914758072,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T00:49:24Z",
+        "head_branch": "ci/add-workflows"
+      },
+      {
+        "id": 34914529690,
+        "name": "CI",
+        "conclusion": "success",
+        "status": "completed",
+        "created_at": "2026-09-15T00:45:59Z",
+        "head_branch": "ci/add-workflows"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "6b40b7e909e767b3443455197de25d474883d14d",
+        "author": "jeraddunne",
+        "date": "2026-09-17T21:32:46Z"
+      },
+      {
+        "sha": "0d8c6801b178c34999e3fef7ec48c5c21e96e55e",
+        "author": "jeraddunne",
+        "date": "2026-09-16T14:21:04Z"
+      },
+      {
+        "sha": "6c5d245b8a687dec5f8a154c5f609246f994175d",
+        "author": "jeraddunne",
+        "date": "2026-09-15T01:04:57Z"
+      },
+      {
+        "sha": "4b63207ca35caa7ab77d823dd1de5dc2ba338083",
+        "author": "jeraddunne",
+        "date": "2026-09-15T00:59:33Z"
+      },
+      {
+        "sha": "e1766faa90508a141bf31af448a1896aaf9120ce",
+        "author": "jeraddunne",
+        "date": "2026-09-15T00:59:22Z"
+      },
+      {
+        "sha": "562e69468c3ef969c8081b60052b10a0bd857162",
+        "author": "jeraddunne",
+        "date": "2026-09-15T00:59:11Z"
+      },
+      {
+        "sha": "9dcb263b44e4083719e86759ad1462b74b185476",
+        "author": "jeraddunne",
+        "date": "2026-09-15T00:59:00Z"
+      },
+      {
+        "sha": "714bfe83622277fc2267e77b8c118f654b1f5d52",
+        "author": "jeraddunne",
+        "date": "2026-09-15T00:58:49Z"
+      },
+      {
+        "sha": "8c8bbda92536f559b3e882bbb17ce5af08d2f178",
+        "author": "jeraddunne",
+        "date": "2026-09-14T13:33:45Z"
+      },
+      {
+        "sha": "3be95390bc628ab2b6e5584a42cb397795d3c21b",
+        "author": "jeraddunne",
+        "date": "2026-09-14T13:32:32Z"
+      },
+      {
+        "sha": "c0ee3b01cd24739ef15cf6c6946e3a702be826ab",
+        "author": "jeraddunne",
+        "date": "2026-09-13T22:57:39Z"
+      },
+      {
+        "sha": "e241f19d373f92b4af7bfb9705caf5477dbdc439",
+        "author": "jeraddunne",
+        "date": "2026-09-13T22:56:14Z"
+      },
+      {
+        "sha": "39c54029f95ed50ec6399ffc6b2e384f57c8cefe",
+        "author": "jeraddunne",
+        "date": "2026-09-13T22:53:16Z"
+      }
+    ]
+  }
+}

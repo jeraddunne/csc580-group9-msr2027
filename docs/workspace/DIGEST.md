@@ -1,20 +1,34 @@
 # Team workspace digest
 
-Generated 2026-09-15 22:27 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-09-20 10:15 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
-### @jeraddunne (1)
+### @AllieHgs (1)
 
 | Issue | Title | Milestone |
 |---|---|---|
+| [#51](https://github.com/jeraddunne/csc580-group9-msr2027/issues/51) | Onboarding: Allie Hodges (@AllieHgs) | Formation |
+
+### @angel06la (1)
+
+| Issue | Title | Milestone |
+|---|---|---|
+| [#50](https://github.com/jeraddunne/csc580-group9-msr2027/issues/50) | Onboarding: Leticia Aderhold (@angel06la) | Formation |
+
+### @hinak786 (1)
+
+| Issue | Title | Milestone |
+|---|---|---|
+| [#52](https://github.com/jeraddunne/csc580-group9-msr2027/issues/52) | Onboarding: Hina Kramer (@hinak786) | Formation |
+
+### @jeraddunne (32)
+
+| Issue | Title | Milestone |
+|---|---|---|
+| [#53](https://github.com/jeraddunne/csc580-group9-msr2027/issues/53) | Validation: choose the teammate second rater for each label kind | Sprint 2 |
+| [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: Group 9 project workspace (P-01) | Formation |
 | [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) | [Proposal] P-01: Risky capabilities in copied agent skills: prevalence, reach, and drift | Formation |
-
-### (unassigned) (30)
-
-| Issue | Title | Milestone |
-|---|---|---|
-| [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: project workspace (solo project, P-01) | Formation |
 | [#40](https://github.com/jeraddunne/csc580-group9-msr2027/issues/40) | Final: AI-use log and disclosure complete | Finalization |
 | [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection (one per member) | Finalization |
 | [#38](https://github.com/jeraddunne/csc580-group9-msr2027/issues/38) | Final: presentation and live demonstration | Finalization |
@@ -57,5 +71,6 @@ _No findings filed yet. Use the Research finding form._
 
 | Issue | Decision | Decide by | State |
 |---|---|---|---|
+| [#53](https://github.com/jeraddunne/csc580-group9-msr2027/issues/53) | Validation: choose the teammate second rater for each label kind |  | open |
 | [#4](https://github.com/jeraddunne/csc580-group9-msr2027/issues/4) | Formation: ballot vote tallied and topic decided (ADR-0004) |  | decided |
 

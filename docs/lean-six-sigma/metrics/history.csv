@@ -1,3 +1,4 @@
 date,velocity_total,commitment_reliability,cycle_time_median_days,lead_time_median_days,throughput_per_week,wip,blocked_time_days,pr_first_review_median_hours,pr_merge_median_hours,first_time_right,rework_ratio,defect_count,ci_pass_rate,contribution_gini,kaizen_closure_rate,reproducibility_check
 2026-09-13,0,,,,0.0,0,0,,,,,0,,0.0,0.0,nodata
 2026-09-15,15,,1.087,1.087,8.0,1,0,,1.167,1.0,0.0,0,1.0,0.0,0.333,pass
+2026-09-20,15,0.591,0.0,1.087,5.37,35,0,19.059,1.167,1.0,0.0,0,0.984,0.625,0.333,pass

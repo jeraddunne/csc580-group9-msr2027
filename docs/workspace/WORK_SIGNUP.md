@@ -53,13 +53,13 @@ Pairing is encouraged, especially across strengths (for example a statistics-str
 
 ## 6. Validation second raters
 
-Decided at the kickoff on 2026-09-16 (decision D-020). Jerad Dunne (`jd`) is the primary rater for every kind.
+Decided at the kickoff on 2026-09-16 (decision D-020) and revised on 2026-09-23 (D-022). Jerad Dunne (`jd`) is the primary rater for every kind.
 
 | Kind | Items | Second rater | Rater id | Round 1 due |
 |---|---|---|---|---|
-| Signals | 147 items, 209 label rows | | | Fri 2026-10-16 |
-| Lineage | 58 pairs | | | Fri 2026-10-16 |
-| Drift | 18 pairs | | | Fri 2026-10-16 |
+| Signals | 147 items, 209 label rows | none: Jerad Dunne re-rates (intra-rater, D-022) | `jd` round 2 | Round 1 Fri 2026-10-16; round 2 at least 14 days later |
+| Lineage | 58 pairs | none: Jerad Dunne re-rates (intra-rater, D-022) | `jd` round 2 | Round 1 Fri 2026-10-16; round 2 at least 14 days later |
+| Drift | 18 pairs | Leticia Aderhold | `la` | Fri 2026-10-16 |
 
 Protocol: `docs/validation/README.md`.
 

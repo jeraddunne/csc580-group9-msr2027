@@ -134,9 +134,11 @@ By adding your date and pull request number below, in your own pull request, you
 
 | Member | Date | Pull request |
 |---|---|---|
-| Leticia Aderhold | | |
+| Leticia Aderhold |2026-09-20 | #50|
 | Jerad Dunne | 2026-09-15 | #49 |
-| Allie Hodges | | |
-| Hina Kramer | | |
+| Allie Hodges | Not signed (status 2026-09-23) | none |
+| Hina Kramer | Not signed (status 2026-09-23) | none |
 
 Each member signs by adding the date and their onboarding pull request number in their own pull request.
+
+**Status on 2026-09-23 (D-022), recorded by the repository owner.** Allie Hodges and Hina Kramer remain members of Group 9 and keep write access, but neither has signed this charter, and the repository has no commit, pull request, or comment from either of them. Hina Kramer marked every onboarding step complete in #52 on 2026-09-16, including opening a first pull request and signing this section; no such pull request exists. Allie Hodges marked two of six steps complete in #51. Work that was waiting on them is reassigned to Jerad Dunne (D-022): second-rater labels for lineage and signals (#53). Still waiting on them: their signatures, profiles, and onboarding (#1, #51, #52), and their share of S1-7 and #39. Either member can sign at any time by adding their row in their own pull request.

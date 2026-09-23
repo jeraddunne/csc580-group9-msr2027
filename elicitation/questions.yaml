@@ -1,0 +1,183 @@
+# Prepared questions for the Phase B notebook interview.
+#
+# The notebook asks each question word for word, in this order, in the stated scope:
+#   gitskills -> tier A sources about GitSkills only (A1, A2, A4, A6, A9)
+#   dataset  -> every tier A source
+#   group    -> tier G (what Group 9 decided)
+#   process  -> tiers G and P
+#   all      -> every tier
+# `informs` names the RESEARCH_SPEC.md requirements the answer feeds. `check_against`
+# is where the team verifies the answer. tests/test_elicitation.py checks that every
+# question here appears word for word in elicitation/notebook-interview.md.
+questions:
+  - id: NB-Q01
+    kind: Meaning and scope
+    scope: gitskills
+    question: >-
+      What exactly does one row of the GitSkills `artifacts` table represent, and how
+      should a study count distinct skills separately from copies? Which column marks the
+      representative copy, and is the representative the original source of the content?
+    informs: [RR-01, DR-02]
+    check_against: A2 sec. II and App. A; A9 Schema; A6 Dataset Structure
+
+  - id: NB-Q02
+    kind: Meaning and scope
+    scope: gitskills
+    question: >-
+      What population does GitSkills cover, and what does GitHub code search leave out?
+      Does the dataset include files that are not Agent Skills in the October 2025 sense?
+    informs: [DR-03]
+    check_against: A2 App. A; A9 Known limitations; A6 Collection Methodology
+
+  - id: NB-Q03
+    kind: Meaning and scope
+    scope: gitskills
+    question: >-
+      How is the official GitSkills sample drawn, how does it relate to the full release,
+      and which exact identifiers should a paper cite for the sample and for the full
+      dataset?
+    informs: [DR-01]
+    check_against: A1 Submission; A4; A9 Sample vs full dataset
+
+  - id: NB-Q04
+    kind: Schema and relationships
+    scope: gitskills
+    question: >-
+      How do `artifact_siblings` rows join to `artifacts`, which sibling rows carry text,
+      and for which copies of a skill is folder composition recorded?
+    informs: [FR-04]
+    check_against: A9 Schema; A2 Table I; A6 Dataset Structure
+
+  - id: NB-Q05
+    kind: Schema and relationships
+    scope: gitskills
+    question: >-
+      What do `content_sha_ok`, `composition_truncated`, and `history_fetched` mean, and
+      which values mark missing or unrecoverable data?
+    informs: [DR-04]
+    check_against: A9 Schema; A2 App. A; the sample database
+
+  # Follow-ups were added after the first pass (2026-09-18), when an answer was incomplete.
+  # The original question stays as asked; a follow-up is a new question, never a rewording.
+  - id: NB-Q05a
+    follow_up_of: NB-Q05
+    kind: Schema and relationships
+    scope: gitskills
+    question: >-
+      Which value of `content_sha_ok` records a representative whose file changed on
+      GitHub before it was fetched and whose original content could not be recovered?
+    informs: [DR-04]
+    check_against: A2 App. A (42 representatives); A9 Schema; the sample database
+
+  - id: NB-Q06
+    kind: Schema and relationships
+    scope: gitskills
+    question: >-
+      What does `first_commit_at` represent for a renamed file, and which rows have commit
+      history at all?
+    informs: [FR-06]
+    check_against: A9 Known limitations; A2 Table I and App. A
+
+  - id: NB-Q07
+    kind: Feasibility
+    scope: gitskills
+    question: >-
+      Our question asks whether skills with risk-relevant capabilities reach more
+      repositories through verbatim copying, and whether modified variants add or remove
+      those capabilities. Can the GitSkills sample support each part, and what in the
+      sampling or history coverage limits it?
+    informs: [RR-02, RR-03]
+    check_against: A9 sampling rule; A2 App. A; G1
+
+  - id: NB-Q07a
+    follow_up_of: NB-Q07
+    kind: Feasibility
+    scope: gitskills
+    question: >-
+      When a distinct content is in the sample, does the sample keep every copy of it
+      across repositories, and are variants of the same skill kept together?
+    informs: [RR-02, RR-03]
+    check_against: A9 Sample vs full dataset; the sample database
+
+  - id: NB-Q08
+    kind: Feasibility
+    scope: gitskills
+    question: >-
+      Do the sources describe any way to link modified (near-duplicate) copies of the same
+      skill, or only byte-identical copies?
+    informs: [FR-06]
+    check_against: A2 sec. II and III; A9
+
+  - id: NB-Q09
+    kind: Implementation
+    scope: gitskills
+    question: >-
+      What loading approach do the sources recommend for the sample and for the full
+      dataset, and what example queries do they give?
+    informs: [FR-01, NFR-04]
+    check_against: A9 Quick start and Example queries; A6 Overview; A1 How to Participate
+
+  - id: NB-Q10
+    kind: Validation
+    scope: group
+    question: >-
+      Under Group 9's validation protocol, how is a rule match labelled, who rates it,
+      which agreement measure is reported, and what is the blindness rule?
+    informs: [VR-01, VR-02, VR-03]
+    check_against: G3 docs/validation/README.md and ANNOTATION_GUIDELINE.md
+
+  - id: NB-Q11
+    kind: Implementation (process)
+    scope: process
+    question: >-
+      According to Group 9's process documents, what has to happen before a change to a
+      detection rule or to the research question reaches `main`?
+    informs: [NFR-05]
+    check_against: G6 PROJECT_PLAN sec. 11; G7 CONTRIBUTING; P3
+
+  - id: NB-Q11a
+    follow_up_of: NB-Q11
+    kind: Implementation (process)
+    scope: process
+    question: >-
+      What are the change management rules for research changes and process changes, and
+      what review does every pull request need before it merges?
+    informs: [NFR-05]
+    check_against: G6 PROJECT_PLAN sec. 11 Change management; G7 CONTRIBUTING; G6 TEAM_CHARTER
+
+  - id: NB-Q12
+    kind: Ethics and privacy
+    scope: gitskills
+    question: >-
+      What anonymisation was applied to commit authors and commit messages, what was left
+      unanonymised, and what must a study never do with author codes or personal data?
+    informs: [ER-02]
+    check_against: A2 sec. IV and App. A; A9 Anonymisation; A6 Anonymisation; A1 FAQ Q1
+
+  - id: NB-Q13
+    kind: Ethics and security
+    scope: all
+    question: >-
+      What license covers the GitSkills metadata and the skill `content` text, what does
+      that mean for quoting skill text in a report, and is it safe to run the scripts
+      bundled with skills?
+    informs: [ER-01, ER-03]
+    check_against: A6 License; A4; G2 data/README.md
+
+  - id: NB-Q14
+    kind: Not established
+    scope: gitskills
+    question: >-
+      Do the sources define what counts as a "script" for `has_scripts`, or what makes a
+      skill instruction risky or malicious?
+    informs: [FR-02, RR-01]
+    check_against: A2 Table I and App. A; A6; G1 THREAT_MODEL
+
+  - id: NB-Q15
+    kind: Not established
+    scope: gitskills
+    question: >-
+      Do the sources establish that a copy of a skill in a repository is actually loaded
+      or run by an agent there, so that a copy count measures use?
+    informs: [RR-02]
+    check_against: A2 sec. I; A1 GitSkills section

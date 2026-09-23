@@ -1,0 +1,197 @@
+{
+  "notebook": {
+    "title": "Group 9 · P-01 elicitation notebook (CSC 580 RE)",
+    "product": "Google Gemini Notebook (notebook.google.com)",
+    "account": "jeraddu@umich.edu",
+    "url": "https://notebook.google.com/notebook/f6dac9ee-331e-498a-afe6-0b7b824602ef",
+    "sources": 24,
+    "interviewed": "2026-09-19",
+    "custom_instructions": "elicitation/google-notebook/notebook-instructions.txt"
+  },
+  "answers": [
+    {
+      "id": "NB-Q01",
+      "kind": "Meaning and scope",
+      "question": "What exactly does one row of the GitSkills `artifacts` table represent, and how should a study count distinct skills separately from copies? Which column marks the representative copy, and is the representative the original source of the content?",
+      "grounded_citations": true,
+      "citation_map": {
+        "1": "A2",
+        "2": "A6",
+        "3": "A1",
+        "4": "A2",
+        "5": "G2",
+        "6": "G2",
+        "7": "A2",
+        "8": "A2",
+        "9": "A9",
+        "10": "A9",
+        "11": "G2"
+      },
+      "sha256_16": "3b1f1bf8f6a7eb6a",
+      "answer": "Answer: In the GitSkills dataset, one row of the artifacts table represents a single discovered SKILL.md file occurrence at a specific repository and file path[1][2]. Across the full GitSkills Zenodo 1.0.0 dataset, there are 3,797,117 file occurrences grouped into 1,877,981 distinct contents, while the GitSkills sample (commit fff3df9) contains 29,786 file occurrences across 13,000 distinct contents[3][4][5][6]. To count distinct skills separately from verbatim copies, a study can count unique content hashes using the file_sha column or filter for representative rows where dedup_primary = 1[2][7][8]. Total file occurrences or copy distributions are measured by counting all rows in artifacts or grouping occurrences that share each file_sha[1][2][8][9]. The column that marks the representative copy for each distinct content group is dedup_primary, where a value of 1 identifies the primary representative[1][2]. The representative is not assumed to be the original source of the content, as the dataset authors explicitly select one representative per content hash for enrichment using deterministic tie-breaking rules (preferring standard paths like .claude/skills/)[8].Sources:A1: Section \"GitSkills\"[3]A2: Abstract[4], Section II[7], Table I[1], Appendix A[8]A6: Dataset Card, artifacts config features[2]A9: Descriptive statistics[10], Example queries[9]G2: Part A.1[11], data/README.md[5], FINDINGS_LOG.md[6]Not established by the sources: nothingConfidence: high, as every aspect of the artifacts table schema, deduplication logic, representative flagging, and source assumptions is explicitly documented in the authoritative GitSkills preprints and dataset cards."
+    },
+    {
+      "id": "NB-Q02",
+      "kind": "Meaning and scope",
+      "question": "What population does GitSkills cover, and what does GitHub code search leave out? Does the dataset include files that are not Agent Skills in the October 2025 sense?",
+      "grounded_citations": true,
+      "citation_map": {
+        "1": "A1",
+        "2": "A1",
+        "3": "A2",
+        "4": "A2",
+        "5": "A2",
+        "6": "A2",
+        "7": "A9",
+        "8": "A4",
+        "9": "A9"
+      },
+      "sha256_16": "4592177d35cc6b00",
+      "answer": "Answer: The GitSkills dataset covers SKILL.md file occurrences mined from public GitHub repositories in July 2026, encompassing 3,797,117 SKILL.md file occurrences across 282,200 public repositories owned by 195,841 accounts in the full GitSkills Zenodo 1.0.0 dataset[1][2][3][4]. Because discovery was performed via GitHub code search, it leaves out private repositories, non-default branches, files 384 KB or larger, recently active repositories containing 500,000 or more files, and forks unless they have more stars than their parent repository[5][6][7]. As a result of these indexing limitations, the dataset authors explicitly state that GitSkills represents a lower bound on the true population[5][6][7][8]. The dataset does include files that are not agent skills in the October 2025 open specification sense[6][9]. Because code search matched basenames case-insensitively, it retrieved case variants such as skill.md (54,289 files, 1.4% of GitSkills Zenodo 1.0.0), including files with first commits dating back to 2014 that predate the October 2025 specification[6][9]. Furthermore, across the 1,877,981 distinct contents in GitSkills Zenodo 1.0.0, only 1,625,701 distinct contents (86.6%) carry valid YAML front matter, while the remaining files have malformed front matter or predate the format[2][3][9].Sources:A1: Section \"GitSkills\"A2: Section I, Section II, Appendix AA4: DescriptionA6: config_name: artifacts featuresA9: Descriptive statistics, Known limitations, Before the formatNot established by the sources: nothingConfidence: high, as the population limits, GitHub code search indexing constraints, and non-spec file inclusion statistics are explicitly documented across the authoritative preprints, Zenodo records, and dataset READMEs."
+    },
+    {
+      "id": "NB-Q03",
+      "kind": "Meaning and scope",
+      "question": "How is the official GitSkills sample drawn, how does it relate to the full release, and which exact identifiers should a paper cite for the sample and for the full dataset?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "79b061419c25a71e",
+      "answer": "Answer: The official GitSkills sample (commit fff3df9) comprises 29,786 SKILL.md file occurrences across 13,000 distinct contents and 11,841 repositories in agent_skills_sample.db [A9, G2], drawn deterministically by selecting the 13,000 distinct contents with the lowest content hashes along with all their associated occurrences [G2]. The sample represents a schema-identical subset of the full GitSkills Zenodo 1.0.0 release—which contains 3,797,117 SKILL.md file occurrences across 1,877,981 distinct contents and 282,200 repositories—allowing SQL queries written for the sample to run unchanged on the full dataset [A2, A4, A9, G2]. Both dataset versions maintain identical four-table SQLite schemas (artifacts, artifact_siblings, repos, mining_runs) and replace commit author accounts with keyed one-way codes to enable authorship tracing without deanonymization [A2, A4, A9]. To cite the full dataset, a paper should reference the MSR 2027 challenge paper by Destefanis et al. (arXiv:2608.10906, DOI 10.48550/arXiv.2608.10906), the GitSkills Zenodo 1.0.0 release (Version DOI 10.5281/zenodo.21875637, Concept DOI 10.5281/zenodo.21875636), and the Hugging Face Parquet mirror (huggingface.co/datasets/mvaccargiu/gitskills) [A1, A2, A4, A6]. To cite the official sample, a paper should cite the GitHub sample repository (https://github.com/giuseppedestefanis/gitskills-sample) and specify commit fff3df9 alongside the database file agent_skills_sample.db [A2, A4, A6, A9, G1, G2].Sources:A1: Section \"GitSkills\", \"Submission\"A2: Section IV, Appendix AA4: Metadata, DescriptionA6: Header, CitationA9: Header, Descriptive statisticsG1: Section 1 (RESEARCH_QUESTION.md)G2: Part A.1, data/README.mdNot established by the sources: nothingConfidence: high, as the sampling strategy, schema relationship, and exact citation identifiers (DOIs, URLs, and commit SHAs) are explicitly detailed in the authoritative GitSkills preprints, dataset cards, Zenodo records, and repository READMEs."
+    },
+    {
+      "id": "NB-Q04",
+      "kind": "Schema and relationships",
+      "question": "How do `artifact_siblings` rows join to `artifacts`, which sibling rows carry text, and for which copies of a skill is folder composition recorded?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "6b18ad2b9c5a9b3f",
+      "answer": "Answer: Rows in artifact_siblings join to artifacts using a composite key matching repository name and path (artifact_siblings.repo_full_name = artifacts.repo_full_name AND artifact_siblings.artifact_path = artifacts.path) [A6, config_name: artifact_siblings features; A9, Example queries]. Folder composition is recorded exclusively for the single primary representative copy of each distinct skill (dedup_primary = 1), applicable to both the full GitSkills Zenodo 1.0.0 release and the official sample (commit fff3df9) [A2, Section II, Appendix A; A6, config_name: artifacts features; G2, Part A.1]. Folder composition and sibling listings are not collected for non-representative copies (dedup_primary = 0) [A2, Section II; G2, Part A.1]. Among sibling entries, full text is carried in the content column only for text files that fall under a size cap of up to 100 KB [A2, Table I; A6, config_name: artifact_siblings features; A9, artifact_siblings]. Sibling rows for binary files, files exceeding the 100 KB size cap, or entries in folders above the listing cap do not carry text and record a skipped_reason instead [A6, config_name: artifact_siblings features; A9, artifact_siblings].Sources:A2: Section II, Table I, Appendix AA6: config_name: artifacts features, config_name: artifact_siblings featuresA9: artifact_siblings, Example queriesG2: Part A.1Not established by the sources: nothingConfidence: high, as the relational join keys, deduplication filtering logic, and file size thresholds for artifact siblings are explicitly defined in the GitSkills schema and documentation."
+    },
+    {
+      "id": "NB-Q05",
+      "kind": "Schema and relationships",
+      "question": "What do `content_sha_ok`, `composition_truncated`, and `history_fetched` mean, and which values mark missing or unrecoverable data?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "a43ed21a4d32d31f",
+      "answer": "Answer: The content_sha_ok column is a retrieval bookkeeping integer field in the GitSkills artifacts table where a value of 1 indicates that the downloaded file bytes reproduce file_sha and 2 indicates the content was repaired via the GitHub blob API [A6, config_name: artifacts features; G2, Part A.1]. The composition_truncated column is a bookkeeping integer field where 1 flags that a representative skill folder exceeded the folder listing cap [A6, config_name: artifacts features; G2, Part A.1]. The history_fetched column is a binary integer flag (1 or 0) recording whether commit history was collected for a given row, covering 458,548 commit histories in the full GitSkills Zenodo 1.0.0 release and 3,010 in sample commit fff3df9 [A2, Table I; A4, Description; A6, config_name: artifacts features; G2, Part A.1, FINDINGS_LOG.md]. Unfetched or missing commit history is marked by history_fetched = 0, whereas truncated folder composition is marked by composition_truncated = 1 [A6, config_name: artifacts features; G2, Part A.1]. Regarding missing content, files deleted from GitHub between discovery and content retrieval (comprising 0.9% of distinct contents) were excluded from the dataset entirely rather than stored as incomplete records [A9, How the data was collected; G2, Part A.1]. The specific numerical code for content_sha_ok representing failed or unrecoverable content retrieval is not established by the sources [G2, Part A.1].Sources:A2: Table IA4: DescriptionA6: config_name: artifacts featuresA9: How the data was collectedG2: Part A.1, FINDINGS_LOG.mdNot established by the sources: the specific numerical value of content_sha_ok that denotes missing or unrecoverable file content.Confidence: high, as the column definitions, tracking flags, truncation markers, and history counts are explicitly documented in the GitSkills dataset card, preprints, and data dictionary."
+    },
+    {
+      "id": "NB-Q05a",
+      "kind": "Schema and relationships",
+      "question": "Which value of `content_sha_ok` records a representative whose file changed on GitHub before it was fetched and whose original content could not be recovered?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "9d2e058d2262ef04",
+      "answer": "Answer: The sources do not define a value of content_sha_ok for a representative whose file changed on GitHub prior to retrieval and could not be recovered [A6, config_name: artifacts features; G2, Part A.1]. According to the GitSkills data dictionary, content_sha_ok is a retrieval bookkeeping integer where a value of 1 indicates downloaded bytes reproduce file_sha and 2 indicates content was repaired via the GitHub blob API [G2, Part A.1]. Additionally, files deleted from GitHub between discovery and content retrieval—comprising 0.9% of distinct contents in the full GitSkills Zenodo 1.0.0 dataset—were excluded from the dataset entirely rather than retained as incomplete records [A9, How the data was collected; G2, Part A.1].Sources:A6: config_name: artifacts featuresA9: How the data was collectedG2: Part A.1Not established by the sources: which value of content_sha_ok (if any exists) records a representative whose file changed on GitHub before it was fetched and whose original content could not be recovered.Confidence: high, as the complete set of documented values for content_sha_ok in the GitSkills data dictionary is limited to 1 (hash verified) and 2 (repaired via blob API)."
+    },
+    {
+      "id": "NB-Q06",
+      "kind": "Schema and relationships",
+      "question": "What does `first_commit_at` represent for a renamed file, and which rows have commit history at all?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "bdac9290ec4f8962",
+      "answer": "Answer: For a renamed file in the GitSkills dataset, first_commit_at records the timestamp when the file was renamed to its current path rather than its original creation date, because commit history tracks only the current path and resets upon a rename [A9, Known limitations; G2, Part A.1; G4, Threat I3]. Inference: Consequently, first_commit_at provides a lower bound on the true age of renamed skill files [G4, Threat I3]. Commit history is collected only for representative skill rows (dedup_primary = 1), specifically covering standard locations such as .claude/skills/ along with a size-stratified sample of other locations [A2, Section II, Appendix A; A4, Description; G2, Part A.1; G4, Threat I4]. Rows that possess commit history are marked in the artifacts table by history_fetched = 1 [A6, config_name: artifacts features; G2, Part A.1]. This covers 458,548 commit histories in the full GitSkills Zenodo 1.0.0 dataset and 3,010 commit histories in the official sample (commit fff3df9) [A2, Table I; A4, Description; G2, Part A.1, FINDINGS_LOG.md].Sources:A2: Section II, Table I, Appendix AA4: DescriptionA6: config_name: artifacts featuresA9: Known limitationsG2: Part A.1, FINDINGS_LOG.mdG4: Threat I3, Threat I4Not established by the sources: nothingConfidence: high, as the reset behavior of first_commit_at upon file renaming, the sampling strategy for commit histories, and the exact row counts for both dataset versions are explicitly defined across the GitSkills dataset documentation and Group 9's analysis logs."
+    },
+    {
+      "id": "NB-Q07",
+      "kind": "Feasibility",
+      "question": "Our question asks whether skills with risk-relevant capabilities reach more repositories through verbatim copying, and whether modified variants add or remove those capabilities. Can the GitSkills sample support each part, and what in the sampling or history coverage limits it?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "a4af3ddffcbbccbd",
+      "answer": "Answer: The GitSkills sample (commit fff3df9) fully supports evaluating whether skills with risk-relevant capabilities reach more repositories through verbatim copying (RQ2), as it retains all 29,786 file occurrences across 11,841 repositories for its 13,000 distinct contents [A2 Section I; A9 Descriptive statistics; G1 Section 6; G2 Part A.1, FINDINGS_LOG F-008]. For modified variants (RQ3), the sample can identify near-duplicate variant pairs (245 pairs across 141 names in sample commit fff3df9), but it is severely limited in determining whether variants add or remove capabilities over time [A9 Descriptive statistics; G1 Section 5.3, Section 7.3; G2 FINDINGS_LOG F-011, F-012; G4 Threat P5]. A major sampling limitation is that the sample was selected deterministically using the 13,000 lowest content hashes, which splits variant families across the sampling cutoff [G1 Section 4; G2 Part A.1; G4 Threat E2, Threat P5]. History coverage further limits the study because commit history was retrieved for only a sampled subset of representative rows (history_fetched = 1), yielding 3,010 commit histories in sample commit fff3df9 and leaving only 10 near-duplicate variant pairs with commit dates for both variants [A2 Section II; G2 Part A.1, FINDINGS_LOG F-007, F-012; G4 Threat I4, Threat P5]. Inference: Time ordering is additionally constrained because first_commit_at records the timestamp of a file's current path rather than its original creation date if renamed [A9 Known limitations; G2 Part A.1; G4 Threat I3]. Consequently, the GitSkills sample (commit fff3df9) supports statistical regression and reach models for RQ2, but restricts RQ3 to descriptive case studies [G1 Section 7.3, Section 7.4; G4 Threat P5].Sources:A2: Section I, Section IIA9: Descriptive statistics, Known limitationsG1: Section 4, Section 5.3, Section 6, Section 7.3, Section 7.4G2: Part A.1, FINDINGS_LOG (F-007, F-008, F-011, F-012)G4: Threat E2, Threat I3, Threat I4, Threat P5Not established by the sources: nothingConfidence: high, as the exact capabilities and coverage limitations of the GitSkills sample (commit fff3df9) for both RQ2 (copy reach) and RQ3 (variant drift) are explicitly documented across the GitSkills preprints, sample README, and Group 9 research design files."
+    },
+    {
+      "id": "NB-Q07a",
+      "kind": "Feasibility",
+      "question": "When a distinct content is in the sample, does the sample keep every copy of it across repositories, and are variants of the same skill kept together?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "2cd4341686512d5c",
+      "answer": "Answer: Yes, when a distinct content is included in the official GitSkills sample (commit fff3df9), the sample retains every verbatim copy of that content across all repositories [A2, Section I, Appendix A; A9, Descriptive statistics; G2, Part A.1, data/README.md]. Specifically, for its 13,000 distinct contents, the GitSkills sample (commit fff3df9) contains all 29,786 SKILL.md file occurrences across 11,841 repositories [A2, Section I; A9, Descriptive statistics; G2, Part A.1, data/README.md]. However, modified variants of the same skill—which carry different content hashes (file_sha) despite sharing a front-matter name—are not kept together in the sample [G1, Section 4; G4, Threat E2, Threat P5]. Because the sample was selected deterministically based on the 13,000 lowest content hashes, variant families are split across the sampling cutoff [G1, Section 4; G2, Part A.1; G4, Threat E2].Sources:A2: Section I, Appendix AA9: Descriptive statistics, How the data was collectedG1: Section 4G2: Part A.1, data/README.mdG4: Threat E2, Threat P5Not established by the sources: nothingConfidence: high, as the exact sampling mechanics, verbatim copy retention per content hash, and variant splitting across content hashes are explicitly documented in the GitSkills preprints, sample documentation, and Group 9 research design files."
+    },
+    {
+      "id": "NB-Q08",
+      "kind": "Feasibility",
+      "question": "Do the sources describe any way to link modified (near-duplicate) copies of the same skill, or only byte-identical copies?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "e417546e9b80eca4",
+      "answer": "Answer: The official GitSkills dataset natively links only byte-identical copies using the git blob content hash (file_sha) [A2, Section II; A6, config_name: artifacts features; A9, Example queries]. The authoritative dataset sources do not contain a pre-computed column or schema link for modified near-duplicate files [A2, Section II; A6, config_name: artifacts features; A9, Example queries]. To link modified variants of a skill, Group 9's research design introduces a similarity heuristic that pairs distinct contents sharing a front-matter name (artifacts.name) and measures word 5-shingle Jaccard similarity on artifacts.content [G1, Section 5.3, Section 6; G2, Part B.3; G8, Module skill_risk]. In the official GitSkills sample (commit fff3df9), this heuristic identified 245 near-duplicate pairs (word 5-shingle Jaccard similarity of at least 0.5) across 141 front-matter names [G1, Section 5.3; G2, FINDINGS_LOG F-011]. Group 9 explicitly notes that this name-and-similarity pairing is a derived research heuristic rather than a dataset ground truth, and it can miss renamed descendants or group unrelated skills sharing generic names [G1, Section 11; G4, Threat P4].Sources:A2: Section IIA6: config_name: artifacts featuresA9: Example queriesG1: Section 5.3, Section 6, Section 11G2: Part B.3, FINDINGS_LOG (F-011)G4: Threat P4G8: Module skill_riskNot established by the sources: nothingConfidence: high, as the native schema capabilities for byte-identical deduplication and Group 9's derived similarity method for near-duplicate linking are explicitly detailed across both authoritative GitSkills sources and Group 9's research documentation."
+    },
+    {
+      "id": "NB-Q09",
+      "kind": "Implementation",
+      "question": "What loading approach do the sources recommend for the sample and for the full dataset, and what example queries do they give?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "4520442e784191aa",
+      "answer": "Answer: For the official GitSkills sample (commit fff3df9, 277 MB SQLite database agent_skills_sample.db), sources recommend executing direct SQL queries, whereas for the full GitSkills Zenodo 1.0.0 dataset (44,388,249,600 bytes SQLite file agent_skills_release.db or Hugging Face Parquet mirror), sources recommend using filtered SQL queries or reading Parquet files with pandas, polars, DuckDB, or the Hugging Face datasets library [A2, Section IV; A4, Description; A6, config_name: artifacts; A9, Header; G2, data/README.md]. The provided GitSkills example SQL queries demonstrate finding the most copied skill contents by grouping by file_sha, summarizing skill counts by location_class, joining artifacts with repos on repo_full_name to count skills by language, and joining artifacts with artifact_siblings on repo_full_name and path for representatives (dedup_primary = 1) [A9, Example queries]. For SpecMine (GitHub sample v1.1 or Zenodo 1.0 / Hugging Face Parquet mirror), sources recommend reading Parquet files directly using pandas, polars, or DuckDB without requiring a full load of the 14.7 GB uncompressed MySQL dump [A3, Section III, Section V; A7, Usage; A8a, Quick start; G2, data/README.md]. SpecMine example queries demonstrate answering the flagship co-change question using DuckDB SQL (SELECT tool, COUNT(*) AS cochange_prs FROM 'data/pull_requests.parquet' WHERE touches_code = 1 GROUP BY tool ORDER BY cochange_prs DESC;) and Pandas (filtering pull_requests where touches_code = 1 and merging with pr_files on tool, repo_name, and pr_number) [A3, Section III; A8a, Quick start; A8c, load.py].Sources:A2: Section IVA3: Section III, Section VA4: DescriptionA6: config_name: artifactsA7: UsageA8a: Quick startA8c: load.pyA9: Header, Example queriesG2: data/README.mdNot established by the sources: nothingConfidence: high, as the recommended loading approaches and example code/SQL queries for both the samples and full dataset releases are explicitly documented in the dataset cards, preprints, and repository READMEs."
+    },
+    {
+      "id": "NB-Q10",
+      "kind": "Validation",
+      "question": "Under Group 9's validation protocol, how is a rule match labelled, who rates it, which agreement measure is reported, and what is the blindness rule?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "2a671c54bfc7e416",
+      "answer": "Answer: Under Group 9's validation protocol, each sampled high-risk rule match is labelled as RISKY (the capability is present and instructed/enabled as an action), BENIGN_CONTEXT (the capability is present but context makes it low risk), or NOT_PRESENT (the match is a false positive pattern match) [G3, Section 2.1; G3, docs/validation/README.md]. The ratings are performed independently by Jerad Dunne (jd) as the primary rater and at least one teammate—Leticia Aderhold (la), Allie Hodges (ah), or Hina Kramer (hk)—as a second rater [G1, Section 7.5; G3, docs/validation/README.md; G6, ADR-0006; G6, TEAM_CHARTER.md Section 9]. The primary agreement measure reported before resolving disagreements is inter-rater Cohen's kappa alongside percent agreement [G1, Section 7.5; G3, docs/validation/README.md; G4, Threat P6; G6, ADR-0006]. Under the blindness rule, second raters never open another rater's label files, and the primary rater's filled label files for a validation kind are committed to the repository only after the second rater's label file for that kind has been committed [G3, ANNOTATION_GUIDELINE.md Section 5; G3, docs/validation/README.md; G6, ADR-0006; G6, TEAM_CHARTER.md Section 9; G7, data/annotations/README.md].Sources:G1: Section 7.5G3: docs/validation/README.md, ANNOTATION_GUIDELINE.md (Section 2.1, Section 5)G4: Threat P6G6: ADR-0006, TEAM_CHARTER.md (Section 9)G7: data/annotations/README.mdNot established by the sources: nothingConfidence: high, as the rule match labels, rater roles, Cohen's kappa reliability metric, and repository blindness rule are explicitly defined across Group 9's research design, validation guidelines, team charter, and decision records."
+    },
+    {
+      "id": "NB-Q11",
+      "kind": "Implementation (process)",
+      "question": "According to Group 9's process documents, what has to happen before a change to a detection rule or to the research question reaches `main`?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "ff610850d48f340a",
+      "answer": "Answer: For any change to reach main, Group 9 requires creating a pull request that receives at least one approving review from a team member other than the author and passes all automated CI checks [G1, Section README.md; G5, Section 2, Section 4; G6, TEAM_CHARTER.md Section 6; G7, CONTRIBUTING.md]. To change a detection rule, the author must update rules/skill_risk_rules.yaml, add match and no-match test examples enforced by the automated test suite, provide a written rationale for the change, and log the proposal or decision [G1, Section 8; G3, rules/skill_risk_rules.yaml, docs/validation/README.md; G7, CONTRIBUTING.md]. To change the research question, the team must reach agreement at a ceremony, record a decision row in docs/workspace/DECISION_LOG.md, and write an Architectural Decision Record (ADR) in docs/decisions/ [G5, Section 7; G6, TEAM_CHARTER.md Section 12, DECISION_LOG.md; G7, .github/ISSUE_TEMPLATE/05-decision.yml]. Furthermore, rubric rules mandate that any change to the research question, method, or scope must be explicitly recorded in that sprint's retrospective.md file [G5, Section 6; G6, DECISION_LOG.md; G7, .github/ISSUE_TEMPLATE/05-decision.yml].Sources:G1: Section README.md, Section 8G3: rules/skill_risk_rules.yaml, docs/validation/README.mdG5: Section 2, Section 4, Section 6, Section 7G6: TEAM_CHARTER.md (Section 6, Section 12), DECISION_LOG.mdG7: CONTRIBUTING.md, .github/ISSUE_TEMPLATE/05-decision.ymlNot established by the sources: nothingConfidence: high, as Group 9's pull request approval rules, rule regression testing requirements, ADR decision procedures, and retrospective tracking protocols are explicitly documented across G1, G3, G5, G6, and G7."
+    },
+    {
+      "id": "NB-Q11a",
+      "kind": "Implementation (process)",
+      "question": "What are the change management rules for research changes and process changes, and what review does every pull request need before it merges?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "32eadd1c0ecd6f0d",
+      "answer": "Answer: For research changes affecting the research question, method, scope, or interpretation, Group 9 requires team agreement recorded in docs/workspace/DECISION_LOG.md, an Architectural Decision Record (ADR) in docs/decisions/, and an explicit entry in that sprint's retrospective.md file [G1, README.md; G5, Section 6, Section 7; G6, TEAM_CHARTER.md Section 12, DECISION_LOG.md; G7, .github/ISSUE_TEMPLATE/05-decision.yml]. Detection rule changes specifically require updating rules/skill_risk_rules.yaml with match and no-match test examples, providing a written rationale, and submitting a pull request [G1, Section 8; G3, rules/skill_risk_rules.yaml, docs/validation/README.md; G7, CONTRIBUTING.md]. Process changes are tracked as kaizen issues labeled type:process or kaizen, logged in docs/lean-six-sigma/KAIZEN_BACKLOG.md, and evaluated during sprint retrospectives [G5, Section 1, Section 6, KAIZEN_BACKLOG.md; G6, DECISION_LOG.md]. Modifying process targets in project.yml requires a decision row in DECISION_LOG.md or an ADR, whereas team charter modifications require approval from all other team members in a pull request [G5, Section 1; G6, TEAM_CHARTER.md Section 13, DECISION_LOG.md]. Before any pull request can be merged into main, it requires a green automated CI build and exactly one approving review from a team member other than the author [G1, README.md; G5, Section 2, Section 4; G6, TEAM_CHARTER.md Section 6, ADR-0006; G7, CONTRIBUTING.md].Sources:G1: README.md, Section 8G3: rules/skill_risk_rules.yaml, docs/validation/README.mdG5: Section 1, Section 2, Section 4, Section 6, Section 7, KAIZEN_BACKLOG.mdG6: TEAM_CHARTER.md (Section 6, Section 12, Section 13), DECISION_LOG.md, ADR-0006G7: CONTRIBUTING.md, .github/ISSUE_TEMPLATE/05-decision.ymlNot established by the sources: nothingConfidence: high, as the change management workflows, decision logs, charter amendment processes, and pull request review rules are explicitly detailed across Group 9's process handbooks and repository configurations."
+    },
+    {
+      "id": "NB-Q12",
+      "kind": "Ethics and privacy",
+      "question": "What anonymisation was applied to commit authors and commit messages, what was left unanonymised, and what must a study never do with author codes or personal data?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "063fcb4441b9351b",
+      "answer": "Answer: In the GitSkills dataset (applicable to both GitSkills Zenodo 1.0.0 and sample commit fff3df9), commit author accounts were anonymised by replacing them with keyed one-way codes that remain consistent for the same account across the dataset without distributing the secret key [A2, Section IV; A4, Description; G2, Part A.1]. In commit messages, personal names and email addresses were redacted [A2, Section IV; A4, Description; G2, Part A.1]. Conversely, bot accounts retained their logins, AI assistant names in Co-authored-by trailers were preserved, and repository owner logins remained unanonymised [A2, Section IV; A4, Description; A6, config_name: repos; G2, Part A.1]. Studies are strictly prohibited from attempting to deanonymise author codes, reverse the one-way hash transformations, or link author codes to real-world identities [A4, Description; G2, data/README.md; G4, Threat X1; G6, TEAM_CHARTER.md Section 11; G7, CONTRIBUTING.md]. Furthermore, researchers must never publish personal data, include individual account/repository names in published outputs, or paste dataset content containing personal data into external AI tools [G2, data/README.md; G4, Threat X1; G6, TEAM_CHARTER.md Section 11; G7, CONTRIBUTING.md].Sources:A2: Section IV, Appendix AA4: DescriptionA6: config_name: repos featuresG2: data/README.md, Part A.1G4: Threat X1G6: TEAM_CHARTER.md Section 11G7: CONTRIBUTING.mdNot established by the sources: nothingConfidence: high, as the specific anonymisation mechanics, preserved fields, and ethics rules regarding author codes and personal data are explicitly defined in the GitSkills preprints, Zenodo records, and Group 9 governance documents."
+    },
+    {
+      "id": "NB-Q13",
+      "kind": "Ethics and security",
+      "question": "What license covers the GitSkills metadata and the skill `content` text, what does that mean for quoting skill text in a report, and is it safe to run the scripts bundled with skills?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "134ba7827a8bf502",
+      "answer": "Answer: The GitSkills metadata and dataset aggregation are released under the Creative Commons Attribution 4.0 International (CC-BY-4.0) license [A4, License; A6, License]. Conversely, the skill content text reproduces files from public GitHub repositories and remains governed by the individual origin repository's license recorded in repos.license [A6, License]. When quoting skill text in a report, researchers must consult repos.license and quote text minimally only when necessary, excluding runnable payloads and personal data [A6, License; G2, Licensing and ethics; G4, Threat X2; G7, Data rules]. It is strictly unsafe to run scripts bundled with skills, as skills and bundled files are copied without formal review and may contain untrusted or malicious commands [A1, Section \"GitSkills\"; G4, Threat R6, R09]. Group 9 rules therefore mandate treating all skill content purely as static text to be parsed and strictly prohibit executing any dataset scripts or commands [G1, Dataset acquisition; G2, Licensing and ethics; G4, Threat R6, R09; G7, Data rules].Sources:A1: Section \"GitSkills\"A4: LicenseA6: LicenseG1: Dataset acquisitionG2: Licensing and ethicsG4: Threat R6, Threat R09, Threat X2G7: Data rulesNot established by the sources: nothingConfidence: high, as dataset licensing, quotation rules, and script safety hazards are explicitly documented across the authoritative dataset cards, preprints, and Group 9 process guidelines."
+    },
+    {
+      "id": "NB-Q14",
+      "kind": "Not established",
+      "question": "Do the sources define what counts as a \"script\" for `has_scripts`, or what makes a skill instruction risky or malicious?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "2c8f88da5bb4c0fb",
+      "answer": "Answer: The authoritative GitSkills dataset sources define has_scripts as a binary integer flag in the artifacts table indicating whether a skill folder bundles scripts, but they do not state the specific file extensions or parsing criteria used to classify a file as a script [A2, Table I; A6, config_name: artifacts features; G2, Part A.1]. Regarding risk, Group 9 operationalizes \"risk-relevant capabilities\" in study P-01 through a static scanner of 19 regular expression rules across 12 capability categories (such as REMOTE_CODE, DESTRUCTIVE, and OVERSIGHT_BYPASS), classifying rules with severity 6 or higher on a 1-to-10 scale as high-risk signals [G1, Section 6, Section 8; G3, rules/skill_risk_rules.yaml; G4, Threat P1]. However, Group 9 explicitly clarifies that a rule match is merely a text signal that a skill instructs or enables a capability, not a verdict that the instruction is malicious [G1, Section 7; G3, rules/skill_risk_rules.yaml; G4, Threat P1]. Group 9's threat model explicitly excludes judging author intent or determining whether a skill is malicious [G1, Section 7].Sources:A2: Table I, Section IIA6: config_name: artifacts featuresG1: Section 6, Section 7 (THREAT_MODEL.md), Section 8G2: Part A.1G3: rules/skill_risk_rules.yamlG4: Threat P1Not established by the sources: the exact file extensions or criteria used by the GitSkills dataset authors to distinguish scripts from reference files for has_scripts, and any definition or criteria for determining whether an instruction is intentionally malicious.Confidence: high, because the dataset card and preprints explicitly record has_scripts without specifying file-matching rules, and Group 9's documentation explicitly defines capability risk rules while placing malicious intent out of scope."
+    },
+    {
+      "id": "NB-Q15",
+      "kind": "Not established",
+      "question": "Do the sources establish that a copy of a skill in a repository is actually loaded or run by an agent there, so that a copy count measures use?",
+      "grounded_citations": false,
+      "citation_map": {},
+      "sha256_16": "1d6d0f0c15169cbd",
+      "answer": "Answer: The sources do not establish that a copy of a skill in a repository is actually loaded or run by an agent, as the GitSkills dataset is a static repository corpus that does not track dynamic agent execution logs [A1, A2, G1]. The dataset records static SKILL.md file occurrences—comprising 3,797,117 occurrences in the full GitSkills Zenodo 1.0.0 release and 29,786 in sample commit fff3df9—where copy counts measure repository reach and verbatim folder replication [A1, A2, A4, A9, G2]. The preprints explain that an agent loads a skill probabilistically at run time when it compares a task against the skill's description, making selection unverified by compilers and unobservable from static repository files [A1, A2]. Group 9's research design explicitly places runtime behavior out of scope and treats copy counts as measures of static propagation and reach rather than confirmed execution [G1, G4]. Inference: A high copy count demonstrates widespread folder copying or template distribution across repositories, but does not prove that an agent has ever executed the skill in practice [A1, A2, G1, G4].Sources:A1: Section \"GitSkills\"A2: Abstract, Section IA4: DescriptionA9: Descriptive statisticsG1: Section 1 (README.md), Section 7 (THREAT_MODEL.md)G2: Part A.1G4: Threat C1Not established by the sources: whether any specific skill copy in a repository has ever been loaded or executed by an agent at runtime.Confidence: high, as the authoritative preprints and Group 9 research design explicitly confirm that the dataset measures static repository file occurrences rather than dynamic agent execution."
+    }
+  ]
+}

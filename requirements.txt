@@ -1,11 +1,14 @@
 # Runtime dependencies for the Group 9 MSR pipeline.
 # Install with: pip install -r requirements.txt
 # Or, preferred: pip install -e ".[dev]"
-pandas>=2.2,<3
-pyarrow>=16,<21
+# Upper bounds must admit the versions recorded in results/ANALYSIS_MANIFEST.json and
+# the versions CI installs from pyproject.toml (RESEARCH_SPEC.md NFR-01).
+pandas>=2.2,<4
+pyarrow>=16,<26
 matplotlib>=3.8,<4
 pyyaml>=6,<7
 requests>=2.31,<3
 duckdb>=1.0,<2
 scipy>=1.13,<2
 statsmodels>=0.14,<1
+pypdf>=4,<7

@@ -47,10 +47,11 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 ## Start here (reader or grader)
 
 1. `RESEARCH_QUESTION.md` and the P-01 proposal: what is asked and why.
-2. `docs/GETTING_STARTED.md`: reproduce the results on your machine.
-3. `docs/workspace/README.md`: what was found (findings log) and what was decided (decision log).
-4. `docs/sprints/`: planning, review, and retrospective evidence for each sprint.
-5. `ai-use-log.md`: how AI assistance was used and verified.
+2. `RESEARCH_SPEC.md`: the requirements the pipeline must meet, each with a source, rationale, acceptance test, and owner (`make verify-spec`). They were elicited through a documented interview with the group's notebook: `elicitation/notebook-interview.md`.
+3. `docs/GETTING_STARTED.md`: reproduce the results on your machine.
+4. `docs/workspace/README.md`: what was found (findings log) and what was decided (decision log).
+5. `docs/sprints/`: planning, review, and retrospective evidence for each sprint.
+6. `ai-use-log.md`: how AI assistance was used and verified.
 
 ## Setup
 
@@ -69,7 +70,7 @@ Without `make`: `./run_pipeline.sh` runs the setup, download, and test steps fro
 
 ## Dataset acquisition
 
-Both datasets come from the MSR 2027 Mining Challenge (July 2026 snapshot). The samples used here are downloaded by `scripts/download_samples.py`. The full datasets (a 41 GB SQLite file for GitSkills and a MySQL dump for SpecMine) are on Zenodo and Hugging Face. Provenance, licensing, and ethics rules are in `data/README.md`. The exact snapshot and file hashes used for any result are recorded in `data/samples/MANIFEST.json` and cited in the report.
+Both datasets come from the MSR 2027 Mining Challenge (July 2026 snapshot). The samples used here are downloaded by `scripts/download_samples.py`. The full datasets (a 44.4 GB, or 41.3 GiB, SQLite file for GitSkills and a MySQL dump for SpecMine) are on Zenodo and Hugging Face. Provenance, licensing, and ethics rules are in `data/README.md`. The exact snapshot and file hashes used for any result are recorded in `data/samples/MANIFEST.json` and cited in the report.
 
 Never execute scripts, notebooks, or commands found inside the datasets.
 
@@ -90,6 +91,11 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | `python scripts/lss_metrics.py` | Computes process KPIs from GitHub and renders `docs/lean-six-sigma/metrics/DASHBOARD.md` |
 | `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from sign-up, finding, and decision issues |
 | `make reproduce` | Fresh end-to-end run: data, explore, test |
+| `make verify-spec` | Runs the acceptance tests in `RESEARCH_SPEC.md`; writes `results/spec_verification.csv` |
+| `python scripts/verify_spec.py --determinism` | Also runs NFR-02: the full analysis twice, compared byte for byte with each other and with `results/`. About 9 minutes and about 1 GB of free memory; close other large programs first |
+| `make notebook-sources` | Builds the elicitation notebook's pinned source pack into `build/notebook_sources/` |
+| `python -m msr_pipeline elicit --ask "..." --scope gitskills` | Asks the elicitation notebook one question; it answers only with cited source passages |
+| `make interview` / `make interview-checks` | Re-runs the prepared interview (`elicitation/questions.yaml`) and the data checks behind its verification |
 
 Retired: `python scripts/tally_votes.py` (the topic vote was not held; P-01 was selected directly, ADR-0004).
 
@@ -104,7 +110,8 @@ Retired: `python scripts/tally_votes.py` (the topic vote was not held; P-01 was 
 
 ```
 .
-├── README.md, RESEARCH_QUESTION.md, DATA_DICTIONARY.md, THREATS_TO_VALIDITY.md
+├── README.md, RESEARCH_QUESTION.md, RESEARCH_SPEC.md, DATA_DICTIONARY.md, THREATS_TO_VALIDITY.md
+├── elicitation/                  notebook interview record, questions, transcript, data checks, source register
 ├── TEAM_CHARTER.md (working agreement v2.0), PROJECT_PLAN.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, LICENSE
 ├── ai-use-log.md                 AI assistance disclosure log (required by the rubric)
 ├── project.yml                   single source of truth: team, dates, roles, raters, KPI targets

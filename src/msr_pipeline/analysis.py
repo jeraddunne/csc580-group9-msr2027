@@ -285,8 +285,15 @@ def population_flow(
             int(f.loc[f["is_symlink_stub"], "copies"].sum()),
         ),
         (
+            "excluded_unrecovered_content",
+            "Excluded: content changed before it was fetched and was not recovered "
+            "(content_sha_ok not 1 or 2)",
+            int((~f["content_recovered"]).sum()),
+            int(f.loc[~f["content_recovered"], "copies"].sum()),
+        ),
+        (
             "main_population",
-            "Main population: with content, not a symlink stub",
+            "Main population: with recovered content, not a symlink stub",
             int(f["in_main_population"].sum()),
             int(f.loc[f["in_main_population"], "copies"].sum()),
         ),
@@ -707,7 +714,28 @@ def sensitivity_summary(frame: pd.DataFrame, rules: list[skill_risk.Rule]) -> pd
     return pd.DataFrame([key_metrics(name, f) for name, f in scenarios])
 
 
-def scripts_summary(sib_scan: pd.DataFrame, rules: list[skill_risk.Rule]) -> pd.DataFrame:
+def scripts_summary(
+    sib_scan: pd.DataFrame,
+    rules: list[skill_risk.Rule],
+    unread: pd.DataFrame | None = None,
+    truncated: set[tuple[str, str]] | None = None,
+) -> pd.DataFrame:
+    """Bundled-script metrics. With DR-04 inputs, also the unread-input counts and the
+    script metrics again without the skills whose folder listing was truncated, since
+    script signals are only a lower bound for those skills."""
+    parts = [_script_signal_metrics(sib_scan, rules)]
+    if unread is not None:
+        parts.append(unread)
+    if truncated is not None:
+        keys = list(zip(sib_scan["repo_full_name"], sib_scan["artifact_path"], strict=True))
+        kept = sib_scan[[k not in truncated for k in keys]] if len(sib_scan) else sib_scan
+        rest = skill_risk.sibling_summary(kept)
+        rest["metric"] = rest["metric"] + "_excluding_truncated_listing"
+        parts.append(rest)
+    return pd.concat(parts, ignore_index=True)
+
+
+def _script_signal_metrics(sib_scan: pd.DataFrame, rules: list[skill_risk.Rule]) -> pd.DataFrame:
     base = skill_risk.sibling_summary(sib_scan)
     by_id = {r.id: r for r in rules}
     cats = sorted({r.category for r in rules if r.severity >= MAIN_CUTOFF})
@@ -863,7 +891,9 @@ def run_analysis(
 
     reps = query_gitskills(
         "SELECT a.file_sha, a.name, a.content, a.first_commit_at, a.frontmatter_valid, "
-        "a.body_chars, a.has_scripts, a.location_class, r.stars, r.language "
+        "a.body_chars, a.has_scripts, a.location_class, r.stars, r.language, "
+        "a.repo_full_name, a.path, a.content_sha_ok, a.composition_fetched, "
+        "a.composition_truncated "
         "FROM artifacts a LEFT JOIN repos r ON r.full_name = a.repo_full_name "
         "WHERE a.dedup_primary = 1 ORDER BY a.file_sha",
         db_path,
@@ -874,6 +904,13 @@ def run_analysis(
         "WHERE entry_type = 'file' AND content IS NOT NULL",
         db_path,
     )
+    siblings_without_text = query_gitskills(
+        "SELECT entry_name FROM artifact_siblings "
+        "WHERE entry_type = 'file' AND (content IS NULL OR content_fetched = 2)",
+        db_path,
+    )
+    truncated_reps = reps[pd.to_numeric(reps["composition_truncated"], errors="coerce") == 1]
+    truncated = set(zip(truncated_reps["repo_full_name"], truncated_reps["path"], strict=True))
 
     flags = skill_risk.population_flags(reps)
     main_reps = reps[flags["in_main_population"].to_numpy()].reset_index(drop=True)
@@ -909,7 +946,12 @@ def run_analysis(
         "rq3_differing_pairs": pairs_main[pairs_main["differs"].astype(bool)]
         if len(pairs_main)
         else pairs_main,
-        "scripts_summary": scripts_summary(sib_scan, rules),
+        "scripts_summary": scripts_summary(
+            sib_scan,
+            rules,
+            unread=skill_risk.unreadable_inputs(reps, siblings_without_text),
+            truncated=truncated,
+        ),
         "sensitivity_summary": sensitivity_summary(frame, rules),
     }
     produced: list[Path] = [explore.write_table(df, name, paths) for name, df in tables.items()]

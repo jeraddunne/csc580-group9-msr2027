@@ -1,0 +1,473 @@
+{
+  "generated_at": "2026-09-18T18:47:17+00:00",
+  "generator": "scripts/build_notebook_sources.py",
+  "repo_commit": "6b40b7e909e767b3443455197de25d474883d14d",
+  "repo_dirty": true,
+  "practice_included": true,
+  "practice_label": "CSC-580 Project (PPF, personal)",
+  "sources": [
+    {
+      "id": "A1",
+      "tier": "authoritative",
+      "priority": 1,
+      "title": "MSR 2027 Mining Challenge page",
+      "file": "A1 MSR 2027 Mining Challenge page.md",
+      "role": "Challenge purpose, GitSkills and SpecMine scope, example research directions, dataset links, submission expectations, open-science policy, version guidance.",
+      "origin": [
+        "https://2027.msrconf.org/track/msr-2027-mining-challenge"
+      ],
+      "version": {},
+      "status": "fetched",
+      "bytes": 25030,
+      "sha256": "b020859f810bbd0cc15e5913673665efe46996eb4d2575c9a2ee0d9f7ea547cf"
+    },
+    {
+      "id": "A2",
+      "tier": "authoritative",
+      "priority": 2,
+      "title": "GitSkills preprint",
+      "file": "A2 GitSkills preprint arXiv 2608.10906v3.md",
+      "role": "GitSkills construction, entities, collection process, fields, sampling, limitations.",
+      "origin": [
+        "https://arxiv.org/abs/2608.10906v3"
+      ],
+      "version": {
+        "arxiv": "v3"
+      },
+      "status": "fetched",
+      "bytes": 16553,
+      "sha256": "8c8bfe998a36dd8a837aa39bbd62a2122e7526f0ee9034ae90c7c5864041486f",
+      "original": {
+        "file": "A2 GitSkills preprint arXiv 2608.10906v3.pdf",
+        "bytes": 126618,
+        "sha256": "c61669ddd9fa2f4458f8373a7093a15ff5f4f5270db02bcdc7dd21da0d27e0e2"
+      }
+    },
+    {
+      "id": "A3",
+      "tier": "authoritative",
+      "priority": 3,
+      "title": "SpecMine preprint",
+      "file": "A3 SpecMine preprint arXiv 2608.25202v3.md",
+      "role": "SpecMine construction, corpus scope, structural features, traceability, limitations.",
+      "origin": [
+        "https://arxiv.org/abs/2608.25202v3"
+      ],
+      "version": {
+        "arxiv": "v3"
+      },
+      "status": "fetched",
+      "bytes": 31627,
+      "sha256": "e870a647b5227a1647172c676d04ebb1e5f8403a3c48c95aead41f850bdb4889",
+      "original": {
+        "file": "A3 SpecMine preprint arXiv 2608.25202v3.pdf",
+        "bytes": 181351,
+        "sha256": "73fe36cad43bc239410056384ff1d5633cca343403783a6a9d55996f08292b54"
+      }
+    },
+    {
+      "id": "A4",
+      "tier": "authoritative",
+      "priority": 4,
+      "title": "GitSkills Zenodo record",
+      "file": "A4 GitSkills Zenodo record.md",
+      "role": "Archived GitSkills release and version identity (metadata only; the 44 GB file is not uploaded).",
+      "origin": [
+        "https://doi.org/10.5281/zenodo.21875637"
+      ],
+      "version": {
+        "version": "1.0.0",
+        "record": 21875637,
+        "concept_doi": "10.5281/zenodo.21875636"
+      },
+      "status": "fetched",
+      "bytes": 4120,
+      "sha256": "787f7f0a778aff0a13fd61fae88611f462d68541add796e9f690f3be4361f7c4"
+    },
+    {
+      "id": "A5",
+      "tier": "authoritative",
+      "priority": 5,
+      "title": "SpecMine Zenodo record",
+      "file": "A5 SpecMine Zenodo record.md",
+      "role": "Archived SpecMine release and version identity (metadata only).",
+      "origin": [
+        "https://doi.org/10.5281/zenodo.22102779",
+        "https://zenodo.org/records/22102780"
+      ],
+      "version": {
+        "version": "1.0",
+        "record": 22102780,
+        "concept_doi": "10.5281/zenodo.22102779"
+      },
+      "status": "fetched",
+      "bytes": 1399,
+      "sha256": "594c258dedbead134e7d95bda5516de6615bea97f08b042a5944a60b7e191d02"
+    },
+    {
+      "id": "A6",
+      "tier": "authoritative",
+      "priority": 6,
+      "title": "GitSkills dataset card (Hugging Face)",
+      "file": "A6 GitSkills dataset card.md",
+      "role": "Table-level documentation, column types, schema, license, access.",
+      "origin": [
+        "https://huggingface.co/datasets/mvaccargiu/gitskills"
+      ],
+      "version": {
+        "revision": "ebab17454a7c"
+      },
+      "status": "fetched",
+      "bytes": 11799,
+      "sha256": "061668177c4135ae0c1e9e4369a8f8b62340e39892625912b7ddc2302a75262b"
+    },
+    {
+      "id": "A7",
+      "tier": "authoritative",
+      "priority": 7,
+      "title": "SpecMine dataset card (Hugging Face)",
+      "file": "A7 SpecMine dataset card.md",
+      "role": "Table-level documentation and access information.",
+      "origin": [
+        "https://huggingface.co/datasets/ShyAgarwal/specmine"
+      ],
+      "version": {
+        "revision": "ca682c69725f"
+      },
+      "status": "fetched",
+      "bytes": 4051,
+      "sha256": "33b044842493c7740cc2c3ef463051b849939b905ec06099dbb7d286e37d6642"
+    },
+    {
+      "id": "A8",
+      "tier": "authoritative",
+      "priority": 8,
+      "title": "SpecMine GitHub mirror: README",
+      "file": "A8a SpecMine GitHub mirror README.md",
+      "role": "Sample scope and loader instructions.",
+      "origin": [
+        "https://github.com/shyamagarwal13/specmine-official/blob/9fbb61541046cb2fb770fa944192a3fc0b64a9b1/README.md"
+      ],
+      "version": {
+        "commit": "9fbb61541046"
+      },
+      "status": "fetched",
+      "bytes": 9039,
+      "sha256": "4e7d58363308f768f0ace862804e1356d6baa114ebd2347b6e94645db4c2c2d5"
+    },
+    {
+      "id": "A8",
+      "tier": "authoritative",
+      "priority": 8,
+      "title": "SpecMine GitHub mirror: data dictionary",
+      "file": "A8b SpecMine GitHub mirror DATA_DICTIONARY.md",
+      "role": "Column-level data dictionary of the released tables.",
+      "origin": [
+        "https://github.com/shyamagarwal13/specmine-official/blob/9fbb61541046cb2fb770fa944192a3fc0b64a9b1/DATA_DICTIONARY.md"
+      ],
+      "version": {
+        "commit": "9fbb61541046"
+      },
+      "status": "fetched",
+      "bytes": 20620,
+      "sha256": "a9a692b63ec277f88647170da148cf289f112ad470f24c3bcb8dc2396e393721"
+    },
+    {
+      "id": "A8",
+      "tier": "authoritative",
+      "priority": 8,
+      "title": "SpecMine GitHub mirror: schema, loader, example",
+      "file": "A8c SpecMine GitHub mirror schema loader example.md",
+      "role": "schema.sql, load.py, and example.ipynb as text.",
+      "origin": [
+        "https://github.com/shyamagarwal13/specmine-official/tree/9fbb61541046cb2fb770fa944192a3fc0b64a9b1"
+      ],
+      "version": {
+        "commit": "9fbb61541046"
+      },
+      "status": "fetched",
+      "bytes": 18395,
+      "sha256": "da155bbaa1717474ebf361829e15f13701efb5ef9bdc578c25677ba5f8ce04f9"
+    },
+    {
+      "id": "A9",
+      "tier": "authoritative",
+      "priority": 9,
+      "title": "GitSkills sample repository README",
+      "file": "A9 GitSkills sample repository README.md",
+      "role": "Inspectable sample: sampling rule, schema, anonymisation, limitations, example queries.",
+      "origin": [
+        "https://github.com/giuseppedestefanis/gitskills-sample/blob/fff3df93beeee51a5444450891751f143e38da3e/README.md"
+      ],
+      "version": {
+        "commit": "fff3df93beee"
+      },
+      "status": "fetched",
+      "bytes": 10210,
+      "sha256": "84d071d2ca0b80a411edbe6de6c5c7c56c2d210b495d3a31cb30e22d3332bfc9"
+    },
+    {
+      "id": "G1",
+      "tier": "group",
+      "priority": 10,
+      "title": "Project overview and research design (P-01)",
+      "file": "G1 Research design P-01.md",
+      "role": "What Group 9 studies and why: research question, unit, population, hypotheses, threat model, topic decision.",
+      "origin": [
+        "README.md",
+        "RESEARCH_QUESTION.md",
+        "docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md",
+        "docs/research/THREAT_MODEL.md",
+        "docs/decisions/ADR-0004-topic-selection.md"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 56719,
+      "sha256": "4a93173605705d9022cc4a714177fa791558fd4299bd3aed8d3345d2123a9f85"
+    },
+    {
+      "id": "G2",
+      "tier": "group",
+      "priority": 10,
+      "title": "Data intake, provenance, and data dictionary",
+      "file": "G2 Data intake and dictionary.md",
+      "role": "How data enters the project, which snapshot is pinned, every derived variable, and what the first inspection found.",
+      "origin": [
+        "data/README.md",
+        "DATA_DICTIONARY.md",
+        "results/ANALYSIS_MANIFEST.json",
+        "results/population_flow.csv",
+        "docs/workspace/FINDINGS_LOG.md"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 49993,
+      "sha256": "0e78a07917a6f42af175dd7979e15ce6c8cc9592891015eae8f19c5ce53f6712"
+    },
+    {
+      "id": "G3",
+      "tier": "group",
+      "priority": 10,
+      "title": "Detection rules and validation protocol",
+      "file": "G3 Rules and validation.md",
+      "role": "The risk-signal rules, the annotation guideline, rater protocol, and blindness rule.",
+      "origin": [
+        "rules/skill_risk_rules.yaml",
+        "docs/validation/README.md",
+        "docs/validation/ANNOTATION_GUIDELINE.md",
+        "docs/validation/RULE_CHANGE_PROPOSALS.md",
+        "data/annotations/README.md",
+        "data/annotations/samples/SAMPLE_MANIFEST.json"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 41995,
+      "sha256": "5615ddfeb58cb0aea611b90b471902c75853ad9522f3415b0d21b5d96177259d"
+    },
+    {
+      "id": "G4",
+      "tier": "group",
+      "priority": 10,
+      "title": "Threats, risks, and the draft report",
+      "file": "G4 Threats risks and draft report.md",
+      "role": "Threats to validity, FMEA risk register, and the living report with unvalidated results.",
+      "origin": [
+        "THREATS_TO_VALIDITY.md",
+        "docs/lean-six-sigma/FMEA_RISK_REGISTER.md",
+        "report/draft.md"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 51030,
+      "sha256": "a13919c5cc362a2c10073b41f660efbb64e49cf092bc5bab9b830391bc5bd1b1"
+    },
+    {
+      "id": "G5",
+      "tier": "group",
+      "priority": 10,
+      "title": "Process: Scrum with a Lean Six Sigma overlay",
+      "file": "G5 Process Scrum and Lean Six Sigma.md",
+      "role": "Ceremonies, DMAIC tollgates, KPIs and targets, SIPOC and CTQ, value stream, control plan, kaizen and waste logs.",
+      "origin": [
+        "docs/PROCESS.md",
+        "docs/lean-six-sigma/README.md",
+        "docs/lean-six-sigma/DMAIC.md",
+        "docs/lean-six-sigma/KPIS.md",
+        "docs/lean-six-sigma/SIPOC_AND_CTQ.md",
+        "docs/lean-six-sigma/VALUE_STREAM_MAP.md",
+        "docs/lean-six-sigma/CONTROL_PLAN.md",
+        "docs/lean-six-sigma/KAIZEN_BACKLOG.md",
+        "docs/lean-six-sigma/WASTE_LOG.md",
+        "docs/lean-six-sigma/metrics/DASHBOARD.md"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 62055,
+      "sha256": "63b4731d33cce48ac229d14525466f02664abd2777fb8c3e3e98edc7498ad809"
+    },
+    {
+      "id": "G6",
+      "tier": "group",
+      "priority": 10,
+      "title": "Project management, team, and decisions",
+      "file": "G6 Project management and decisions.md",
+      "role": "Plan, charter, RACI, roles, sprint plan, decision log, and architecture decisions.",
+      "origin": [
+        "PROJECT_PLAN.md",
+        "TEAM_CHARTER.md",
+        "project.yml",
+        "docs/team/RACI.md",
+        "docs/sprints/sprint-1/planning.md",
+        "docs/workspace/DECISION_LOG.md",
+        "docs/workspace/WORK_SIGNUP.md",
+        "docs/decisions/ADR-0001-scrum-with-lean-six-sigma.md",
+        "docs/decisions/ADR-0002-proposal-and-voting-process.md",
+        "docs/decisions/ADR-0003-repository-structure-and-tooling.md",
+        "docs/decisions/ADR-0005-solo-execution.md",
+        "docs/decisions/ADR-0006-group-reinstated.md"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 74638,
+      "sha256": "ece5ca7d70de3b395926abf7407a72770ce78298a7b02136368ecb9b8d2eb3e5"
+    },
+    {
+      "id": "G7",
+      "tier": "group",
+      "priority": 10,
+      "title": "Git, documentation, and work intake",
+      "file": "G7 Git documentation and work intake.md",
+      "role": "Branch and review rules, onboarding, issue forms (how work enters), PR template, CI, AI-use disclosure, build commands.",
+      "origin": [
+        "CONTRIBUTING.md",
+        "docs/GETTING_STARTED.md",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        ".github/ISSUE_TEMPLATE/03-task.yml",
+        ".github/ISSUE_TEMPLATE/05-decision.yml",
+        ".github/ISSUE_TEMPLATE/08-research-finding.yml",
+        ".github/ISSUE_TEMPLATE/09-work-signup.yml",
+        ".github/workflows/ci.yml",
+        "docs/workspace/README.md",
+        "ai-use-log.md",
+        "Makefile",
+        "pyproject.toml"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "bundled",
+      "bytes": 34411,
+      "sha256": "c709a160ba5ad23ddf62eb80d6d788dbd0ddf65edc228112e334bdace72848d2"
+    },
+    {
+      "id": "G8",
+      "tier": "group",
+      "priority": 10,
+      "title": "Pipeline API reference",
+      "file": "G8 Pipeline API reference.md",
+      "role": "Every public function in src/msr_pipeline with its docstring, generated from the code.",
+      "origin": [
+        "src/msr_pipeline/*.py"
+      ],
+      "version": {
+        "commit": "6b40b7e909e7"
+      },
+      "status": "generated",
+      "bytes": 23149,
+      "sha256": "1af12999113529550a1c6273cfc9e5a7d001e3f7a36ca693561c3cf46bbe0f86"
+    },
+    {
+      "id": "P1",
+      "tier": "practitioner",
+      "priority": 20,
+      "title": "Build method and phase gates",
+      "file": "P1 Build method and phase gates.md",
+      "role": "How the member builds applications: source-first builds, phases with exit gates.",
+      "origin": [
+        "CSC-580 Project (PPF, personal):docs/00_METHOD.md"
+      ],
+      "version": {},
+      "status": "bundled",
+      "bytes": 12866,
+      "sha256": "968f253dbe02f599c27cded36e038974f9c2266f606667f6ada3713d9b5f5521"
+    },
+    {
+      "id": "P2",
+      "tier": "practitioner",
+      "priority": 20,
+      "title": "Intake: charter, discovery, and policy rules",
+      "file": "P2 Intake charter discovery and rules.md",
+      "role": "How project information, constraints, and governing rules are gathered before building.",
+      "origin": [
+        "CSC-580 Project (PPF, personal):.claude/skills/ppf-charter/SKILL.md",
+        "CSC-580 Project (PPF, personal):.claude/skills/ppf-discover/SKILL.md",
+        "CSC-580 Project (PPF, personal):docs/02_CONSTRAINTS_CARD.md",
+        "CSC-580 Project (PPF, personal):docs/12_POLICY_REGISTER.md"
+      ],
+      "version": {},
+      "status": "bundled",
+      "bytes": 34267,
+      "sha256": "4348a436bdda1b92e882183eff10bb5a41c9ef52984ef07803935351c1017023"
+    },
+    {
+      "id": "P3",
+      "tier": "practitioner",
+      "priority": 20,
+      "title": "Source control, change control, and release",
+      "file": "P3 Git change control and release.md",
+      "role": "Commit gates, change-impact classes, promotion, and handoff.",
+      "origin": [
+        "CSC-580 Project (PPF, personal):docs/11_GIT_ALM.md",
+        "CSC-580 Project (PPF, personal):docs/15_CHANGE_CONTROL.md",
+        "CSC-580 Project (PPF, personal):.claude/skills/ppf-change/SKILL.md"
+      ],
+      "version": {},
+      "status": "bundled",
+      "bytes": 21413,
+      "sha256": "6020654e07b3f81144ba48f973411c9865849c37616eb20bb765789611ad6885"
+    },
+    {
+      "id": "P4",
+      "tier": "practitioner",
+      "priority": 20,
+      "title": "Testing and validation gates",
+      "file": "P4 Testing and validation gates.md",
+      "role": "Validators, self-test harness, negative assertions, and what counts as passing.",
+      "origin": [
+        "CSC-580 Project (PPF, personal):docs/13_TESTING_VALIDATION.md",
+        "CSC-580 Project (PPF, personal):.claude/skills/ppf-validate/SKILL.md"
+      ],
+      "version": {},
+      "status": "bundled",
+      "bytes": 15996,
+      "sha256": "7a9b4066a3ff9749e0f998fe43f0751ec3ecad71ff7e2efbb46e9246f96cfbca"
+    },
+    {
+      "id": "P5",
+      "tier": "practitioner",
+      "priority": 20,
+      "title": "Lessons learned",
+      "file": "P5 Lessons learned.md",
+      "role": "Failures from real builds and the rule each one produced.",
+      "origin": [
+        "CSC-580 Project (PPF, personal):docs/14_LESSONS_LEARNED.md"
+      ],
+      "version": {},
+      "status": "bundled",
+      "bytes": 57343,
+      "sha256": "23b8b90c65205acbe9fe11259fc762d99d0dd5c11929e80e5ab1ec1b06665364"
+    }
+  ]
+}

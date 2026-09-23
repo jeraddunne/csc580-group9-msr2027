@@ -30,13 +30,13 @@ Four tables. The sample and the full dataset share the schema.
 | `discovered_at` | timestamp | When the collection run recorded the file. |
 | `dedup_primary` | int (0/1) | 1 for the single representative of each distinct content. |
 | `content` | text | Full file text. Representatives only. Read as data, never executed. |
-| `content_fetched`, `content_sha_ok` | int | Retrieval bookkeeping; `content_sha_ok` = 1 when the bytes reproduce `file_sha`, 2 when repaired via the blob API. |
+| `content_fetched`, `content_sha_ok` | int | Retrieval bookkeeping; `content_sha_ok` = 1 when the bytes reproduce `file_sha`, 2 when repaired via the blob API. The preprint says the column also records the 42 representatives whose file changed before fetch and could not be recovered, but no source names that value (NB-Q05a); only 1 and 2 occur in the sample. Any other value is excluded from the main population and counted (DR-04). |
 | `frontmatter_valid` | int (0/1) | Whether YAML front matter parsed. |
 | `name`, `description` | text | Parsed front-matter fields. |
 | `body_chars` | int | Length of the body after front matter. |
 | `sibling_count`, `sibling_bytes` | int | Folder composition summary (representatives only). |
 | `has_scripts`, `has_references` | int (0/1) | Whether the skill folder bundles scripts or reference docs. |
-| `composition_fetched`, `composition_truncated` | int | Bookkeeping; `composition_truncated` = 1 flags folders above the listing cap. |
+| `composition_fetched`, `composition_truncated` | int | Bookkeeping; `composition_fetched` = 0 means no folder listing (10 representatives in the sample); `composition_truncated` = 1 flags folders above the listing cap (1,755 representatives, 13.5%, V10). Bundled-script results are a lower bound for both; counted in `scripts_summary.csv` (DR-04). |
 | `first_commit_at`, `last_commit_at`, `commit_count` | timestamp, timestamp, int | Commit history of the file at its **current** path (sampled rows only; a rename resets history). |
 | `first_commit_author`, `last_commit_author` | text | Anonymised one-way author codes; bots keep their login. |
 | `first_commit_author_type`, `last_commit_author_type` | text | `User`, `Bot`, `Organization`, or empty. |
@@ -67,8 +67,8 @@ Four tables. The sample and the full dataset share the schema.
 | `entry_size` | int | Bytes. |
 | `entry_sha` | text | Git blob hash. |
 | `content` | text | Text files up to 100 KB; null otherwise. Data only. |
-| `content_fetched` | int (0/1) | Bookkeeping. |
-| `skipped_reason` | text | `binary`, oversize, or folder above the listing cap. |
+| `content_fetched` | int (0/1/2) | Bookkeeping. 1 = text fetched. **2 is undocumented**: it marks 16,697 files with no text (V07), which the scanner cannot read; they are counted as `script_files_without_text` in `scripts_summary.csv`, never treated as clean (DR-04). |
+| `skipped_reason` | text | Documented as `binary`, oversize, or folder above the listing cap, but **never set** in the sample (V07); use `content_fetched` and `artifacts.composition_truncated` instead. |
 
 #### `mining_runs` (collection provenance)
 
@@ -179,7 +179,8 @@ variable. `RESEARCH_QUESTION.md` section 6 references these rows. Threat ids
 | `file_sha` | Unit of analysis: one distinct skill content | key | `artifacts.file_sha` on the row with `dedup_primary = 1` | as distributed | n/a | Copies are an outcome, not separate units (N1) |
 | `has_content` | Representative text was fetched and is not empty | boolean | `artifacts.content` | stripped content is not empty | n/a | R2 |
 | `is_symlink_stub` | Content is a symlink target path, not instructions | boolean | `artifacts.content` | `skill_risk.is_symlink_stub`: a single stripped line under 200 characters, only word characters, `.`, `/`, space, or `-`, and containing `/` or ending in `.md` | n/a | R5; counts in `results/population_flow.csv` |
-| `in_main_population` | Included in the main analysis | boolean | derived | `has_content` and not `is_symlink_stub` | n/a | |
+| `content_recovered` | Representative content matches its hash | boolean | `artifacts.content_sha_ok` | value is 1 or 2 | n/a | DR-04; counts in `results/population_flow.csv` |
+| `in_main_population` | Included in the main analysis | boolean | derived | `has_content` and `content_recovered` and not `is_symlink_stub` | n/a | |
 | `frontmatter_valid` | YAML front matter parsed | boolean | `artifacts.frontmatter_valid` | value equals 1 (null counts as 0) | n/a | Sensitivity subset; E5 |
 
 ### B.2 Risk signals (independent variables)
@@ -279,16 +280,24 @@ Produced by `python -m msr_pipeline analyze` (module `analysis`) from the GitSki
 | `rq2_negbin.csv` | one row per model term (including `alpha`), or one `not estimable` row | `term`, `coef`, `irr`, `irr_ci_low`, `irr_ci_high`, `p_value`, `n`, `status`, `note` | `analysis.rq2_negbin` |
 | `rq2_category_tests.csv` | one row per high-risk category | `category`, `contents`, `reference_contents`, `tested`, `mean_copies`, `reference_mean_copies`, `u_statistic`, `p_value`, `rank_biserial`, `p_holm`, `significant_holm_05` | `analysis.rq2_category_tests` |
 | `rq3_threshold_sweep.csv` | one row per similarity threshold (0.3 to 0.8) | `threshold`, `lineage_pairs`, `families`, `differing_pairs`, `families_with_differences`, `ordered_pairs`, `ordered_newer_adds`, `ordered_newer_drops` | `analysis.threshold_sweep` |
-| `rq3_summary.csv` | two rows: all families, excluding template families (threshold 0.5) | `scope`, `threshold`, then the sweep counts | `analysis.rq3_summary` |
+| `rq3_summary.csv` | two rows: all families, excluding template families (threshold 0.5) | `scope`, `threshold`, `lineage_pairs`, `families`, `differing_pairs`, `families_with_differences`, `ordered_pairs`, `ordered_newer_adds`, `ordered_newer_drops` | `analysis.rq3_summary` |
 | `rq3_lineage_pairs.csv` | one row per same-name pair with similarity of at least 0.5 | `family`, `file_sha_a`, `file_sha_b`, `similarity`, `ordered`, `only_in_a`, `only_in_b`, `differs`, `is_template_family` | `skill_risk.family_pairs`, `analysis.mark_templates` |
 | `rq3_differing_pairs.csv` | lineage pairs whose high-risk categories differ | same as `rq3_lineage_pairs.csv` | `analysis.run_analysis` |
-| `scripts_summary.csv` | one row per metric | `metric`, `value` (includes `script_files_high_risk_<CATEGORY>`) | `analysis.scripts_summary` |
+| `scripts_summary.csv` | one row per metric | `metric`, `value` (script signals: `script_files_with_text`, `script_files_with_any_signal`, `script_files_with_high_risk_signal`, `skills_with_scanned_scripts`, `skills_with_high_risk_script`, `script_files_high_risk_<CATEGORY>`; unread inputs, DR-04: `script_files_without_text` counts script-extension files with null content or `content_fetched` = 2, then `skills_with_truncated_listing`, `skills_without_folder_listing`, `skills_with_unrecovered_content`; and the five script-signal totals again with the suffix `_excluding_truncated_listing`) | `analysis.scripts_summary` |
 | `sensitivity_summary.csv` | one row per scenario (main; severity cutoff 5; cutoff 7; front-matter-valid subset; excluding the 10 most-copied contents; excluding template families) | `scenario`, `contents`, `high_risk_contents`, `high_risk_share`, `share_ci_low`, `share_ci_high`, `mean_copies_high_risk`, `mean_copies_other`, `mean_copies_ratio`, `mwu_p_copies`, `rank_biserial_copies` | `analysis.sensitivity_summary` |
 | `ANALYSIS_MANIFEST.json` | one object per run | `generated_at`, `command`, `seed`, `gitskills_db`, `gitskills_db_sha256_from_manifest`, `rules_file`, `rules_file_sha256`, `rules_active`, `high_risk_severity_cutoff`, `main_similarity_threshold`, `row_counts`, `versions`, `outputs`, `runtime_seconds` | `analysis.run_analysis` |
 
 Figures: `rq1_prevalence_by_category.png` (shares with 95% Wilson intervals), `rq2_copies_by_group.png` (share copied 2, 5, and 10 or more times by group), `rq3_threshold_sweep.png` (pair counts by threshold).
 
 Statistical definitions: Wilson score intervals at 95%; Mann-Whitney U is two-sided, with rank-biserial correlation `2U / (n1 n2) - 1`, positive when the high-risk group tends to have more copies; the bootstrap uses 2,000 independent resamples per group with seed 580 and percentile intervals; NB2 is `statsmodels` discrete `NegativeBinomial` on `copies - 1`, reported as incidence rate ratios; per-category p-values use the Holm step-down adjustment.
+
+### Specification verification
+
+Produced by `python scripts/verify_spec.py` (`make verify-spec`) from the acceptance tests in `RESEARCH_SPEC.md`. It holds no dataset content.
+
+| File | Grain | Columns | Produced by |
+|---|---|---|---|
+| `spec_verification.csv` | one row per requirement in `RESEARCH_SPEC.md` | `requirement`, `title`, `spec_status`, `result`, `evidence`, `checked_at` | `scripts/verify_spec.py` |
 
 Each explore CSV has a same-named PNG bar chart in `figures/`; the pilot draws `pilot_skill_risk_categories.png`. Topic-specific tables
 will be added here as the analysis grows; the rule is one row in this table

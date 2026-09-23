@@ -160,7 +160,13 @@ def is_symlink_stub(content: object) -> bool:
 
 
 def population_flags(reps: pd.DataFrame) -> pd.DataFrame:
-    """Per distinct content: has_content, is_symlink_stub, frontmatter_valid, in_main_population."""
+    """Per distinct content: has_content, is_symlink_stub, content_recovered, frontmatter_valid,
+    in_main_population.
+
+    ``content_recovered`` is False when ``content_sha_ok`` is neither 1 nor 2: the file changed
+    on GitHub before it was fetched and the original could not be recovered (DR-04). Without
+    the column every content counts as recovered.
+    """
     contents = reps["content"] if "content" in reps.columns else pd.Series([None] * len(reps))
     has_content = contents.map(lambda c: bool(_text(c).strip())).to_numpy()
     stub = contents.map(is_symlink_stub).to_numpy()
@@ -168,15 +174,22 @@ def population_flags(reps: pd.DataFrame) -> pd.DataFrame:
         fm = pd.to_numeric(reps["frontmatter_valid"], errors="coerce").fillna(0).to_numpy() == 1
     else:
         fm = [False] * len(reps)
+    if "content_sha_ok" in reps.columns:
+        recovered = pd.to_numeric(reps["content_sha_ok"], errors="coerce").isin([1, 2]).to_numpy()
+    else:
+        recovered = [True] * len(reps)
     out = pd.DataFrame(
         {
             "file_sha": reps["file_sha"].to_numpy(),
             "has_content": has_content,
             "is_symlink_stub": stub,
+            "content_recovered": recovered,
             "frontmatter_valid": fm,
         }
     )
-    out["in_main_population"] = out["has_content"] & ~out["is_symlink_stub"]
+    out["in_main_population"] = (
+        out["has_content"] & ~out["is_symlink_stub"] & out["content_recovered"]
+    )
     return out
 
 
@@ -465,6 +478,27 @@ def sibling_summary(sib_scan: pd.DataFrame) -> pd.DataFrame:
         ("script_files_with_high_risk_signal", int(high.sum())),
         ("skills_with_scanned_scripts", int(skill_key.nunique())),
         ("skills_with_high_risk_script", int(skill_key[high].nunique())),
+    ]
+    return pd.DataFrame(metrics, columns=["metric", "value"])
+
+
+def unreadable_inputs(reps: pd.DataFrame, siblings_without_text: pd.DataFrame) -> pd.DataFrame:
+    """Inputs the scanner could not read (DR-04). They are counted, never treated as clean.
+
+    ``reps`` has one row per representative with ``composition_fetched``,
+    ``composition_truncated``, and ``content_sha_ok``. ``siblings_without_text`` holds the
+    bundled files that carry no text (null content, or ``content_fetched = 2``).
+    """
+
+    def flag(name: str) -> pd.Series:
+        return pd.to_numeric(reps[name], errors="coerce")
+
+    names = siblings_without_text["entry_name"].fillna("").astype(str).str.lower()
+    metrics = [
+        ("script_files_without_text", int(names.str.endswith(SCRIPT_EXTENSIONS).sum())),
+        ("skills_with_truncated_listing", int((flag("composition_truncated") == 1).sum())),
+        ("skills_without_folder_listing", int((flag("composition_fetched") == 0).sum())),
+        ("skills_with_unrecovered_content", int((~flag("content_sha_ok").isin([1, 2])).sum())),
     ]
     return pd.DataFrame(metrics, columns=["metric", "value"])
 

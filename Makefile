@@ -9,7 +9,7 @@ else
   VENV_PY := $(VENV)/bin/python
 endif
 
-.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures
+.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-12s %s\n", $$1, $$2}'
@@ -59,3 +59,16 @@ analyze: ## Run the P-01 research analysis (RQ1 to RQ3, sensitivity) into result
 pipeline: analyze ## Run the research pipeline end to end (P-01 analysis)
 
 figures: analyze ## Regenerate every research table and figure
+
+# Requirements engineering (RESEARCH_SPEC.md, elicitation/).
+notebook-sources: ## Build the elicitation notebook's source pack into build/notebook_sources
+	$(PY) scripts/build_notebook_sources.py
+
+interview: ## Ask the notebook every question in elicitation/questions.yaml; writes the transcript
+	$(PY) -m msr_pipeline elicit
+
+interview-checks: ## Check the interview's data claims against the sample (V01 to V18)
+	$(PY) scripts/check_interview_claims.py
+
+verify-spec: ## Run the acceptance tests in RESEARCH_SPEC.md; writes results/spec_verification.csv
+	$(PY) scripts/verify_spec.py

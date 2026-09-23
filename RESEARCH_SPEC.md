@@ -280,33 +280,33 @@ Categories follow the assignment: research (RR), data (DR), functional (FR), non
 | Requirement | The precision of each active high-risk rule and category shall be estimated from the stratified validation sample (147 signal items and 40 no-signal items, seed 580), labelled under `docs/validation/ANNOTATION_GUIDELINE.md` as risky in context, benign in context, or not present, and reported with Wilson 95% intervals. A rule's precision is reported only once validated, and H1 is judged from it. |
 | Source | Assignment validation example ("manually checked against an agreed sample and report precision, recall, agreement"); `RESEARCH_QUESTION.md` sec. 7 H1 and sec. 8; NB-Q10 |
 | Rationale | A keyword match is not a capability (threat P1); without measured precision, prevalence numbers cannot be interpreted. |
-| Acceptance test | `annotation_kit.py score` reports a precision row with an interval for every active high-risk rule in the sample. `make verify-spec` VR-01 reports BLOCKED while the primary rater's labels are held back under the blindness rule. |
+| Acceptance test | `annotation_kit.py score` reports a precision row with an interval for every active high-risk rule in the sample. `make verify-spec` VR-01 reports BLOCKED until the round 1 signal labels are committed. |
 | Owner | Jerad Dunne (primary rater `jd`) |
-| Status | In progress (round 1 labelling; second-rater labels due 2026-10-16) |
+| Status | In progress (round 1 labelling due 2026-10-16) |
 | Trace | `data/annotations/samples/`; `docs/validation/`; #23 |
 
-### VR-02 Independent second rater
+### VR-02 Rater agreement for every label kind
 
 | Field | Value |
 |---|---|
-| Requirement | A teammate shall label round 1 of each label kind independently under the blindness rule, and Cohen's kappa between the primary and the second rater shall be reported for each kind. LLM labels, if any, are reported separately under an `llm-` id and never counted as human agreement. |
+| Requirement | Agreement shall be reported for every label kind. Drift: a teammate (`la`) labels round 1 independently under the blindness rule, and inter-rater Cohen's kappa is reported. Lineage and signals, which no teammate claimed (D-022): the primary rater labels the kit's 30% intra-rater subset again in round 2, at least 14 days after round 1 and without looking at it, and intra-rater kappa is reported and labelled as such. LLM labels, if any, are reported separately under an `llm-` id and never counted as human agreement. |
 | Source | NB-Q10 (`TEAM_CHARTER.md` sec. 9); `THREATS_TO_VALIDITY.md` P6 |
-| Rationale | One rater's labels measure one person's judgement, not the rule. |
-| Acceptance test | Teammate label files exist for signals, lineage, and drift, and `score` reports kappa for each. `make verify-spec` VR-02. |
-| Owner | Second rater chosen in issue #53 (`la`, `ah`, or `hk`); accountable: Jerad Dunne |
-| Status | In progress (blocked on #53) |
-| Trace | `validation.agreement`, `cohen_kappa`; #53 |
+| Rationale | One rater's labels measure one person's judgement, not the rule. Intra-rater kappa shows consistency, not that a second person reads the guideline the same way; the report states this limitation for lineage and signals. |
+| Acceptance test | Label files exist for drift from `la` (round 1) and for lineage and signals from `jd` (round 2), and `score` reports kappa for each kind. `make verify-spec` VR-02. |
+| Owner | Leticia Aderhold (`la`, drift) and Jerad Dunne (`jd`, lineage and signals); accountable: Jerad Dunne |
+| Status | In progress (round 1 due 2026-10-16) |
+| Trace | `validation.agreement`, `cohen_kappa`; #53; D-022 |
 
 ### VR-03 Lineage and drift validation
 
 | Field | Value |
 |---|---|
-| Requirement | The 58 sampled lineage pairs and 18 drift pairs shall be labelled by two raters, lineage precision shall be reported, and every differing pair at threshold 0.5 shall be checked by hand. |
+| Requirement | The 58 sampled lineage pairs and 18 drift pairs shall be labelled, with agreement as in VR-02 (drift by two raters, lineage by the primary rater twice), lineage precision shall be reported, and every differing pair at threshold 0.5 shall be checked by hand. |
 | Source | `THREATS_TO_VALIDITY.md` P4; NB-Q08 (lineage is the team's construct) |
 | Rationale | Name plus similarity can pair unrelated skills with generic names. |
-| Acceptance test | Labels for both kinds from two raters; `score` reports lineage precision and the drift distribution. `make verify-spec` VR-03. |
-| Owner | Second rater chosen in issue #53; accountable: Jerad Dunne |
-| Status | In progress (blocked on #53) |
+| Acceptance test | Drift labels from `jd` and `la`; lineage labels from `jd` in rounds 1 and 2; `score` reports lineage precision and the drift distribution. `make verify-spec` VR-03. |
+| Owner | Jerad Dunne (lineage), Leticia Aderhold (drift second rater); accountable: Jerad Dunne |
+| Status | In progress (round 1 due 2026-10-16) |
 | Trace | `validation.lineage_precision`, `drift_distribution`; #23 |
 
 ### VR-04 Elicited facts verified
@@ -425,3 +425,4 @@ The latest `make verify-spec` result per requirement is in `results/spec_verific
 |---|---|---|---|
 | 2026-09-18 | First version: 29 requirements. From the interview: added DR-04 and the location breakdown in RR-03; sharpened RR-01, RR-02, DR-01, FR-04, FR-06, ER-01, and ER-02. Verification then corrected the SpecMine version label in `data/README.md` (DR-01) and the pandas and pyarrow bounds in `requirements.txt` (NFR-01) | Assignment Phase F; `elicitation/notebook-interview.md` | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | DR-04 implemented; its acceptance test also requires the unrecovered-content count, the script totals without truncated listings, and the population step, which the requirement already asked for. Status Planned to Implemented | #58 | Jerad Dunne, drafted with Claude Code |
+| 2026-09-23 | VR-01 to VR-03: no teammate claimed lineage or signals, so those kinds use intra-rater agreement from a round 2 at least 14 days later; drift keeps inter-rater kappa with `la`. VR-02 renamed from "Independent second rater" | D-022 (#63), #53 | Jerad Dunne, drafted with Claude Code |

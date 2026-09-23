@@ -385,11 +385,11 @@ def nfr_04() -> Result:
 # --- validation requirements ------------------------------------------------------------------
 
 
-def labels(kind: str, raters: tuple[str, ...]) -> list[Path]:
+def labels(kind: str, raters: tuple[str, ...], round_: int = 1) -> list[Path]:
     """Label files for ``kind`` by any of ``raters`` that contain at least one label."""
     found = []
     for rater in raters:
-        path = ROOT / "data" / "annotations" / f"{kind}_{rater}_r1.csv"
+        path = ROOT / "data" / "annotations" / f"{kind}_{rater}_r{round_}.csv"
         if path.is_file():
             with path.open(encoding="utf-8", newline="") as handle:
                 if any(row.get("label") for row in csv.DictReader(handle)):
@@ -410,32 +410,43 @@ def vr_01() -> Result:
         return (
             "BLOCKED",
             f"stratified sample of {sample['sizes']['signals_items']} signal items "
-            "(seed 580) ready; primary-rater labels stay uncommitted under the blindness "
-            "rule until a second rater's labels are merged (#53)",
+            "(seed 580) ready; round 1 signal labels by jd not committed yet (due 2026-10-16)",
         )
     return pytest("tests/test_validation.py::test_precision_by_rule_and_category")
 
 
+# Who supplies the agreement labels for each kind (D-022): drift has a teammate second
+# rater; lineage and signals are re-rated by the primary rater in round 2.
+AGREEMENT_SOURCES = {
+    "drift": (("la", "ah", "hk"), 1, "second-rater labels (la)"),
+    "lineage": (("jd",), 2, "jd round 2 re-rating"),
+    "signals": (("jd",), 2, "jd round 2 re-rating"),
+}
+
+
 def vr_02() -> Result:
-    second = {k: labels(k, ("la", "ah", "hk")) for k in ("signals", "lineage", "drift")}
-    missing = [k for k, files in second.items() if not files]
+    missing = [
+        f"{kind}: {what}"
+        for kind, (raters, round_, what) in AGREEMENT_SOURCES.items()
+        if not labels(kind, raters, round_)
+    ]
     if missing:
         return (
             "BLOCKED",
-            f"no teammate labels yet for {', '.join(missing)} (issue #53; "
-            "due 2026-10-16). Kappa code tested: "
+            f"not yet committed: {'; '.join(missing)} (#53, D-022; round 1 due 2026-10-16). "
+            "Kappa code tested: "
             + pytest("tests/test_validation.py::test_cohen_kappa_textbook_example")[0],
         )
     return pytest("tests/test_validation.py::test_agreement_classifies_comparisons")
 
 
 def vr_03() -> Result:
-    have = [k for k in ("lineage", "drift") if labels(k, ("la", "ah", "hk"))]
+    have = [k for k in ("lineage", "drift") if labels(k, *AGREEMENT_SOURCES[k][:2])]
     if len(have) < 2:
         return (
             "BLOCKED",
-            "lineage (58 pairs) and drift (18 pairs) samples ready; second-rater "
-            "labels not yet available (#53)",
+            "lineage (58 pairs) and drift (18 pairs) samples ready; lineage round 2 by jd "
+            "and drift labels by la not yet committed (#53, D-022)",
         )
     return pytest("tests/test_validation.py::test_lineage_and_drift_summaries")
 

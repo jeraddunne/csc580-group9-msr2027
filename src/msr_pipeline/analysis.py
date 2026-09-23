@@ -638,14 +638,45 @@ def _pair_counts(pairs: pd.DataFrame) -> dict[str, int]:
     }
 
 
+def _ordered_by_location(pairs: pd.DataFrame, locations: dict[str, str]) -> dict[str, int]:
+    """Ordered pairs by how many of the two variants sit in the canonical location.
+
+    Commit history covers nearly every canonical skill but few others (NB-Q06, V11), so
+    datable pairs lean canonical; RR-03 reports the split. The three counts sum to
+    ``ordered_pairs``.
+    """
+    if pairs.empty:
+        canonical = pd.Series(dtype=int)
+    else:
+        ordered = pairs[pairs["ordered"].astype(bool)]
+        canonical = sum(
+            ordered[col].map(locations).eq("canonical").astype(int)
+            for col in ("file_sha_a", "file_sha_b")
+        )
+    return {
+        "ordered_pairs_canonical": int((canonical == 2).sum()),
+        "ordered_pairs_mixed": int((canonical == 1).sum()),
+        "ordered_pairs_non_canonical": int((canonical == 0).sum()),
+    }
+
+
 def threshold_sweep(
-    pairs: pd.DataFrame, thresholds: Sequence[float] = SIMILARITY_THRESHOLDS
+    pairs: pd.DataFrame,
+    thresholds: Sequence[float] = SIMILARITY_THRESHOLDS,
+    locations: dict[str, str] | None = None,
 ) -> pd.DataFrame:
-    """Pair counts at each similarity threshold (pairs computed once at the lowest)."""
+    """Pair counts at each similarity threshold (pairs computed once at the lowest).
+
+    With ``locations`` (``file_sha`` to ``location_class``), ordered pairs are also split
+    by location (RR-03).
+    """
     rows = []
     for t in thresholds:
         subset = pairs[pairs["similarity"].astype(float) >= t] if len(pairs) else pairs
-        rows.append({"threshold": float(t), **_pair_counts(subset)})
+        row = {"threshold": float(t), **_pair_counts(subset)}
+        if locations is not None:
+            row.update(_ordered_by_location(subset, locations))
+        rows.append(row)
     return pd.DataFrame(rows)
 
 
@@ -928,7 +959,10 @@ def run_analysis(
         pairs_main = pairs_all[pairs_all["similarity"].astype(float) >= MAIN_SIMILARITY]
     else:
         pairs_main = pairs_all
-    sweep = threshold_sweep(pairs_all)
+    sweep = threshold_sweep(
+        pairs_all,
+        locations=dict(zip(main_reps["file_sha"], main_reps["location_class"], strict=True)),
+    )
     sib_scan = skill_risk.scan_siblings(siblings, rules)
 
     tables = {

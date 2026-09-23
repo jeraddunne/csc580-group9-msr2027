@@ -56,10 +56,10 @@ Categories follow the assignment: research (RR), data (DR), functional (FR), non
 | Requirement | RQ3 shall report counts over same-name near-duplicate pairs at similarity thresholds 0.3 to 0.8, with and without template families, and the number of pairs that can be ordered by date at each threshold, broken down by location class. It shall not claim a test of direction. |
 | Source | `RESEARCH_QUESTION.md` sec. 7; NB-Q06 (dates are lower bounds; history covers nearly every canonical skill but about 11% of the rest, V11); NB-Q07a (the lowest-hash sample splits variant families, V13) |
 | Rationale | With fragmented families and dates concentrated in canonical skills, a direction test would be underpowered and biased toward one location. |
-| Acceptance test | `rq3_threshold_sweep.csv` spans 0.3 to 0.8 with `ordered_pairs` and per-location columns (`ordered_pairs_canonical`, ...); `rq3_summary.csv` has both scopes. `make verify-spec` RR-03 reports PARTIAL until the location breakdown exists. |
+| Acceptance test | `rq3_threshold_sweep.csv` spans 0.3 to 0.8 with `ordered_pairs` and the per-location columns `ordered_pairs_canonical`, `ordered_pairs_mixed`, and `ordered_pairs_non_canonical`, which sum to `ordered_pairs` at every threshold; `rq3_summary.csv` has both scopes. `make verify-spec` RR-03. |
 | Owner | Jerad Dunne |
-| Status | In progress (the location breakdown was added by the interview) |
-| Trace | `analysis.threshold_sweep`, `analysis.rq3_summary`; #21, #27 |
+| Status | Implemented |
+| Trace | `analysis.threshold_sweep`, `analysis.rq3_summary`; `tests/test_analysis.py::test_threshold_sweep_splits_ordered_pairs_by_location`; #21, #27, #59 |
 
 ### RR-04 Robustness of the headline results
 
@@ -426,3 +426,4 @@ The latest `make verify-spec` result per requirement is in `results/spec_verific
 | 2026-09-18 | First version: 29 requirements. From the interview: added DR-04 and the location breakdown in RR-03; sharpened RR-01, RR-02, DR-01, FR-04, FR-06, ER-01, and ER-02. Verification then corrected the SpecMine version label in `data/README.md` (DR-01) and the pandas and pyarrow bounds in `requirements.txt` (NFR-01) | Assignment Phase F; `elicitation/notebook-interview.md` | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | DR-04 implemented; its acceptance test also requires the unrecovered-content count, the script totals without truncated listings, and the population step, which the requirement already asked for. Status Planned to Implemented | #58 | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | VR-01 to VR-03: no teammate claimed lineage or signals, so those kinds use intra-rater agreement from a round 2 at least 14 days later; drift keeps inter-rater kappa with `la`. VR-02 renamed from "Independent second rater" | D-022 (#63), #53 | Jerad Dunne, drafted with Claude Code |
+| 2026-09-23 | RR-03 implemented: ordered pairs split by location (both canonical, one, neither); the acceptance test names the three columns and requires them to sum to `ordered_pairs`. Status In progress to Implemented | #59 | Jerad Dunne, drafted with Claude Code |

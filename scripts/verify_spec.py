@@ -169,14 +169,27 @@ def rr_03() -> Result:
         and "ordered_pairs" in sweep[0]
         and len(summary) == 2
     )
-    by_location = "ordered_pairs_canonical" in sweep[0]
-    note = "" if by_location else "; ordered pairs by location class not reported yet (NB-Q06)"
+    split = ("ordered_pairs_canonical", "ordered_pairs_mixed", "ordered_pairs_non_canonical")
+    by_location = all(c in sweep[0] for c in split)
     if not ok:
         return ("FAIL", f"thresholds {thresholds}; summary rows {len(summary)}")
+    if not by_location:
+        return (
+            "PARTIAL",
+            f"sweep {thresholds[0]} to {thresholds[-1]} with ordered_pairs; {len(summary)} "
+            "summary scopes; ordered pairs by location class not reported yet (NB-Q06)",
+        )
+    bad = [
+        r["threshold"] for r in sweep if sum(int(r[c]) for c in split) != int(r["ordered_pairs"])
+    ]
+    if bad:
+        return ("FAIL", f"location split does not sum to ordered_pairs at {', '.join(bad)}")
+    main = next(r for r in sweep if float(r["threshold"]) == 0.5)
     return (
-        "PASS" if by_location else "PARTIAL",
-        f"sweep {thresholds[0]} to {thresholds[-1]} with ordered_pairs; "
-        f"{len(summary)} summary scopes{note}",
+        "PASS",
+        f"sweep {thresholds[0]} to {thresholds[-1]}; {len(summary)} summary scopes; ordered pairs "
+        f"at 0.5 by location: both canonical {main[split[0]]}, one {main[split[1]]}, "
+        f"neither {main[split[2]]}",
     )
 
 

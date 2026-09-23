@@ -46,3 +46,6 @@ report/*.toc
 # Secrets
 .env
 *.token
+
+# Local convenience launcher, not part of the project
+start-claude.ps1

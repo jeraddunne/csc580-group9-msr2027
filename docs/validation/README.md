@@ -18,18 +18,18 @@ How to use: this page explains how the risk-signal scanner, the variant linking,
 | Member | Rater id | Role |
 |---|---|---|
 | Jerad Dunne | `jd` | Primary rater for every kind |
-| Leticia Aderhold | `la` | Second rater (kind assigned at the 2026-09-16 kickoff) |
-| Allie Hodges | `ah` | Second rater (kind assigned at the 2026-09-16 kickoff) |
-| Hina Kramer | `hk` | Second rater (kind assigned at the 2026-09-16 kickoff) |
+| Leticia Aderhold | `la` | Second rater for drift (#53) |
+| Allie Hodges | `ah` | Not assigned (no labels claimed; D-022) |
+| Hina Kramer | `hk` | Not assigned (no labels claimed; D-022) |
 
-The kickoff decides who second-rates which kind: signals (209 label rows), lineage (58 pairs), and drift (18 pairs). One teammate may take every kind, or the kinds may be split. The assignment is recorded in `docs/workspace/WORK_SIGNUP.md` section 6.
+**Assignment since 2026-09-23 (D-022).** Drift (18 pairs) is second-rated by Leticia Aderhold (`la`). Lineage (58 pairs) and signals (209 label rows) had no teammate volunteer, so Jerad Dunne labels them alone and their reliability comes from the intra-rater check (item 4), required for these two kinds, with a gap of at least 14 days. The assignment is recorded in `docs/workspace/WORK_SIGNUP.md` section 6.
 
 Reliability comes from four places:
 
 1. **The guideline is written before labelling.** Labels follow a fixed decision order.
 2. **Inter-rater agreement (primary measure).** The second rater labels round 1 of the same items independently. Cohen's kappa between the primary rater and the second rater is reported for each kind.
-3. **Blindness rule.** The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed. The second rater never opens the primary rater's labels. On 2026-09-15 the committed `*_jd_r1.csv` files are the blank sheets created by the kit (0 labelled rows, pull request #45). The primary rater keeps filled labels local and checks `git status` before every commit so those files are not staged early.
-4. **Optional intra-rater check.** A random 30% of items from each sample may be labelled again in round 2, at least 7 days after that item's round 1 label, in a shuffled order. That kappa is reported separately.
+3. **Blindness rule.** Applies to drift, the one kind with a second rater. The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed. The second rater never opens the primary rater's labels. On 2026-09-15 the committed `*_jd_r1.csv` files are the blank sheets created by the kit (0 labelled rows, pull request #45). The primary rater keeps filled labels local and checks `git status` before every commit so those files are not staged early.
+4. **Intra-rater check.** A random 30% of items from each sample are labelled again in round 2, in a shuffled order, without looking at round 1. That kappa is reported separately. Required for lineage and signals, at least 14 days after round 1 (D-022); optional for drift, at least 7 days after.
 
 An LLM may be used as an additional rater only under a rater id starting with `llm-`. Its agreement is reported as `human-vs-llm`, it is disclosed in `ai-use-log.md`, and it is never counted as human agreement, never replaces the teammate second rater, and never supplies the primary labels.
 

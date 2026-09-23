@@ -24,6 +24,7 @@ from msr_pipeline.skill_risk import (
     scan_text,
     shingles,
     sibling_summary,
+    unreadable_inputs,
     validation_sample,
 )
 
@@ -197,6 +198,26 @@ def test_scan_siblings_only_scripts():
     assert summary["script_files_with_high_risk_signal"] == 1
     assert summary["skills_with_scanned_scripts"] == 2
     assert sibling_summary(scan_siblings(sib.iloc[0:0], RULES))["value"].sum() == 0
+
+
+def test_unreadable_inputs_are_counted():
+    reps = pd.DataFrame(
+        {
+            "composition_fetched": [1, 1, 0, 1],
+            "composition_truncated": [0, 1, None, 1],
+            "content_sha_ok": [1, 2, 1, 0],
+        }
+    )
+    without_text = pd.DataFrame({"entry_name": ["run.sh", "Setup.PY", "notes.md", None]})
+    out = unreadable_inputs(reps, without_text).set_index("metric")["value"].to_dict()
+    assert out == {
+        "script_files_without_text": 2,
+        "skills_with_truncated_listing": 2,
+        "skills_without_folder_listing": 1,
+        "skills_with_unrecovered_content": 1,
+    }
+    empty = unreadable_inputs(reps.iloc[0:0], without_text.iloc[0:0])
+    assert empty["value"].sum() == 0
 
 
 def test_validation_sample_strata(reps):

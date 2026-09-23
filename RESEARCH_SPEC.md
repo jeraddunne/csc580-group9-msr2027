@@ -118,10 +118,10 @@ Categories follow the assignment: research (RR), data (DR), functional (FR), non
 | Requirement | The pipeline shall count, and report in `scripts_summary.csv`, the inputs it could not read: bundled script files without text (`content_fetched = 2` or null content), representatives with a truncated folder listing (`composition_truncated = 1`), representatives with no folder listing (`composition_fetched = 0`), and any representative whose `content_sha_ok` is neither 1 nor 2 (excluded). Script results shall be reported with and without the truncated subset. |
 | Source | NB-Q04, NB-Q05, NB-Q05a; V07 (16,697 script-folder files carry `content_fetched = 2`, a value no source documents, and `skipped_reason` is never set), V09, V10 (1,755 representatives, 13.5%, have truncated listings) |
 | Rationale | For those skills, script signals are lower bounds. A file the scanner could not read must not count as a clean file. |
-| Acceptance test | `scripts_summary.csv` has the metrics `script_files_without_text`, `skills_with_truncated_listing`, and `skills_without_folder_listing`. `make verify-spec` DR-04. |
+| Acceptance test | `scripts_summary.csv` has the metrics `script_files_without_text`, `skills_with_truncated_listing`, `skills_without_folder_listing`, and `skills_with_unrecovered_content`, and the script totals again with the suffix `_excluding_truncated_listing`; `population_flow.csv` has the step `excluded_unrecovered_content`. `make verify-spec` DR-04. |
 | Owner | Jerad Dunne |
-| Status | Planned (added by the interview) |
-| Trace | `analysis.scripts_summary`; proposed issue 2 in `elicitation/notebook-interview.md` sec. 5 |
+| Status | Implemented |
+| Trace | `analysis.scripts_summary`, `skill_risk.unreadable_inputs`, `skill_risk.population_flags`; `tests/test_skill_risk.py::test_unreadable_inputs_are_counted`; #58 |
 
 ## 4. Functional requirements
 
@@ -424,3 +424,4 @@ The latest `make verify-spec` result per requirement is in `results/spec_verific
 | Date | Change | Driven by | By |
 |---|---|---|---|
 | 2026-09-18 | First version: 29 requirements. From the interview: added DR-04 and the location breakdown in RR-03; sharpened RR-01, RR-02, DR-01, FR-04, FR-06, ER-01, and ER-02. Verification then corrected the SpecMine version label in `data/README.md` (DR-01) and the pandas and pyarrow bounds in `requirements.txt` (NFR-01) | Assignment Phase F; `elicitation/notebook-interview.md` | Jerad Dunne, drafted with Claude Code |
+| 2026-09-23 | DR-04 implemented; its acceptance test also requires the unrecovered-content count, the script totals without truncated listings, and the population step, which the requirement already asked for. Status Planned to Implemented | #58 | Jerad Dunne, drafted with Claude Code |

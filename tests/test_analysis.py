@@ -88,6 +88,42 @@ def test_population_flags_and_symlink_stub():
         "e": False,
     }
     assert flags["frontmatter_valid"].tolist() == [False, False, True, False, False]
+    assert flags["content_recovered"].all()
+
+
+def test_population_flags_exclude_unrecovered_content():
+    reps = pd.DataFrame(
+        {
+            "file_sha": list("abc"),
+            "content": ["Use the tool.", "Use the tool.", "Use the tool."],
+            "content_sha_ok": [1, 2, 0],
+        }
+    )
+    flags = population_flags(reps).set_index("file_sha")
+    assert flags["content_recovered"].to_dict() == {"a": True, "b": True, "c": False}
+    assert flags["in_main_population"].to_dict() == {"a": True, "b": True, "c": False}
+
+
+def test_scripts_summary_with_and_without_truncated_listings():
+    rules = load_rules()
+    sib_scan = pd.DataFrame(
+        {
+            "repo_full_name": ["r/a", "r/b"],
+            "artifact_path": ["s/SKILL.md", "t/SKILL.md"],
+            "entry_name": ["install.sh", "tool.py"],
+            "rule_ids": ["", ""],
+            "high_risk": [True, False],
+        }
+    )
+    unread = pd.DataFrame([("script_files_without_text", 3)], columns=["metric", "value"])
+    out = analysis.scripts_summary(
+        sib_scan, rules, unread=unread, truncated={("r/a", "s/SKILL.md")}
+    ).set_index("metric")["value"]
+    assert out["script_files_with_text"] == 2
+    assert out["script_files_without_text"] == 3
+    assert out["script_files_with_text_excluding_truncated_listing"] == 1
+    assert out["skills_with_high_risk_script"] == 1
+    assert out["skills_with_high_risk_script_excluding_truncated_listing"] == 0
     assert not is_symlink_stub("x/" * 150)
     assert not is_symlink_stub("first line/\nsecond line")
 
@@ -228,6 +264,15 @@ def test_cli_analyze_writes_outputs(data_root: Path):
     )
     negbin = pd.read_csv(results / "rq2_negbin.csv")
     assert negbin.iloc[0]["status"] == "not estimable"
+    scripts = pd.read_csv(results / "scripts_summary.csv").set_index("metric")["value"]
+    for metric in (
+        "script_files_without_text",
+        "skills_with_truncated_listing",
+        "skills_without_folder_listing",
+        "skills_with_unrecovered_content",
+        "script_files_with_text_excluding_truncated_listing",
+    ):
+        assert metric in scripts.index, metric
 
 
 def test_cli_analyze_missing_data(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):

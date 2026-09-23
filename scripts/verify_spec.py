@@ -246,19 +246,25 @@ def dr_03() -> Result:
 
 
 def dr_04() -> Result:
-    metrics = {r["metric"] for r in read_csv("scripts_summary.csv")}
-    need = {
+    scripts = {r["metric"]: r["value"] for r in read_csv("scripts_summary.csv")}
+    steps = {r["step"] for r in read_csv("population_flow.csv")}
+    need = [
         "script_files_without_text",
         "skills_with_truncated_listing",
         "skills_without_folder_listing",
-    }
-    missing = sorted(need - metrics)
+        "skills_with_unrecovered_content",
+        "script_files_with_text_excluding_truncated_listing",
+        "skills_with_high_risk_script_excluding_truncated_listing",
+    ]
+    missing = [m for m in need if m not in scripts]
+    if "excluded_unrecovered_content" not in steps:
+        missing.append("population_flow step excluded_unrecovered_content")
+    if missing:
+        return ("FAIL", f"scripts_summary.csv lacks unreadable-input counts: {', '.join(missing)}")
     return (
-        "PASS" if not missing else "FAIL",
-        "scripts_summary.csv has "
-        + ("every" if not missing else "no")
-        + " unreadable-input count"
-        + (f" (missing {', '.join(missing)})" if missing else ""),
+        "PASS",
+        ", ".join(f"{m} {scripts[m]}" for m in need[:4])
+        + "; script results also reported without truncated listings",
     )
 
 

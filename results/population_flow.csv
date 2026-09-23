@@ -2,5 +2,6 @@ step,description,distinct_contents,occurrences
 all_occurrences,Every SKILL.md occurrence in the sample,13000,29786
 with_content,Distinct contents whose representative text was fetched,13000,29786
 excluded_symlink_stubs,Excluded: content is a single path-like line (symlink target),35,107
-main_population,"Main population: with content, not a symlink stub",12965,29679
+excluded_unrecovered_content,Excluded: content changed before it was fetched and was not recovered (content_sha_ok not 1 or 2),0,0
+main_population,"Main population: with recovered content, not a symlink stub",12965,29679
 frontmatter_valid_subset,Sensitivity subset: main population with valid YAML front matter,11291,27101

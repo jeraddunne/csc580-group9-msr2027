@@ -92,6 +92,7 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | `python scripts/workspace_digest.py` | Rebuilds `docs/workspace/DIGEST.md` from sign-up, finding, and decision issues |
 | `make reproduce` | Fresh end-to-end run: data, explore, test |
 | `make verify-spec` | Runs the acceptance tests in `RESEARCH_SPEC.md`; writes `results/spec_verification.csv` |
+| `python scripts/verify_spec.py --determinism` | Also runs NFR-02: the full analysis twice, compared byte for byte with each other and with `results/`. About 9 minutes and about 1 GB of free memory; close other large programs first |
 | `make notebook-sources` | Builds the elicitation notebook's pinned source pack into `build/notebook_sources/` |
 | `python -m msr_pipeline elicit --ask "..." --scope gitskills` | Asks the elicitation notebook one question; it answers only with cited source passages |
 | `make interview` / `make interview-checks` | Re-runs the prepared interview (`elicitation/questions.yaml`) and the data checks behind its verification |

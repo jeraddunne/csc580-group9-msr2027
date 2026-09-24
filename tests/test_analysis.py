@@ -159,6 +159,19 @@ def test_threshold_sweep_is_monotone_and_counts_direction():
     assert empty["lineage_pairs"].sum() == 0
 
 
+def test_threshold_sweep_splits_ordered_pairs_by_location():
+    # ordered pairs: a-g (0.31), c-i (0.5), e-k (0.72)
+    locations = {"a": "canonical", "g": "canonical", "c": "canonical", "i": "skills-dir"}
+    sweep = analysis.threshold_sweep(_pairs(), locations=locations).set_index("threshold")
+    by_loc = ["ordered_pairs_canonical", "ordered_pairs_mixed", "ordered_pairs_non_canonical"]
+    assert sweep.loc[0.3, by_loc].tolist() == [1, 1, 1]
+    assert sweep.loc[0.5, by_loc].tolist() == [0, 1, 1]
+    assert (sweep[by_loc].sum(axis=1) == sweep["ordered_pairs"]).all()
+    assert "ordered_pairs_canonical" not in analysis.threshold_sweep(_pairs()).columns
+    empty = analysis.threshold_sweep(_pairs().iloc[0:0], locations=locations)
+    assert empty[by_loc].to_numpy().sum() == 0
+
+
 def test_negbin_not_estimable_on_degenerate_data():
     frame = pd.DataFrame(
         {

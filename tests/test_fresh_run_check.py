@@ -32,9 +32,30 @@ def test_line_endings_do_not_count_as_a_difference(tmp_path):
 
     assert rows["a.csv"]["same"] and rows["a.csv"]["status"] == "identical"
     assert rows["a.csv"]["rows_committed"] == rows["a.csv"]["rows_fresh"] == 2
-    assert not rows["b.csv"]["same"] and rows["b.csv"]["status"] == "DIFFERS"
+    assert not rows["b.csv"]["same"] and rows["b.csv"]["status"].startswith("DIFFERS")
     assert rows["c.csv"]["status"] == "missing from results/"
     assert rows["c.csv"]["rows_committed"] is None
+
+
+def test_floating_point_noise_matches_but_real_changes_do_not(tmp_path):
+    frc = _check()
+    committed, fresh = tmp_path / "committed", tmp_path / "fresh"
+    committed.mkdir()
+    fresh.mkdir()
+    (committed / "noise.csv").write_text(
+        "term,irr\nhigh_risk,1.411127890210557\n", encoding="utf-8"
+    )
+    (fresh / "noise.csv").write_text("term,irr\nhigh_risk,1.4111278902105568\n", encoding="utf-8")
+    (committed / "moved.csv").write_text("term,irr\nhigh_risk,1.41\n", encoding="utf-8")
+    (fresh / "moved.csv").write_text("term,irr\nhigh_risk,1.42\n", encoding="utf-8")
+    (committed / "text.csv").write_text("term,group\na,high\n", encoding="utf-8")
+    (fresh / "text.csv").write_text("term,group\na,low\n", encoding="utf-8")
+
+    rows = {r["file"]: r for r in frc.compare(committed, fresh)}
+
+    assert rows["noise.csv"]["same"] and rows["noise.csv"]["status"].startswith("equal within")
+    assert not rows["moved.csv"]["same"] and rows["moved.csv"]["status"].startswith("DIFFERS (max")
+    assert not rows["text.csv"]["same"] and rows["text.csv"]["status"] == "DIFFERS"
 
 
 def test_quoted_newlines_count_as_one_row(tmp_path):

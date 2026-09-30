@@ -15,7 +15,10 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
-PY="${PY:-python}"
+# python, or python3 where there is no python (stock Ubuntu and Debian); override with PY=...
+if [ -z "${PY:-}" ]; then
+  if python -c "" >/dev/null 2>&1; then PY=python; else PY=python3; fi
+fi
 VENV="${VENV:-.venv}"
 
 log() { printf '\n==> %s\n' "$*"; }

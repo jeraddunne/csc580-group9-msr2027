@@ -91,6 +91,7 @@ nav:
       - Work without git: docs/NO_GIT_GUIDE.md
       - Windows launchers: windows/README.md
       - Getting started (command line): docs/GETTING_STARTED.md
+      - Reproduce the results: docs/REPRODUCE.md
       - Team workspace: docs/workspace/README.md
       - Work sign-up: docs/workspace/WORK_SIGNUP.md
   - Research:

@@ -1,20 +1,34 @@
 # Team workspace digest
 
-Generated 2026-09-15 22:27 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-09-27 11:00 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
-### @jeraddunne (1)
+### @AllieHgs (1)
 
 | Issue | Title | Milestone |
 |---|---|---|
-| [#41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41) | [Proposal] P-01: Risky capabilities in copied agent skills: prevalence, reach, and drift | Formation |
+| [#51](https://github.com/jeraddunne/csc580-group9-msr2027/issues/51) | Onboarding: Allie Hodges (@AllieHgs) | Formation |
 
-### (unassigned) (30)
+### @angel06la (1)
 
 | Issue | Title | Milestone |
 |---|---|---|
-| [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: project workspace (solo project, P-01) | Formation |
+| [#50](https://github.com/jeraddunne/csc580-group9-msr2027/issues/50) | Onboarding: Leticia Aderhold (@angel06la) | Formation |
+
+### @hinak786 (1)
+
+| Issue | Title | Milestone |
+|---|---|---|
+| [#52](https://github.com/jeraddunne/csc580-group9-msr2027/issues/52) | Onboarding: Hina Kramer (@hinak786) | Formation |
+
+### @jeraddunne (30)
+
+| Issue | Title | Milestone |
+|---|---|---|
+| [#61](https://github.com/jeraddunne/csc580-group9-msr2027/issues/61) | Assignment 2 Phases B and F: notebook elicitation and RESEARCH_SPEC | Sprint 1 |
+| [#53](https://github.com/jeraddunne/csc580-group9-msr2027/issues/53) | Validation: choose the teammate second rater for each label kind | Sprint 2 |
+| [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: Group 9 project workspace (P-01) | Formation |
 | [#40](https://github.com/jeraddunne/csc580-group9-msr2027/issues/40) | Final: AI-use log and disclosure complete | Finalization |
 | [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection (one per member) | Finalization |
 | [#38](https://github.com/jeraddunne/csc580-group9-msr2027/issues/38) | Final: presentation and live demonstration | Finalization |
@@ -36,12 +50,10 @@ Generated 2026-09-15 22:27 UTC by `scripts/workspace_digest.py` from `jeraddunne
 | [#22](https://github.com/jeraddunne/csc580-group9-msr2027/issues/22) | S2: automated tests for parsing, transformation, matching, or metric functions | Sprint 2 |
 | [#20](https://github.com/jeraddunne/csc580-group9-msr2027/issues/20) | S1: sprint review package and retrospective | Sprint 1 |
 | [#19](https://github.com/jeraddunne/csc580-group9-msr2027/issues/19) | S1: baseline process metrics captured (Measure phase) | Sprint 1 |
-| [#18](https://github.com/jeraddunne/csc580-group9-msr2027/issues/18) | S1: primary risks and threats to validity identified | Sprint 1 |
 | [#17](https://github.com/jeraddunne/csc580-group9-msr2027/issues/17) | S1: repository practice: issues, milestones, branch protection, first reviewed pull request | Sprint 1 |
 | [#14](https://github.com/jeraddunne/csc580-group9-msr2027/issues/14) | S1: dataset acquisition or sampling instructions and data dictionary | Sprint 1 |
 | [#11](https://github.com/jeraddunne/csc580-group9-msr2027/issues/11) | Kaizen: weekly process metrics automated | Formation |
 | [#10](https://github.com/jeraddunne/csc580-group9-msr2027/issues/10) | Kaizen: 48-hour pull request review SLA by a member other than the author | Formation |
-| [#6](https://github.com/jeraddunne/csc580-group9-msr2027/issues/6) | Formation: Sprint 1 backlog created, estimated, and on the board | Formation |
 | [#5](https://github.com/jeraddunne/csc580-group9-msr2027/issues/5) | Formation: RESEARCH_QUESTION.md completed and topic brief submitted | Formation |
 | [#1](https://github.com/jeraddunne/csc580-group9-msr2027/issues/1) | Formation: team working agreement v2.0 signed by all four members | Formation |
 
@@ -57,5 +69,6 @@ _No findings filed yet. Use the Research finding form._
 
 | Issue | Decision | Decide by | State |
 |---|---|---|---|
+| [#53](https://github.com/jeraddunne/csc580-group9-msr2027/issues/53) | Validation: choose the teammate second rater for each label kind |  | open |
 | [#4](https://github.com/jeraddunne/csc580-group9-msr2027/issues/4) | Formation: ballot vote tallied and topic decided (ADR-0004) |  | decided |
 

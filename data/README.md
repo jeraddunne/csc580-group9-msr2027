@@ -56,7 +56,16 @@ in the full corpus). Any population claim must say so.
 - Preprint: <https://arxiv.org/abs/2608.25202>
 
 ## Acquisition
+### Windows setup
 
+Create and activate a virtual environment, then install the project dependencies before downloading the samples:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -e ".[dev]"
+
+```
 ### Scripted (preferred)
 
 ```bash

@@ -38,6 +38,8 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 
 ## New member? Start here
 
+**Start with the [Group 9 Project Guide](https://jeraddunne.github.io/csc580-group9-msr2027/app/)**: an app that explains the project in plain words with worked examples, shows each sprint's deliverables and your tasks, and turns forms into issues, comments, and pull requests under your own name. It has a practice mode where nothing is saved ([app/README.md](app/README.md)).
+
 Never used git? Everything below can be done in the browser: follow [docs/NO_GIT_GUIDE.md](docs/NO_GIT_GUIDE.md), read the documents on the [project website](https://jeraddunne.github.io/csc580-group9-msr2027/), and find your tasks under [issues assigned to you](https://github.com/jeraddunne/csc580-group9-msr2027/issues?q=is%3Aopen+assignee%3A%40me). Windows users can run the project by double-clicking the files in [windows/](windows/README.md).
 
 1. Accept the repository invitation: https://github.com/jeraddunne/csc580-group9-msr2027/invitations

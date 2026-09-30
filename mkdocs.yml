@@ -26,6 +26,9 @@ exclude_docs: |
   /site/
   /data/samples/
   /data/annotations/work/
+  /app/tests/
+  /app/package.json
+  /app/README.md
   *.py
   *.ipynb
   *.bat

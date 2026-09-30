@@ -1,0 +1,82 @@
+name: "Guided task (step by step)"
+description: "A task written for a member who may not use git: why it matters, how long it takes, and clickable steps with direct links."
+labels: ["guided-task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write for someone who has never used git. Every step is one action, starts with a verb, and links straight to the file or page it needs.
+        Use the recipes in docs/NO_GIT_GUIDE.md by number ("recipe 4") instead of re-explaining how to edit or upload.
+        Set the Type and Sprint below; they become the label and milestone automatically. Assign the member after they agree to the task.
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: ["process", "docs", "data", "report", "presentation", "research", "test", "pipeline"]
+    validations:
+      required: true
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      options: ["Formation", "Sprint 1", "Sprint 2", "Sprint 3", "Finalization", "Backlog (unscheduled)"]
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this matters
+      description: One or two sentences, in plain words. Name the rubric item or deadline it serves.
+    validations:
+      required: true
+  - type: input
+    id: time
+    attributes:
+      label: Time needed
+      placeholder: "About 15 minutes, all in the browser"
+    validations:
+      required: true
+  - type: input
+    id: due
+    attributes:
+      label: Due
+      placeholder: "Wed 2026-10-07, before the Sprint 1 review"
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What you need before you start
+      placeholder: |
+        - Your GitHub account, signed in
+        - The repository invitation accepted
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps
+      description: Tick each box as you finish the step. The ticks save by themselves.
+      value: |
+        - [ ] 1. Open [FILE](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/FILE)
+        - [ ] 2. Click the pencil icon (Edit this file), top right
+        - [ ] 3. Change: WHAT TO TYPE, WHERE
+        - [ ] 4. Click **Commit changes...**, choose **Create a new branch**, name it `docs/ISSUE-few-words`, click **Propose changes** (recipe 4)
+        - [ ] 5. In the pull request description, add `Closes #ISSUE`, then click **Create pull request**
+        - [ ] 6. Under **Reviewers** on the right, pick a member other than yourself
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: What someone can check to see the task is finished.
+      placeholder: "A pull request that closes this issue has an approving review from another member."
+    validations:
+      required: true
+  - type: textarea
+    id: help
+    attributes:
+      label: If you get stuck
+      value: |
+        Comment on this issue in plain words: which step you are on and what you see on screen. Recipes: [docs/NO_GIT_GUIDE.md](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/docs/NO_GIT_GUIDE.md).

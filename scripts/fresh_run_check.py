@@ -4,8 +4,11 @@
 Supports the Sprint 1 measurement system check (S1-10) and the review's gemba walk,
 and is what windows/2-run-pipeline.bat calls. The analysis writes to build/fresh_run/,
 never to results/, so the committed files stay untouched. Files are compared with line
-endings normalised, because git stores text with LF while Windows writes CRLF; any
-other difference counts. Output is file names and counts only, no dataset text.
+endings normalised, because git stores text with LF while Windows writes CRLF. A file
+whose only differences are numbers within a relative 1e-9 also matches, because maths
+libraries round the last digits differently across operating systems; the report says
+which files matched that way. Any other difference counts. Output is file names and
+counts only, no dataset text.
 
 Usage:
     python scripts/fresh_run_check.py                 # run the analysis, compare, write the report
@@ -20,6 +23,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import os
 import platform
 import sys
 import time
@@ -33,6 +37,11 @@ from msr_pipeline.config import Paths, get_paths, gitskills_db_path  # noqa: E40
 
 OUT = ROOT / "build" / "fresh_run"
 COMMITTED = ROOT / "results"
+# Relative tolerance for numbers that differ between platforms (docs/REPRODUCE.md).
+TOLERANCE = 1e-9
+WINDOWS_STEPS = (
+    "windows/1-set-up.bat, then windows/2-run-pipeline.bat (docs/NO_GIT_GUIDE.md recipe 7)"
+)
 
 
 def normalised_sha(path: Path) -> str:
@@ -46,24 +55,66 @@ def count_rows(path: Path) -> int:
         return max(sum(1 for _ in csv.reader(handle)) - 1, 0)
 
 
-def compare(committed: Path, fresh: Path) -> list[dict]:
-    """One row per CSV the fresh run produced: row counts and whether the content matches."""
+def _number(text: str) -> float | None:
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def max_relative_difference(old: Path, new: Path) -> float | None:
+    """Largest relative difference between numeric cells of two CSVs of the same shape.
+
+    Returns None when the files differ in shape, headers, or any non-numeric cell, so only
+    floating-point noise can come back as a number. Relative to max(1, |a|, |b|).
+    """
+    with old.open(encoding="utf-8", newline="") as a, new.open(encoding="utf-8", newline="") as b:
+        rows_a, rows_b = list(csv.reader(a)), list(csv.reader(b))
+    if len(rows_a) != len(rows_b) or not rows_a or rows_a[0] != rows_b[0]:
+        return None
+    worst = 0.0
+    for row_a, row_b in zip(rows_a[1:], rows_b[1:], strict=True):
+        if len(row_a) != len(row_b):
+            return None
+        for x, y in zip(row_a, row_b, strict=True):
+            if x == y:
+                continue
+            fx, fy = _number(x), _number(y)
+            if fx is None or fy is None:
+                return None
+            if fx != fy:
+                worst = max(worst, abs(fx - fy) / max(1.0, abs(fx), abs(fy)))
+    return worst
+
+
+def compare(committed: Path, fresh: Path, tolerance: float = TOLERANCE) -> list[dict]:
+    """One row per CSV the fresh run produced: row counts and whether the content matches.
+
+    A file matches when it is identical apart from line endings, or when every difference is a
+    number within ``tolerance`` (relative), which is how floating-point results differ between
+    operating systems and maths libraries.
+    """
     rows = []
     for new in sorted(fresh.glob("*.csv")):
         old = committed / new.name
         present = old.is_file()
-        rows.append(
-            {
-                "file": new.name,
-                "rows_committed": count_rows(old) if present else None,
-                "rows_fresh": count_rows(new),
-                "same": present and normalised_sha(old) == normalised_sha(new),
-                "status": "missing from results/" if not present else None,
-            }
-        )
-    for row in rows:
-        if row["status"] is None:
-            row["status"] = "identical" if row["same"] else "DIFFERS"
+        row = {
+            "file": new.name,
+            "rows_committed": count_rows(old) if present else None,
+            "rows_fresh": count_rows(new),
+            "same": False,
+            "status": "missing from results/",
+        }
+        if present and normalised_sha(old) == normalised_sha(new):
+            row.update(same=True, status="identical")
+        elif present:
+            worst = max_relative_difference(old, new)
+            if worst is not None and worst <= tolerance:
+                row.update(same=True, status=f"equal within {tolerance:g} (max {worst:.1e})")
+            else:
+                detail = "" if worst is None else f" (max relative difference {worst:.1e})"
+                row["status"] = "DIFFERS" + detail
+        rows.append(row)
     return rows
 
 
@@ -110,8 +161,15 @@ def fmt(n: int | None) -> str:
     return "not found" if n is None else f"{n:,}"
 
 
-def report(rows: list[dict], minutes: float | None, fresh_numbers: dict, commit: str | None) -> str:
+def report(
+    rows: list[dict],
+    minutes: float | None,
+    fresh_numbers: dict,
+    commit: str | None,
+    steps: str = WINDOWS_STEPS,
+) -> str:
     same = sum(1 for r in rows if r["same"])
+    identical = sum(1 for r in rows if r["status"] == "identical")
     committed_numbers = summary_numbers(COMMITTED)
     numbers_agree = fresh_numbers == committed_numbers and None not in fresh_numbers.values()
     matched = "yes" if rows and same == len(rows) and numbers_agree else "no"
@@ -130,13 +188,13 @@ def report(rows: list[dict], minutes: float | None, fresh_numbers: dict, commit:
         "| Commit SHA | "
         + (commit or "not available from a ZIP download: write the date you downloaded it")
         + " |",
-        "| Steps followed | windows/1-set-up.bat, then windows/2-run-pipeline.bat "
-        "(docs/NO_GIT_GUIDE.md recipe 7) |",
+        f"| Steps followed | {steps} |",
         "| Time to first result (minutes) | "
         + (f"{minutes:.1f} for the analysis; add your setup time" if minutes else "not timed")
         + " |",
         f"| Result matched committed output (row count, checksum) | {matched}: {same} of "
-        f"{len(rows)} files identical apart from line endings; main population "
+        f"{len(rows)} files match ({identical} identical apart from line endings, "
+        f"{same - identical} equal within {TOLERANCE:g} relative); main population "
         f"{fmt(fresh_numbers['main_population'])} (committed "
         f"{fmt(committed_numbers['main_population'])}), skills with a high-risk signal "
         f"{fmt(fresh_numbers['high_risk'])} (committed {fmt(committed_numbers['high_risk'])}) |",
@@ -157,6 +215,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument(
         "--compare-only", action="store_true", help="Skip the analysis; compare build/fresh_run/."
+    )
+    parser.add_argument(
+        "--steps", default=WINDOWS_STEPS, help="How the environment was set up, for the report."
     )
     args = parser.parse_args(argv)
 
@@ -193,7 +254,8 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     rows = compare(COMMITTED, fresh)
-    text = report(rows, minutes, summary_numbers(fresh), commit_id(ROOT))
+    commit = commit_id(ROOT) or (os.environ.get("GIT_COMMIT") or "").replace("unknown", "") or None
+    text = report(rows, minutes, summary_numbers(fresh), commit, args.steps)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "REPORT.md").write_text(text, encoding="utf-8")
     print()

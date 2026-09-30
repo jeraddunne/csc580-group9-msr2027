@@ -1,7 +1,6 @@
 # Group 9 MSR 2027 pipeline. Works in Linux, macOS, and Windows Git Bash.
 # Usage: make <target>. Run `make help` to list targets.
 
-PY ?= python
 VENV ?= .venv
 ifeq ($(OS),Windows_NT)
   VENV_PY := $(VENV)/Scripts/python.exe
@@ -9,16 +8,27 @@ else
   VENV_PY := $(VENV)/bin/python
 endif
 
+# The interpreter that creates the virtual environment: python, or python3 where there is no
+# python (stock Ubuntu and Debian). Override with `make setup BOOTSTRAP_PY=python3.12`.
+ifeq ($(origin BOOTSTRAP_PY),undefined)
+  BOOTSTRAP_PY := $(shell python -c "" >/dev/null 2>&1 && echo python || echo python3)
+endif
+
+# Every other target uses the project's virtual environment once `make setup` has made it, so
+# nobody has to activate it first (issue #71). Override with `make test PY=...`.
+PY ?= $(if $(wildcard $(VENV_PY)),$(VENV_PY),$(BOOTSTRAP_PY))
+
 .PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-12s %s\n", $$1, $$2}'
 
 setup: ## Create the virtual environment and install the package with dev tools
-	$(PY) -m venv $(VENV)
+	$(BOOTSTRAP_PY) -m venv $(VENV)
 	$(VENV_PY) -m pip install --upgrade pip
 	$(VENV_PY) -m pip install -e ".[dev]"
-	@echo "Activate with: source $(VENV)/bin/activate  (Linux/macOS)  or  source $(VENV)/Scripts/activate  (Git Bash)"
+	@echo "Done. Other make targets use $(VENV) automatically. To run python yourself, activate it:"
+	@echo "  source $(VENV)/bin/activate  (Linux/macOS)  or  source $(VENV)/Scripts/activate  (Git Bash)"
 
 data: ## Download the GitSkills and core SpecMine samples into data/samples
 	$(PY) scripts/download_samples.py --dataset all

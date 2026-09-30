@@ -6,6 +6,8 @@ Your work counts only when it is done under your own account. Nobody else can si
 
 ## Where to start
 
+The easiest way is the **[Group 9 Project Guide](https://jeraddunne.github.io/csc580-group9-msr2027/app/)**: an app that does the recipes below with buttons and forms, explains the project and its formulas in plain words, and has a practice mode where nothing is saved. The recipes on this page are the same actions done directly on github.com.
+
 1. **Your tasks.** Open [issues assigned to you](https://github.com/jeraddunne/csc580-group9-msr2027/issues?q=is%3Aopen+assignee%3A%40me). Each **guided task** explains why it matters, how long it takes, and lists the steps as checkboxes. Tick each box as you finish the step.
 2. **The documents.** Read them on the [project website](https://jeraddunne.github.io/csc580-group9-msr2027/), which has a menu and search. Every page there has an **Edit this page** button (the pencil icon) that takes you to recipe 4.
 3. **Stuck?** Write a comment on your task in plain words (recipe 2). Say which step you are on and what you see on screen. That is always the right move, and it counts as participation.

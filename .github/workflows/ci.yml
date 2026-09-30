@@ -58,3 +58,21 @@ jobs:
             figures/
           if-no-files-found: ignore
           retention-days: 14
+
+  app:
+    name: Team app tests (Node)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # No dependencies to install: the app vendors Preact and htm, and the tests use Node's
+      # built-in runner. Formulas are checked against answers from the Python pipeline.
+      - name: Run the app's tests
+        working-directory: app
+        run: npm test

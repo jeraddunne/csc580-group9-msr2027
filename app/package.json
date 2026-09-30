@@ -1,0 +1,7 @@
+{
+  "name": "group9-team-app",
+  "private": true,
+  "type": "module",
+  "description": "Group 9 team app: no build step and no dependencies; tests use Node's built-in runner.",
+  "scripts": { "test": "node --test \"tests/*.test.mjs\"" }
+}

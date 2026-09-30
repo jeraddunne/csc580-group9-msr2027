@@ -23,8 +23,24 @@ set "CSV=%CSV:"=%"
 
 :import
 if not exist "%CSV%" goto :nofile
+rem Browsers rename repeat downloads, e.g. "drift_la_r1 (1).csv"; the kit needs "drift_la_r1.csv".
+for %%F in ("%CSV%") do set "NAME=%%~nF"
+for /f "tokens=1 delims= " %%A in ("%NAME%") do set "BASE=%%A"
+set "STAGE=%TEMP%\group9-labels"
+if not exist "%STAGE%" mkdir "%STAGE%"
+copy /y "%CSV%" "%STAGE%\%BASE%.csv" >nul || goto :badfile
 echo.
-".venv\Scripts\python.exe" scripts\annotation_kit.py import "%CSV%" || goto :badfile
+echo   Checking %BASE%.csv ...
+".venv\Scripts\python.exe" scripts\annotation_kit.py import "%STAGE%\%BASE%.csv" && goto :saved
+echo.
+echo   If the message above says labels differ, this download changes
+echo   labels you saved in an earlier session. Press Y only if you
+echo   changed them on purpose and this is your newest download.
+choice /c YN /m "  Replace your saved labels with this download"
+if errorlevel 2 goto :badfile
+".venv\Scripts\python.exe" scripts\annotation_kit.py import "%STAGE%\%BASE%.csv" --replace || goto :badfile
+
+:saved
 
 echo.
 echo  ============================================================

@@ -15,8 +15,13 @@ echo   about 90 MB. It changes nothing outside this project folder.
 echo   You can run it again at any time; finished steps are reused.
 echo.
 
-echo "%CD%" | find /i "OneDrive" >nul
-if errorlevel 1 goto :python
+rem A folder synced by OneDrive has \OneDrive\ or \OneDrive - Name\ in its path.
+set "HERE=%CD%\"
+if /i not "%HERE:\OneDrive\=%"=="%HERE%" goto :onedrive
+if /i not "%HERE:\OneDrive - =%"=="%HERE%" goto :onedrive
+goto :python
+
+:onedrive
 echo   WARNING: this folder is inside OneDrive. OneDrive can lock the
 echo   files the project creates. Best: move the whole project folder
 echo   to C:\dev\ and double-click this file again from there.
@@ -25,6 +30,16 @@ choice /c YN /m "  Continue here anyway"
 if errorlevel 2 exit /b 1
 
 :python
+rem Some packages have deep folders; Windows refuses paths over 260 characters.
+if "%CD:~90,1%"=="" goto :findpython
+echo   WARNING: this folder's path is long. Installing may fail with
+echo   "No such file or directory" because Windows limits path length.
+echo   Best: move the whole project folder to C:\dev\ and run this again.
+echo.
+choice /c YN /m "  Continue here anyway"
+if errorlevel 2 exit /b 1
+
+:findpython
 set "PY="
 py -3 -c "import sys; sys.exit(0 if sys.version_info >= (3, 11) else 1)" >nul 2>nul
 if not errorlevel 1 set "PY=py -3"
@@ -50,7 +65,6 @@ if exist ".venv\Scripts\python.exe" goto :install
 
 :install
 echo  [2/3] Installing the project's packages. The first time takes a few minutes ...
-".venv\Scripts\python.exe" -m pip install --disable-pip-version-check --quiet --upgrade pip || goto :failed
 ".venv\Scripts\python.exe" -m pip install --disable-pip-version-check --quiet -e . || goto :failed
 
 echo  [3/3] Downloading the GitSkills sample. Skipped if it is already here ...

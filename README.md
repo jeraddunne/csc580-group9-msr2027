@@ -38,8 +38,10 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 
 ## New member? Start here
 
+Never used git? Everything below can be done in the browser: follow [docs/NO_GIT_GUIDE.md](docs/NO_GIT_GUIDE.md), read the documents on the [project website](https://jeraddunne.github.io/csc580-group9-msr2027/), and find your tasks under [issues assigned to you](https://github.com/jeraddunne/csc580-group9-msr2027/issues?q=is%3Aopen+assignee%3A%40me). Windows users can run the project by double-clicking the files in [windows/](windows/README.md).
+
 1. Accept the repository invitation: https://github.com/jeraddunne/csc580-group9-msr2027/invitations
-2. Read `docs/GETTING_STARTED.md` and follow the onboarding path (setup, onboarding issue, first pull request).
+2. Read `docs/GETTING_STARTED.md` and follow the onboarding path (setup, onboarding issue, first pull request), or the browser-only recipes in `docs/NO_GIT_GUIDE.md`.
 3. Sign `TEAM_CHARTER.md` section 14 and add your profile under `docs/team/` in that first pull request; another member reviews it.
 4. If you are a second rater for validation, follow `docs/validation/README.md`.
 5. Bookmark the team workspace, `docs/workspace/README.md`: sign up for work, log findings, and see what the team decided.

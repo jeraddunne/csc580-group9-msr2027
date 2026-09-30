@@ -49,3 +49,6 @@ report/*.toc
 
 # Local convenience launcher, not part of the project
 start-claude.ps1
+
+# Documentation website build (mkdocs build)
+site/

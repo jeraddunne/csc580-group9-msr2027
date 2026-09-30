@@ -1,6 +1,7 @@
 # Normalise line endings so scripts run from any OS (OneDrive/Windows checkouts included).
 * text=auto
 *.sh text eol=lf
+*.bat text eol=crlf
 Makefile text eol=lf
 *.py text eol=lf
 *.yml text eol=lf

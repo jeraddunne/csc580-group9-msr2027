@@ -63,6 +63,8 @@ python scripts/annotation_kit.py score
 
 Use your own rater id: Leticia `la`, Allie `ah`, Hina `hk`. The example uses signals; replace `signals` with `lineage` or `drift` for your assigned kind.
 
+Without git or a terminal on Windows: download the ZIP instead of cloning, then double-click `windows/1-set-up.bat` (steps 2 and 3), `windows/3-open-labelling-page.bat` (steps 5 and 6), and after each session drag the downloaded CSV onto `windows/4-save-my-labels.bat` (step 8). Upload your finished file through the browser for step 9 ([NO_GIT_GUIDE.md](../NO_GIT_GUIDE.md), recipe 5).
+
 1. Accept the repository invitation.
 2. Clone the repository outside OneDrive or iCloud: `git clone https://github.com/jeraddunne/csc580-group9-msr2027.git`.
 3. Run `make setup`, then `make data`.

@@ -1,0 +1,183 @@
+# Readable website for the repository's documents (issue #69).
+# Built from the Markdown files where they already live, so every link that works on
+# GitHub works on the site. Published to GitHub Pages by .github/workflows/docs-site.yml.
+# Local preview: pip install -r requirements-docs.txt && mkdocs serve
+
+site_name: Group 9 · P-01 project
+site_description: Risky capabilities in copied agent skills (CSC 580 / SWE 380, MSR 2027 challenge-inspired)
+site_url: https://jeraddunne.github.io/csc580-group9-msr2027/
+repo_url: https://github.com/jeraddunne/csc580-group9-msr2027
+repo_name: csc580-group9-msr2027
+edit_uri: edit/main/
+
+docs_dir: .
+site_dir: site
+
+plugins:
+  - same-dir
+  - search
+
+exclude_docs: |
+  /src/
+  /tests/
+  /scripts/
+  /notebooks/
+  /build/
+  /site/
+  /data/samples/
+  /data/annotations/work/
+  *.py
+  *.ipynb
+  *.bat
+  *.db
+  *.parquet
+
+not_in_nav: |
+  /docs/decisions/ADR-template.md
+  /docs/meeting-notes/TEMPLATE-*.md
+  /docs/proposals/TEMPLATE-proposal.md
+  /docs/reflections/TEMPLATE-individual-reflection.md
+  /docs/team/TEMPLATE-member-profile.md
+  /docs/lean-six-sigma/A3_TEMPLATE.md
+  /docs/lean-six-sigma/ROOT_CAUSE_TEMPLATE.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.code.copy
+    - toc.follow
+  icon:
+    edit: material/pencil
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: README.md
+  - Start here:
+      - Work without git: docs/NO_GIT_GUIDE.md
+      - Windows launchers: windows/README.md
+      - Getting started (command line): docs/GETTING_STARTED.md
+      - Team workspace: docs/workspace/README.md
+      - Work sign-up: docs/workspace/WORK_SIGNUP.md
+  - Research:
+      - Research question: RESEARCH_QUESTION.md
+      - Research spec: RESEARCH_SPEC.md
+      - Data dictionary: DATA_DICTIONARY.md
+      - Dataset and acquisition: data/README.md
+      - Threat model: docs/research/THREAT_MODEL.md
+      - Threats to validity: THREATS_TO_VALIDITY.md
+      - Results: results/README.md
+      - Figures: figures/README.md
+      - Report: report/README.md
+      - Report draft: report/draft.md
+      - Findings log: docs/workspace/FINDINGS_LOG.md
+      - Proposals:
+          - docs/proposals/README.md
+          - P-01 proposal: docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md
+          - Candidate questions: docs/proposals/00-candidate-questions.md
+          - Proposal results: docs/proposals/RESULTS.md
+          - Votes: docs/proposals/votes/README.md
+      - Requirements elicitation:
+          - elicitation/README.md
+          - Google notebook interview: elicitation/google-notebook-interview.md
+          - Repository notebook interview: elicitation/notebook-interview.md
+          - Notebook transcript: elicitation/notebook-transcript.md
+          - Verification checks: elicitation/verification-checks.md
+          - Source register: elicitation/notebook/SOURCE_REGISTER.md
+  - Validation:
+      - docs/validation/README.md
+      - Annotation guideline: docs/validation/ANNOTATION_GUIDELINE.md
+      - Label files: data/annotations/README.md
+      - Rule change proposals: docs/validation/RULE_CHANGE_PROPOSALS.md
+  - Sprints:
+      - docs/sprints/README.md
+      - Formation:
+          - Planning: docs/sprints/00-formation/planning.md
+          - Review: docs/sprints/00-formation/review.md
+      - Sprint 1:
+          - Planning: docs/sprints/sprint-1/planning.md
+          - Review: docs/sprints/sprint-1/review.md
+          - Retrospective: docs/sprints/sprint-1/retrospective.md
+      - Sprint 2:
+          - Planning: docs/sprints/sprint-2/planning.md
+          - Review: docs/sprints/sprint-2/review.md
+          - Retrospective: docs/sprints/sprint-2/retrospective.md
+      - Sprint 3:
+          - Planning: docs/sprints/sprint-3/planning.md
+          - Review: docs/sprints/sprint-3/review.md
+          - Retrospective: docs/sprints/sprint-3/retrospective.md
+      - Finalization:
+          - Checklist: docs/sprints/finalization/checklist.md
+          - Release notes: docs/sprints/finalization/release-notes.md
+      - Presentation plan: docs/PRESENTATION_PLAN.md
+      - Meeting notes:
+          - docs/meeting-notes/README.md
+          - 2026-09-16 kickoff: docs/meeting-notes/2026-09-16-kickoff.md
+  - Process:
+      - Process handbook: docs/PROCESS.md
+      - Project plan: PROJECT_PLAN.md
+      - Team charter: TEAM_CHARTER.md
+      - Contributing: CONTRIBUTING.md
+      - Code of conduct: CODE_OF_CONDUCT.md
+      - AI-use log: ai-use-log.md
+      - Decisions:
+          - docs/decisions/README.md
+          - Decision log: docs/workspace/DECISION_LOG.md
+          - ADR-0001 Scrum with Lean Six Sigma: docs/decisions/ADR-0001-scrum-with-lean-six-sigma.md
+          - ADR-0002 Proposal and voting: docs/decisions/ADR-0002-proposal-and-voting-process.md
+          - ADR-0003 Repository and tooling: docs/decisions/ADR-0003-repository-structure-and-tooling.md
+          - ADR-0004 Topic selection: docs/decisions/ADR-0004-topic-selection.md
+          - ADR-0005 Solo execution: docs/decisions/ADR-0005-solo-execution.md
+          - ADR-0006 Group reinstated: docs/decisions/ADR-0006-group-reinstated.md
+      - Lean Six Sigma:
+          - docs/lean-six-sigma/README.md
+          - Metrics dashboard: docs/lean-six-sigma/metrics/DASHBOARD.md
+          - Metrics: docs/lean-six-sigma/metrics/README.md
+          - KPIs: docs/lean-six-sigma/KPIS.md
+          - DMAIC: docs/lean-six-sigma/DMAIC.md
+          - SIPOC and CTQ: docs/lean-six-sigma/SIPOC_AND_CTQ.md
+          - FMEA risk register: docs/lean-six-sigma/FMEA_RISK_REGISTER.md
+          - Value stream map: docs/lean-six-sigma/VALUE_STREAM_MAP.md
+          - Waste log: docs/lean-six-sigma/WASTE_LOG.md
+          - Kaizen backlog: docs/lean-six-sigma/KAIZEN_BACKLOG.md
+          - Control plan: docs/lean-six-sigma/CONTROL_PLAN.md
+      - Workspace digest: docs/workspace/DIGEST.md
+  - Team:
+      - docs/team/README.md
+      - Roles (RACI): docs/team/RACI.md
+      - Leticia Aderhold: docs/team/leticia-aderhold.md
+      - Jerad Dunne: docs/team/jerad-dunne.md
+      - Allie Hodges: docs/team/allie-hodges.md
+      - Hina Kramer: docs/team/hina-kramer.md
+      - Reflections: docs/reflections/README.md

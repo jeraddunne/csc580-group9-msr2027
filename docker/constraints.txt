@@ -1,0 +1,44 @@
+# Exact versions for the documented container (Dockerfile, issue #71).
+# The analysis packages match results/ANALYSIS_MANIFEST.json ("versions"), the environment that
+# produced the committed results; the rest are what that environment resolved to on 2026-09-30.
+# Update this file whenever the committed results are regenerated with newer packages.
+
+# Analysis (recorded in ANALYSIS_MANIFEST.json)
+pandas==3.0.5
+numpy==2.5.3
+scipy==1.18.1
+statsmodels==0.15.0
+matplotlib==3.11.2
+PyYAML==6.0.3
+
+# Other runtime dependencies from pyproject.toml
+pyarrow==25.0.1
+duckdb==1.5.5
+requests==2.34.2
+pypdf==6.19.0
+
+# Resolved dependencies of the above
+certifi==2026.7.22
+charset-normalizer==3.5.1
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.65.0
+idna==3.19
+kiwisolver==1.5.1
+packaging==26.3
+patsy==1.0.3
+pillow==12.3.0
+pyparsing==3.3.2
+python-dateutil==2.9.0.post0
+six==1.17.0
+tzdata==2026.4
+urllib3==2.7.0
+
+# Tests and lint (the "dev" extra without the notebook tools, which no test needs)
+pytest==9.1.1
+pytest-cov==7.1.0
+coverage==7.16.1
+iniconfig==2.3.0
+pluggy==1.6.0
+Pygments==2.21.0
+ruff==0.16.7

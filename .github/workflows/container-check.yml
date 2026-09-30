@@ -1,0 +1,47 @@
+name: Container check
+
+# Builds the documented container (Dockerfile) on a fresh GitHub runner and runs docker/check.sh:
+# sample download, lint and tests, the analysis compared with the committed results, and the
+# spec checks. Manual only, because each run downloads the GitSkills sample (about 83 MB).
+# Actions > Container check > Run workflow. Issue #71, docs/REPRODUCE.md.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Build the documented container
+        run: docker build --build-arg GIT_COMMIT="${GITHUB_SHA::7}" -t group9-p01 .
+
+      - name: Run the clean-environment check
+        run: |
+          mkdir -p out
+          docker run --name check -v group9-data:/app/data/samples group9-p01 2>&1 | tee out/check.log
+          status=${PIPESTATUS[0]}
+          docker cp check:/app/build/fresh_run/REPORT.md out/REPORT.md || true
+          docker rm check >/dev/null
+          {
+            echo "## Container check"
+            echo
+            sed -n '/^==> Summary/,$p' out/check.log | tail -n +2 | sed 's/^/    /'
+            echo
+            cat out/REPORT.md 2>/dev/null || echo "No fresh-run report was written."
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Keep the log and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: container-check
+          path: out/
+          retention-days: 30

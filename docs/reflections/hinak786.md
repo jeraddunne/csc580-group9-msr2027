@@ -14,6 +14,8 @@ Related to [issue #39](https://github.com/jeraddunne/csc580-group9-msr2027/issue
 | Finalization (Nov 30–Dec 4) | Period not started | Update after participation |
 
 ## 2. Contribution summary
+| Reproduction and testing | Used the documented Windows workflow with ChatGPT guidance to reproduce all 14 result files. Ran the local test suite: 166 passed, with 96% code coverage. | [PR #79](https://github.com/jeraddunne/csc580-group9-msr2027/pull/79) | 1 |
+| Peer review | Submitted a comment review suggesting clearer PowerShell activation instructions and an explicit repository-root starting point. | [My review of PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76#pullrequestreview-5383465039) | 1 |
 
 | Area | What I did | Evidence | Sprint |
 |---|---|---|---|

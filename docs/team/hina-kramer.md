@@ -6,11 +6,10 @@
 | GitHub | @hinak786 |
 | Pronouns (optional) |she/Hers |
 | Time zone | Eastern, Michigan
-| Hours per week for this project | |
-| Best meeting times | |
-| Days that never work | |
-| Known absences | |
-
+| Hours per week for this project | [5] |
+| Best meeting times | [Wed, Thurs after 5:30PM] |
+| Days that never work | [None] |
+| Known absences | [None] |
 ## Strengths I bring
 
 - Clinical research coordination, careful documentation, and attention to data quality.

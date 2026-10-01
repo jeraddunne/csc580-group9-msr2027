@@ -27,6 +27,7 @@
 - Apply Scrum and Lean Six Sigma methods to team research.
 
 ## Role preferences
+Developer / Researcher; open to the agreed team role rotation.
 
 | Sprint | Preference |
 |---|---|

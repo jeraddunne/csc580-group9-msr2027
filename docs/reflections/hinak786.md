@@ -14,16 +14,16 @@ Related to [issue #39](https://github.com/jeraddunne/csc580-group9-msr2027/issue
 | Finalization (Nov 30–Dec 4) | Period not started | Update after participation |
 
 ## 2. Contribution summary
-| Reproduction and testing | Used the documented Windows workflow with ChatGPT guidance to reproduce all 14 result files. Ran the local test suite: 166 passed, with 96% code coverage. | [PR #79](https://github.com/jeraddunne/csc580-group9-msr2027/pull/79) | 1 |
-| Peer review | Submitted a comment review suggesting clearer PowerShell activation instructions and an explicit repository-root starting point. | [My review of PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76#pullrequestreview-5383465039) | 1 |
 
 | Area | What I did | Evidence | Sprint |
 |---|---|---|---|
-| Process and team documentation | Updated my member profile with availability, strengths, learning goals, role preferences, and working-style notes; added my charter signature and AI-use disclosure. | [PR #77](https://github.com/jeraddunne/csc580-group9-msr2027/pull/77), related to [onboarding issue #52](https://github.com/jeraddunne/csc580-group9-msr2027/issues/52) | 1 |
+| Process and team documentation | Updated my member profile, added my charter signature, and disclosed AI assistance. | [PR #77](https://github.com/jeraddunne/csc580-group9-msr2027/pull/77) | 1 |
+| Reproduction and testing | Used the documented Windows workflow with ChatGPT guidance to reproduce all 14 result files. Ran the local test suite: 166 passed, with 96% code coverage. | [PR #79](https://github.com/jeraddunne/csc580-group9-msr2027/pull/79) | 1 |
+| Peer review | Submitted a comment review suggesting clearer PowerShell activation instructions and an explicit repository-root starting point. | [My review of PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76#pullrequestreview-5383465039) | 1 |
 
 At the time of this update, PR #77 was awaiting teammate approval and merge.
 
-Additional technical, research, review, and presentation contributions will be recorded with evidence links. Submitted peer-review evidence still needs to be added.
+Additional contributions will be recorded with evidence links.
 
 Approximate hours: not yet compiled from stand-up files. No total is claimed in this draft.
 

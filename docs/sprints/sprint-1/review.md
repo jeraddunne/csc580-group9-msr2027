@@ -55,8 +55,7 @@ The Sprint 1 review must include:
 ## Gemba walk: fresh-clone reproduction record
 
 Done by a member who did not write the README, from a fresh clone in a clean environment, following only the README.
-<img width="2139" height="1477" alt="image" src="https://github.com/user-attachments/assets/e7939f11-84ff-45e5-a6d9-b7165fd47374" />
-
+This run used the documented Windows workflow with ChatGPT guidance for setup and interpreting the report. An unaided README-only walkthrough was not verified.
 | Field | Value |
 |---|---|
 | Who and environment | Hina Kramer; Windows-11-10.0.26200-SP0, Python 3.14.8 |

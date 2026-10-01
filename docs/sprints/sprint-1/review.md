@@ -55,16 +55,16 @@ The Sprint 1 review must include:
 ## Gemba walk: fresh-clone reproduction record
 
 Done by a member who did not write the README, from a fresh clone in a clean environment, following only the README.
-
+This run used the documented Windows workflow with ChatGPT guidance for setup and interpreting the report. An unaided README-only walkthrough was not verified.
 | Field | Value |
 |---|---|
-| Who and environment | |
-| Date | |
-| Commit SHA | |
-| Steps followed (from README) | |
-| Time to first result (minutes) | |
-| Result matched committed output (row count, checksum) | yes / no |
-| Problems found (open issues) | |
+| Who and environment | Hina Kramer; Windows-11-10.0.26200-SP0, Python 3.14.8 |
+| Date | 2026-10-01 15:40 |
+| Commit SHA | 4cfa6108aeee |
+| Steps followed | windows/1-set-up.bat, then windows/2-run-pipeline.bat; docs/NO_GIT_GUIDE.md recipe 7 |
+| Time to first result (minutes) | 2.6 for the analysis; setup time not recorded separately |
+| Result matched committed output (row count, checksum) | Yes: 14 of 14 files identical after normalizing line endings. Main population: 12,965; skills with a high-risk signal: 1,159. Both counts match the committed results. |
+| Problems found (open issues) | Initial PowerShell command-entry errors were resolved with guided instructions. No analysis or comparison errors were reported. |
 
 ## Instructor feedback
 

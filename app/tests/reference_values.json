@@ -1,0 +1,279 @@
+{
+ "wilson": [
+  {
+   "k": 1159,
+   "n": 12965,
+   "ci": [
+    0.08460422810061659,
+    0.0944280675900293
+   ]
+  },
+  {
+   "k": 0,
+   "n": 10,
+   "ci": [
+    0.0,
+    0.2775327998628892
+   ]
+  },
+  {
+   "k": 10,
+   "n": 10,
+   "ci": [
+    0.7224672001371107,
+    0.9999999999999999
+   ]
+  },
+  {
+   "k": 3,
+   "n": 7,
+   "ci": [
+    0.15821985525146975,
+    0.7495416354723428
+   ]
+  },
+  {
+   "k": 511,
+   "n": 12965,
+   "ci": [
+    0.036198652281944424,
+    0.04290181803207681
+   ]
+  }
+ ],
+ "mann_whitney": {
+  "group": [
+   1,
+   1,
+   2,
+   5,
+   9,
+   12
+  ],
+  "reference": [
+   1,
+   1,
+   1,
+   2,
+   3
+  ],
+  "u": 21.5,
+  "p": 0.24940506538938156,
+  "rank_biserial": 0.43333333333333335
+ },
+ "mann_whitney_no_ties": {
+  "group": [
+   3,
+   8,
+   9,
+   14,
+   20,
+   25,
+   31
+  ],
+  "reference": [
+   1,
+   2,
+   4,
+   6,
+   7,
+   10
+  ],
+  "u": 36.0,
+  "p": 0.03831876314941356
+ },
+ "holm": {
+  "p": [
+   0.01,
+   0.04,
+   0.03,
+   0.2,
+   null
+  ],
+  "adjusted": [
+   0.04,
+   0.09,
+   0.09,
+   0.2,
+   null
+  ]
+ },
+ "kappa": {
+  "a": [
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no"
+  ],
+  "b": [
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "no",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes",
+   "yes"
+  ],
+  "kappa": 0.3999999999999999,
+  "agreement": 0.7
+ },
+ "kappa3": {
+  "a": [
+   "RISKY",
+   "RISKY",
+   "BENIGN_CONTEXT",
+   "NOT_PRESENT",
+   "RISKY",
+   "BENIGN_CONTEXT",
+   "BENIGN_CONTEXT",
+   "RISKY"
+  ],
+  "b": [
+   "RISKY",
+   "BENIGN_CONTEXT",
+   "BENIGN_CONTEXT",
+   "NOT_PRESENT",
+   "RISKY",
+   "RISKY",
+   "BENIGN_CONTEXT",
+   "RISKY"
+  ],
+  "kappa": 0.5789473684210527
+ },
+ "precision": {
+  "risky": 12,
+  "benign": 5,
+  "not_present": 3,
+  "row": {
+   "n": 20,
+   "risky": 12,
+   "benign_context": 5,
+   "not_present": 3,
+   "strict_precision": 0.6,
+   "strict_ci_low": 0.3865779423152061,
+   "strict_ci_high": 0.7811960325858074,
+   "capability_precision": 0.85,
+   "capability_ci_low": 0.6395767041130426,
+   "capability_ci_high": 0.9476322080405041
+  }
+ },
+ "jaccard": [
+  {
+   "a": "Run the install script to set up the tool. Then open the config file and add your project name before you start the server.",
+   "b": "Run the install script to set up the tool. Then open the config file and add your team name before you start the local server.",
+   "similarity": 0.5185185185185185,
+   "shingles_a": 20
+  },
+  {
+   "a": "Run the install script to set up the tool. Then open the config file and add your project name before you start the server.",
+   "b": "Run the install script to set up the tool. Then open the config file and add your project name before you start the server.",
+   "similarity": 1.0,
+   "shingles_a": 20
+  },
+  {
+   "a": "Short text",
+   "b": "short TEXT!",
+   "similarity": 1.0,
+   "shingles_a": 1
+  },
+  {
+   "a": "",
+   "b": "Run the install script to set up the tool. Then open the config file and add your project name before you start the server.",
+   "similarity": 0.0,
+   "shingles_a": 0
+  }
+ ],
+ "irr": {
+  "coef": 0.34438930675802715,
+  "irr": 1.411127890210557
+ }
+}

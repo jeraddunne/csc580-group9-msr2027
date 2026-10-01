@@ -38,8 +38,12 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 
 ## New member? Start here
 
+**Start with the [Group 9 Project Guide](https://jeraddunne.github.io/csc580-group9-msr2027/app/)**: an app that explains the project in plain words with worked examples, shows each sprint's deliverables and your tasks, and turns forms into issues, comments, and pull requests under your own name. It has a practice mode where nothing is saved ([app/README.md](app/README.md)).
+
+Never used git? Everything below can be done in the browser: follow [docs/NO_GIT_GUIDE.md](docs/NO_GIT_GUIDE.md), read the documents on the [project website](https://jeraddunne.github.io/csc580-group9-msr2027/), and find your tasks under [issues assigned to you](https://github.com/jeraddunne/csc580-group9-msr2027/issues?q=is%3Aopen+assignee%3A%40me). Windows users can run the project by double-clicking the files in [windows/](windows/README.md).
+
 1. Accept the repository invitation: https://github.com/jeraddunne/csc580-group9-msr2027/invitations
-2. Read `docs/GETTING_STARTED.md` and follow the onboarding path (setup, onboarding issue, first pull request).
+2. Read `docs/GETTING_STARTED.md` and follow the onboarding path (setup, onboarding issue, first pull request), or the browser-only recipes in `docs/NO_GIT_GUIDE.md`.
 3. Sign `TEAM_CHARTER.md` section 14 and add your profile under `docs/team/` in that first pull request; another member reviews it.
 4. If you are a second rater for validation, follow `docs/validation/README.md`.
 5. Bookmark the team workspace, `docs/workspace/README.md`: sign up for work, log findings, and see what the team decided.
@@ -55,18 +59,22 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 
 ## Setup
 
-Requirements: Git, Python 3.11 or newer, and the GitHub CLI (`gh`) for the process scripts. `make` is optional.
+Requirements: Git, Python 3.11 or newer (on Debian or Ubuntu also the `python3-venv` package), and `make`. The GitHub CLI (`gh`) is needed only for the process scripts.
 
 ```bash
 git clone https://github.com/jeraddunne/csc580-group9-msr2027.git
 cd csc580-group9-msr2027
-make setup          # python -m venv .venv && pip install -e ".[dev]"
+make setup          # creates .venv with python (or python3) and installs the package; later targets use .venv
 make data           # downloads dataset samples into data/samples/ (not committed)
-make test           # ruff + pytest, runs offline
+make test           # pytest, runs offline
 make pipeline       # P-01 analysis: results/rq*_*.csv, results/sensitivity_*.csv, figures/rq*_*.png
 ```
 
-Without `make`: `./run_pipeline.sh` runs the setup, download, and test steps from Git Bash or a Linux shell.
+Other ways to run it, each tested in [docs/REPRODUCE.md](docs/REPRODUCE.md):
+
+- **A documented container**, no Python needed on the host: `docker build -t group9-p01 https://github.com/jeraddunne/csc580-group9-msr2027.git#main`, then `docker run --rm -v group9-data:/app/data/samples group9-p01`. It runs the tests and the analysis and compares the results with the committed ones.
+- **Without `make`:** `./run_pipeline.sh` runs the setup, download, and test steps from Git Bash or a Linux shell.
+- **Windows without git or a terminal:** the double-click files in [windows/](windows/README.md).
 
 ## Dataset acquisition
 

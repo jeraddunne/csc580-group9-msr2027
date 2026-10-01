@@ -4,6 +4,8 @@ Two audiences: **Group 9 members** joining the project (section 1), and **reader
 
 ## 1. Onboarding path for a new member
 
+**Not comfortable with git or a terminal?** Use [NO_GIT_GUIDE.md](NO_GIT_GUIDE.md) instead: steps 4 to 6 below can all be done in the browser, and step 3 by double-clicking the files in [windows/](../windows/README.md). Both paths count the same.
+
 Time needed: about 15 minutes of reading and 30 to 45 minutes of setup. Do these in order.
 
 ### Step 1. Accept the invitation

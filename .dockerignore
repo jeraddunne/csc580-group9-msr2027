@@ -1,0 +1,20 @@
+# Keep the build context to what a fresh clone contains.
+.git
+.venv
+venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.ruff_cache
+.coverage
+htmlcov
+*.egg-info
+build
+site
+data/samples/*
+!data/samples/.gitkeep
+data/annotations/work
+# browser-renamed label downloads, e.g. "drift_la_r1 (1).csv"
+data/annotations/* (*).csv
+report/*.pdf
+start-claude.ps1

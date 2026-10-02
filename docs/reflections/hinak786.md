@@ -18,7 +18,9 @@ Related to [issue #39](https://github.com/jeraddunne/csc580-group9-msr2027/issue
 |---|---|---|---|
 | Process and team documentation | Updated my member profile, added my charter signature, and disclosed AI assistance. | [PR #77](https://github.com/jeraddunne/csc580-group9-msr2027/pull/77) | 1 |
 | Reproduction and testing | Used the documented Windows workflow with ChatGPT guidance to reproduce all 14 result files. Ran the local test suite: 166 passed, with 96% code coverage. | [PR #79](https://github.com/jeraddunne/csc580-group9-msr2027/pull/79) | 1 |
-| Peer review | Requested clarification of conflicting meeting availability in PR #75. Suggested clearer PowerShell activation instructions and an explicit repository-root starting point in PR #76. | [PR #75](https://github.com/jeraddunne/csc580-group9-msr2027/pull/75) · [PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76) | 1 |, PR #77 was awaiting teammate approval and merge.
+| Peer review | Requested clarification of conflicting meeting availability in PR #75. Suggested clearer PowerShell activation instructions and an explicit repository-root starting point in PR #76. | [PR #75](https://github.com/jeraddunne/csc580-group9-msr2027/pull/75) · [PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76) | | 1 |
+
+At the time of this update, PR #77 was awaiting teammate approval and merge.
 
 Additional contributions will be recorded with evidence links.
 

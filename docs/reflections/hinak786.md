@@ -14,6 +14,7 @@ Related to [issue #39](https://github.com/jeraddunne/csc580-group9-msr2027/issue
 | Finalization (Nov 30–Dec 4) | Period not started | Update after participation |
 
 ## 2. Contribution summary
+| Peer review | Requested clarification of conflicting meeting availability in PR #75. Submitted a documentation review on PR #76 suggesting clearer PowerShell activation instructions and an explicit repository-root starting point. | [PR #75](https://github.com/jeraddunne/csc580-group9-msr2027/pull/75) · [PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76) | 1 |
 
 | Area | What I did | Evidence | Sprint |
 |---|---|---|---|

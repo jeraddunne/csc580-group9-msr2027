@@ -137,7 +137,7 @@ By adding your date and pull request number below, in your own pull request, you
 | Leticia Aderhold |2026-09-20 | #50|
 | Jerad Dunne | 2026-09-15 | #49 |
 | Allie Hodges | Not signed (status 2026-09-23) | none |
-| Hina Kramer | Not signed (status 2026-09-23) | none |
+| Hina Kramer | 2026-10-03 | #52 |
 
 Each member signs by adding the date and their onboarding pull request number in their own pull request.
 

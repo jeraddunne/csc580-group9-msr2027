@@ -7,8 +7,8 @@
 | Pronouns (optional) | |
 | Time zone | eastern |
 | Hours per week for this project | 10-15 |
-| Best meeting times | Monday-Thursday |
-| Days that never work | Monday-Thursday |
+| Best meeting times | Monday & Wednesday before 1:30pm or After 6:30pm|
+| Tuesday Before 6pm and Thursay anytime |
 | Known absences | |
 
 ## Strengths I bring

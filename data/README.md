@@ -58,11 +58,11 @@ in the full corpus). Any population claim must say so.
 ## Acquisition
 ### Windows setup
 
-Create and activate a virtual environment, then install the project dependencies before downloading the samples:
+Run these commands in PowerShell from the repository root to create and activate a virtual environment and install the project dependencies:
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.\.venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
 
 ```

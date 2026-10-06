@@ -54,7 +54,7 @@ The Sprint 1 review must include:
 
 ## Gemba walk: fresh-clone reproduction record
 
-Done by a member who did not write the README, from a fresh clone in a clean environment, following only the README.
+Requirement: A member who did not write the README reproduces the results from a fresh clone in a clean environment, following only the README.
 This run used the documented Windows workflow with ChatGPT guidance for setup and interpreting the report. An unaided README-only walkthrough was not verified.
 | Field | Value |
 |---|---|

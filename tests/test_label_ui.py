@@ -96,7 +96,111 @@ def test_build_html_embeds_packet_text_inertly():
     assert data["filename"] == "signals_jd_r1.csv"
     assert data["choices"]["none"] == list(v.NO_SIGNAL_LABELS)
     assert data["columns"] == v.KIND_COLUMNS["signals"]
-    assert "https://" not in page.split("<script>")[1]  # no network requests in the page script
+    # No network requests: the page's own code (the template, without the data) has no URL
+    # and no way to fetch. The data may contain URLs, such as the guideline's invented
+    # examples; they are only ever shown as text.
+    code = label_ui._TEMPLATE
+    for forbidden in (
+        "https://",
+        "http://",
+        "fetch(",
+        "XMLHttpRequest",
+        "WebSocket",
+        "sendBeacon",
+        "<link",
+        " src=",
+        "import(",
+        "innerHTML",
+        "eval(",
+    ):
+        assert forbidden not in code, forbidden
+
+
+def test_guideline_parses_into_what_the_studio_shows():
+    guide = label_ui.load_guideline()
+    assert guide and guide["version"]
+    assert len(guide["safety"]) == 4
+    signals = guide["signals"]
+    # Every label the kit accepts has the guideline's definition (order may differ).
+    assert set(signals["labels"]) == set(v.SIGNAL_LABELS)
+    assert set(signals["none"]) == set(v.NO_SIGNAL_LABELS)
+    assert set(guide["lineage"]["labels"]) == set(v.LINEAGE_LABELS)
+    assert set(guide["drift"]["labels"]) == set(v.DRIFT_LABELS)
+    for kind in ("signals", "lineage", "drift"):
+        assert guide[kind]["question"].endswith("?"), kind
+    # The decision order: questions 1 and 2 settle on NOT_PRESENT, 3 and 4 on
+    # BENIGN_CONTEXT, and 5 is "otherwise RISKY". The studio's step-through relies on this.
+    assert [d["label"] for d in signals["decision"]] == [
+        "NOT_PRESENT",
+        "NOT_PRESENT",
+        "BENIGN_CONTEXT",
+        "BENIGN_CONTEXT",
+        "RISKY",
+    ]
+    assert signals["decision"][4]["question"] == "Otherwise"
+    # Every high-risk category in the rule file has the guideline's worked examples.
+    rule_file = _kit().read_rule_file()
+    high = {r["category"] for r in rule_file["rules"] if int(r["severity"]) >= 6}
+    assert high <= set(signals["examples"]), high - set(signals["examples"])
+    for ex in signals["examples"].values():
+        assert set(v.SIGNAL_LABELS) <= set(ex)
+    assert guide["reason"].startswith("A reason states the evidence")
+    assert len(guide["times"]) == 4
+
+
+def test_parse_guideline_refuses_a_guideline_missing_a_section():
+    text = label_ui.GUIDELINE_PATH.read_text(encoding="utf-8").replace("### 2.2", "### 2.9")
+    try:
+        label_ui.parse_guideline(text)
+    except ValueError as exc:
+        assert "2.2" in str(exc)
+    else:
+        raise AssertionError("a missing section must raise")
+
+
+def test_studio_data_has_the_guide_rules_and_no_label_filled_in():
+    items = [
+        {
+            "key": "s1",
+            "packet": "- stratum: REMOTE_CODE\n",
+            "rows": [{"rule_id": "R-RCE-001", "label": "", "missed_category": "", "notes": ""}],
+        }
+    ]
+    rule_file = _kit().read_rule_file()
+    page = label_ui.build_html(
+        "signals",
+        "la",
+        1,
+        items,
+        list(rule_file["categories"]),
+        rules=rule_file["rules"],
+        category_text=rule_file["categories"],
+    )
+    data = _payload(page)
+    assert data["items"][0]["rows"][0]["label"] == "", "the studio never pre-fills a label"
+    assert data["rules"]["R-RCE-001"]["severity"] == 9
+    assert data["rules"]["R-RCE-001"]["flags"] == "gim"
+    assert data["guide"]["signals"]["decision"][0]["label"] == "NOT_PRESENT"
+    assert any("second rater" in x for x in data["independence"])
+    assert data["due"] == "2026-10-13"
+
+
+def test_round_two_gap_matches_the_validation_protocol():
+    readme = (ROOT / "docs" / "validation" / "README.md").read_text(encoding="utf-8")
+    assert "at least 14 days after round 1" in readme
+    assert label_ui.ROUND2_MIN_DAYS == {"signals": 14, "lineage": 14, "drift": 7}
+    data = _payload(label_ui.build_html("lineage", "jd", 2, [], []))
+    assert data["round2Days"] == 14
+    assert any("at least 14 days old" in x for x in data["independence"])
+
+
+def test_field_help_names_the_fields_the_packets_show():
+    kit_source = (ROOT / "scripts" / "annotation_kit.py").read_text(encoding="utf-8")
+    for name, _ in label_ui.FIELD_HELP["signals"]:
+        assert name in kit_source, name
+    for name, _ in label_ui.FIELD_HELP["pairs"]:
+        for part in name.split(" / "):
+            assert part in kit_source, part
 
 
 def test_import_labels_validates_and_protects_existing(tmp_path: Path):

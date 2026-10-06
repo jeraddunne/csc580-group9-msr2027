@@ -359,7 +359,7 @@ function Validation() {
       <li><b>Drift (18 pairs):</b> Jerad and Leticia label independently by Oct 16; kappa between them. Neither opens the other's labels until both are in (the blindness rule).</li>
       <li><b>Signals (147 items) and lineage (58 pairs):</b> Jerad labels by Oct 13 and again at least 14 days later on a 30% subset; the agreement with himself (intra-rater kappa) is reported and labelled as such.</li>
       <li><b>Scoring:</b> <code>python scripts/annotation_kit.py score</code> by Oct 27.</li></ul>
-      <p class="small">A second rater uses the labelling page: <code>windows/3-open-labelling-page.bat</code>, then <code>4-save-my-labels.bat</code>. See <a href=${LINKS.file("docs/validation/README.md")} target="_blank" rel="noopener">the validation guide</a>.</p></section>
+      <p class="small">Labelling happens in the <b>labelling studio</b>, a page on your own computer. Its briefing explains the task, the safety rules, and how to decide. Beside each item it shows the rule, the guideline's examples, and a step-through of the decision order, and it never fills in a label for you. Open it with <code>windows/3-open-labelling-page.bat</code>, and after each session save with <code>4-save-my-labels.bat</code>. See <a href=${LINKS.file("docs/validation/README.md")} target="_blank" rel="noopener">the validation guide</a>.</p></section>
     <${Where} items=${[["Precision and kappa", "src/msr_pipeline/validation.py"], ["The labelling guideline", "docs/validation/ANNOTATION_GUIDELINE.md"]]} />`;
 }
 

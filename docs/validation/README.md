@@ -76,7 +76,7 @@ python scripts/annotation_kit.py sheet --rater <id> --round 1
 python scripts/annotation_kit.py ui --rater <id> --round 1
 ```
 
-6. Open `data/annotations/work/label_signals_<id>_r1.html` in a browser and label. Work in sessions of 30 to 40 minutes.
+6. Open `data/annotations/work/label_signals_<id>_r1.html` in a browser and label. This is the labelling studio: read its briefing first (task, safety rules, independence, how to decide). Next to each item it shows the rule, the guideline's examples, and a step-through of the decision order. It never fills in a label for you. Work in sessions of 30 to 40 minutes.
 7. At the end of each session, click **Download CSV** in the page.
 8. Import the download, which validates it and saves it to `data/annotations/signals_<id>_r1.csv`:
 
@@ -112,7 +112,7 @@ A flagged skill with several high-risk rule matches has one label row per matche
 | From Thu Sep 17 | Second raters set up, read the guideline, and label round 1 | Plan the hours in each second rater's sprint capacity |
 | Fri Oct 16 (target) | Second-rater label files committed, one pull request per file | Each pull request contains only that rater's label file |
 | After each second-rater file is merged | Primary rater commits the filled file for the same kind | Never before the second rater's file for that kind |
-| Optional, from Mon Sep 21 | Round 2 intra-rater labelling | Only label an item whose round 1 label is at least 7 days old; record the date in `notes` |
+| After round 1 | Round 2 intra-rater labelling: required for signals and lineage, optional for drift (D-022) | Only label an item whose round 1 label is at least 14 days old (signals, lineage) or 7 days old (drift); record the date in `notes` |
 | By Tue Oct 27 | `score`, error analysis of rater disagreements and of NOT_PRESENT and BENIGN_CONTEXT cases, proposed rule changes | Rule changes follow the rule-file process: `status: proposed`, regression examples, pull request |
 | Wed Oct 28 | Results presented in the Sprint 2 review | Precision, recall, inter-rater kappa, lineage precision, drift distribution, FMEA ranking |
 

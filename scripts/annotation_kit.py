@@ -735,7 +735,10 @@ def cmd_ui(args: argparse.Namespace) -> int:
     except ValueError as exc:
         print(str(exc), file=sys.stderr)
         return 1
-    categories = list((read_rule_file().get("categories") or {}).keys())
+    rule_file = read_rule_file()
+    category_text = rule_file.get("categories") or {}
+    categories = list(category_text.keys())
+    guide = label_ui.load_guideline()
     ann = annotations_dir(paths)
     kinds = [args.kind] if args.kind else list(v.KINDS)
     written = 0
@@ -754,7 +757,16 @@ def cmd_ui(args: argparse.Namespace) -> int:
         page = work_dir(paths) / f"label_{kind}_{args.rater}_r{args.round}.html"
         page.parent.mkdir(parents=True, exist_ok=True)
         page.write_text(
-            label_ui.build_html(kind, args.rater, args.round, items, categories),
+            label_ui.build_html(
+                kind,
+                args.rater,
+                args.round,
+                items,
+                categories,
+                rules=rule_file.get("rules"),
+                guide=guide,
+                category_text=category_text,
+            ),
             encoding="utf-8",
         )
         missing = sum(1 for i in items if i["packet"].startswith("Reading packet not found"))

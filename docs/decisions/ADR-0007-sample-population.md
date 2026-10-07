@@ -1,6 +1,6 @@
 # ADR-0007: Keep the official sample as the population for RQ1 to RQ3
 
-- **Status:** Proposed. The Product Owner chose option 1 on 2026-09-28. The record becomes Accepted when a member other than the author approves the pull request and it merges.
+- **Status:** Accepted on 2026-10-06: approved by Leticia Aderhold and merged in #68. The Product Owner chose option 1 on 2026-09-28.
 - **Date:** 2026-09-28
 - **Deciders:** Jerad Dunne (Product Owner); review by Leticia Aderhold, with comments from Hina Kramer
 - **Decision issue:** #67 (Sprint 1 planning item S1-13)
@@ -78,6 +78,7 @@ Reasons:
   - `docs/workspace/FINDINGS_LOG.md`: mark F-006 re-checked on 2026-09-28, and add the measurements above as a finding.
   - Report: the future work below goes into "Conclusion and future work", and the RQ3 limitation into Threats to validity (#31, #32).
   - Sprint 1 retrospective: record this as a scope decision.
+- **Follow-up status (2026-10-07):** the decision log, FMEA, research specification, and findings log are updated (Refs #67). The report items stay with #31 and #32 in Sprint 3. The Sprint 1 retrospective draft (#87) records the scope decision.
 
 ## Future work: what a full-dataset study would need
 

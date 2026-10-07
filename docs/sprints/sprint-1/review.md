@@ -27,11 +27,11 @@ The Sprint 1 review must include:
 
 | Criterion | Pass / Fail | Evidence link | Notes |
 |---|---|---|---|
-| The question is answerable with the selected data | | | |
-| The data path is documented | | | |
-| The pipeline runs on an approved sample | | | |
-| At least one result is generated | | | |
-| The group has identified the primary risks and threats to validity | | | |
+| The question is answerable with the selected data | Pass | [Research question](../../../RESEARCH_QUESTION.md), [Data dictionary](../../../DATA_DICTIONARY.md), [Sample documentation](../../../data/README.md) | GitSkills provides skill text, content hashes, repository identifiers, and available commit dates for prevalence, reach, and variant comparisons. Drift is limited to descriptive case studies because dated pairs are sparse. Risk signals require human validation. |
+| The data path is documented | Pass | [Data acquisition instructions](../../../data/README.md), [Data dictionary](../../../DATA_DICTIONARY.md) | The documentation identifies the official sample, download commands, manual fallback, and destination under data/samples/. It explains that the acquisition script verifies the database and writes MANIFEST.json. |
+| The pipeline runs on an approved sample | Pass | [Sample approval — PR #68](https://github.com/jeraddunne/csc580-group9-msr2027/pull/68), [Reproduction record](#gemba-walk-fresh-clone-reproduction-record) | Merged PR #68 approves the official GitSkills sample for RQ1–RQ3. Hina’s Windows run reproduced 14 of 14 output files after normalizing line endings, with ChatGPT guidance. An unaided README-only walkthrough was not verified. |
+| At least one result is generated | Pass | [Population flow output](../../../results/population_flow.csv) | The generated CSV contains six data rows documenting sample filtering. The main population contains 12,965 distinct contents and 29,679 occurrences. |
+| The group has identified the primary risks and threats to validity | Pass | [Threats to validity](../../../THREATS_TO_VALIDITY.md), [FMEA risk register](../../lean-six-sigma/FMEA_RISK_REGISTER.md) | P-01 threats include keyword false positives, template inheritance, popularity confounding, sparse history, and rater bias. Mitigation plans and statuses are documented. The FMEA register includes risk scores, mitigation actions, and owner roles; some mitigations remain planned. |
 
 ## Team status
 

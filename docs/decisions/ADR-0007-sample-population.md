@@ -2,7 +2,7 @@
 
 - **Status:** Proposed. The Product Owner chose option 1 on 2026-09-28. The record becomes Accepted when a member other than the author approves the pull request and it merges.
 - **Date:** 2026-09-28
-- **Deciders:** Jerad Dunne (Product Owner); review by Leticia Aderhold
+- **Deciders:** Jerad Dunne (Product Owner); review by Leticia Aderhold, with comments from Hina Kramer
 - **Decision issue:** #67 (Sprint 1 planning item S1-13)
 - **Affects research question / method / scope:** yes (scope). The research question and population stay as they are; the full-dataset extension that P-01 left open is dropped for the course. Record it in the Sprint 1 retrospective.
 
@@ -54,7 +54,7 @@ The text does not fit in memory, so `analysis.run_analysis` cannot run unchanged
    - Pros: estimates describe the population instead of a 0.69% slice; RQ3 gains enough dated pairs to consider a test of direction.
    - Cons: a new streamed build, a 13.43 GB download, a run measured in hours, and a changed research question that needs the instructor's approval again.
 
-How the decision was reached, all on 2026-09-28: the first draft of this record recommended option 1; the Product Owner first chose option 4, then chose option 1 for the course and kept option 4 as future work (see below).
+How the decision was reached, all on 2026-09-28: the first draft of this record recommended option 1; the Product Owner first chose option 4, then chose option 1 for the course and kept option 4 as future work (see below). Revised on 2026-10-06 after review: the future-work section now separates what the signal and pair validation would carry over (Leticia Aderhold), and Consequences records the template sensitivity of RQ3 (Hina Kramer).
 
 ## Decision
 
@@ -70,6 +70,7 @@ Reasons:
 
 - **Positive:** the population, the research question, and the pipeline stay as approved; the pipeline stays reproducible on a laptop in under 15 minutes; risk R01 is closed by decision rather than by vigilance.
 - **Negative / risks:** RQ3 claims no drift rate and no direction. The report says so in Results and in Threats to validity (P5, E2), with the sample fraction and the pair extrapolation above.
+- **RQ3 is sensitive to template families.** At threshold 0.5 (`results/rq3_summary.csv`), excluding template families halves the differing pairs from 18 to 9 (families with a difference: 6 to 5), and the only dated pair in which the newer variant adds a high-risk category disappears: 1 of 10 ordered pairs becomes 0 of 9. One template therefore carries both the largest share of the differences and the only directional observation, which is a further reason to keep RQ3 descriptive and to report it with and without template families.
 - **Follow-up on acceptance:**
   - `docs/workspace/DECISION_LOG.md`: set D-023 to Agreed with the date.
   - `docs/lean-six-sigma/FMEA_RISK_REGISTER.md` R01: status "Closed by ADR-0007".
@@ -82,7 +83,7 @@ Reasons:
 
 The report outline asks what a larger study should do next. This is the plan, kept here so the measurements are not lost.
 
-**The validation would carry over.** Because the sample is a hash-uniform subset of the population, an item drawn from it is a random draw from the population. The validation samples (147 signal items, 58 lineage pairs, 18 drift pairs) would therefore still estimate precision and agreement for the full release, as long as the rules and the pair definition stay unchanged.
+**What the validation would and would not carry over.** The signal validation would carry over: the sample is a hash-uniform subset of the population, and each of the 147 signal items is drawn at random within its stratum, so the per-rule and per-category precision and the miss rate would still estimate the full release as long as the rules stay unchanged. The pair validation is not established to carry over in the same way. A pair is in the sample only when both of its variants are (roughly f², about 0.005% of population pairs); pairs that share a variant are not independent draws; the sample splits variant families (`elicitation/google-notebook-interview.md`); and the 18 drift pairs are every pair whose high-risk categories differ at threshold 0.5, not a random draw of pairs. The 58 lineage pairs and 18 drift pairs may therefore inform a full-dataset study, for example as worked examples and a first estimate of lineage precision, but whether their precision and agreement apply to the full release would need to be reassessed, ideally on pairs sampled from the full release, before any full-release claim about lineage or drift.
 
 **Build steps.**
 

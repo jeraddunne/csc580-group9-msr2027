@@ -257,7 +257,7 @@ Categories follow the assignment: research (RR), data (DR), functional (FR), non
 | Acceptance test | `runtime_seconds` in `ANALYSIS_MANIFEST.json` is under 900 (`make verify-spec` NFR-04); a full-dataset pass has a merged ADR (Sprint 1 item S1-13). |
 | Owner | Jerad Dunne |
 | Status | Implemented for the sample |
-| Trace | `analysis.run_analysis`; S1-13 |
+| Trace | `analysis.run_analysis`; S1-13; ADR-0007 (#68, sample only for RQ1 to RQ3) |
 
 ### NFR-05 Change control of this specification
 
@@ -427,3 +427,4 @@ The latest `make verify-spec` result per requirement is in `results/spec_verific
 | 2026-09-23 | DR-04 implemented; its acceptance test also requires the unrecovered-content count, the script totals without truncated listings, and the population step, which the requirement already asked for. Status Planned to Implemented | #58 | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | VR-01 to VR-03: no teammate claimed lineage or signals, so those kinds use intra-rater agreement from a round 2 at least 14 days later; drift keeps inter-rater kappa with `la`. VR-02 renamed from "Independent second rater" | D-022 (#63), #53 | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | RR-03 implemented: ordered pairs split by location (both canonical, one, neither); the acceptance test names the three columns and requires them to sum to `ordered_pairs`. Status In progress to Implemented | #59 | Jerad Dunne, drafted with Claude Code |
+| 2026-10-07 | NFR-04 trace: added ADR-0007, the accepted decision that RQ1 to RQ3 use the official sample only, so no full-dataset pass is in scope. Requirement, acceptance test, and status unchanged | #67, #68 | Jerad Dunne, drafted with Claude Code |

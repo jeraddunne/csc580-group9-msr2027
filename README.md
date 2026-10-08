@@ -92,7 +92,8 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | `python -m msr_pipeline risk-pilot` | Original P-01 pilot scan of the GitSkills sample (static text only) |
 | `python scripts/annotation_kit.py sheet --rater <id> --round 1` | Builds your label sheets and reading packets |
 | `python scripts/annotation_kit.py ui --rater <id> --round 1` | Writes local labelling pages to `data/annotations/work/` |
-| `python scripts/annotation_kit.py import <downloaded.csv>` | Validates and saves labels downloaded from a labelling page |
+| `python scripts/annotation_kit.py xlsx --rater <id> --round 1` | Writes the Excel labelling workbook to `data/annotations/work/` |
+| `python scripts/annotation_kit.py import <downloaded.csv>` | Validates and saves labels from a labelling page (or the workbook, or a work log) |
 | `python scripts/annotation_kit.py score` | Scores labels: precision per rule, recall estimate, Cohen's kappa |
 | `python -m msr_pipeline explore --dataset all` | Regenerates exploratory tables and figures |
 | `python -m msr_pipeline query --dataset gitskills --sql "..."` | Ad-hoc read-only SQL against the GitSkills sample |

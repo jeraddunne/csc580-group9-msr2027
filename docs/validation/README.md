@@ -1,6 +1,6 @@
 # Validation of the P-01 scanner
 
-How to use: this page explains how the risk-signal scanner, the variant linking, and the drift classification are checked against human judgement. It lists the raters, the commands, the schedule, and where the numbers end up. The labelling rules are in [ANNOTATION_GUIDELINE.md](ANNOTATION_GUIDELINE.md).
+How to use: this page explains how the risk-signal scanner, the variant linking, and the drift classification are checked against human judgement. It lists the raters, the commands, the schedule, and where the numbers end up. The labelling rules are in [ANNOTATION_GUIDELINE.md](ANNOTATION_GUIDELINE.md); the step-by-step routine for a labelling session, offline work, and the Excel workbook is in [LABELLING_WORKFLOW.md](LABELLING_WORKFLOW.md).
 
 ## What is being validated
 
@@ -47,7 +47,9 @@ python scripts/annotation_kit.py sample
 #    Label CSVs go to data/annotations/; packets go to data/annotations/work/ (gitignored).
 python scripts/annotation_kit.py sheet --rater jd --round 1
 python scripts/annotation_kit.py ui --rater jd --round 1       # open data/annotations/work/label_signals_jd_r1.html
+python scripts/annotation_kit.py xlsx --rater jd --round 1     # or label in data/annotations/work/labelling_jd_r1.xlsx
 python scripts/annotation_kit.py import ~/Downloads/signals_jd_r1.csv   # after each session; do not commit yet
+python scripts/annotation_kit.py import data/annotations/work/labelling_jd_r1.xlsx   # the workbook, same checks
 
 # 3. Check progress at any time.
 python scripts/annotation_kit.py status

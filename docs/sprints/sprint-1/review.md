@@ -37,10 +37,10 @@ The Sprint 1 review must include:
 
 | Item | Value |
 |---|---|
-| Charter signatures (section 14) | ___ of 4 |
-| Members who authored a merged PR | ___ of 4 |
-| Members who approved another member's PR | ___ of 4 |
-| Second raters ready for Sprint 2 validation | signals ___ / lineage ___ / drift ___ |
+| Charter signatures (section 14) | 3 of 4 |
+| Members who authored a merged PR | 3 of 4 |
+| Members who approved another member's PR | 2 of 4 |
+| Second raters ready for Sprint 2 validation | Signals: none assigned; lineage: none assigned; drift: Leticia (la), issue #53; per D-022. |
 
 ## Demo script (10 minutes)
 

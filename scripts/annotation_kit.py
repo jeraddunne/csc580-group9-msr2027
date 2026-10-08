@@ -5,7 +5,9 @@ Usage:
     python scripts/annotation_kit.py sample                     # stratified ID lists (committed)
     python scripts/annotation_kit.py sheet --rater jd --round 1  # label CSVs + reading packets
     python scripts/annotation_kit.py ui --rater jd --round 1     # local HTML labelling pages
+    python scripts/annotation_kit.py xlsx --rater jd --round 1   # Excel labelling workbook
     python scripts/annotation_kit.py import <downloaded.csv>    # validate and save labels
+                                                                # (also a workbook or work log)
     python scripts/annotation_kit.py status                     # progress + reason coverage
     python scripts/annotation_kit.py score                      # precision, recall, agreement, FMEA
     python scripts/annotation_kit.py proposals                  # rule changes from false positives
@@ -22,6 +24,7 @@ import difflib
 import hashlib
 import json
 import math
+import os
 import re
 import sys
 from datetime import UTC, datetime
@@ -33,7 +36,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
-from msr_pipeline import label_ui  # noqa: E402
+from msr_pipeline import label_ui, label_xlsx  # noqa: E402
 from msr_pipeline import validation as v  # noqa: E402
 from msr_pipeline.config import Paths, get_paths, gitskills_db_path, repo_root  # noqa: E402
 from msr_pipeline.load import DatasetNotFoundError, query_gitskills  # noqa: E402
@@ -740,6 +743,8 @@ def cmd_ui(args: argparse.Namespace) -> int:
     categories = list(category_text.keys())
     guide = label_ui.load_guideline()
     ann = annotations_dir(paths)
+    manifest = samples_dir(paths) / "SAMPLE_MANIFEST.json"
+    sample_info = json.loads(manifest.read_text(encoding="utf-8")) if manifest.exists() else {}
     kinds = [args.kind] if args.kind else list(v.KINDS)
     written = 0
     for kind in kinds:
@@ -766,6 +771,7 @@ def cmd_ui(args: argparse.Namespace) -> int:
                 rules=rule_file.get("rules"),
                 guide=guide,
                 category_text=category_text,
+                sample_info=sample_info,
             ),
             encoding="utf-8",
         )
@@ -776,8 +782,150 @@ def cmd_ui(args: argparse.Namespace) -> int:
     return 0 if written else 1
 
 
+def _unimported(path: Path, ann: Path) -> list[str]:
+    """Kinds whose labels or notes in an existing workbook differ from the saved label files."""
+    current = label_xlsx.read_workbook(path)
+    pending = []
+    for kind, df in current["labels"].items():
+        saved_path = ann / v.label_filename(kind, current["rater"], current["round"])
+        saved = (
+            v.read_label_csv(saved_path)
+            if saved_path.exists()
+            else pd.DataFrame(columns=v.KIND_COLUMNS[kind])
+        )
+        keys, col = v.KIND_KEYS[kind], v.KIND_LABEL_COLUMN[kind]
+        merged = df.merge(saved, on=keys, how="left", suffixes=("", "_saved")).fillna("")
+        filled = merged[col].str.strip() != ""
+        differs = (merged[col].str.strip() != merged[f"{col}_saved"].str.strip()) | (
+            merged["notes"].str.strip() != merged["notes_saved"].str.strip()
+        )
+        if (filled & differs).any():
+            pending.append(f"{kind} {int((filled & differs).sum())}")
+    return pending
+
+
+def cmd_xlsx(args: argparse.Namespace) -> int:
+    """Write the Excel labelling workbook from the rater's own label files (gitignored)."""
+    paths = get_paths()
+    try:
+        name = label_xlsx.workbook_filename(args.rater, args.round)
+    except ValueError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    ann, work = annotations_dir(paths), work_dir(paths)
+    out = Path(args.out) if args.out else work / name
+    if out.exists():
+        if not args.force:
+            print(
+                f"{out} already exists, and rebuilding it replaces it. Import it first "
+                f"(annotation_kit.py import {out}), then rebuild with --force.",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            pending = _unimported(out, ann)
+        except (ValueError, RuntimeError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 1
+        if pending:
+            print(
+                f"{out} has labels or notes that are not imported yet ({'; '.join(pending)} rows). "
+                f"Import it first: annotation_kit.py import {out}",
+                file=sys.stderr,
+            )
+            return 1
+    rule_file = read_rule_file()
+    manifest = samples_dir(paths) / "SAMPLE_MANIFEST.json"
+    sample_info = json.loads(manifest.read_text(encoding="utf-8")) if manifest.exists() else {}
+    kinds: dict[str, dict] = {}
+    for kind in [args.kind] if args.kind else list(v.KINDS):
+        label_path = ann / v.label_filename(kind, args.rater, args.round)
+        if not label_path.exists():
+            print(
+                f"{label_path} not found; run `annotation_kit.py sheet --rater {args.rater} "
+                f"--round {args.round}` first",
+                file=sys.stderr,
+            )
+            continue
+        packet_dir = work / f"{kind}_{args.rater}_r{args.round}"
+        try:
+            rel = Path(os.path.relpath(packet_dir, out.resolve().parent)).as_posix()
+        except ValueError:  # another drive: link with the full path
+            rel = packet_dir.resolve().as_posix()
+        worklog = work / label_ui.worklog_filename(kind, args.rater, args.round)
+        kinds[kind] = {
+            "items": label_ui.build_items(
+                kind, v.read_label_csv(label_path), label_ui.read_packets(packet_dir, kind)
+            ),
+            "packet_files": label_xlsx.packet_files(packet_dir, kind),
+            "packet_dir": rel,
+            "worklog": _read_csv(worklog) if worklog.exists() else None,
+        }
+    if not kinds:
+        return 1
+    try:
+        counts = label_xlsx.build_workbook(
+            out,
+            args.rater,
+            args.round,
+            kinds,
+            label_ui.load_guideline(),
+            rule_file,
+            sample_info=sample_info,
+        )
+    except RuntimeError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    rows = ", ".join(f"{k} {n} rows" for k, n in counts.items())
+    print(f"wrote {out} ({rows}). It quotes dataset text: keep it out of git.")
+    return 0
+
+
+def _import_workbook(src: Path, paths: Paths, rule_ids, categories, replace: bool) -> int:
+    try:
+        book = label_xlsx.read_workbook(src)
+    except (ValueError, RuntimeError) as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    ann, work = annotations_dir(paths), work_dir(paths)
+    rater, round_ = book["rater"], book["round"]
+    status = 0
+    for kind, df in book["labels"].items():
+        col = v.KIND_LABEL_COLUMN[kind]
+        if not (df[col].str.strip() != "").any():
+            print(f"{kind}: no labels in the workbook yet; nothing imported")
+            continue
+        target, problems, labelled = label_ui.save_label_frame(
+            df,
+            kind,
+            rater,
+            round_,
+            ann,
+            rule_ids,
+            categories,
+            replace=replace,
+            source=f"{src.name} ({label_xlsx.SHEET[kind]} sheet)",
+        )
+        if problems:
+            for problem in problems:
+                print(problem, file=sys.stderr)
+            status = 1
+            continue
+        print(f"imported {labelled} labelled rows into {target}")
+        log = book["worklog"][kind]
+        used = ["first_labelled_at", "confidence", "reason_type", "active_seconds"]
+        if (log[used].apply(lambda c: c.str.strip() != "")).any().any():
+            existing = work / label_ui.worklog_filename(kind, rater, round_)
+            old = _read_csv(existing) if existing.exists() else None
+            saved = label_ui.save_worklog(
+                label_xlsx.merge_worklog(log, old), kind, rater, round_, work
+            )
+            print(f"saved the work log to {saved}")
+    return status
+
+
 def cmd_import(args: argparse.Namespace) -> int:
-    """Validate a label CSV downloaded from the labelling page and save it."""
+    """Validate labels from the labelling page (CSV) or the workbook (xlsx) and save them."""
     paths = get_paths()
     src = Path(args.file)
     if not src.exists():
@@ -785,6 +933,16 @@ def cmd_import(args: argparse.Namespace) -> int:
         return 1
     rules = load_rules()
     categories = list((read_rule_file().get("categories") or {}).keys())
+    if src.suffix.lower() == ".xlsx":
+        return _import_workbook(src, paths, [r.id for r in rules], categories, args.replace)
+    if label_ui.is_worklog(src):
+        target, problems, rows = label_ui.import_worklog(src, work_dir(paths))
+        for problem in problems:
+            print(problem, file=sys.stderr)
+        if problems:
+            return 1
+        print(f"saved the work log ({rows} rows) to {target}")
+        return 0
     target, problems, labelled = label_ui.import_labels(
         src, annotations_dir(paths), [r.id for r in rules], categories, replace=args.replace
     )
@@ -833,8 +991,23 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--kind", choices=v.KINDS, default=None)
     p.set_defaults(func=cmd_ui)
 
-    p = sub.add_parser("import", help="Validate a downloaded label CSV and save it.")
-    p.add_argument("file", help="CSV downloaded from the labelling page.")
+    p = sub.add_parser("xlsx", help="Write the Excel labelling workbook (gitignored).")
+    p.add_argument("--rater", required=True, help="Short id, e.g. jd.")
+    p.add_argument("--round", type=int, default=1)
+    p.add_argument("--kind", choices=v.KINDS, default=None)
+    p.add_argument("--out", default=None, help="Write somewhere other than data/annotations/work/.")
+    p.add_argument(
+        "--force", action="store_true", help="Replace an existing workbook (after importing it)."
+    )
+    p.set_defaults(func=cmd_xlsx)
+
+    p = sub.add_parser(
+        "import", help="Validate labels (page CSV or workbook) or a work log, and save them."
+    )
+    p.add_argument(
+        "file",
+        help="CSV downloaded from the labelling page, the labelling workbook, or a work log.",
+    )
     p.add_argument("--replace", action="store_true", help="Overwrite labels that differ.")
     p.set_defaults(func=cmd_import)
 

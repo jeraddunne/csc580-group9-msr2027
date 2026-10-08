@@ -46,11 +46,11 @@ The Sprint 1 review must include:
 
 | Step | Content | Time | Presenter |
 |---|---|---|---|
-| 1 | `RESEARCH_QUESTION.md`: question, unit of analysis, variables | 2 min | |
-| 2 | `data/README.md` and `DATA_DICTIONARY.md`: snapshot used and columns | 2 min | |
-| 3 | Fresh terminal: `make pipeline` on the sample; show the generated table or figure in `results/` or `figures/` | 3 min | |
-| 4 | Board, milestones, a merged PR with its approving review, and the metrics dashboard | 2 min | |
-| 5 | Top three threats to validity and the backlog changes | 1 min | |
+| 1 | `RESEARCH_QUESTION.md`: question, unit of analysis, variables | 2 min | Jerad Dunne |
+| 2 | `data/README.md` and `DATA_DICTIONARY.md`: snapshot used and columns | 2 min | Hina Kramer |
+| 3 | Fresh terminal: `make pipeline` on the sample; show the generated table or figure in `results/` or `figures/` | 3 min | Jerad Dunne |
+| 4 | Board, milestones, a merged PR with its approving review, and the metrics dashboard | 2 min | Leticia Aderhold |
+| 5 | Top three threats to validity and the backlog changes | 1 min | Leticia Aderhold |
 
 ## Gemba walk: fresh-clone reproduction record
 

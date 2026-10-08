@@ -14,7 +14,7 @@ How to use: manual labels for validating the P-01 scanner. Create files with `py
 | `signals_<rater>_r<round>.csv` | `file_sha`, `rule_id`, `label`, `missed_category`, `notes` | yes |
 | `lineage_<rater>_r<round>.csv` | `file_sha_a`, `file_sha_b`, `same_lineage`, `notes` | yes |
 | `drift_<rater>_r<round>.csv` | `file_sha_a`, `file_sha_b`, `change_type`, `notes` | yes |
-| `work/` | Reading packets with dataset excerpts, one Markdown file per item | **no** (gitignored) |
+| `work/` | Reading packets with dataset excerpts, one Markdown file per item; the labelling pages, the labelling workbook, and work logs (`worklog_<kind>_<rater>_r<round>.csv`: time, confidence, what settled a label; never labels) | **no** (gitignored) |
 
 ## Naming
 

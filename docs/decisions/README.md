@@ -12,5 +12,6 @@ Status values: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | 0004 | Topic selection: proposal P-01 | Accepted | 2026-09-14 |
 | 0005 | Run the project as a solo project | Superseded by ADR-0006 (2026-09-15) | 2026-09-14 |
 | 0006 | Reinstate the four-person group | Accepted (members confirm at the 2026-09-16 kickoff) | 2026-09-15 |
+| 0007 | Keep the official sample as the population for RQ1 to RQ3 | Proposed | 2026-09-28 |
 
 Rubric note: the retrospective must also record changes to the research question, method, scope, or interpretation. Link the ADR from the retrospective file.

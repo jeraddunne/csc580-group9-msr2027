@@ -122,6 +122,7 @@ nav:
   - Validation:
       - docs/validation/README.md
       - Annotation guideline: docs/validation/ANNOTATION_GUIDELINE.md
+      - Labelling workflow: docs/validation/LABELLING_WORKFLOW.md
       - Label files: data/annotations/README.md
       - Rule change proposals: docs/validation/RULE_CHANGE_PROPOSALS.md
   - Sprints:

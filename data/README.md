@@ -56,7 +56,16 @@ in the full corpus). Any population claim must say so.
 - Preprint: <https://arxiv.org/abs/2608.25202>
 
 ## Acquisition
+### Windows setup
 
+Run these commands in PowerShell from the repository root to create and activate a virtual environment and install the project dependencies:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+
+```
 ### Scripted (preferred)
 
 ```bash

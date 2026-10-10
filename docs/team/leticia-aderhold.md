@@ -5,32 +5,28 @@
 |---|---|
 | GitHub | @angel06la |
 | Pronouns (optional) | |
-| Time zone | |
-| Hours per week for this project | |
-| Best meeting times | |
-| Days that never work | |
+| Time zone | eastern |
+| Hours per week for this project | 10-15 |
+| Best meeting times | Monday & Wednesday before 1:30pm or After 6:30pm|
+| Tuesday Before 6pm and Thursay anytime |
 | Known absences | |
 
 ## Strengths I bring
 
-- Programming experience with Python, C#, C++, SQL, HTML, and CSS.
-- Experience working with databases, data analysis, documentation, and software-development projects.
-- Strong problem-solving skills, attention to detail, and willingness to learn unfamiliar tools.
+- I stay on top of things any will step in to make sure deadlines are made.
 
 ## What I want to learn
 
-- How to analyze software repositories and large datasets using a reproducible Python pipeline.
-- How to identify security-related capabilities in agent skills.
-- How to collaborate effectively through GitHub branches, issues, pull requests, testing, and code reviews.
+- This whole process is a learning experience for me because I have never done anything like this.
 
 ## Role preferences
 
 | Sprint | Preference |
 |---|---|
-| Sprint 1 | | I perfer sprint 1
-| Sprint 2 | |
-| Sprint 3 | |
+| Sprint 1 | Scrum Master |
+| Sprint 2 | Product Owner |
+| Sprint 3 | Any |
 
 ## Working style notes
 
-<I prefer clear instructions, organized tasks, and constructive feedback that explains what should be changed. I am most productive when responsibilities and deadlines are clearly identified. Advance notice for meetings is helpful because I balance school, work, and personal responsibilities. I am willing to ask questions, help teammates, and learn new tools as the project progresses. I am new to working with GitHub and am learning how to do these tasks. I appologize for my learning curve. I have one more week on 1st shift working 6 - 7 day then I will go to a weekend shift that consists of Friday - Sunday 12 hour shifts. I will be spending a lot of time at that point to ensure that I am able to learn github and contribute to the group project.>
+I work best when everything is well organized and I know what I am doing and what is expected of me..

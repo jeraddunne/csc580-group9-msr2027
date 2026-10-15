@@ -1,53 +1,47 @@
-# Sprint 2 planning: implementation and validation (Analyze phase)
+## Sprint 2 planning: implementation and validation (Analyze phase)
 
-How to use: the Scrum Master fills this in during Sprint 2 planning on Thu 2026-10-08. Candidate items become GitHub issues in milestone `Sprint 2`. Use the Sprint 1 velocity as the planning ceiling. Rubric weight: 20%.
-
-Dates: Thu 2026-10-08 to Wed 2026-10-28. Review and retro: Wed 2026-10-28. Check-ins: Thu 2026-10-15, Thu 2026-10-22.
-Product Owner: Allie Hodges. Scrum Master: Hina Kramer. Developers/Researchers: all four.
+Dates: Thu 2026-10-08 to Wed 2026-10-28. Review and retrospective: Wed 2026-10-28. Check-ins: Thu 2026-10-15 and Thu 2026-10-22. Product Owner: Jerad Dunne. Scrum Master: Hina Kramer. Developers/Researchers: Leticia Aderhold, Jerad Dunne, and Hina Kramer.
 
 ## Sprint goal
 
-> Example shape: "By Oct 28 the scanner, variant linking, and reach statistics run end to end on the sample, are covered by tests, and validation reports precision and inter-rater agreement."
-
-Sprint goal:
+By October 28, the team will have the core mining and analysis pipeline running end to end on the approved sample, with automated tests, reproducible preliminary results, updated report sections, and documented validation evidence, including second-rater labels and inter-rater agreement.
 
 ## Capacity
 
 | Member | Available hours this sprint | Planned points | Notes |
-|---|---|---|---|
-| Leticia Aderhold | | | |
-| Jerad Dunne | | | |
-| Allie Hodges | | | |
-| Hina Kramer | | | |
-| Total | | | Sprint 1 velocity: ___ points |
+|---|---:|---:|---|
+| Leticia Aderhold | 8 | 3 | Preliminary-results documentation, research-report updates, Drift second-rating work, and pull-request reviews |
+| Jerad Dunne | 12 | 4 | Product Owner; core implementation, automated tests, scoring, and technical integration |
+| Hina Kramer | 6 | 2 | Scrum Master; validation protocol, coordination, retrospective, and pull-request reviews |
+| **Total** | **26** | **9** | Sprint 1 velocity: **9 points** |
 
-Include each second rater's labelling time in their hours: about 3 minutes per signal item, 2 per lineage pair, 4 per drift pair.
+Include each second rater’s labelling time in their hours: approximately 3 minutes per signal item, 2 minutes per lineage pair, and 4 minutes per drift pair.
 
-## Candidate backlog (rubric deliverables for Sprint 2)
+## Candidate backlog
 
-| # | Item (rubric deliverable) | Acceptance criteria | Estimate | Owner | Issue # |
-|---|---|---|---|---|---|
-| S2-1 | Working implementation of the core mining, extraction, similarity, classification, traceability, or visualization method | `make pipeline` runs end to end on the sample and writes to `results/` and `figures/`; design decision recorded as an ADR | | | #21 |
-| S2-2 | Automated tests for important parsing, transformation, matching, or metric functions | `pytest` covers each core function with at least one normal and one edge case; CI green on `main` | | | #22 |
-| S2-3 | Validation sample, manual annotation protocol, or other evaluation design | Protocol in `docs/validation/` with sample sizes, labels, primary rater and teammate second rater, blindness rule, inter-rater Cohen's kappa, optional intra-rater round 2; tools `python scripts/annotation_kit.py sample`, `sheet`, `ui`, `import`, `score` | | | #23 |
-| S2-4 | Preliminary results with reproducible figures or tables | Every figure or table in the report is produced by a script and named in `results/README.md` or `figures/README.md` | | | #24 |
-| S2-5 | At least one pull request reviewed by a different team member than the author | Every PR merged with an approving review from another member; link at least one review with substantive comments in the sprint review | | Every member | |
-| S2-6 | Updated research report containing the background, method, implementation, and preliminary results | Sections in `report/draft.md` written in prose with citations from `report/references.bib`; sections owned by different members | | | #25 |
-| S2-7 | Retrospective that records changes to the research question, method, scope, or interpretation | `docs/sprints/sprint-2/retrospective.md` section 8 completed | | | #26 |
-| S2-8 | Second-rater round 1 labels committed | Each second rater's label file merged by Fri 2026-10-16 in a PR containing only that file; primary-rater files for a kind committed only afterwards | | Second raters | |
-| S2-9 | Validation scored and error analysis started | `annotation_kit.py score` run by Tue 2026-10-27; precision, recall estimate, and inter-rater kappa in `results/`; disagreements listed with adjudicated readings | | | |
-| S2-10 | Lean Six Sigma: capability check of the pipeline | Pipeline runtime and output stability recorded across 3 runs on at least two machines; variance noted in the dashboard | | | |
+| # | Item | Estimate | Owner | Issue # |
+|---|---|---:|---|---|
+| S2-1 | Working implementation of the core mining, extraction, similarity, classification, traceability, or visualization method | 5 | Jerad Dunne | #21 |
+| S2-2 | Automated tests for important parsing, transformation, matching, or metric functions | 3 | Jerad Dunne | #22 |
+| S2-3 | Validation sample, manual annotation protocol, or other evaluation design | 3 | Hina Kramer | #23 |
+| S2-4 | Preliminary results with reproducible figures or tables | 2 | Leticia Aderhold | #24 |
+| S2-5 | At least one pull request reviewed by a different team member than the author | 1 each | Every remaining member | — |
+| S2-6 | Updated research report containing the background, method, implementation, and preliminary results | 3 | Leticia Aderhold | #25 |
+| S2-7 | Retrospective recording changes to the research question, method, scope, or interpretation | 2 | Hina Kramer | #26 |
+| S2-8 | Second-rater round-one labels committed | 3 | Leticia Aderhold and Hina Kramer | #53/related validation issues |
+| S2-9 | Validation scored and error analysis started | 3 | Jerad Dunne | Related validation issue |
+| S2-10 | Lean Six Sigma capability check of the pipeline | 2 | Hina Kramer | Related process-metrics issue |
 
 ## Risks pulled from the FMEA register
 
 | Risk | RPN | Mitigation this sprint | Owner |
-|---|---|---|---|
-| Method produces results that cannot be validated | | Guideline fixed before scoring; rules frozen once round 1 starts | |
-| Second-rater disagreement or primary labels seen by the second rater (R11) | 140 | Practice items, blindness rule, adjudication in error analysis, kappa reported | Product Owner |
-| Review delays block merges (R12) | 90 | 48-hour review SLA; reviewer rotation; first-review KPI read at each check-in | Scrum Master |
-| Uneven contribution (R06) | 147 | Contribution shares read at each check-in; rebalance sign-ups | Scrum Master |
-| Test coverage lags implementation | | Tests are part of the Definition of Done for every pipeline PR | |
-| Report writing left to the end | | Report sections scheduled as issues in week 1 | |
+|---|---:|---|---|
+| Method produces results that cannot be validated | Confirm from FMEA | Guideline fixed before scoring; rules frozen once round one starts | Hina Kramer |
+| Second-rater disagreement or primary labels seen by the second rater (R11) | 140 | Practice items, blindness rule, adjudication during error analysis, and kappa reported | Jerad Dunne |
+| Review delays block merges (R12) | 90 | 48-hour review SLA, reviewer rotation, and first-review KPI checked at each check-in | Hina Kramer |
+| Uneven contribution (R06) | 147 | Contribution shares checked at each check-in and work reassigned when necessary | Hina Kramer |
+| Test coverage lags implementation | Confirm from FMEA | Tests included in the Definition of Done for every pipeline PR | Jerad Dunne |
+| Report writing left to the end | Confirm from FMEA | Report sections assigned as issues and drafted before the final week | Leticia Aderhold |
 
 ## Analyze phase exit criteria (DMAIC)
 
@@ -60,7 +54,8 @@ Include each second rater's labelling time in their hours: about 3 minutes per s
 ## Planning meeting notes
 
 - Date: 2026-10-08. Facilitator: Hina Kramer.
-- Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer
-- Items pulled into the sprint (issue numbers):
-- Items explicitly deferred and why:
-- Carry-over from Sprint 1:
+- Attendees: [x] Leticia Aderhold [x] Jerad Dunne [x] Hina Kramer
+- Team change: Allie Hodges dropped the course and was removed from Sprint 2 capacity, assignments, and review rotation. Jerad Dunne assumed the Product Owner responsibilities.
+- Items pulled into the sprint: #21, #22, #23, #24, #25, and #26, plus the applicable second-rater labelling, validation-scoring, and process-capability work.
+- Items explicitly deferred and why: Work requiring more capacity than the three remaining members can provide will be prioritized according to the Sprint 2 rubric and carried forward with a documented reason.
+- Carry-over from Sprint 1: Complete any outstanding reviewed-PR, process-metrics, and sprint-documentation requirements; obtain required approvals on open pull requests.

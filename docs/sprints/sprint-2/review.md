@@ -1,66 +1,67 @@
 # Sprint 2 review: implementation and validation
 
-How to use: the Product Owner runs the review on Wed 2026-10-28. Every rubric bullet must link to evidence in this repository. Rubric weight: 20%.
+Review on Wed 2026-10-28.
+Date: 2026-10-28. Product Owner: Jerad Dunne. Scrum Master: Hina Kramer.
 
-Date: 2026-10-28. Product Owner: Allie Hodges. Scrum Master: Hina Kramer.
-Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer [ ] Instructor (if present)
+Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer [ ] Instructor
 
 ## Sprint goal check
 
-- Sprint goal (from planning):
-- Met: yes / partially / no. Explain in two sentences:
+> By 2026-10-28, the team will have the core mining and analysis pipeline running end-to-end on the approved sample, automated tests, reproducible preliminary results, updated report sections, and documented validation including second-rater labels and inter-rater agreement.
+
+Met: [ ] Yes [ ] Partly [ ] No
 
 ## Rubric review checklist (verbatim from the assignment)
 
 The Sprint 2 review must include:
 
-- [ ] A working implementation of the core mining, extraction, similarity, classification, traceability, or visualization method. Evidence:
-- [ ] Automated tests for important parsing, transformation, matching, or metric functions. Evidence:
-- [ ] A validation sample, manual annotation protocol, or other evaluation design. Evidence:
-- [ ] Preliminary results with reproducible figures or tables. Evidence:
-- [ ] At least one pull request reviewed by a different team member than the author. Evidence (link the PR and its approving review):
-- [ ] An updated research report containing the background, method, implementation, and preliminary results. Evidence:
-- [ ] A retrospective that records changes to the research question, method, scope, or interpretation. Evidence:
+- [ ] Working core implementation. Evidence: issue #21; add the merged PR and output path when complete.
+- [ ] Automated tests for the implemented method. Evidence: issue #22; add CI run and test results.
+- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md`.
+- [ ] Preliminary results with reproducible figures or tables. Evidence: issue #24; add paths under `results/` or `figures/`.
+- [ ] At least one pull request reviewed by a member other than its author. Evidence: add reviewed PR link.
+- [ ] Updated research report. Evidence: issue #25 and `report/draft.md`.
+- [ ] Sprint 2 retrospective. Evidence: issue #26 and `docs/sprints/sprint-2/retrospective.md`.
 
 ## Sprint 2 acceptance criteria (verbatim)
 
-| Criterion | Pass / Fail | Evidence link | Notes |
-|---|---|---|---|
-| The core implementation runs end to end on the approved sample | | | |
-| The method is tested | | | |
-| The group can explain why the result should be trusted or where it may fail | | | |
-| The preliminary analysis is supported by generated evidence rather than screenshots alone | | | |
+| Acceptance criterion | Status | Evidence |
+|---|---|---|
+| Core implementation runs end-to-end on the approved sample | Pending | Issue #21; add command, commit SHA, and generated output |
+| Method has automated tests | Pending | Issue #22; add test and CI results |
+| Group can explain why the method is trustworthy and where it may fail | Pending | Issue #23; validation results and threats-to-validity discussion |
+| Preliminary analysis is supported by generated evidence | Pending | Issue #24; add reproducible table and figure paths |
 
 ## Validation status
 
-| Kind | Primary rater | Second rater | Second-rater labels committed (PR #, date) | Primary labels committed after (PR #, date) | Cohen's kappa |
+| Kind | Primary rater | Second rater | Second-rater PR/date | Primary labels after PR/date | Cohen’s kappa |
 |---|---|---|---|---|---|
-| Signals | jd | | | | |
-| Lineage | jd | | | | |
-| Drift | jd | | | | |
+| Signals | `jd` | TBD — must be someone other than `jd` | Pending | Pending | Pending |
+| Lineage | `jd` | TBD — must be someone other than `jd` | Pending | Pending | Pending |
+| Drift | `jd` | Leticia (`la`) | Pending | Pending | Pending |
 
 ## Demo script (12 minutes)
 
-| Step | Content | Time | Presenter |
-|---|---|---|---|
-| 1 | Restate the question and the method in two sentences | 1 min | |
-| 2 | Fresh terminal: `make test` then `make pipeline`; show CI status | 3 min | |
-| 3 | One preliminary table and one figure, naming the script that produced each | 3 min | |
-| 4 | Validation protocol, precision per rule, and inter-rater agreement between the primary and second rater | 2 min | |
-| 5 | One PR with its cross-member review, the ADR for the main design decision, and the metrics dashboard | 2 min | |
-| 6 | Where the result may fail and what Sprint 3 will do about it | 1 min | |
+| Step | Time | Presenter |
+|---|---:|---|
+| Research question and method | 1 min | Leticia |
+| `make test`, `make pipeline`, and CI | 3 min | Jerad |
+| Preliminary table and figure | 3 min | Leticia |
+| Validation protocol, precision, and agreement | 2 min | Hina |
+| PR review, ADR, and process metrics | 2 min | Hina |
+| Known failure and Sprint 3 plan | 1 min | Jerad |
 
 ## Gemba walk: fresh-clone reproduction record
 
-| Field | Value |
+| Field | Evidence |
 |---|---|
-| Who (a member who did not write the README) and environment | |
-| Date | |
-| Commit SHA | |
-| Steps followed (from README) | |
-| Time to first result (minutes) | |
-| Result matched committed output | yes / no |
-| Problems found (open issues) | |
+| Who and environment | Leticia Aderhold; Windows 11; Python 3.12.1 |
+| Date | 2026-09-26 |
+| Commit SHA | Not recorded; capture during the review with `git rev-parse HEAD` |
+| README steps followed | `python -m venv .venv`; `.venv\Scripts\activate`; `python -m pip install -e ".[dev]"`; `python scripts\download_samples.py`; `python -m json.tool data\samples\MANIFEST.json` |
+| Time to first result | Not recorded |
+| Output matched | Dataset acquisition succeeded; full pipeline output has not yet been independently compared |
+| Problems found | A fresh clone initially failed with `ModuleNotFoundError: No module named 'requests'`. Installation with `python -m pip install -e ".[dev]"` resolved it. The missing setup instruction was documented in issue #14. |
 
 ## Instructor feedback
 
@@ -83,8 +84,8 @@ The Sprint 2 review must include:
 | Contribution share per member (min / max) | | |
 | Test count / coverage | | |
 
-## Backlog changes agreed at the review
+## Backlog changes proposed for review
 
-- Added:
-- Removed or cancelled:
-- Re-estimated:
+- Added: redistribute work previously associated with Allie and update team documentation.
+- Removed/cancelled: Allie from capacity, attendance, assignments, and review rotation because she dropped the course.
+- Re-estimated: remaining Sprint 2 work based on the three active team members.

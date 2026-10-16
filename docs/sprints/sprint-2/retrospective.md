@@ -1,10 +1,28 @@
+# Sprint 2 retrospective
+
+How to use: the Scrum Master facilitates on Wed 2026-10-28 right after the review. Data first, then discussion, then root cause, then actions. Every agreed action becomes a `kaizen` issue and a row in `docs/lean-six-sigma/KAIZEN_BACKLOG.md`. Record changes to the research question, method, scope, or interpretation.
+
+Status: Preliminary draft. Final metrics, attendance, outcomes, and decisions remain pending until the October 28 retrospective.
 Date: 2026-10-28. Facilitator: Hina Kramer. Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer
 
 > Team update: Allie Hodges dropped the course during Sprint 2. Sprint responsibilities were redistributed among the three remaining members.
 
 ## 1. Data first
 
-Complete this table on 2026-10-28 using the Sprint 2 rows from `docs/lean-six-sigma/metrics/DASHBOARD.md`. Do not estimate the metric values.
+Populate Sprint 1 and Sprint 2 values from `docs/lean-six-sigma/metrics/DASHBOARD.md`. Leave unavailable values pending; do not estimate.
+
+| KPI | Target | Sprint 1 | Sprint 2 | Trend | In control? |
+|---|---|---|---|---|---|
+| Points completed / planned | 0.80 | Pending | Pending | Pending | Pending |
+| Median issue cycle time (days) | 5 | Pending | Pending | Pending | Pending |
+| Median PR first-review turnaround (hours) | 48 | Pending | Pending | Pending | Pending |
+| Median PR open-to-merge time (hours) | 96 | Pending | Pending | Pending | Pending |
+| PRs merged without an approving review from another member | 0 | Pending | Pending | Pending | Pending |
+| CI pass rate on main | 0.90 | Pending | Pending | Pending | Pending |
+| Rework items (`rework` label) | Not specified | Pending | Pending | Pending | Pending |
+| Stand-ups posted / expected | Not specified | Pending | Pending | Pending | Pending |
+| Contribution share per member (min / max) | 0.15 to 0.45 | Pending | Pending | Pending | Pending |
+| Hours logged per member (min / max) | Not specified | Pending | Pending | Pending | Pending |
 
 ## 2. Did the Sprint 1 kaizen actions work?
 
@@ -16,11 +34,10 @@ Complete this table on 2026-10-28 using the Sprint 2 rows from `docs/lean-six-si
 
 ## 3. What went well
 
-- The team continued working after membership decreased from four people to three.
-- Responsibilities were redistributed among Leticia Aderhold, Jerad Dunne, and Hina Kramer.
-- Repository issues and pull requests provided traceability for completed work and remaining work.
-- The team continued documenting implementation, validation, and research-report evidence.
-- Final results and supporting evidence will be confirmed during the October 28 review.
+- Expected benefit: redistributing responsibilities among the three remaining members will help maintain progress.
+- Expected benefit: repository issues and pull requests will provide traceability for completed and remaining work.
+- Expected benefit: continued documentation will support implementation, validation, and research-report evidence.
+- Confirm actual outcomes and supporting evidence during the October 28 review and retrospective.
 
 ## 4. What did not go well
 
@@ -51,29 +68,31 @@ Complete this table on 2026-10-28 using the Sprint 2 rows from `docs/lean-six-si
 
 ## 7. Kaizen actions
 
+These are proposed actions and deadlines, subject to team agreement on October 28.
+
 | Action | Owner | Kaizen issue # | Due | How we will know it worked |
 |---|---|---|---|---|
 | Update capacity, roles, and issue ownership within 24 hours of any membership change | Hina Kramer | Create after the retrospective | 2026-11-04 | Planning documents and assigned issues match the active team |
-| Rebalance Allie’s unfinished work across the remaining members | Jerad Dunne | Create after the retrospective | 2026-10-22 | Every committed Sprint 2 item has an active owner |
-| Establish a three-person pull-request review rotation | Hina Kramer | Create after the retrospective | 2026-10-22 | Every merged PR has an approving review from a non-author |
+| Rebalance Allie’s unfinished work across the remaining members | Jerad Dunne | Create after the retrospective | 2026-11-04 | Every committed Sprint 2 item has an active owner |
+| Establish a three-person pull-request review rotation | Hina Kramer | Create after the retrospective | 2026-11-04 | Every merged PR has an approving review from a non-author |
 | Record progress and blockers at each check-in | Leticia Aderhold | Create after the retrospective | 2026-11-04 | Check-in notes identify completed work, blockers, and reassigned work |
 
 ## 8. Changes recorded (rubric)
 
+The following records Sprint 2 plans and design changes responding to instructor feedback. Completion and final results must be confirmed with evidence.
+
 | What changed | From | To | Reason | Where recorded |
 |---|---|---|---|---|
-| Research question | Existing P-01 research question | No change | The team-membership change did not alter the research question | `RESEARCH_QUESTION.md` |
-| Method | Planned implementation and validation method | No confirmed change yet | Final method changes must be determined from Sprint 2 evidence | `report/draft.md` and applicable ADR |
-| Scope | Work distributed across four members | Prioritized work distributed across three members | Allie Hodges dropped the course | `docs/sprints/sprint-2/planning.md` |
-| Interpretation | Preliminary findings awaiting validation | Interpretation remains provisional until validation is complete | Final claims must reflect validation and inter-rater results | `report/draft.md` |
-| Backlog | Issues assigned using four-person capacity | Allie’s work reassigned, reprioritized, or moved to Sprint 3 | Available team capacity decreased | Milestone `Sprint 3` |
+| Research question | Existing P-01 research question | No change recorded here | Feedback focuses on supporting the method, validation, and intended use | `RESEARCH_QUESTION.md`; `docs/sprints/sprint-2/instructor-feedback.md` |
+| Method: rule provenance | Detection patterns without sufficiently documented rationale and sources | Document each rule's problem, bad example, source, and known false positives; explain threat-model and severity rationale | Instructor requested justification and references for detection rules | Issue #95; `docs/research/RULE_CATALOG.md`; `rules/skill_risk_rules.yaml`; `docs/research/THREAT_MODEL.md` section 8 |
+| Method: applicability | Applicability of established code-analysis rules to skills needed clarification | Analyze which rules apply to SKILL.md text, bundled scripts, or neither, and explain why | Skills combine natural language and code | Issue #96; `docs/research/APPLICABILITY.md` |
+| Method: validation | Validation study remained incomplete | Follow D-024 second-rater assignments for drift and lineage; report validation metrics and agreement; test about ten independently selected known-positive skills | Instructor requested completed validation and a small ground-truth check before scaling | D-024; issues #99, #100, #90, and #97; `results/validation_*.csv`; `report/draft.md` |
+| Scope: intended use | Scanner results without a sufficiently defined human review process | Define a human-in-the-loop risk-review workflow using a use case diagram, swimlane activity diagram, and report section | Instructor requested an explanation of how the scanner's results will be used | Issue #98; `docs/research/REVIEW_WORKFLOW.md`; `report/draft.md` |
+| Scope: team capacity | Work planned for four members | Reprioritize work for Leticia Aderhold, Jerad Dunne, and Hina Kramer | Allie Hodges dropped the course | `docs/sprints/sprint-2/planning.md` |
+| Interpretation | Preliminary findings awaiting validation | Keep conclusions provisional until validation and agreement results are available | Final claims must be supported by evidence | `report/draft.md`; `docs/sprints/sprint-2/instructor-feedback.md` |
+| Backlog | Four-person capacity and unfinished validation/process tasks | Track revised ownership, acceptance criteria, definition of done, and obstacles; move signals round 2 to Sprint 3 | Reduced capacity and the required 14-day intra-rater gap | Issues #101 and #102; `docs/sprints/sprint-2/review.md`; Sprint 3 milestone |
 
 ## 9. Retro on the retro
 
 - **Does the charter still fit?** Partially. Proposed change: add a procedure requiring roles, capacity, reviewers, and issue ownership to be updated within 24 hours when team membership changes.
 - **Format worked?** Pending confirmation on October 28. Proposed change: update the retrospective throughout the sprint instead of waiting until the final meeting.
-
-## 9. Retro on the retro
-
-- Does the charter still fit? yes / no. Proposed change:
-- Format worked: yes / no. Change for next time:

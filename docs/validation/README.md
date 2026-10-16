@@ -19,17 +19,17 @@ How to use: this page explains how the risk-signal scanner, the variant linking,
 |---|---|---|
 | Jerad Dunne | `jd` | Primary rater for every kind |
 | Leticia Aderhold | `la` | Second rater for drift (#53) |
-| Allie Hodges | `ah` | Not assigned (no labels claimed; D-022) |
-| Hina Kramer | `hk` | Not assigned (no labels claimed; D-022) |
+| Hina Kramer | `hk` | Second rater for lineage (D-024) |
+| Allie Hodges | `ah` | Left the course in Sprint 2 (D-025); no labels |
 
-**Assignment since 2026-09-23 (D-022).** Drift (18 pairs) is second-rated by Leticia Aderhold (`la`). Lineage (58 pairs) and signals (209 label rows) had no teammate volunteer, so Jerad Dunne labels them alone and their reliability comes from the intra-rater check (item 4), required for these two kinds, with a gap of at least 14 days. The assignment is recorded in `docs/workspace/WORK_SIGNUP.md` section 6.
+**Assignment since 2026-10-16 (D-024).** Drift (18 pairs) is second-rated by Leticia Aderhold (`la`) and lineage (58 pairs) by Hina Kramer (`hk`). Signals (209 label rows) had no teammate volunteer, so Jerad Dunne labels them alone and their reliability comes from the intra-rater check (item 4), with round 2 in Sprint 3 at least 14 days after round 1. Before D-024, lineage was intra-rater too (D-022, 2026-09-23); under that plan its round 2 would have fallen after the Sprint 2 review. The assignment is recorded in `docs/workspace/WORK_SIGNUP.md` section 6.
 
 Reliability comes from four places:
 
 1. **The guideline is written before labelling.** Labels follow a fixed decision order.
 2. **Inter-rater agreement (primary measure).** The second rater labels round 1 of the same items independently. Cohen's kappa between the primary rater and the second rater is reported for each kind.
-3. **Blindness rule.** Applies to drift, the one kind with a second rater. The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed. The second rater never opens the primary rater's labels. On 2026-09-15 the committed `*_jd_r1.csv` files are the blank sheets created by the kit (0 labelled rows, pull request #45). The primary rater keeps filled labels local and checks `git status` before every commit so those files are not staged early.
-4. **Intra-rater check.** A random 30% of items from each sample are labelled again in round 2, in a shuffled order, without looking at round 1. That kappa is reported separately. Required for lineage and signals, at least 14 days after round 1 (D-022); optional for drift, at least 7 days after.
+3. **Blindness rule.** Applies to drift and lineage, the kinds with a second rater. The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed. The second rater never opens the primary rater's labels. On 2026-09-15 the committed `*_jd_r1.csv` files are the blank sheets created by the kit (0 labelled rows, pull request #45). The primary rater keeps filled labels local and checks `git status` before every commit so those files are not staged early.
+4. **Intra-rater check.** A random 30% of items from each sample are labelled again in round 2, in a shuffled order, without looking at round 1. That kappa is reported separately. Required for signals, at least 14 days after round 1, so it falls in Sprint 3 (D-022, D-024); optional for lineage (at least 14 days after) and drift (at least 7 days after).
 
 An LLM may be used as an additional rater only under a rater id starting with `llm-`. Its agreement is reported as `human-vs-llm`, it is disclosed in `ai-use-log.md`, and it is never counted as human agreement, never replaces the teammate second rater, and never supplies the primary labels.
 
@@ -112,9 +112,9 @@ A flagged skill with several high-risk rule matches has one label row per matche
 | From Sep 14 | Primary rater labels round 1: signals, then lineage, then drift; runs `import` after each session | Filled primary files stay uncommitted (blindness rule) |
 | Wed Sep 16 | Kickoff assigns second raters to kinds | `docs/workspace/WORK_SIGNUP.md` section 6 |
 | From Thu Sep 17 | Second raters set up, read the guideline, and label round 1 | Plan the hours in each second rater's sprint capacity |
-| Fri Oct 16 (target) | Second-rater label files committed, one pull request per file | Each pull request contains only that rater's label file |
+| Fri Oct 16 (target) | Second-rater label files committed, one pull request per file | Each pull request contains only that rater's label file. Drift: Leticia Aderhold's file is in #90. Lineage: Hina Kramer's file, target Thu Oct 22 (D-024) |
 | After each second-rater file is merged | Primary rater commits the filled file for the same kind | Never before the second rater's file for that kind |
-| After round 1 | Round 2 intra-rater labelling: required for signals and lineage, optional for drift (D-022) | Only label an item whose round 1 label is at least 14 days old (signals, lineage) or 7 days old (drift); record the date in `notes` |
+| After round 1 | Round 2 intra-rater labelling: required for signals (Sprint 3), optional for lineage and drift (D-022, D-024) | Only label an item whose round 1 label is at least 14 days old (signals, lineage) or 7 days old (drift); record the date in `notes` |
 | By Tue Oct 27 | `score`, error analysis of rater disagreements and of NOT_PRESENT and BENIGN_CONTEXT cases, proposed rule changes | Rule changes follow the rule-file process: `status: proposed`, regression examples, pull request |
 | Wed Oct 28 | Results presented in the Sprint 2 review | Precision, recall, inter-rater kappa, lineage precision, drift distribution, FMEA ranking |
 

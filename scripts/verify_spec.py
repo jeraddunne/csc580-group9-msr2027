@@ -423,16 +423,16 @@ def vr_01() -> Result:
         return (
             "BLOCKED",
             f"stratified sample of {sample['sizes']['signals_items']} signal items "
-            "(seed 580) ready; round 1 signal labels by jd not committed yet (due 2026-10-16)",
+            "(seed 580) ready; round 1 signal labels by jd not committed yet (due before scoring on 2026-10-27)",
         )
     return pytest("tests/test_validation.py::test_precision_by_rule_and_category")
 
 
-# Who supplies the agreement labels for each kind (D-022): drift has a teammate second
-# rater; lineage and signals are re-rated by the primary rater in round 2.
+# Who supplies the agreement labels for each kind (D-022, D-024): drift and lineage have a
+# teammate second rater; signals are re-rated by the primary rater in round 2.
 AGREEMENT_SOURCES = {
     "drift": (("la", "ah", "hk"), 1, "second-rater labels (la)"),
-    "lineage": (("jd",), 2, "jd round 2 re-rating"),
+    "lineage": (("la", "ah", "hk"), 1, "second-rater labels (hk)"),
     "signals": (("jd",), 2, "jd round 2 re-rating"),
 }
 
@@ -446,7 +446,7 @@ def vr_02() -> Result:
     if missing:
         return (
             "BLOCKED",
-            f"not yet committed: {'; '.join(missing)} (#53, D-022; round 1 due 2026-10-16). "
+            f"not yet committed: {'; '.join(missing)} (#53, D-024). "
             "Kappa code tested: "
             + pytest("tests/test_validation.py::test_cohen_kappa_textbook_example")[0],
         )
@@ -458,8 +458,8 @@ def vr_03() -> Result:
     if len(have) < 2:
         return (
             "BLOCKED",
-            "lineage (58 pairs) and drift (18 pairs) samples ready; lineage round 2 by jd "
-            "and drift labels by la not yet committed (#53, D-022)",
+            "lineage (58 pairs) and drift (18 pairs) samples ready; lineage labels by hk "
+            "and drift labels by la not yet committed (#53, D-024)",
         )
     return pytest("tests/test_validation.py::test_lineage_and_drift_summaries")
 

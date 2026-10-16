@@ -289,13 +289,13 @@ Categories follow the assignment: research (RR), data (DR), functional (FR), non
 
 | Field | Value |
 |---|---|
-| Requirement | Agreement shall be reported for every label kind. Drift: a teammate (`la`) labels round 1 independently under the blindness rule, and inter-rater Cohen's kappa is reported. Lineage and signals, which no teammate claimed (D-022): the primary rater labels the kit's 30% intra-rater subset again in round 2, at least 14 days after round 1 and without looking at it, and intra-rater kappa is reported and labelled as such. LLM labels, if any, are reported separately under an `llm-` id and never counted as human agreement. |
+| Requirement | Agreement shall be reported for every label kind. Drift and lineage: a teammate (`la` for drift, `hk` for lineage, D-024) labels round 1 independently under the blindness rule, and inter-rater Cohen's kappa is reported. Signals, which no teammate claimed (D-022): the primary rater labels the kit's 30% intra-rater subset again in round 2, at least 14 days after round 1 and without looking at it, and intra-rater kappa is reported and labelled as such. LLM labels, if any, are reported separately under an `llm-` id and never counted as human agreement. |
 | Source | NB-Q10 (`TEAM_CHARTER.md` sec. 9); `THREATS_TO_VALIDITY.md` P6 |
-| Rationale | One rater's labels measure one person's judgement, not the rule. Intra-rater kappa shows consistency, not that a second person reads the guideline the same way; the report states this limitation for lineage and signals. |
-| Acceptance test | Label files exist for drift from `la` (round 1) and for lineage and signals from `jd` (round 2), and `score` reports kappa for each kind. `make verify-spec` VR-02. |
-| Owner | Leticia Aderhold (`la`, drift) and Jerad Dunne (`jd`, lineage and signals); accountable: Jerad Dunne |
-| Status | In progress (round 1 due 2026-10-16) |
-| Trace | `validation.agreement`, `cohen_kappa`; #53; D-022 |
+| Rationale | One rater's labels measure one person's judgement, not the rule. Intra-rater kappa shows consistency, not that a second person reads the guideline the same way; the report states this limitation for signals. |
+| Acceptance test | Label files exist for drift from `la` (round 1), for lineage from `hk` (round 1), and for signals from `jd` (round 2), and `score` reports kappa for each kind. `make verify-spec` VR-02. |
+| Owner | Leticia Aderhold (`la`, drift), Hina Kramer (`hk`, lineage), and Jerad Dunne (`jd`, signals); accountable: Jerad Dunne |
+| Status | In progress (drift and lineage second-rater files in Sprint 2; signals round 2 in Sprint 3) |
+| Trace | `validation.agreement`, `cohen_kappa`; #53; D-022, D-024 |
 
 ### VR-03 Lineage and drift validation
 
@@ -427,4 +427,5 @@ The latest `make verify-spec` result per requirement is in `results/spec_verific
 | 2026-09-23 | DR-04 implemented; its acceptance test also requires the unrecovered-content count, the script totals without truncated listings, and the population step, which the requirement already asked for. Status Planned to Implemented | #58 | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | VR-01 to VR-03: no teammate claimed lineage or signals, so those kinds use intra-rater agreement from a round 2 at least 14 days later; drift keeps inter-rater kappa with `la`. VR-02 renamed from "Independent second rater" | D-022 (#63), #53 | Jerad Dunne, drafted with Claude Code |
 | 2026-09-23 | RR-03 implemented: ordered pairs split by location (both canonical, one, neither); the acceptance test names the three columns and requires them to sum to `ordered_pairs`. Status In progress to Implemented | #59 | Jerad Dunne, drafted with Claude Code |
+| 2026-10-16 | VR-02: Hina Kramer (`hk`) second-rates lineage, so lineage moves from intra-rater to inter-rater agreement; signals stay intra-rater with round 2 in Sprint 3. `verify_spec.py` VR-02 and VR-03 now look for `hk` lineage labels | D-024, #53 | Jerad Dunne, drafted with Claude Code |
 | 2026-10-07 | NFR-04 trace: added ADR-0007, the accepted decision that RQ1 to RQ3 use the official sample only, so no full-dataset pass is in scope. Requirement, acceptance test, and status unchanged | #67, #68 | Jerad Dunne, drafted with Claude Code |

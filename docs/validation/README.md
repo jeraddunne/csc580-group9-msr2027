@@ -28,7 +28,7 @@ Reliability comes from four places:
 
 1. **The guideline is written before labelling.** Labels follow a fixed decision order.
 2. **Inter-rater agreement (primary measure).** The second rater labels round 1 of the same items independently. Cohen's kappa between the primary rater and the second rater is reported for each kind.
-3. **Blindness rule.** Applies to drift and lineage, the kinds with a second rater. The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed. The second rater never opens the primary rater's labels. On 2026-09-15 the committed `*_jd_r1.csv` files are the blank sheets created by the kit (0 labelled rows, pull request #45). The primary rater keeps filled labels local and checks `git status` before every commit so those files are not staged early.
+3. **Blindness rule.** Applies to drift and lineage, the kinds with a second rater. The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed. The second rater never opens the primary rater's labels. The primary rater's round 1 was not finished when the second raters started, so the rule also runs the other way (D-024): the primary rater does not open a second rater's file for a kind, or the diff of its pull request, until his own round 1 for that kind is finished, and does not review that pull request. On 2026-09-15 the committed `*_jd_r1.csv` files are the blank sheets created by the kit (0 labelled rows, pull request #45). The primary rater keeps filled labels local and checks `git status` before every commit so those files are not staged early.
 4. **Intra-rater check.** A random 30% of items from each sample are labelled again in round 2, in a shuffled order, without looking at round 1. That kappa is reported separately. Required for signals, at least 14 days after round 1, so it falls in Sprint 3 (D-022, D-024); optional for lineage (at least 14 days after) and drift (at least 7 days after).
 
 An LLM may be used as an additional rater only under a rater id starting with `llm-`. Its agreement is reported as `human-vs-llm`, it is disclosed in `ai-use-log.md`, and it is never counted as human agreement, never replaces the teammate second rater, and never supplies the primary labels.
@@ -86,7 +86,7 @@ python scripts/annotation_kit.py ui --rater <id> --round 1
 python scripts/annotation_kit.py import ~/Downloads/signals_<id>_r1.csv
 ```
 
-9. When the kind is complete, open a pull request on a branch such as `data/<issue>-labels-signals-<id>` that contains **only** your label file. Another member reviews it for file validity only; nobody changes your labels.
+9. When the kind is complete, open a pull request on a branch such as `data/<issue>-labels-signals-<id>` that contains **only** your label file. Another member, not the primary rater, reviews it for file validity only; nobody changes your labels.
 
 Never open another rater's label files, including `*_jd_r1.csv`, and do not discuss specific items with the primary rater until both files for that kind are committed.
 

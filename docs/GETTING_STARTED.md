@@ -49,7 +49,7 @@ Issues > New issue > **Team member onboarding**. It records your handle, availab
 
 ### Step 6. If you are a second rater
 
-At the kickoff the team decides who second-rates which validation kind. If that is you, follow `docs/validation/README.md` section "Second-rater workflow". In short, with your rater id (Leticia `la`, Allie `ah`, Hina `hk`):
+Second raters: Leticia `la` for drift and Hina `hk` for lineage (D-024). If that is you, follow `docs/validation/README.md` section "Second-rater workflow". In short, with your rater id (Leticia `la`, Hina `hk`):
 
 ```bash
 python scripts/annotation_kit.py sheet --rater <id> --round 1

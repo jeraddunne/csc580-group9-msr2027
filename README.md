@@ -13,7 +13,7 @@ The group works with **Scrum** (three sprints, as the assignment requires) and a
 |---|---|---|
 | Leticia Aderhold | [@angel06la](https://github.com/angel06la) | Scrum Master, Developer / Researcher |
 | Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | Product Owner, Developer / Researcher |
-| Allie Hodges | [@AllieHgs](https://github.com/AllieHgs) | Developer / Researcher |
+| Allie Hodges | [@AllieHgs](https://github.com/AllieHgs) | Left the course in Sprint 2 (D-025) |
 | Hina Kramer | [@hinak786](https://github.com/hinak786) | Developer / Researcher |
 
 Roles rotate every sprint (`TEAM_CHARTER.md` section 3) and are confirmed at the kickoff on 2026-09-16. Everyone is a Developer / Researcher every sprint. The repository briefly ran as a solo project on 2026-09-14 (ADR-0005); the four-person group was reinstated on 2026-09-15 (`docs/decisions/ADR-0006-group-reinstated.md`).

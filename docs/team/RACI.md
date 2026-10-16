@@ -15,7 +15,7 @@ How to use: R = Responsible (does the work), A = Accountable (one person, signs 
 | Implement pipeline, tests, docs | C | I | A/R (issue owner) | |
 | Pull request review (different member than author) | I | I | A/R (reviewer) | |
 | Validation labelling, primary rater | C | I | R (Jerad Dunne, `jd`) | |
-| Validation labelling, second rater | C | I | R (teammate assigned at kickoff: `la`, `ah`, or `hk`) | |
+| Validation labelling, second rater | C | I | R (Leticia Aderhold `la` for drift; Hina Kramer `hk` for lineage, D-024) | |
 | Blindness rule for label commits | A | R | R | |
 | Data dictionary and threats-to-validity updates | A | I | R | |
 | Sprint review package and demo | A/R | R | R | I (receives) |

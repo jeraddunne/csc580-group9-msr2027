@@ -53,13 +53,13 @@ Pairing is encouraged, especially across strengths (for example a statistics-str
 
 ## 6. Validation second raters
 
-Decided at the kickoff on 2026-09-16 (decision D-020) and revised on 2026-09-23 (D-022). Jerad Dunne (`jd`) is the primary rater for every kind.
+Decided at the kickoff on 2026-09-16 (decision D-020) and revised on 2026-09-23 (D-022) and 2026-10-16 (D-024). Jerad Dunne (`jd`) is the primary rater for every kind.
 
 | Kind | Items | Second rater | Rater id | Round 1 due |
 |---|---|---|---|---|
-| Signals | 147 items, 209 label rows | none: Jerad Dunne re-rates (intra-rater, D-022) | `jd` round 2 | Round 1 Fri 2026-10-16; round 2 at least 14 days later |
-| Lineage | 58 pairs | none: Jerad Dunne re-rates (intra-rater, D-022) | `jd` round 2 | Round 1 Fri 2026-10-16; round 2 at least 14 days later |
-| Drift | 18 pairs | Leticia Aderhold | `la` | Fri 2026-10-16 |
+| Signals | 147 items, 209 label rows | none: Jerad Dunne re-rates (intra-rater, D-022, D-024) | `jd` round 2 | Round 1 before scoring on Tue 2026-10-27; round 2 in Sprint 3, at least 14 days later |
+| Lineage | 58 pairs | Hina Kramer (D-024) | `hk` | Thu 2026-10-22 (proposed); `jd` commits round 1 after Hina Kramer's file is merged |
+| Drift | 18 pairs | Leticia Aderhold | `la` | Labels committed 2026-10-08, pull request #90 |
 
 Protocol: `docs/validation/README.md`.
 

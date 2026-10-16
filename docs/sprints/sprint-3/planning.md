@@ -17,7 +17,6 @@ Sprint goal:
 |---|---|---|---|
 | Leticia Aderhold | | | |
 | Jerad Dunne | | | |
-| Allie Hodges | | | |
 | Hina Kramer | | | |
 | Total | | | Sprint 2 velocity: ___ points |
 
@@ -59,7 +58,7 @@ Sprint goal:
 ## Planning meeting notes
 
 - Date: 2026-10-29. Facilitator: Jerad Dunne.
-- Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer
+- Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer
 - Items pulled into the sprint (issue numbers):
 - Items explicitly deferred and why:
 - Carry-over from Sprint 2:

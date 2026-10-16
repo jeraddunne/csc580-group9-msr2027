@@ -100,6 +100,7 @@ nav:
       - Data dictionary: DATA_DICTIONARY.md
       - Dataset and acquisition: data/README.md
       - Threat model: docs/research/THREAT_MODEL.md
+      - Review workflow (draft): docs/research/REVIEW_WORKFLOW.md
       - Threats to validity: THREATS_TO_VALIDITY.md
       - Results: results/README.md
       - Figures: figures/README.md
@@ -135,6 +136,7 @@ nav:
           - Review: docs/sprints/sprint-1/review.md
           - Retrospective: docs/sprints/sprint-1/retrospective.md
       - Sprint 2:
+          - Instructor feedback on Sprint 1: docs/sprints/sprint-2/instructor-feedback.md
           - Planning: docs/sprints/sprint-2/planning.md
           - Review: docs/sprints/sprint-2/review.md
           - Retrospective: docs/sprints/sprint-2/retrospective.md

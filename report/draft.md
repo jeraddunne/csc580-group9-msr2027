@@ -4,7 +4,6 @@ subtitle: "SWE 380 / CSC 580 Group Project, Group 9, University of Michigan-Flin
 author:
   - Leticia Aderhold
   - Jerad Dunne
-  - Allie Hodges
   - Hina Kramer
 date: "Draft, updated 2026-09-14"
 bibliography: references.bib

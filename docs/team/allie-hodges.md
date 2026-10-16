@@ -1,5 +1,7 @@
 # Allie Hodges
 
+> Allie Hodges left the course during Sprint 2 (D-025, recorded 2026-10-16). This profile is kept as history.
+
 
 | Field | Value |
 |---|---|

@@ -10,7 +10,6 @@ Sprint: Sprint N. Scrum Master: <name>.
 |---|---|---|---|---|
 | Leticia Aderhold | | | | |
 | Jerad Dunne | | | | |
-| Allie Hodges | | | | |
 | Hina Kramer | | | | |
 
 ## Wednesday YYYY-MM-DD
@@ -19,7 +18,6 @@ Sprint: Sprint N. Scrum Master: <name>.
 |---|---|---|---|---|
 | Leticia Aderhold | | | | |
 | Jerad Dunne | | | | |
-| Allie Hodges | | | | |
 | Hina Kramer | | | | |
 
 ## Friday YYYY-MM-DD
@@ -28,7 +26,6 @@ Sprint: Sprint N. Scrum Master: <name>.
 |---|---|---|---|---|
 | Leticia Aderhold | | | | |
 | Jerad Dunne | | | | |
-| Allie Hodges | | | | |
 | Hina Kramer | | | | |
 
 ## Week summary (Scrum Master, Friday)

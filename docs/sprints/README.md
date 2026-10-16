@@ -3,7 +3,7 @@
 How to use: this is the single schedule of record for Group 9. Every ceremony below has a date. If the instructor moves a deadline, change it here first, then in `project.yml` and the GitHub milestones, then in `PROJECT_PLAN.md`.
 
 Course: SWE 380 / CSC 580, University of Michigan-Flint. Instructor: Prof. Mohamed Wiem Mkaouer (@mkaouer).
-Team: Leticia Aderhold, Jerad Dunne, Allie Hodges, Hina Kramer (ADR-0006).
+Team: Leticia Aderhold, Jerad Dunne, Hina Kramer. Allie Hodges was a member from ADR-0006 until she left the course in Sprint 2 (D-025).
 
 ## Sprint calendar
 
@@ -11,10 +11,10 @@ Team: Leticia Aderhold, Jerad Dunne, Allie Hodges, Hina Kramer (ADR-0006).
 |---|---|---|---|---|---|---|---|
 | Formation | Thu 2026-09-10 to Wed 2026-09-16 | Formation and discovery | Define | Jerad Dunne | Jerad Dunne | Topic brief and initial backlog | 10% |
 | Sprint 1 | Thu 2026-09-17 to Wed 2026-10-07 (due Oct 7) | Research framing and data foundation | Measure | Jerad Dunne | Leticia Aderhold | Sprint 1 research-and-data package | 20% |
-| Sprint 2 | Thu 2026-10-08 to Wed 2026-10-28 (due Oct 28) | Implementation and validation | Analyze | Allie Hodges | Hina Kramer | Sprint 2 implementation-and-evidence package | 20% |
+| Sprint 2 | Thu 2026-10-08 to Wed 2026-10-28 (due Oct 28) | Implementation and validation | Analyze | Jerad Dunne (D-025) | Hina Kramer | Sprint 2 implementation-and-evidence package | 20% |
 | Sprint 3 | Thu 2026-10-29 to Wed 2026-11-18 (due Nov 18) | Analysis, integration, and communication | Improve | Leticia Aderhold | Jerad Dunne | Sprint 3 complete draft and demonstration | 25% |
 | Break | Thu 2026-11-19 to Sun 2026-11-29 (Thanksgiving Thu 2026-11-26) | Buffer | Improve (carry-over only) | - | - | No planned work; respond to feedback if received | - |
-| Finalization | Mon 2026-11-30 to Fri 2026-12-04 | Finalization and presentation | Control | Hina Kramer | Allie Hodges | Final report, repository release, presentation, individual reflections | 20% demo + 5% individual |
+| Finalization | Mon 2026-11-30 to Fri 2026-12-04 | Finalization and presentation | Control | Hina Kramer | to be chosen at Sprint 3 planning (D-025) | Final report, repository release, presentation, individual reflections | 20% demo + 5% individual |
 
 Roles are proposed and are confirmed at the 2026-09-16 kickoff. Everyone is a Developer/Researcher in every sprint. A role is not a substitute for shared responsibility: every member contributes technical or research work and participates in review every sprint.
 

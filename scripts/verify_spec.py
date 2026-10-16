@@ -423,7 +423,8 @@ def vr_01() -> Result:
         return (
             "BLOCKED",
             f"stratified sample of {sample['sizes']['signals_items']} signal items "
-            "(seed 580) ready; round 1 signal labels by jd not committed yet (due before scoring on 2026-10-27)",
+            "(seed 580) ready; round 1 signal labels by jd not committed yet "
+            "(due before scoring on 2026-10-27)",
         )
     return pytest("tests/test_validation.py::test_precision_by_rule_and_category")
 

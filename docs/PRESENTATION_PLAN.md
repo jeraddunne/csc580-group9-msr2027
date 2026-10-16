@@ -11,9 +11,9 @@ Target length: 12 to 15 minutes, then questions. Every member presents at least 
 | 1 | Question and motivation | 1.5 min | The one-sentence P-01 research question, why copied agent skills matter for AI-native software engineering, the competing explanation tested | Jerad Dunne | Leticia Aderhold |
 | 2 | Data | 2 min | GitSkills and the exact snapshot (release, DOI, MANIFEST hash), the sample and why it is defensible, unit of analysis, key variables | Leticia Aderhold | Hina Kramer |
 | 3 | Pipeline, live | 3.5 min | Fresh clone in a clean environment, `make pipeline`, stage outputs and passing tests, the scanner and variant-linking method | Hina Kramer | Jerad Dunne |
-| 4 | Results | 3 min | RQ1 prevalence, RQ2 reach, RQ3 variant drift, and one robustness check; observations only, numbers read from generated artifacts | Allie Hodges | Leticia Aderhold |
-| 5 | Interpretation and limitations | 2 min | What the evidence supports and what it does not; top three threats to validity; inter-rater agreement and error analysis examples | Leticia Aderhold | Allie Hodges |
-| 6 | Process story with Lean Six Sigma metrics | 2 min | Velocity, cycle time, and contribution balance across sprints; the most important process improvement with before and after numbers | Allie Hodges | Hina Kramer |
+| 4 | Results | 3 min | RQ1 prevalence, RQ2 reach, RQ3 variant drift, and one robustness check; observations only, numbers read from generated artifacts | TBD (D-025) | Leticia Aderhold |
+| 5 | Interpretation and limitations | 2 min | What the evidence supports and what it does not; top three threats to validity; inter-rater agreement and error analysis examples | Leticia Aderhold | TBD (D-025) |
+| 6 | Process story with Lean Six Sigma metrics | 2 min | Velocity, cycle time, and contribution balance across sprints; the most important process improvement with before and after numbers | TBD (D-025) | Hina Kramer |
 | 7 | Close and questions | 0.5 min | One-sentence answer, one-sentence next step, release tag and repository URL; the Product Owner routes questions to the member closest to the topic | Hina Kramer (Finalization Product Owner) | Jerad Dunne |
 
 Reproducibility is shown by running the demo from a fresh clone rather than a working copy.

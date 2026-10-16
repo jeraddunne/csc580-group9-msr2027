@@ -3,7 +3,7 @@
 How to use: the Scrum Master facilitates on Wed 2026-11-18 right after the review. Data first, then discussion, then root cause, then actions. The rubric requires this retrospective to identify the group's most important process improvement; section 9 is mandatory and should be supported by numbers from the dashboard.
 
 Date: 2026-11-18. Facilitator: Jerad Dunne.
-Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer
+Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer
 
 ## 1. Data first
 

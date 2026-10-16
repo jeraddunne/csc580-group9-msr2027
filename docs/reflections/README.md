@@ -8,7 +8,6 @@ Files expected:
 |---|---|
 | Leticia Aderhold | `docs/reflections/angel06la.md` |
 | Jerad Dunne | `docs/reflections/jeraddunne.md` |
-| Allie Hodges | `docs/reflections/alliehgs.md` |
 | Hina Kramer | `docs/reflections/hinak786.md` |
 
 Rules:

@@ -1,0 +1,79 @@
+# Known-positive skill selection — Issue #97
+
+## Status and responsibilities
+
+- Selection owner: Leticia Aderhold.
+- Scan and scoring owner: Jerad Dunne.
+- Status: AI-assisted candidate selection; owner review pending.
+- Scanner execution and scoring: not performed during this selection.
+
+## Selection method
+
+The source is the supplied `agent_skills_sample.db`, using the
+`artifacts` table and records whose filename is SKILL.md
+(case-insensitive).
+
+Candidates were located using capability-related terms and inspected
+in context against the category descriptions in
+`docs/research/THREAT_MODEL.md`.
+
+Codex assisted with database inspection, candidate identification,
+and this draft. Scanner rule patterns, rules' `examples.match`
+strings, and scanner results were not consulted.
+
+This is a purposive capability sample, not a random sample or a
+prevalence estimate. Legitimate maintenance actions can contain the
+capabilities listed below; inclusion does not mean a skill is malicious.
+
+The expected category column records a specific capability to check.
+It is not an exhaustive annotation of every category in each skill.
+Additional scanner categories must be reviewed separately.
+
+## Record identifiers
+
+Candidate IDs are the first 16 hexadecimal characters of:
+
+SHA-256(repo_full_name + newline + path)
+
+The values come from the database exactly as stored. Repository names
+are omitted from this document. Jerad can reproduce the identifiers
+locally to retrieve the corresponding records.
+
+Line numbers refer to the stored content split into lines.
+
+## Candidates and expected capabilities
+
+| ID | Skill path | Expected category | Evidence and rationale |
+|---|---|---|---|
+| f699537c00478727 | `.claude/skills/hyperframes-registry/SKILL.md` | NETWORK | Line 99 uses curl to retrieve the remote registry manifest. This enables outbound network access. |
+| 46aa89b2bc8739e4 | `.claude/skills/managing-credentials/SKILL.md` | CREDENTIALS | Lines 51 and 69 retrieve and store provider credentials through the credential-management library. |
+| 04a39183afa5b330 | `agent-skills/skills/launchd-cron-installer/SKILL.md` | PERSISTENCE | Lines 59–60 create a LaunchAgents plist and load the job with launchctl. Line 14 states that the arrangement survives reboots. |
+| cb461d437eb8c5c0 | `skills/k5rs4n/api-cost-tracker/SKILL.md` | PERSISTENCE | Lines 209–210 instruct adding a recurring crontab entry that runs the budget check every six hours. |
+| e7bc62332ad87df6 | `internal/skills/defaults/docx/SKILL.md` | PRIVILEGE | Lines 195, 197, and 198 install dependencies using sudo. This invokes elevated permissions for installation. |
+| 4990683e784bb7dd | `skills/hermes-dec-bytecode-reverse-engineering/SKILL.md` | PRIVILEGE | Line 51 installs the tool using sudo snap install. |
+| 99552d3ddeb0ce04 | `skills/eric-e2e-testing/SKILL.md` | DESTRUCTIVE | Line 29 recursively removes package-cache files using rm -rf. This is scoped container cleanup, but it still provides deletion capability. |
+| 4bcf122319412600 | `skills/jeremylongshore/claude-code-plugins-plus-skills/attio-debug-bundle/SKILL.md` | CREDENTIALS | Lines 47–59 read ATTIO_API_KEY and use it in an Authorization header. |
+| f68a93449c373b0a | `.agents/skills/distributed-deployment/SKILL.md` | DESTRUCTIVE | Lines 361–364 describe clearing workspace caches across hosts; line 363 sends a recursive directory-deletion command through SSH. |
+| e7d2878c01a255b3 | `.claude/skills/building-vulnerability-dashboard-with-defectdojo/SKILL.md` | NETWORK | Lines 140–150 upload a scan file to the configured DefectDojo API with curl. This is network transfer; it is not automatically EXFIL_ENDPOINT. |
+
+## Review before scanning
+
+- [ ] Leticia reviews each candidate's source text and expected capability.
+- [ ] Any selection changes are recorded before scanning.
+- [ ] The selection and expected categories are committed before scanning.
+- [ ] AI assistance is recorded in ai-use-log.md.
+- [ ] Jerad retrieves the selected records using the documented IDs.
+- [ ] Jerad runs the scanner using a committed, reproducible command.
+- [ ] A results CSV records expected categories, reported categories, hits, and misses.
+- [ ] Misses are documented in docs/validation/RULE_CHANGE_PROPOSALS.md or a new issue.
+
+## Limitations
+
+The ten candidates cover five capability categories. They do not cover
+every threat-model category and cannot establish overall scanner recall.
+
+The current labels are proposed capability checks. Owner review is
+still required before treating this list as finalized ground truth.
+
+Issue #97 remains open until scanning, scoring, review, and the other
+acceptance criteria are complete.

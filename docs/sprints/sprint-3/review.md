@@ -3,7 +3,7 @@
 How to use: the Product Owner runs the review on Wed 2026-11-18. Every rubric bullet must link to evidence in this repository. Rubric weight: 25%.
 
 Date: 2026-11-18. Product Owner: Leticia Aderhold. Scrum Master: Jerad Dunne.
-Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer [ ] Instructor (if present)
+Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer [ ] Instructor (if present)
 
 ## Sprint goal check
 

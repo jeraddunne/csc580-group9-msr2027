@@ -1,6 +1,6 @@
 # Research Question
 
-Status: **selected, 2026-09-14.** The project is carried out by Group 9: Leticia Aderhold, Jerad Dunne, Allie Hodges, and Hina Kramer (ADR-0006). Any member may open a Decision needed issue to revisit the topic before Sprint 1 planning on 2026-09-17. The topic is proposal P-01 ([issue #41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41), [full proposal](docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md)). The analysis runs with `python -m msr_pipeline analyze`.
+Status: **selected, 2026-09-14.** The project is carried out by Group 9: Leticia Aderhold, Jerad Dunne, and Hina Kramer (ADR-0006; Allie Hodges left the course in Sprint 2, D-025). Any member may open a Decision needed issue to revisit the topic before Sprint 1 planning on 2026-09-17. The topic is proposal P-01 ([issue #41](https://github.com/jeraddunne/csc580-group9-msr2027/issues/41), [full proposal](docs/proposals/P-01-jerad-dunne-skill-risk-propagation.md)). The analysis runs with `python -m msr_pipeline analyze`.
 
 ## 1. Selected MSR-inspired topic
 
@@ -105,9 +105,9 @@ Issue map: Sprint 1 issues #12 to #20, Sprint 2 issues #21 to #26, Sprint 3 issu
 The two-rater design in the proposal is used, with a teammate as the second rater (ADR-0006):
 
 1. Jerad Dunne (rater id `jd`) is the primary rater and labels the stratified validation sample from a written guideline.
-2. **Inter-rater reliability.** A teammate labels round 1 of the same items independently: Leticia Aderhold (`la`), Allie Hodges (`ah`), or Hina Kramer (`hk`), with the split across kinds decided at the 2026-09-16 kickoff. Cohen's kappa between the two raters is the primary reliability measure.
+2. **Inter-rater reliability.** A teammate labels round 1 of the same items independently: Leticia Aderhold (`la`) for drift and Hina Kramer (`hk`) for lineage (D-024). Cohen's kappa between the two raters is the primary reliability measure.
 3. **Blindness rule.** The primary rater's filled label files for a kind are not committed until the second rater's labels for that kind are committed, and the second rater never opens the primary rater's labels.
-4. **Optional intra-rater check.** A random 30% of the sample may be re-labelled at least seven days later, blind to the first labels; that kappa is reported separately.
+4. **Intra-rater check.** Signals have no teammate second rater, so a random 30% of the signal sample is re-labelled at least 14 days later, blind to the first labels (D-022, D-024); that kappa is reported separately and named as intra-rater. For drift and lineage the check is optional.
 5. **LLM raters.** An LLM rater is allowed only under an `llm-` rater id, is disclosed, and never counts as human agreement. Its labels are never merged into the primary labels.
 
 Protocol and dates: `docs/validation/README.md`.

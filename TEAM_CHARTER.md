@@ -2,9 +2,9 @@
 
 **Group 9, SWE 380 / CSC 580, University of Michigan-Flint**
 **Project:** Mining AI-Native Software Engineering: risky capabilities in copied agent skills (proposal P-01)
-**Version:** 2.0, 2026-09-15 (ADR-0006). Reviewed at every retrospective.
+**Version:** 2.1, 2026-10-16 (D-025, three members); 2.0 was 2026-09-15 (ADR-0006). Reviewed at every retrospective.
 
-Version history: 1.0 (2026-09-13) was the original four-person charter. On 2026-09-14 it was replaced by a solo working agreement (ADR-0005), which Jerad Dunne signed in pull request #43. On 2026-09-15 the group was reinstated (ADR-0006) and this version replaces the solo agreement. Earlier versions are in git history.
+Version history: 1.0 (2026-09-13) was the original four-person charter. On 2026-09-14 it was replaced by a solo working agreement (ADR-0005), which Jerad Dunne signed in pull request #43. On 2026-09-15 the group was reinstated (ADR-0006) and this version replaces the solo agreement. Version 2.1 (2026-10-16, D-025) records that Allie Hodges left the course during Sprint 2 and updates sections 1, 3, 9, and 14; it takes effect when Leticia Aderhold and Hina Kramer approve it (section 13). Earlier versions are in git history.
 
 This charter is the team's contract with itself. It is short on purpose. Any member can enforce any section by pointing at its number.
 
@@ -14,7 +14,7 @@ This charter is the team's contract with itself. It is short on purpose. Any mem
 |---|---|---|---|---|
 | Leticia Aderhold | @angel06la | _team channel_ | | |
 | Jerad Dunne | @jeraddunne (repository owner) | _team channel_ | | |
-| Allie Hodges | @AllieHgs | _team channel_ | | |
+| Allie Hodges | @AllieHgs | left the course in Sprint 2 (D-025) | | |
 | Hina Kramer | @hinak786 | _team channel_ | | |
 
 Each member completes the **Team member onboarding** issue form, adds a profile in `docs/team/`, and signs section 14 in their first pull request. No email addresses or phone numbers go in this public repository.
@@ -37,9 +37,11 @@ Scrum roles rotate each sprint so everyone experiences each role. Proposed rotat
 |---|---|---|---|
 | Formation | Jerad Dunne | Jerad Dunne | all |
 | Sprint 1 | Jerad Dunne | Leticia Aderhold | all |
-| Sprint 2 | Allie Hodges | Hina Kramer | all |
+| Sprint 2 | Jerad Dunne | Hina Kramer | all |
 | Sprint 3 | Leticia Aderhold | Jerad Dunne | all |
-| Finalization | Hina Kramer | Allie Hodges | all |
+| Finalization | Hina Kramer | to be chosen at Sprint 3 planning | all |
+
+Revised 2026-10-16 (D-025): Allie Hodges left the course, so Jerad Dunne is Product Owner for Sprint 2 and the Finalization Scrum Master is chosen at Sprint 3 planning.
 
 - **Product Owner** owns the research backlog, writes acceptance criteria, orders the backlog against the rubric, and accepts or rejects work at the review.
 - **Scrum Master** runs planning, check-ins, review, and retrospective; keeps the board honest; enforces the WIP limit and the review SLA; reviews the weekly metrics pull request; writes meeting notes.
@@ -98,9 +100,9 @@ Full text: `docs/PROCESS.md`.
 
 ## 9. Validation independence
 
-- Jerad Dunne (rater id `jd`) is the primary rater. At least one teammate labels round 1 independently as a second rater: Leticia `la`, Allie `ah`, Hina `hk`. The team decides at the kickoff who second-rates which kind (signals, lineage, drift); a split is allowed.
+- Jerad Dunne (rater id `jd`) is the primary rater. Teammates label round 1 independently as second raters: Leticia `la` for drift and Hina `hk` for lineage (D-024). Signals have no teammate second rater, so the primary rater re-labels a 30% subset at least 14 days after round 1 (D-022).
 - **Blindness rule.** The primary rater's label files are not committed until the second rater's labels for the same kind are committed. A second rater never opens the primary rater's labels.
-- Inter-rater Cohen's kappa is the primary reliability measure; intra-rater re-labelling is optional. An LLM rater is only allowed under an `llm-` id, is disclosed, and never counts as human agreement.
+- Inter-rater Cohen's kappa is the primary reliability measure; intra-rater re-labelling is required for signals and optional for the other kinds. An LLM rater is only allowed under an `llm-` id, is disclosed, and never counts as human agreement.
 - Protocol and dates: `docs/validation/README.md`.
 
 ## 10. Conflict resolution and escalation
@@ -136,10 +138,12 @@ By adding your date and pull request number below, in your own pull request, you
 |---|---|---|
 | Leticia Aderhold |2026-09-20 | #50|
 | Jerad Dunne | 2026-09-15 | #49 |
-| Allie Hodges | Not signed (status 2026-09-23) | none |
+| Allie Hodges | Not signed; left the course in Sprint 2 (D-025) | none |
 | Hina Kramer | 2026-10-01 | [#77](https://github.com/jeraddunne/csc580-group9-msr2027/pull/77) |
 | Hina Kramer | 2026-10-03 | #52 |
 
 Each member signs by adding the date and their onboarding pull request number in their own pull request.
 
 **Status on 2026-09-23 (D-022), recorded by the repository owner.** Allie Hodges and Hina Kramer remain members of Group 9 and keep write access, but neither has signed this charter, and the repository has no commit, pull request, or comment from either of them. Hina Kramer marked every onboarding step complete in #52 on 2026-09-16, including opening a first pull request and signing this section; no such pull request exists. Allie Hodges marked two of six steps complete in #51. Work that was waiting on them is reassigned to Jerad Dunne (D-022): second-rater labels for lineage and signals (#53). Still waiting on them: their signatures, profiles, and onboarding (#1, #51, #52), and their share of S1-7 and #39. Either member can sign at any time by adding their row in their own pull request.
+
+**Status on 2026-10-16 (D-025), recorded by the repository owner.** Allie Hodges left the course during Sprint 2 without signing. Hina Kramer has since signed (#77, #84) and has merged pull requests (#77, #78, #79, #83, #84). The 2026-09-23 status above is kept as history. Group 9 continues with three members.

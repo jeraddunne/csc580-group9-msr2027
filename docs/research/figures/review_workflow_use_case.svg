@@ -1,0 +1,61 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='640' viewBox='0 0 1000 640' role='img' aria-label='Use case diagram: human-in-the-loop skill risk review'>
+<title>Use case diagram: human-in-the-loop skill risk review</title>
+<defs>
+<marker id='open' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='9' markerHeight='9' orient='auto'><path d='M0,0 L10,5 L0,10' fill='none' stroke='#1f2328' stroke-width='1.4'/></marker>
+<marker id='solid' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#1f2328'/></marker>
+</defs>
+<rect width='1000' height='640' fill='#ffffff'/>
+<rect x='200' y='50' width='590' height='560' rx='6' fill='none' stroke='#1f2328' stroke-width='1.5'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='14' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='495' y='72.0'>Skill risk review: P-01 scanner with a human reviewer</tspan></text>
+<line x1='105' y1='150' x2='222' y2='120' stroke='#1f2328' stroke-width='1.3'/>
+<line x1='105' y1='150' x2='222' y2='240' stroke='#1f2328' stroke-width='1.3'/>
+<line x1='105' y1='410' x2='222' y2='400' stroke='#1f2328' stroke-width='1.3'/>
+<line x1='895' y1='120' x2='748' y2='120' stroke='#1f2328' stroke-width='1.3'/>
+<line x1='895' y1='340' x2='748' y2='280' stroke='#1f2328' stroke-width='1.3'/>
+<line x1='895' y1='340' x2='770' y2='420' stroke='#1f2328' stroke-width='1.3'/>
+<line x1='895' y1='560' x2='748' y2='550' stroke='#1f2328' stroke-width='1.3'/>
+<ellipse cx='340' cy='120' rx='118' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='340' y='111.9'>Propose or enable</tspan><tspan x='340' y='128.1'>a skill</tspan></text>
+<ellipse cx='630' cy='120' rx='118' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='630' y='111.9'>Scan the skill</tspan><tspan x='630' y='128.1'>(static, nothing runs)</tspan></text>
+<ellipse cx='340' cy='240' rx='118' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='340' y='240.0'>Read the scan report</tspan></text>
+<ellipse cx='630' cy='280' rx='118' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='630' y='271.9'>Approve, block, or</tspan><tspan x='630' y='288.1'>request a change</tspan></text>
+<ellipse cx='340' cy='400' rx='118' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='340' y='400.0'>Revise the skill</tspan></text>
+<ellipse cx='630' cy='420' rx='140' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='630' y='411.9'>Triage each finding</tspan><tspan x='630' y='428.1'>(RISKY / BENIGN / NOT_PRESENT)</tspan></text>
+<ellipse cx='630' cy='550' rx='118' ry='32' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='630' y='550.0'>Propose a rule change</tspan></text>
+<line x1='458' y1='120' x2='510' y2='120' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4' marker-end='url(#open)'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='484' y='104.0'>«include»</tspan></text>
+<line x1='445' y1='385' x2='520' y2='300' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4' marker-end='url(#open)'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='478' y='318.0'>«extend»</tspan></text>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='478' y='334.0'>[change requested]</tspan></text>
+<line x1='630' y1='518' x2='630' y2='454' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4' marker-end='url(#open)'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='640' y='482.0'>«extend» [false positive found]</tspan></text>
+<circle cx='80' cy='120' r='10' stroke='#1f2328' stroke-width='1.5' fill='#ffffff'/>
+<line x1='80' y1='130' x2='80' y2='158' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='64' y1='140' x2='96' y2='140' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='80' y1='158' x2='67' y2='178' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='80' y1='158' x2='93' y2='178' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='80' y='196.0'>Developer</tspan></text>
+<circle cx='80' cy='380' r='10' stroke='#1f2328' stroke-width='1.5' fill='#ffffff'/>
+<line x1='80' y1='390' x2='80' y2='418' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='64' y1='400' x2='96' y2='400' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='80' y1='418' x2='67' y2='438' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='80' y1='418' x2='93' y2='438' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='80' y='456.0'>Skill author</tspan></text>
+<circle cx='920' cy='90' r='10' stroke='#1f2328' stroke-width='1.5' fill='#ffffff'/>
+<line x1='920' y1='100' x2='920' y2='128' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='904' y1='110' x2='936' y2='110' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='920' y1='128' x2='907' y2='148' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='920' y1='128' x2='933' y2='148' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='920' y='157.9'>CI pipeline</tspan><tspan x='920' y='174.1'>«system»</tspan></text>
+<circle cx='920' cy='310' r='10' stroke='#1f2328' stroke-width='1.5' fill='#ffffff'/>
+<line x1='920' y1='320' x2='920' y2='348' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='904' y1='330' x2='936' y2='330' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='920' y1='348' x2='907' y2='368' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='920' y1='348' x2='933' y2='368' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='920' y='377.9'>Security</tspan><tspan x='920' y='394.1'>reviewer</tspan></text>
+<circle cx='920' cy='530' r='10' stroke='#1f2328' stroke-width='1.5' fill='#ffffff'/>
+<line x1='920' y1='540' x2='920' y2='568' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='904' y1='550' x2='936' y2='550' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='920' y1='568' x2='907' y2='588' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<line x1='920' y1='568' x2='933' y2='588' stroke='#1f2328' stroke-width='1.5' fill='none'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='920' y='597.9'>Rule</tspan><tspan x='920' y='614.1'>maintainer</tspan></text>
+</svg>

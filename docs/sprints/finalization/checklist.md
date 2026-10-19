@@ -2,7 +2,7 @@
 
 How to use: the Finalization Product Owner owns this page from Mon 2026-11-30 to Fri 2026-12-04. Nothing is submitted until every box in sections 1 and 2 is checked. Items 3, 4, and 6 are verified by a member who did not write the README or the pipeline code. The verifier column records who checked.
 
-Product Owner: Hina Kramer. Scrum Master: Allie Hodges. Weights: final demonstration and presentation 20%, individual contribution and reflection 5%.
+Product Owner: Hina Kramer. Scrum Master: to be chosen at Sprint 3 planning (D-025). Weights: final demonstration and presentation 20%, individual contribution and reflection 5%.
 
 ## 1. Final submission checklist (verbatim from the assignment)
 
@@ -76,5 +76,4 @@ Confirm the checks in `docs/lean-six-sigma/CONTROL_PLAN.md` were run and record 
 |---|---|---|
 | Leticia Aderhold | [ ] | |
 | Jerad Dunne | [ ] | |
-| Allie Hodges | [ ] | |
 | Hina Kramer | [ ] | |

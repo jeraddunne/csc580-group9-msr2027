@@ -1,7 +1,8 @@
 # Single source of truth for team, timeline, and process parameters.
 # Scripts (bootstrap_github.py, lss_metrics.py, tally_votes.py, workspace_digest.py) read this file.
 # Change dates here if the instructor adjusts the calendar, then re-run scripts/bootstrap_github.py.
-# Four-person Group 9 (docs/decisions/ADR-0006-group-reinstated.md, 2026-09-15).
+# Four-person Group 9 (docs/decisions/ADR-0006-group-reinstated.md, 2026-09-15); three members since
+# Allie Hodges left the course in Sprint 2 (D-025, 2026-10-16).
 
 course: "SWE 380 / CSC 580 Group Project"
 institution: "University of Michigan-Flint"
@@ -20,8 +21,8 @@ team:
     github: "angel06la"
   - name: "Jerad Dunne"
     github: "jeraddunne"
-  - name: "Allie Hodges"
-    github: "AllieHgs"
+  # Allie Hodges (@AllieHgs) left the course in Sprint 2 (D-025); removed so contribution
+  # shares are computed over the three current members.
   - name: "Hina Kramer"
     github: "hinak786"
 
@@ -30,9 +31,9 @@ team:
 roles:
   formation:    { product_owner: "Jerad Dunne",      scrum_master: "Jerad Dunne" }
   sprint-1:     { product_owner: "Jerad Dunne",      scrum_master: "Leticia Aderhold" }
-  sprint-2:     { product_owner: "Allie Hodges",     scrum_master: "Hina Kramer" }
+  sprint-2:     { product_owner: "Jerad Dunne",      scrum_master: "Hina Kramer" }   # D-025
   sprint-3:     { product_owner: "Leticia Aderhold", scrum_master: "Jerad Dunne" }
-  finalization: { product_owner: "Hina Kramer",      scrum_master: "Allie Hodges" }
+  finalization: { product_owner: "Hina Kramer",      scrum_master: "TBD at Sprint 3 planning" }   # D-025
 
 # Semester calendar from the assignment (V2026.09.10). Sprints run Thursday to Wednesday.
 timeline:
@@ -81,7 +82,7 @@ validation:
   rater_ids:
     jd: "Jerad Dunne"
     la: "Leticia Aderhold"
-    ah: "Allie Hodges"
+    ah: "Allie Hodges"   # left the course in Sprint 2 (D-025); no labels
     hk: "Hina Kramer"
 
 metrics:

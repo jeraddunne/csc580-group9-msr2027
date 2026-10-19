@@ -8,10 +8,10 @@ How to use: one profile per member (from `TEMPLATE-member-profile.md`), the role
 |---|---|---|---|
 | Leticia Aderhold | [@angel06la](https://github.com/angel06la) | `leticia-aderhold.md` | _pending_ |
 | Jerad Dunne | [@jeraddunne](https://github.com/jeraddunne) | `jerad-dunne.md` | _pending_ |
-| Allie Hodges | [@AllieHgs](https://github.com/AllieHgs) | `allie-hodges.md` | _pending_ |
+| Allie Hodges | [@AllieHgs](https://github.com/AllieHgs) | `allie-hodges.md` | _pending_; left the course in Sprint 2 (D-025) |
 | Hina Kramer | [@hinak786](https://github.com/hinak786) | `hina-kramer.md` | _pending_ |
 
-The repository was set up on 2026-09-13 for this four-person group, ran briefly as a solo project on 2026-09-14 (ADR-0005), and returned to the four-person group on 2026-09-15 (ADR-0006). Leticia, Allie, and Hina were invited as collaborators with write access on 2026-09-15.
+The repository was set up on 2026-09-13 for this four-person group, ran briefly as a solo project on 2026-09-14 (ADR-0005), and returned to the four-person group on 2026-09-15 (ADR-0006). Leticia, Allie, and Hina were invited as collaborators with write access on 2026-09-15. Allie Hodges left the course during Sprint 2 (D-025, recorded 2026-10-16); the group continues with three members.
 
 ## Role rotation
 
@@ -21,9 +21,9 @@ Proposed; confirm at the 2026-09-16 kickoff and update `project.yml` (`roles:`) 
 |---|---|---|
 | Formation (Sep 10 to 16) | Jerad Dunne | Jerad Dunne |
 | Sprint 1 (Sep 17 to Oct 7) | Jerad Dunne | Leticia Aderhold |
-| Sprint 2 (Oct 8 to Oct 28) | Allie Hodges | Hina Kramer |
+| Sprint 2 (Oct 8 to Oct 28) | Jerad Dunne (D-025) | Hina Kramer |
 | Sprint 3 (Oct 29 to Nov 18) | Leticia Aderhold | Jerad Dunne |
-| Finalization (Nov 30 to Dec 4) | Hina Kramer | Allie Hodges |
+| Finalization (Nov 30 to Dec 4) | Hina Kramer | to be chosen at Sprint 3 planning (D-025) |
 
 Rationale: every member holds each of the two roles at least once across the semester; the member who set up the repository holds Product Owner first so the initial backlog matches the rubric, then hands over.
 
@@ -32,9 +32,9 @@ Rationale: every member holds each of the two roles at least once across the sem
 | Member | Rater id | Role in validation |
 |---|---|---|
 | Jerad Dunne | `jd` | Primary rater |
-| Leticia Aderhold | `la` | Second rater (kind assigned at kickoff) |
-| Allie Hodges | `ah` | Second rater (kind assigned at kickoff) |
-| Hina Kramer | `hk` | Second rater (kind assigned at kickoff) |
+| Leticia Aderhold | `la` | Second rater for drift (D-020) |
+| Hina Kramer | `hk` | Second rater for lineage (D-024) |
+| Allie Hodges | `ah` | Left the course in Sprint 2 (D-025); no labels |
 
 ## What each role does
 

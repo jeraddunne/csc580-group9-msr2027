@@ -2,10 +2,7 @@
 
 ## Status and responsibilities
 
-- Selection owner: Leticia Aderhold.
-- Scan and scoring owner: Jerad Dunne.
-- Status: AI-assisted candidate selection; owner review pending.
-- Scanner execution and scoring: not performed during this selection.
+- Status: Leticia Aderhold reviewed the source excerpts for all ten candidates and confirmed the proposed capability categories on 2026-10-20. Full-document review and teammate review remain pending.
 
 ## Selection method
 
@@ -55,6 +52,10 @@ Line numbers refer to the stored content split into lines.
 | 4bcf122319412600 | `skills/jeremylongshore/claude-code-plugins-plus-skills/attio-debug-bundle/SKILL.md` | CREDENTIALS | Lines 47–59 read ATTIO_API_KEY and use it in an Authorization header. |
 | f68a93449c373b0a | `.agents/skills/distributed-deployment/SKILL.md` | DESTRUCTIVE | Lines 361–364 describe clearing workspace caches across hosts; line 363 sends a recursive directory-deletion command through SSH. |
 | e7d2878c01a255b3 | `.claude/skills/building-vulnerability-dashboard-with-defectdojo/SKILL.md` | NETWORK | Lines 140–150 upload a scan file to the configured DefectDojo API with curl. This is network transfer; it is not automatically EXFIL_ENDPOINT. |
+
+## Source-excerpt review record
+
+On 2026-10-20, Leticia Aderhold reviewed source passages presented in ChatGPT for all ten candidates and confirmed their proposed categories. The review covered the cited capability passages, not the complete skill documents. No commands from the skills were executed, and no scanner results were consulted.
 
 ## Review before scanning
 

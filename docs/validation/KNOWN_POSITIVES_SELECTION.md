@@ -63,10 +63,10 @@ On 2026-10-21, Leticia Aderhold reviewed the complete stored SKILL.md text for a
 
 ## Review before scanning
 
-- [ ] Leticia reviews each candidate's source text and expected capability.
-- [ ] Any selection changes are recorded before scanning.
-- [ ] The selection and expected categories are committed before scanning.
-- [ ] AI assistance is recorded in ai-use-log.md.
+- [x] Leticia reviews each candidate's source text and expected capability.
+- [x] Any selection changes are recorded before scanning.
+- [x] The selection and expected categories are committed before scanning.
+- [x] AI assistance is recorded in ai-use-log.md.
 - [ ] Jerad retrieves the selected records using the documented IDs.
 - [ ] Jerad runs the scanner using a committed, reproducible command.
 - [ ] A results CSV records expected categories, reported categories, hits, and misses.

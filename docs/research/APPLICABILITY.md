@@ -65,6 +65,20 @@ If the team performs the optional comparison with Jerad Dunne:
 6. Review overlapping findings in context; raw counts alone do not
    establish which scanner is more accurate.
 
+## SonarQube edition and language verification
+
+On 2026-10-21, Leticia Aderhold checked the official SonarQube Community Build supported-language table and Python documentation.
+
+- Python analysis is supported in Community Build.
+- Shell and PowerShell are listed without support checkmarks in the Community Build column; their support is shown under Cloud and Server.
+- This comparison therefore treats Community Build as applicable to bundled Python scripts, without claiming built-in Shell or PowerShell analysis.
+- These pages do not establish semantic analysis of natural-language SKILL.md instructions or verify availability of every security rule mentioned above.
+- This was a documentation review; no SonarQube analysis was run.
+
+Sources:
+- https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/languages/overview
+- https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/languages/python
+  
 ## References
 
 - SpotBugs introduction:
@@ -92,8 +106,8 @@ If the team performs the optional comparison with Jerad Dunne:
 
 - [ ] Check project-rule mappings against the current rule cards in #95.
 - [ ] Reconcile CWE references with those used in #95.
-- [ ] Verify relevant SonarQube edition and language support.
-- [ ] Record AI assistance in ai-use-log.md in this PR.
-- [ ] Link this document from Sprint 2 instructor feedback and review.
+- [x] Verify relevant SonarQube edition and language support.
+- [x] Record AI assistance in ai-use-log.md in this PR.
+- [x] Link this document from Sprint 2 instructor feedback and review.
 - [ ] Obtain an approving review from another member.
-- [ ] Confirm required CI checks pass before merging.
+- [x] Confirm required CI checks pass before merging.

@@ -2,7 +2,7 @@
 
 ## Status and responsibilities
 
-- Status: Leticia Aderhold reviewed the source excerpts for all ten candidates and confirmed the proposed capability categories on 2026-10-20. Full-document review and teammate review remain pending.
+- Status: Leticia Aderhold completed full-document review of all ten candidates in DB Browser for SQLite on 2026-10-21 and confirmed the listed expected capability categories. Teammate review, scanning, and scoring remain pending.
 
 ## Selection method
 
@@ -57,6 +57,10 @@ Line numbers refer to the stored content split into lines.
 
 On 2026-10-20, Leticia Aderhold reviewed source passages presented in ChatGPT for all ten candidates and confirmed their proposed categories. The review covered the cited capability passages, not the complete skill documents. No commands from the skills were executed, and no scanner results were consulted.
 
+## Full-document review record
+
+On 2026-10-21, Leticia Aderhold reviewed the complete stored SKILL.md text for all ten candidates in DB Browser for SQLite and retained the listed expected categories without changes. Codex assisted with navigation and interpretation of the source evidence. The categories describe capabilities and do not establish malicious intent. No commands from the skills were executed, and no scanner results were consulted.
+
 ## Review before scanning
 
 - [ ] Leticia reviews each candidate's source text and expected capability.
@@ -73,8 +77,6 @@ On 2026-10-20, Leticia Aderhold reviewed source passages presented in ChatGPT fo
 The ten candidates cover five capability categories. They do not cover
 every threat-model category and cannot establish overall scanner recall.
 
-The current labels are proposed capability checks. Owner review is
-still required before treating this list as finalized ground truth.
-
+The expected categories have been confirmed by Leticia's full-document review for this targeted capability check. Teammate review and comparison with scanner results remain pending.
 Issue #97 remains open until scanning, scoring, review, and the other
 acceptance criteria are complete.

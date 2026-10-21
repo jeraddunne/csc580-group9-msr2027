@@ -88,3 +88,7 @@ The Sprint 2 review must include:
 - Added:
 - Removed or cancelled:
 - Re-estimated:
+
+## Applicability analysis update
+
+[Static-analysis applicability comparison](../../research/APPLICABILITY.md) addresses issue #96. Rule-card/CWE reconciliation and teammate approval remain pending. No external analyzer experiment was performed.

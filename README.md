@@ -28,13 +28,15 @@ The three sub-questions are prevalence (RQ1), reach (RQ2), and variant drift (RQ
 
 ## Project status
 
+Status as of October 21, 2026.
+
 | Phase | Dates | Status |
 |---|---|---|
-| Formation (Define) | Sep 10 to Sep 16, 2026 | **in progress**: topic selected (P-01); group reinstated (ADR-0006); members onboarding and signing the charter |
-| Sprint 1 (Measure) | Sep 17 to Oct 7 | not started |
-| Sprint 2 (Analyze) | Oct 8 to Oct 28 | not started |
-| Sprint 3 (Improve) | Oct 29 to Nov 18 | not started |
-| Finalization (Control) | Nov 30 to Dec 4 | not started |
+| Formation (Define) | Sep 10 to Sep 16, 2026 | Completed: research topic selected, team charter established, and onboarding completed. |
+| Sprint 1 (Measure) | Sep 17 to Oct 7, 2026 | Completed and submitted. Pipeline implementation, preliminary results, and reproduction records are available. |
+| Sprint 2 (Analyze) | Oct 8 to Oct 28, 2026 | In progress: validation protocol documented; labeling, rule documentation, applicability analysis, and report updates are underway. Several pull requests await review. Final validation scores, Sprint 2 demonstration, review, and retrospective remain pending. |
+| Sprint 3 (Improve) | Oct 29 to Nov 18, 2026 | Planned; not started. Includes the signals repeat-labeling check and improvements informed by validation. |
+| Finalization (Control) | Nov 30 to Dec 4, 2026 | Planned; not started. |
 
 ## New member? Start here
 

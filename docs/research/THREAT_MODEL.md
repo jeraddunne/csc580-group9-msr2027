@@ -84,6 +84,8 @@ A capability is something a skill can cause the agent, or a bundled script, to d
 
 ## 8. How severities were assigned and will be reviewed
 
+**Where the rules come from.** The proposer wrote each rule from a category in section 5, as a literal form of the capability: the command, file path, or front-matter field a skill would contain. Eighteen rules have `source: expert`; R-OVR-001 has `source: literature` (Greshake et al.). In Sprint 2 (#95, D-026) each rule was mapped to established sources: CWE weaknesses, MITRE ATT&CK techniques, the OWASP Top 10 for LLM Applications (2025), Bandit and ShellCheck checks, and the Agent Skills specification. The mapping is in each rule's `references` field and on the generated rule cards in [`RULE_CATALOG.md`](RULE_CATALOG.md). It was made after the rules were written, so it shows correspondence, not derivation. Parts of rules that no source covers are marked on the cards: git hooks as persistence, git history rewrites as destruction, and raw-IP URLs.
+
 1. **Initial assignment (2026-09-14).** The proposer set severities using the scale above. The inputs were security threat-modeling practice for agent integrations and the capability's position relative to boundary 3.
 2. **Sprint 2 review.** After the validation sample is labelled, each rule's precision and each category's severity are reviewed. A severity change needs a pull request with the reason, an updated rule example, and a note in the decision log.
 3. **Sensitivity.** Every headline result is also reported at severity cutoffs 5 and 7 (`results/sensitivity_summary.csv`), so conclusions do not rest on one cutoff.

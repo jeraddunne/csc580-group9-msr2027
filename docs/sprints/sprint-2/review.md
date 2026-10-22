@@ -15,13 +15,13 @@ Met: [ ] Yes [ ] Partly [ ] No
 
 The Sprint 2 review must include:
 
-- [ ] Working core implementation. Evidence: issue #21; add the merged PR and output path when complete.
-- [ ] Automated tests for the implemented method. Evidence: issue #22; add CI run and test results.
-- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md`.
-- [ ] Preliminary results with reproducible figures or tables. Evidence: issue #24; add paths under `results/` or `figures/`.
-- [ ] At least one pull request reviewed by a member other than its author. Evidence: add reviewed PR link.
-- [ ] Updated research report. Evidence: issue #25 and `report/draft.md`.
-- [ ] Sprint 2 retrospective. Evidence: issue #26 and `docs/sprints/sprint-2/retrospective.md`.
+- [ ] Working core implementation. Evidence: issue #21; [reproduction instructions and historical runs](../../REPRODUCE.md#recorded-runs). Fresh Sprint 2 end-to-end reproduction remains pending.
+- [ ] Automated tests for the implemented method. Evidence: issue #22; [automated tests](../../../tests/). Add the latest successful CI run and test results.
+- [ ] Validation sample and protocol. Evidence: issue #23; [validation protocol](../../validation/README.md). Label completion and scoring remain pending verification.
+- [ ] Preliminary results with reproducible figures or tables. Evidence: issue #24; [prevalence results](../../../results/rq1_prevalence_by_rule.csv) and [reproduction instructions](../../REPRODUCE.md). Confirm the generating command and Sprint 2 reproduction.
+- [ ] At least one pull request reviewed by a member other than its author. Evidence: [PR #105](https://github.com/jeraddunne/csc580-group9-msr2027/pull/105), authored by Jerad and approved by Leticia. Add the approving review's direct link.
+- [ ] Updated research report. Evidence: issue #25; [research report](../../../report/draft.md). Confirm the current report meets the Sprint 2 requirements; corrections in PR #108 remain subject to review and merge.
+- [ ] Sprint 2 retrospective. Evidence: issue #26; [retrospective draft](retrospective.md). Review discussion and final decisions remain pending.
 
 ## Sprint 2 acceptance criteria
 

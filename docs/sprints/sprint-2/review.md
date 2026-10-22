@@ -1,9 +1,9 @@
 # Sprint 2 review: implementation and validation
 
-How to use: the Product Owner runs the review on Wed 2026-10-28. Every rubric bullet must link to evidence in this repository. Rubric weight: 20%.
+Status: Preliminary draft. Attendance, completion, metrics, validation results, and Sprint 2 reproduction evidence remain pending verification.
+Date: 2026-10-28. Product Owner: Jerad Dunne. Scrum Master: Hina Kramer.
 
-Date: 2026-10-28. Product Owner: Allie Hodges. Scrum Master: Hina Kramer.
-Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer [ ] Instructor (if present)
+Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer [ ] Instructor
 
 ## Sprint goal check
 
@@ -11,8 +11,11 @@ Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Allie Hodges [ ] Hina Kramer [
 
 - Sprint goal (proposed; confirm with the Product Owner): By October 28, the risk-signal scanner, variant linking, and reach analysis run end to end on the approved GitSkills sample, automated tests cover core functions, and human validation produces precision and agreement results supported by reproducible tables and figures.
 - Met: partially (provisional as of October 21). The repository contains the core implementation, automated tests, preliminary results, a research-report draft, and a written validation protocol. Final validation scores, updated process metrics, a fresh reproduction run, and the completed Sprint 2 retrospective still need confirmation before the goal can be marked fully met.
+> By 2026-10-28, the team will have the core mining and analysis pipeline running end-to-end on the approved sample, automated tests, reproducible preliminary results, updated report sections, and documented validation including second-rater labels and inter-rater agreement.
 
-## Rubric review checklist (verbatim from the assignment)
+Met: [ ] Yes [ ] Partly [ ] No
+
+## Rubric review checklist
 
 The Sprint 2 review must include:
 
@@ -23,8 +26,15 @@ The Sprint 2 review must include:
 - [x] At least one pull request reviewed by a different team member than the author. Evidence: [PR #105](https://github.com/jeraddunne/csc580-group9-msr2027/pull/105), authored by Jerad Dunne and approved by Leticia Aderhold (angel06la); merged with five checks passing.
 - [x] An updated research report containing the background, method, implementation, and preliminary results. Evidence: [Report update PR #91](https://github.com/jeraddunne/csc580-group9-msr2027/pull/91). The draft includes introduction and related work, dataset preparation, method and implementation, and preliminary RQ1–RQ3 results. Human validation remains pending.
 - [ ] A retrospective that records changes to the research question, method, scope, or interpretation. Evidence:
+- [ ] Working core implementation. Evidence: issue #21; add the merged PR and output path when complete.
+- [ ] Automated tests for the implemented method. Evidence: issue #22; add CI run and test results.
+- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md`.
+- [ ] Preliminary results with reproducible figures or tables. Evidence: issue #24; add paths under `results/` or `figures/`.
+- [ ] At least one pull request reviewed by a member other than its author. Evidence: add reviewed PR link.
+- [ ] Updated research report. Evidence: issue #25 and `report/draft.md`.
+- [ ] Sprint 2 retrospective. Evidence: issue #26 and `docs/sprints/sprint-2/retrospective.md`.
 
-## Sprint 2 acceptance criteria (verbatim)
+## Sprint 2 acceptance criteria
 
 | Criterion | Pass / Fail | Evidence link | Notes |
 |---|---|---|---|
@@ -57,8 +67,37 @@ Proposed presenter assignments; confirm with the team before the review.
 | 4 | Explain the validation sample, labeling protocol, and independent reviewer assignments: Jerad is primary rater, Leticia second-rates drift, and Hina second-rates lineage. Present precision and agreement scores only if generated and verified; otherwise state what remains pending. Signals repeat labeling is planned for Sprint 3. | 2 min | Hina Kramer |
 | 5 | Show PR #105 and Leticia's approving review, explain D-024 and D-025, and show the metrics dashboard with its snapshot date. Identify any stale or unavailable metrics. | 2 min | Leticia Aderhold |
 | 6 | Explain limitations: keyword matches do not establish harmful behavior, the sample limits generalization, and variant similarity requires human review. Outline Sprint 3 follow-up work based on validation findings and the signals repeat-labeling check. | 1 min | Hina Kramer |
+| Acceptance criterion | Status | Evidence |
+|---|---|---|
+| Core implementation runs end-to-end on the approved sample | Pending | Issue #21; add command, commit SHA, and generated output |
+| Method has automated tests | Pending | Issue #22; add test and CI results |
+| Group can explain why the method is trustworthy and where it may fail | Pending | Issue #23; validation results and threats-to-validity discussion |
+| Preliminary analysis is supported by generated evidence rather than screenshots alone | Pending | Issue #24; add reproducible table and figure paths and the scripts that generated them |
 
-## Gemba walk: fresh-clone reproduction record
+## Validation status
+
+Assignments follow D-024. Pending entries require evidence from the relevant validation issue or pull request.
+
+| Kind | Primary rater | Second rater | Label PR/date | Agreement result |
+|---|---|---|---|---|
+| Signals | Jerad (`jd`) | None; intra-rater round 2 is deferred to Sprint 3 under #101 | Pending | Inter-rater kappa not applicable; intra-rater result pending |
+| Lineage | Jerad (`jd`) | Hina (`hk`) | Pending; see #99 and #100 | Pending |
+| Drift | Jerad (`jd`) | Leticia (`la`) | See #90; confirm label PR and date | Pending |
+
+Preserve rater independence and follow the documented blindness protocol.
+
+## Demo script (12 minutes)
+
+| Step | Time | Presenter |
+|---|---:|---|
+| Research question and method | 1 min | Leticia |
+| `make test`, `make pipeline`, and CI | 3 min | Jerad |
+| Preliminary table and figure; identify the script and command that produced each | 3 min | Leticia |
+| Validation protocol, precision per rule, and agreement results; explain limitations | 2 min | Hina |
+| PR review, ADR, and process metrics | 2 min | Hina |
+| Known failure and Sprint 3 plan | 1 min | Jerad |
+
+## Sprint 2 Gemba walk: fresh-clone reproduction
 
 Pending: a member who did not write the README must follow its instructions in a fresh checkout and record the actual outcome.
 
@@ -73,12 +112,67 @@ Pending: a member who did not write the README must follow its instructions in a
 | Problems found (open issues) | Pending: record observed problems and issue links, or “None observed” after completing the run |
 
 Historical author-run reproduction records are available in [docs/REPRODUCE.md](../../REPRODUCE.md). They support reproducibility but do not replace this non-author fresh-clone record.
+A new Sprint 2 run is required. The historical Sprint 1 record below does not satisfy this requirement.
+
+| Field | Evidence |
+|---|---|
+| Status | Pending new Sprint 2 run |
+| Person and environment | Pending |
+| Run date | Pending |
+| Commit SHA | Pending; capture using `git rev-parse HEAD` |
+| README steps and commands followed | Pending; record the actual commands |
+| Time to first result | Pending; measure during the run |
+| Generated output and comparison | Pending; link output and compare with the expected result |
+| Problems and resolutions | Pending |
+
+## Historical Sprint 1 reproduction record — September 26
+
+| Field | Evidence |
+|---|---|
+| Who and environment | Leticia Aderhold; Windows 11; Python 3.12.1 |
+| Date | 2026-09-26 |
+| Commit SHA | Not recorded for the September 26 run |
+| README steps followed | Created and activated a virtual environment; installed development dependencies; ran the sample-download script and checked the manifest |
+| Time to first result | Not recorded |
+| Output matched | Dataset acquisition succeeded; full pipeline output was not independently compared |
+| Problems found | Missing requests dependency caused the initial failure. Installing development dependencies resolved it; documented in issue #14 |
 
 ## Instructor feedback
 
+Source: [Sprint 2 instructor feedback](instructor-feedback.md). These are tracked requests; completion requires linked evidence.
+
 | Feedback | Action | Owner | Issue # |
 |---|---|---|---|
-| | | | |
+| Complete validation | Follow D-024, complete labels, score validation, and report agreement and limitations | Jerad, Hina, and Leticia | #99, #100, #90 |
+| Start with known-positive skills | Select about ten skills independently of rule patterns and report detections and misses | Jerad; selection checked by another member | #97 |
+| Explain rule provenance | Document each rule's rationale, example, source, and known false positives | Jerad | #95 |
+| Analyze applicability | Explain which established rules apply to skill text or bundled scripts | Jerad | #96 |
+| Define intended use | Document the human-in-the-loop risk-review workflow and diagrams | Jerad; reviewed by Hina and Leticia | #98 |
+| Document team process | Maintain check-in notes, retrospective, obstacles, and contributions | Hina and Leticia | #102, #26 |
+| Define task completion | Include acceptance criteria and a definition of done for each open Sprint 2 task | Hina | #102 |
+| Report obstacles | Record reduced capacity, validation timing constraints, and metrics-workflow problems | Hina | #102, #101, #103 |
+| Keep AI-use records current | Each member records assistance or states none was used | Everyone | #104 |
+| Check feedback video for further requests | Watch the Canvas video and add requests not already documented | Jerad | See instructor-feedback.md |
+
+## Obstacles
+
+| Obstacle | Impact | Response / tracking |
+|---|---|---|
+| Team decreased from four members to three | Reduced capacity and reassignment needs | Update ownership and priorities; see planning.md and D-025 |
+| Signals intra-rater validation requires a 14-day gap | Round 2 moves to Sprint 3 | Track in #101 |
+| Metrics workflow failure | Delays reliable process metrics | Track in #103; verify resolution before reporting values |
+
+Confirm obstacle status and add supporting evidence at the review.
+
+## Contributions per member
+
+Record verified completed work, distinct from planned assignments.
+
+| Member | Planned responsibility | Verified contribution and issue/PR evidence |
+|---|---|---|
+| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Pending verification |
+| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Pending verification |
+| Hina Kramer | Scrum Master; validation coordination, lineage second-rating, process evidence, and retrospective | Pending verification |
 
 ## Velocity and KPIs at review
 
@@ -101,7 +195,7 @@ Sources: [Metrics dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), [reprod
 
 Record the dashboard snapshot date and commit when adding final values. Historical test counts describe their recorded runs and are not current coverage measurements.
 
-## Backlog changes agreed at the review
+## Backlog changes proposed for review
 
 Pending the Sprint 2 review on October 28, 2026. The items below distinguish existing backlog work from decisions still to be made.
 
@@ -110,3 +204,6 @@ Pending the Sprint 2 review on October 28, 2026. The items below distinguish exi
 - Re-estimated: No review-specific estimate changes confirmed. Record each agreed change with its issue link, previous estimate, revised estimate, and reason.
 
 Signals repeat labeling is planned for Sprint 3 under #101, at least 14 days after round 1. Confirm remaining priorities, owners, and estimates with the team at the review.
+- Added: redistribute work previously associated with Allie and update team documentation.
+- Removed/cancelled: Allie from capacity, attendance, assignments, and review rotation because she dropped the course.
+- Re-estimation proposed: reconcile remaining work and instructor-feedback tasks with three-person capacity; final estimates require team agreement.

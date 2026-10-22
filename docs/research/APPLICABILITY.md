@@ -25,6 +25,9 @@ or measured accuracy. No external analyzer was run for this document.
 | CWE-78: OS Command Injection | Conceptual review only | Applicable as a weakness classification when untrusted input reaches an OS command unsafely | CWE is a taxonomy, not an executable analyzer. A shell command or shell code block alone does not prove command injection. | Related to R-SHL-001 and execution-related rules, but these capability indicators do not establish CWE-78. |
 | CWE-95: Eval Injection | Conceptual review only | Relevant when insufficiently controlled input reaches dynamically evaluated code | A call to eval alone does not establish injection; input control and execution context must also be examined. | R-EXE-001; the rule catalog cites CWE-95 for eval and similar calls. |
 | CWE-798: Hard-coded Credentials | Relevant only if actual hard-coded credentials appear; a variable name alone is insufficient | Relevant when scripts embed credentials | References to secret variable names, credential paths, or dotenv files do not by themselves establish hard-coded credentials. | Related to R-CRD-001 through R-CRD-003, with substantial differences in what constitutes a finding. |
+| Remote code / CWE-494 | Conceptual review of download-and-execute instructions | Relevant to scripts that download and execute code without checking integrity | CWE-494 is a weakness classification, not an analyzer. No equivalent built-in detector has been verified for the tools compared here. Legitimate installers can match; review source, integrity checks, and execution context. | R-RCE-001 and R-RCE-002; catalog references include CWE-494, T1059.004 or T1059.001, and T1105. |
+| Privilege / CWE-250 and CWE-732 | Conceptual review of sudo and permission-changing instructions | Relevant where scripts request unnecessary privileges or assign unsafe permissions | No equivalent built-in detector has been verified here. Using sudo or chmod alone does not establish a vulnerability; the required privilege, target resource, and permissions need review. | R-PRV-001 corresponds conceptually to CWE-250; R-PRV-002 to CWE-732 and T1222.002. R-PRV-003 records executable-permission context and cites T1222.002. |
+| Exfiltration endpoints / ATT&CK | Endpoint names can be matched as text; intent requires review | Endpoint strings and transfer calls can be inspected, but no equivalent analyzer rule has been verified here | ATT&CK describes techniques rather than providing a code analyzer. A webhook, paste service, or tunnel may have legitimate uses; establish what data is sent, where, and with whose authorization. | R-EXF-001; catalog references are T1567.004, T1567.003, and T1572. R-NET-001 and R-NET-002 provide additional network context rather than proof of exfiltration. |
 
 ## SpotBugs limitation
 
@@ -100,11 +103,12 @@ Sources:
 - CWE-95: https://cwe.mitre.org/data/definitions/95.html
 - CWE-798:
   https://cwe.mitre.org/data/definitions/798.html
-
+- Project rule catalog: [Rule cards and their references](RULE_CATALOG.md), reviewed for remote-code, privilege, and exfiltration mappings on 2026-10-22.
+  
 ## Review and completion checklist
 
-- [ ] Check project-rule mappings against the current rule cards in #95.
-- [ ] Reconcile CWE references with those used in #95.
+- [x] Check project-rule mappings against the current rule cards in #95.
+- [x] Reconcile CWE references with those used in #95.
 - [x] Verify relevant SonarQube edition and language support.
 - [x] Record AI assistance in ai-use-log.md in this PR.
 - [x] Link this document from Sprint 2 instructor feedback and review.

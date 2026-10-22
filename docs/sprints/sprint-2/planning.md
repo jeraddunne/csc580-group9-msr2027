@@ -17,7 +17,7 @@ By October 28, the team will have the core mining and analysis pipeline running 
 | Hina Kramer | 6 | Pending reconciliation | Scrum Master; validation protocol, lineage second-rating, coordination, retrospective, and pull-request reviews |
 | **Total** | **26** | **Pending reconciliation** | Sprint 1 velocity: **15 points** (October 4 dashboard snapshot) |
 
-Planned points remain pending until the team reconciles backlog estimates, completed carry-in work, and newly added instructor-feedback tasks with available capacity.
+The team agreed to a Sprint 2 commitment of 3 story points. Allocation by member remains pending.
 
 Include second-rater labeling time in available hours. Per D-024, Leticia Aderhold second-rates drift and Hina Kramer second-rates lineage. Signals have no second rater. Allow approximately 4 minutes per drift pair and 2 minutes per lineage pair.
 
@@ -38,8 +38,8 @@ Estimates are story points, not hours. Added feedback tasks require team estimat
 | S2-9 | Validation scoring and error analysis | 3 | Jerad Dunne | #90; #99; #100 | Validation outputs and agreement measures are reported with error analysis and limitations. | Pending |
 | S2-10 | Lean Six Sigma capability check | 2 | Hina Kramer | Confirm linked process-metrics issue | Capability analysis identifies the metric, method, evidence, and limitations. | Pending |
 | S2-11 | Rule rationale and provenance | Team estimate pending | Jerad Dunne | #95 | Each rule documents its problem, bad example, source, and known false positives; threat-model and severity rationale are explained. | Pending |
-| S2-12 | Applicability of established rules | Team estimate pending | Jerad Dunne | #96 | Applicability to SKILL.md text, bundled scripts, or neither is documented with reasons. | Pending |
-| S2-13 | Known-positive skills check | Team estimate pending | Jerad Dunne; selection checked by another member | #97 | About ten known-positive skills are selected without inspecting rule patterns; detections and misses are reported. | Pending |
+| S2-12 | Applicability of established rules | Team estimate pending | Leticia Aderhold | #96 | Applicability to SKILL.md text, bundled scripts, or neither is documented with reasons. | Pending |
+| S2-13 | Known-positive skills check | Team estimate pending | Leticia Aderhold: skill selection; Jerad Dunne: scanner check and results | #97 | About ten known-positive skills are selected without inspecting rule patterns; detections and misses are reported. | Pending |
 | S2-14 | Human-in-the-loop risk-review workflow | Team estimate pending | Jerad Dunne; reviewed by Hina Kramer and Leticia Aderhold | #98 | Use case and swimlane activity diagrams explain how people use scanner results; the report describes the workflow. | Pending |
 | S2-15 | Team-process evidence and task definitions of done | Team estimate pending | Hina Kramer and Leticia Aderhold | #102 | Check-in notes, obstacles, and contributions are documented; each open Sprint 2 task has acceptance criteria and a definition of done. | Pending |
 | S2-16 | Current AI-use log | Team estimate pending | Every member | #104 | Each member records Sprint 2 AI assistance or explicitly states none was used. | Pending |
@@ -52,14 +52,14 @@ Signals intra-rater round 2 is tracked in #101 for Sprint 3 because of the requi
 
 | Risk | RPN | Mitigation this sprint | Owner |
 |---|---:|---|---|
-| Method produces results that cannot be validated | Not scored in current FMEA register | Guideline fixed before scoring; rules frozen once round one starts | Hina Kramer |
+| Method produces results that cannot be validated (related to FMEA R11) | 140 (R11 reference; not a separate score) | Guidelines fixed before scoring; rules frozen once round one starts; preserve rater independence. | Hina Kramer |
 | Second-rater disagreement or primary labels seen by the second rater (R11) | 140 | Practice items, blindness rule, adjudication during error analysis, and kappa reported | Jerad Dunne |
 | Review delays block merges (R12) | 90 | 48-hour review SLA, reviewer rotation, and first-review KPI checked at each check-in | Hina Kramer |
 | Uneven contribution (R06) | 147 | Contribution shares checked at each check-in and work reassigned when necessary | Hina Kramer |
 | Test coverage lags implementation | Not scored in current FMEA register | Tests included in the Definition of Done for every pipeline PR | Jerad Dunne |
 | Report writing left to the end | Not scored in current FMEA register | Report sections assigned as issues and drafted before the final week | Leticia Aderhold |
 
-The validation-method, test-coverage, and report-writing risks are additional planning risks without scores in the current FMEA register. The team must assess their severity, occurrence, and detection before assigning RPNs. No scores have been estimated here.
+The validation-method risk is linked to FMEA R11; its referenced RPN of 140 is not a separate risk score. Test-coverage and report-writing risks remain additional, unscored planning risks. The team must assess their severity, occurrence, and detection before assigning RPNs.
 
 ## Analyze phase exit criteria (DMAIC)
 

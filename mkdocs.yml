@@ -100,6 +100,7 @@ nav:
       - Data dictionary: DATA_DICTIONARY.md
       - Dataset and acquisition: data/README.md
       - Threat model: docs/research/THREAT_MODEL.md
+      - Rule catalog: docs/research/RULE_CATALOG.md
       - Review workflow (draft): docs/research/REVIEW_WORKFLOW.md
       - Threats to validity: THREATS_TO_VALIDITY.md
       - Results: results/README.md

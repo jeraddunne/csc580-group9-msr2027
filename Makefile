@@ -18,7 +18,7 @@ endif
 # nobody has to activate it first (issue #71). Override with `make test PY=...`.
 PY ?= $(if $(wildcard $(VENV_PY)),$(VENV_PY),$(BOOTSTRAP_PY))
 
-.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec
+.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec ground-truth
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-12s %s\n", $$1, $$2}'
@@ -79,6 +79,9 @@ interview: ## Ask the notebook every question in elicitation/questions.yaml; wri
 
 interview-checks: ## Check the interview's data claims against the sample (V01 to V18)
 	$(PY) scripts/check_interview_claims.py
+
+ground-truth: ## Check the scanner against the known-positive skills (#97); writes results/ground_truth_*.csv
+	$(PY) scripts/ground_truth_check.py
 
 verify-spec: ## Run the acceptance tests in RESEARCH_SPEC.md; writes results/spec_verification.csv
 	$(PY) scripts/verify_spec.py

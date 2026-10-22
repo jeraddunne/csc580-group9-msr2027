@@ -194,7 +194,7 @@ Future work that follows from the current results is clear. The full GitSkills d
 - **Validation.** Run `python scripts/annotation_kit.py sample`, then `sheet --rater <id> --round 1`, label, then `score`. Label files live in `data/annotations/`, and reading packets are generated locally and never committed.
 - **Pilot.** `python -m msr_pipeline risk-pilot` reproduces the proposal's pilot tables.
 - **Data availability.** GitSkills full dataset: doi:10.5281/zenodo.21875637; sample: the dataset authors' GitHub repository. Dataset content is not redistributed in this repository.
-- **Process.** by a team of three following Allie Hodges's departure in Sprint 2 (D-025), with rotating Product Owner and Scrum Master roles
+- **Process.** The project was run as Scrum with a Lean Six Sigma overlay [@schwaber2020; @george2002], by a four-person team that became three when Allie Hodges left the course in Sprint 2 (D-025), with rotating Product Owner and Scrum Master roles (ADR-0006). The most important process improvement, with before-and-after numbers, is to be added at the Sprint 3 retrospective.
 - **AI-use disclosure.** AI assistance is logged in `ai-use-log.md`, including what was generated and how it was verified.
 
 # References

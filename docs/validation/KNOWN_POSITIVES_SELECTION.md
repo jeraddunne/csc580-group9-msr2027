@@ -67,6 +67,7 @@ On 2026-10-21, Leticia Aderhold reviewed the complete stored SKILL.md text for a
 - [x] Any selection changes are recorded before scanning.
 - [x] The selection and expected categories are committed before scanning.
 - [x] AI assistance is recorded in ai-use-log.md.
+- [x] Validation-sample overlap check confirms zero overlap for the revised ten-candidate selection.
 - [ ] Jerad retrieves the selected records using the documented IDs.
 - [ ] Jerad runs the scanner using a committed, reproducible command.
 - [ ] A results CSV records expected categories, reported categories, hits, and misses.

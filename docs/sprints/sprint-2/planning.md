@@ -17,7 +17,7 @@ By October 28, the team will have the core mining and analysis pipeline running 
 | Hina Kramer | 6 | Pending reconciliation | Scrum Master; validation protocol, lineage second-rating, coordination, retrospective, and pull-request reviews |
 | **Total** | **26** | **Pending reconciliation** | Sprint 1 velocity: **15 points** (October 4 dashboard snapshot) |
 
-The team agreed to a Sprint 2 commitment of 3 story points. Allocation by member remains pending.
+Issue #102 has an estimate of 3 story points. The total Sprint 2 commitment, committed backlog items, and allocations by member remain pending team confirmation.
 
 Include second-rater labeling time in available hours. Per D-024, Leticia Aderhold second-rates drift and Hina Kramer second-rates lineage. Signals have no second rater. Allow approximately 4 minutes per drift pair and 2 minutes per lineage pair.
 

@@ -108,7 +108,7 @@ The pipeline runs with `python -m msr_pipeline analyze` (or `make pipeline`). It
 
 A lineage sample of 58 variant pairs checks whether pairs really share a lineage: the 18 pairs whose high-risk categories differ, plus 40 random pairs. The 18 differing pairs are also classified as template update, local adaptation, hardening, capability addition, or unrelated. <!-- data/annotations/samples/SAMPLE_MANIFEST.json -->
 
-**Reliability.** One author is the primary rater, and a second author labels the same round 1 items independently. Inter-rater agreement is the primary reliability measure, reported as Cohen's kappa for each kind [@cohen1960]. To keep the labels independent, the primary rater's label files for a kind are committed only after the second rater's, and the second rater never sees them. An optional intra-rater check re-labels about 30% of items at least seven days after round one: 45 signal items, 18 lineage pairs, and 6 drift pairs. If an LLM is used as an additional rater, it is disclosed and reported separately, never counted as human agreement. The guideline is in `docs/validation/ANNOTATION_GUIDELINE.md`.
+**Reliability.** Jerad Dunne is the primary rater. Leticia Aderhold independently second-rates drift, and Hina Kramer independently second-rates lineage. Inter-rater agreement is measured using Cohen's kappa [@cohen1960]. Signals are labeled by Jerad alone, with an intra-rater check in Sprint 3 at least 14 days after round 1. Optional repeat labeling uses a minimum interval of 14 days for lineage and seven days for drift. The blindness rule keeps primary and second-rater labels separate until their independent round 1 work is complete. Any additional LLM ratings are disclosed and reported separately from human agreement. The current protocol is documented in `docs/validation/README.md`.
 
 **FMEA ranking.** Categories are ranked by severity (from the rule file), occurrence (validated prevalence), and detection (estimated miss rate), in the style of a failure mode and effects analysis. The ranking prioritises categories for review and is not a risk verdict.
 
@@ -194,7 +194,7 @@ Future work that follows from the current results is clear. The full GitSkills d
 - **Validation.** Run `python scripts/annotation_kit.py sample`, then `sheet --rater <id> --round 1`, label, then `score`. Label files live in `data/annotations/`, and reading packets are generated locally and never committed.
 - **Pilot.** `python -m msr_pipeline risk-pilot` reproduces the proposal's pilot tables.
 - **Data availability.** GitSkills full dataset: doi:10.5281/zenodo.21875637; sample: the dataset authors' GitHub repository. Dataset content is not redistributed in this repository.
-- **Process.** The project was run as Scrum with a Lean Six Sigma overlay [@schwaber2020; @george2002], by a four-person team with rotating Product Owner and Scrum Master roles (ADR-0006). The most important process improvement, with before-and-after numbers, is to be added at the Sprint 3 retrospective.
+- **Process.** The project was run as Scrum with a Lean Six Sigma overlay [@schwaber2020; @george2002], by a four-person team that became three when Allie Hodges left the course in Sprint 2 (D-025), with rotating Product Owner and Scrum Master roles (ADR-0006). The most important process improvement, with before-and-after numbers, is to be added at the Sprint 3 retrospective.
 - **AI-use disclosure.** AI assistance is logged in `ai-use-log.md`, including what was generated and how it was verified.
 
 # References

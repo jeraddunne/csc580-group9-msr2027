@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-23T16:50:19+00:00",
+  "generated_at": "2026-10-24T18:51:08+00:00",
   "command": "python -m msr_pipeline analyze",
   "seed": 580,
   "gitskills_db": "agent_skills_sample.db",
   "gitskills_db_sha256_from_manifest": "683888c923a51952fb66f83f21351ed5bf1127ddddf380e517592ae27c367658",
   "rules_file": "skill_risk_rules.yaml",
-  "rules_file_sha256": "111aa8f78af22e8274f047106dcd27c18ca4f735c1669fba4775b8dbc84efab5",
+  "rules_file_sha256": "11e6a106271c641716c53c909eb75ce461742c5d177c68adeb565901a2b23e4a",
   "rules_active": 19,
   "high_risk_severity_cutoff": 6,
   "main_similarity_threshold": 0.5,
@@ -44,5 +44,5 @@
     "rq2_copies_by_group.png",
     "rq3_threshold_sweep.png"
   ],
-  "runtime_seconds": 100.5
+  "runtime_seconds": 102.8
 }

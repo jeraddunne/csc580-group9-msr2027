@@ -17,7 +17,7 @@ The Sprint 2 review must include:
 
 - [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. A fresh Sprint 2 reproduction remains pending.
 - [ ] Automated tests for the implemented method. Evidence: issue #22 records 179 tests passing in 38.96 seconds on commit `ee52bce` and successful CI run #114. Confirmation that every function contributing output to the report has a corresponding automated test remains pending.
-- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md` document the frozen sample, annotation workflow, and rater assignments. Samples include 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Completed two-rater agreement results remain to be verified; signals intra-rater round 2 is deferred to Sprint 3 (#101).
+- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md` document the frozen sample, annotation workflow, and rater assignments: 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Merged PR #119 reports drift inter-rater agreement across 18 pairs: 83.3% agreement and Cohen’s kappa 0.745 (`results/validation_agreement.csv`). Lineage agreement remains pending Hina’s labels (#99); signals intra-rater round 2 is deferred to Sprint 3 (#101).
 - [x] Preliminary results with reproducible figures or tables. Evidence: issue #24 records verification of `results/population_flow.csv`, `results/rq1_prevalence_by_category.csv`, `results/rq2_reach_summary.csv`, and `results/rq3_summary.csv` against `report/draft.md`, plus checks of all three RQ figures. `results/ANALYSIS_MANIFEST.json` records the September 23 pipeline run, command, input hashes, software versions, and generated outputs. Verification reviewed committed outputs and recorded run evidence; Leticia did not personally rerun the pipeline.
 - [x] At least one pull request reviewed by a member other than its author. Evidence: [PR #90](https://github.com/jeraddunne/csc580-group9-msr2027/pull/90), authored by Leticia Aderhold, received Hina Kramer’s approving file-validity review and was merged into `main`. The review preserved the independently submitted labels; three checks passed.
 - [ ] Updated research report. Evidence: issue #25 and `report/draft.md`.
@@ -38,9 +38,9 @@ Assignments follow D-024. Pending entries require evidence from the relevant val
 
 | Kind | Primary rater | Second rater | Label PR/date | Agreement result |
 |---|---|---|---|---|
-| Signals | Jerad (`jd`) | None; intra-rater round 2 is deferred to Sprint 3 under #101 | Pending | Inter-rater kappa not applicable; intra-rater result pending |
+| Signals | Jerad (`jd`) | None; intra-rater round 2 is deferred to Sprint 3 under #101 | Round 1 labels merged in #118; first scores merged in #119 | Inter-rater kappa not applicable; intra-rater result pending |
 | Lineage | Jerad (`jd`) | Hina (`hk`) | Pending; see #99 and #100 | Pending |
-| Drift | Jerad (`jd`) | Leticia (`la`) | See #90; confirm label PR and date | Pending |
+| Drift | Jerad (`jd`) | Leticia (`la`) | Second-rater labels merged in #90; primary labels merged in #118; scores merged in #119 | 18 pairs; 83.3% agreement; Cohen’s kappa 0.745; source: `results/validation_agreement.csv` |
 
 Preserve rater independence and follow the documented blindness protocol.
 
@@ -106,7 +106,7 @@ Source: [Sprint 2 instructor feedback](instructor-feedback.md). These are tracke
 | Team decreased from four members to three | Reduced capacity and reassignment needs | Update ownership and priorities; see planning.md and D-025 |
 | One primary rater | Signals lack an independent second-rater comparison | Follow D-024: Hina second-rates lineage, Leticia second-rates drift; signals intra-rater round 2 is tracked in #101 |
 | Signals intra-rater validation requires a 14-day gap | Round 2 moves to Sprint 3 | Track in #101 |
-| Metrics workflow failure | Delays reliable process metrics | Track in #103; verify resolution before reporting values |
+| Metrics workflow failure | Delayed reliable process metrics | Fix and October 22 dashboard snapshot merged in PR #113 (#103); the snapshot captured no workflow runs, so aggregate CI pass rate is unavailable |
 
 Confirm obstacle status and add supporting evidence at the review.
 
@@ -116,15 +116,15 @@ Record documented contributions separately from planned responsibilities. Open P
 
 | Member | Planned responsibility | Documented contribution and issue/PR evidence |
 |---|---|---|
-| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Authored Sprint 2 review updates merged in PR #94. Prepared planning corrections in PR #92, known-positive skill selection and revisions in PR #106 (#97), and the applicability comparison in PR #107 (#96); these three PRs remain open pending review/merge. Submitted 18 round 1 drift labels in PR #90, approved by Hina and merged into main. confirm final status before recording completion. |
-| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Contributed Sprint 2 rater, team-role, and instructor-feedback updates in merged PR #105. Implemented the ground-truth checking script in merged PR #112 (#97). Provided review feedback on PRs #92 and #106. Scanner evaluation results remain pending. |
+| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Authored Sprint 2 review updates merged in PR #94. Prepared planning corrections in PR #92 and known-positive skill selection in PR #106 (#97), both pending review/merge. Completed the applicability comparison in merged PR #107 (#96). Submitted 18 independent round 1 drift labels in PR #90, approved by Hina and merged into main. |
+| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Contributed rater assignments, team-role updates, and instructor-feedback documentation in merged PR #105. Added the ground-truth checking script in merged PR #112 (#97); the ground-truth run remains pending final selection in #106. Added rule cards and references in merged PR #111 (#95), and the metrics workflow fix and October 22 snapshot in merged PR #113 (#103). Completed drift and signals round 1 labels in merged PR #118 and first validation scores in merged PR #119 (#100). Provided review feedback on PRs #92 and #106. Lineage scoring remains pending #99. |
 | Hina Kramer | Scrum Master; validation coordination, lineage second-rating, process evidence, and retrospective | Provided review feedback on PRs #92, #106, and #107. Recorded AI-assisted review activity in merged PR #114 (#104). Lineage-label completion and remaining process evidence require confirmation. |
 
 ## Velocity and KPIs at review
 
 | Metric | Sprint 1 | Sprint 2 |
 |---|---|---|
-| Points planned / completed | Completed velocity: 15 points per October 4 dashboard snapshot; planned total requires confirmation | Planning records 3 points; committed items and member allocations require reconciliation in PR #92; completed total pending |
+| Points planned / completed | October 22 dashboard: 19 committed / 16 completed | October 22 dashboard: 16 committed / 3 completed; reconcile with planning PR #92; final review totals pending |
 | Issues closed | Pending dashboard verification | Pending dated Sprint 2 metrics snapshot |
 | PRs merged / merged with an approving review from another member | Pending dashboard verification | Pending verification of merged PRs and approving reviews |
 | Median PR first-review turnaround (hours) | Pending dashboard verification | Pending metrics output |
@@ -134,6 +134,20 @@ Record documented contributions separately from planned responsibilities. Open P
 | Rework items | Pending dashboard verification | Pending metrics output |
 | Contribution share per member (min / max) | Pending dashboard verification | Pending verified contribution counts |
 | Test count / coverage | Pending recorded test results | Pending test and coverage results for the reviewed commit |
+
+### October 22 process snapshot
+
+Source: [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated October 22, 2026, in merged PR #113. These figures cover September 10–October 22 across the repository, rather than either sprint separately.
+
+| Metric | Snapshot value |
+|---|---|
+| Median PR first-review turnaround | 34.32 hours |
+| Median issue cycle time | 2.66 days |
+| Median PR open-to-merge time | 24.88 hours |
+| Contribution shares | Leticia 0.28; Jerad 0.60; Hina 0.11 |
+| Aggregate CI pass rate | Unavailable: no workflow runs captured |
+
+Final October 28 review measurements remain pending.
 
 ## Backlog changes proposed for review
 

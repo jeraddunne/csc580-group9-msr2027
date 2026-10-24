@@ -15,11 +15,11 @@ Met: [ ] Yes [ ] Partly [ ] No
 
 The Sprint 2 review must include:
 
-- [ ] Working core implementation. Evidence: issue #21; add the merged PR and output path when complete.
-- [ ] Automated tests for the implemented method. Evidence: issue #22; add CI run and test results.
-- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md`.
-- [ ] Preliminary results with reproducible figures or tables. Evidence: issue #24; add paths under `results/` or `figures/`.
-- [ ] At least one pull request reviewed by a member other than its author. Evidence: add reviewed PR link.
+- [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. A fresh Sprint 2 reproduction remains pending.
+- [ ] Automated tests for the implemented method. Evidence: issue #22 records 179 tests passing in 38.96 seconds on commit `ee52bce` and successful CI run #114. Confirmation that every function contributing output to the report has a corresponding automated test remains pending.
+- [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md` document the frozen sample, annotation workflow, and rater assignments. Samples include 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Completed two-rater agreement results remain to be verified; signals intra-rater round 2 is deferred to Sprint 3 (#101).
+- [x] Preliminary results with reproducible figures or tables. Evidence: issue #24 records verification of `results/population_flow.csv`, `results/rq1_prevalence_by_category.csv`, `results/rq2_reach_summary.csv`, and `results/rq3_summary.csv` against `report/draft.md`, plus checks of all three RQ figures. `results/ANALYSIS_MANIFEST.json` records the September 23 pipeline run, command, input hashes, software versions, and generated outputs. Verification reviewed committed outputs and recorded run evidence; Leticia did not personally rerun the pipeline.
+- [x] At least one pull request reviewed by a member other than its author. Evidence: [PR #90](https://github.com/jeraddunne/csc580-group9-msr2027/pull/90), authored by Leticia Aderhold, received Hina Kramer’s approving file-validity review and was merged into `main`. The review preserved the independently submitted labels; three checks passed.
 - [ ] Updated research report. Evidence: issue #25 and `report/draft.md`.
 - [ ] Sprint 2 retrospective. Evidence: issue #26 and `docs/sprints/sprint-2/retrospective.md`.
 
@@ -89,9 +89,9 @@ Source: [Sprint 2 instructor feedback](instructor-feedback.md). These are tracke
 | Feedback | Action | Owner | Issue # |
 |---|---|---|---|
 | Complete validation | Follow D-024, complete labels, score validation, and report agreement and limitations | Jerad, Hina, and Leticia | #99, #100, #90 |
-| Start with known-positive skills | Select about ten skills independently of rule patterns and report detections and misses | Jerad; selection checked by another member | #97 |
+| Start with known-positive skills | Select about ten skills independently of rule patterns and report detections and misses | Leticia: skill selection; Jerad: scanner check and results | #97 |
 | Explain rule provenance | Document each rule's rationale, example, source, and known false positives | Jerad | #95 |
-| Analyze applicability | Explain which established rules apply to skill text or bundled scripts | Jerad | #96 |
+| Analyze applicability | Explain which established rules apply to skill text or bundled scripts; [Applicability comparison](../../research/APPLICABILITY.md) (PR #107) | Leticia | #96 |
 | Define intended use | Document the human-in-the-loop risk-review workflow and diagrams | Jerad; reviewed by Hina and Leticia | #98 |
 | Document team process | Maintain check-in notes, retrospective, obstacles, and contributions | Hina and Leticia | #102, #26 |
 | Define task completion | Include acceptance criteria and a definition of done for each open Sprint 2 task | Hina | #102 |
@@ -104,6 +104,7 @@ Source: [Sprint 2 instructor feedback](instructor-feedback.md). These are tracke
 | Obstacle | Impact | Response / tracking |
 |---|---|---|
 | Team decreased from four members to three | Reduced capacity and reassignment needs | Update ownership and priorities; see planning.md and D-025 |
+| One primary rater | Signals lack an independent second-rater comparison | Follow D-024: Hina second-rates lineage, Leticia second-rates drift; signals intra-rater round 2 is tracked in #101 |
 | Signals intra-rater validation requires a 14-day gap | Round 2 moves to Sprint 3 | Track in #101 |
 | Metrics workflow failure | Delays reliable process metrics | Track in #103; verify resolution before reporting values |
 
@@ -111,28 +112,28 @@ Confirm obstacle status and add supporting evidence at the review.
 
 ## Contributions per member
 
-Record verified completed work, distinct from planned assignments.
+Record documented contributions separately from planned responsibilities. Open PRs are not counted as merged deliverables; final status requires teammate confirmation.
 
-| Member | Planned responsibility | Verified contribution and issue/PR evidence |
+| Member | Planned responsibility | Documented contribution and issue/PR evidence |
 |---|---|---|
-| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Pending verification |
-| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Pending verification |
-| Hina Kramer | Scrum Master; validation coordination, lineage second-rating, process evidence, and retrospective | Pending verification |
+| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Authored Sprint 2 review updates merged in PR #94. Prepared planning corrections in PR #92, known-positive skill selection and revisions in PR #106 (#97), and the applicability comparison in PR #107 (#96); these three PRs remain open pending review/merge. Drift-label work is tracked in PR #90; confirm final status before recording completion. |
+| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Contributed Sprint 2 rater, team-role, and instructor-feedback updates in merged PR #105. Implemented the ground-truth checking script in merged PR #112 (#97). Provided review feedback on PRs #92 and #106. Scanner evaluation results remain pending. |
+| Hina Kramer | Scrum Master; validation coordination, lineage second-rating, process evidence, and retrospective | Provided review feedback on PRs #92, #106, and #107. Recorded AI-assisted review activity in merged PR #114 (#104). Lineage-label completion and remaining process evidence require confirmation. |
 
 ## Velocity and KPIs at review
 
 | Metric | Sprint 1 | Sprint 2 |
 |---|---|---|
-| Points planned / completed | | |
-| Issues closed | | |
-| PRs merged / merged with an approving review from another member | | |
-| Median PR first-review turnaround (hours) | | |
-| Median cycle time (days) | | |
-| Median PR open-to-merge time (hours) | | |
-| CI pass rate | | |
-| Rework items | | |
-| Contribution share per member (min / max) | | |
-| Test count / coverage | | |
+| Points planned / completed | Completed velocity: 15 points per October 4 dashboard snapshot; planned total requires confirmation | Planning records 3 points; committed items and member allocations require reconciliation in PR #92; completed total pending |
+| Issues closed | Pending dashboard verification | Pending dated Sprint 2 metrics snapshot |
+| PRs merged / merged with an approving review from another member | Pending dashboard verification | Pending verification of merged PRs and approving reviews |
+| Median PR first-review turnaround (hours) | Pending dashboard verification | Pending metrics output |
+| Median cycle time (days) | Pending dashboard verification | Pending metrics output |
+| Median PR open-to-merge time (hours) | Pending dashboard verification | Pending metrics output |
+| CI pass rate | Pending dashboard verification | Pending aggregate metrics; individual passing PR checks do not establish the sprint pass rate |
+| Rework items | Pending dashboard verification | Pending metrics output |
+| Contribution share per member (min / max) | Pending dashboard verification | Pending verified contribution counts |
+| Test count / coverage | Pending recorded test results | Pending test and coverage results for the reviewed commit |
 
 ## Backlog changes proposed for review
 

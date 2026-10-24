@@ -1,0 +1,2 @@
+kind,comparison,file_a,file_b,n,percent_agreement,kappa,kappa_note
+drift,inter-rater,drift_jd_r1.csv,drift_la_r1.csv,18,0.8333333333333334,0.7452830188679246,

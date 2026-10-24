@@ -399,13 +399,20 @@ def nfr_04() -> Result:
 
 
 def labels(kind: str, raters: tuple[str, ...], round_: int = 1) -> list[Path]:
-    """Label files for ``kind`` by any of ``raters`` that contain at least one label."""
+    """Label files for ``kind`` by any of ``raters`` that contain at least one label.
+
+    Each kind keeps its label in its own column (``label``, ``same_lineage``,
+    ``change_type``), so the column comes from the validation module.
+    """
+    from msr_pipeline.validation import KIND_LABEL_COLUMN
+
+    column = KIND_LABEL_COLUMN[kind]
     found = []
     for rater in raters:
         path = ROOT / "data" / "annotations" / f"{kind}_{rater}_r{round_}.csv"
         if path.is_file():
             with path.open(encoding="utf-8", newline="") as handle:
-                if any(row.get("label") for row in csv.DictReader(handle)):
+                if any((row.get(column) or "").strip() for row in csv.DictReader(handle)):
                     found.append(path)
     return found
 
@@ -454,13 +461,20 @@ def vr_02() -> Result:
     return pytest("tests/test_validation.py::test_agreement_classifies_comparisons")
 
 
+VR_03_SOURCES = {"lineage": "lineage labels by hk", "drift": "drift labels by la"}
+
+
 def vr_03() -> Result:
-    have = [k for k in ("lineage", "drift") if labels(k, *AGREEMENT_SOURCES[k][:2])]
-    if len(have) < 2:
+    missing = [
+        what
+        for kind, what in VR_03_SOURCES.items()
+        if not labels(kind, *AGREEMENT_SOURCES[kind][:2])
+    ]
+    if missing:
         return (
             "BLOCKED",
-            "lineage (58 pairs) and drift (18 pairs) samples ready; lineage labels by hk "
-            "and drift labels by la not yet committed (#53, D-024)",
+            "lineage (58 pairs) and drift (18 pairs) samples ready; "
+            f"{' and '.join(missing)} not yet committed (#53, D-024)",
         )
     return pytest("tests/test_validation.py::test_lineage_and_drift_summaries")
 

@@ -1,210 +1,210 @@
 file_sha,rule_id,label,missed_category,notes
-01570f1ae5a1d813af27dd2d8f3089e7fd7b46c6,R-CRD-001,,,
-00ba580d3441a17cc93c5da4b0cb904022640eec,R-CRD-001,,,
-0067c2d984987704e79ec14bd2d55ebb44dfcf9b,R-DST-001,,,
-0067c2d984987704e79ec14bd2d55ebb44dfcf9b,R-CRD-001,,,
-012eda01ab668a6f461371cbbd543606d5cf70cd,R-RCE-001,,,
-012eda01ab668a6f461371cbbd543606d5cf70cd,R-CRD-001,,,
-012ce4e12f6594a56f6b86bf68196074fd446e03,R-DST-001,,,
-012ce4e12f6594a56f6b86bf68196074fd446e03,R-CRD-001,,,
-012ce4e12f6594a56f6b86bf68196074fd446e03,R-TGR-001,,,
-017f98ab84a380c3edf30b470d1ca43448254a99,R-NET-002,,,
-017f98ab84a380c3edf30b470d1ca43448254a99,R-PRV-001,,,
-017f98ab84a380c3edf30b470d1ca43448254a99,R-CRD-001,,,
-017f98ab84a380c3edf30b470d1ca43448254a99,R-PER-001,,,
-0004314a114a096862e9a3a835acdda28b8b1692,R-RCE-001,,,
-0004314a114a096862e9a3a835acdda28b8b1692,R-DST-001,,,
-0004314a114a096862e9a3a835acdda28b8b1692,R-CRD-001,,,
-00f5ecd39875bea42d3ca1c7ae1c9c3cdb7b9d6d,R-CRD-001,,,
-01453c2297b7e3af88e29f3d91424d6891fe1240,R-CRD-001,,,
-0035fe1d82573786ed18d01e5f30ebda01ceec2b,R-CRD-001,,,
-00652eb326b2a7a67d09bfa0a161a6ab0b4ab885,R-DST-001,,,
-001e5344cd831468474b8d49437dc9ede02efc52,R-DST-001,,,
-005dc0cb2c08aa3dc10144ee2e291a332219c543,R-DST-001,,,
-000e79c10ed3d61b4c2015b9531e8b4c4abea08a,R-DST-001,,,
-0028d31a7a876a8c253a34f62a0290fe8eee3129,R-DST-001,,,
-0028d31a7a876a8c253a34f62a0290fe8eee3129,R-PRV-001,,,
-00477027e3301176ab85207f28837f9828932bfb,R-DST-001,,,
-002b02be65803cd852f813b6b77c1e45c39afafb,R-DST-001,,,
-002b02be65803cd852f813b6b77c1e45c39afafb,R-PRV-001,,,
-00ae3b3fc1689a5a8a6c187ed1c50e6c78fb5c8f,R-DST-001,,,
-0036fb0494de2d83b4c38db8e5fee7592ba6eb1c,R-DST-001,,,
-0044b086eccf3b98fffa6486d769a310a27fd6cd,R-DST-001,,,
-007b5a93ad53dc1b010d6ffbc4169f84e42acb95,R-EXE-001,,,
-01345cc3135ee8d4cd460b23ef5a5e3b81ca4160,R-EXE-001,,,
-0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-RCE-001,,,
-0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-NET-002,,,
-0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-EXE-001,,,
-0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-OBF-001,,,
-0194dd4f1795cd981a366438a9da281341963d7d,R-EXE-001,,,
-0085dd75cbfaf6f76e5861096e2373ec3526a83c,R-EXE-001,,,
-005a55cad3182b3563ecdf07c2b1568cc87e38f2,R-EXE-001,,,
-00d08c06fb54aa2f4dbba9872836ab40781cd6e7,R-EXE-001,,,
-00b9907e823c1b38356887ca1a87aa83244bc078,R-EXE-001,,,
-0027b42bc41bbc83d233ec745dbcd5f72c3743a3,R-EXE-001,,,
-006c9cf761ef0ffdff357c8201533fcaad5b0f5a,R-EXE-001,,,
-01962e498754aa9211ebad91489b037ed99b6d77,R-EXF-001,,,
-00e063fc4ead798d3e611cf6871ba8eaf1a326ce,R-EXF-001,,,
-007c3c15edcb9b6934edd2f6bfc8d28bd18a359e,R-EXF-001,,,
-011bfc816f400af136ac4237d20172d79476fc0a,R-EXF-001,,,
-011bfc816f400af136ac4237d20172d79476fc0a,R-PRV-001,,,
-013e0ce725b42417fb8b7d16ce292a101ebcf042,R-EXF-001,,,
-01b065442f611250b8d752ccd0c93b9571ead154,R-EXF-001,,,
-00a6a4e1278c16f268112b378b4e44bed435737a,R-EXF-001,,,
-0077b1365b555c819d738c3e9df531b59c57744f,R-EXF-001,,,
-008542dd354bf706359b901ab6c1e3a7506457d3,R-NET-002,,,
-00024699e4d03826491317625028f238c14c2acf,R-NET-002,,,
-01163b19e79c84930fd023e7f9325727d25fdad7,R-NET-002,,,
-01163b19e79c84930fd023e7f9325727d25fdad7,R-PRV-001,,,
-0019b3797f0b5df52eafd190bdc6f55b0445c6cd,R-NET-002,,,
-00e708bf654afde15ef1f3b0b00049fad61463b3,R-NET-002,,,
-00e708bf654afde15ef1f3b0b00049fad61463b3,R-TGR-001,,,
-018a7039f60727befcd0d2974c5986b5763f9d8d,R-NET-002,,,
-018a7039f60727befcd0d2974c5986b5763f9d8d,R-OBF-001,,,
-003f518f937bc77673988c60edd081adbdeb4b51,R-NET-002,,,
-003f518f937bc77673988c60edd081adbdeb4b51,R-PER-001,,,
-015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-NET-002,,,
-015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-DST-001,,,
-015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-OVR-001,,,
-015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-EXE-001,,,
-00ace9d57c3d371bd1890eec3125d6f1445db136,R-NET-002,,,
-003e5a83501939ea7b15469ec67239693ea624b4,R-OBF-001,,,
-002194ad6704567be98bdd7fa035c5d541000c7c,R-OBF-001,,,
-018a1106dd7b21ce94f3f571769980af930db1b7,R-OBF-001,,,
-002902fa2e573e91a32607e01eaa642ce18d4b8e,R-PRV-001,,,
-002902fa2e573e91a32607e01eaa642ce18d4b8e,R-TGR-001,,,
-002902fa2e573e91a32607e01eaa642ce18d4b8e,R-OBF-001,,,
-01618fca1be4a40eed0e73da6fe7a640b4f50aa1,R-PRV-001,,,
-01618fca1be4a40eed0e73da6fe7a640b4f50aa1,R-TGR-001,,,
-01618fca1be4a40eed0e73da6fe7a640b4f50aa1,R-OBF-001,,,
-0166b05473998bc705c5a82b0195878f5b09eff3,R-OBF-001,,,
-002f6408d8ec1d54e8d1e13303637c8462a7e027,R-DST-001,,,
-002f6408d8ec1d54e8d1e13303637c8462a7e027,R-OBF-001,,,
-0032b004c1f1175e52833c65d87faba53e26a8ff,R-EXE-001,,,
-0032b004c1f1175e52833c65d87faba53e26a8ff,R-OBF-001,,,
-0039127e3b0c4755c70f85e9f35bd271844b75a9,R-EXE-001,,,
-0039127e3b0c4755c70f85e9f35bd271844b75a9,R-OBF-001,,,
-01b150d16b5b0b51cb6ff5f4ac669abd43b266f0,R-OBF-001,,,
-0069cb965f50c0238e6d9742af544f26471e5817,R-OVR-001,,,
-00db746d4cf8e949cc30a991e883e6ec39e429dc,R-OVR-001,,,
-00db746d4cf8e949cc30a991e883e6ec39e429dc,R-PER-001,,,
-000afb47313b200a3c6e26a2ab642a71975f7c8b,R-OVR-001,,,
-007d5239991ef5b5595db7e884f28cfc4eccacf5,R-OVR-001,,,
-00f496c220edd2ca3e40b26aa721a293fe3ac258,R-OVR-001,,,
-0140f945da3ad0f2620f1e31c11a566e5081d75c,R-OVR-001,,,
-01600fa7c46fec93474821db96e8d68906cafc45,R-TGR-001,,,
-01600fa7c46fec93474821db96e8d68906cafc45,R-OVR-001,,,
-01510439087dbf714f1a48883230000290e1776d,R-TGR-001,,,
-01510439087dbf714f1a48883230000290e1776d,R-OVR-001,,,
-00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-CRD-001,,,
-00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-OVR-001,,,
-00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-EXE-001,,,
-00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-PER-001,,,
-009ee53551a8cbd44dff8bffd06b45bcd382b75c,R-OVR-001,,,
-00ea56ba11ec66e647a61f420937a56025bda0fc,R-PRV-001,,,
-00ea56ba11ec66e647a61f420937a56025bda0fc,R-PER-001,,,
-0168dfd5e92fbc7b490598fdc3c5dc74ba1e63b6,R-PER-001,,,
-011272af4ea186d6aac29a705b2bb93e0a346b60,R-TGR-001,,,
-011272af4ea186d6aac29a705b2bb93e0a346b60,R-PER-001,,,
-00ffaec6208faf7436da10a0603798709ca4747b,R-RCE-001,,,
-00ffaec6208faf7436da10a0603798709ca4747b,R-PER-001,,,
-01137be9c2d14078aebf79a6de5b050ddded64fa,R-PRV-001,,,
-01137be9c2d14078aebf79a6de5b050ddded64fa,R-PER-001,,,
-001a3130fa03b7fccaec899cf0bb82fe9cfef54a,R-OVR-001,,,
-001a3130fa03b7fccaec899cf0bb82fe9cfef54a,R-PER-001,,,
-0034bac287deee6453f505e3c9083196216e5a67,R-PER-001,,,
-014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-DST-001,,,
-014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-PRV-001,,,
-014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-CRD-001,,,
-014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-PER-001,,,
-018e643720d2542286315aafc26dcdab69324515,R-PRV-001,,,
-018e643720d2542286315aafc26dcdab69324515,R-CRD-001,,,
-018e643720d2542286315aafc26dcdab69324515,R-PER-001,,,
-00989bc8116f5af3421805aa37d79b381bb930a5,R-PER-001,,,
-0138b50a0454dccbae78c9aa666c1773ef003746,R-PRV-001,,,
-005515f5cb4c8171faeb3ef2aa5eda3979245a1b,R-PRV-001,,,
-000bf0d8cc78c00c772df3d712a72d34ce017c08,R-PRV-001,,,
-001466745dc2d62a2c95ac6d011b42c83a8d6d13,R-PRV-001,,,
-00d01b0936a3bc2ec372e7060db5ae57df67ad6d,R-DST-001,,,
-00d01b0936a3bc2ec372e7060db5ae57df67ad6d,R-PRV-001,,,
-00caa9c63b64033305b1215c87eb4ec5a1ed4b28,R-DST-001,,,
-00caa9c63b64033305b1215c87eb4ec5a1ed4b28,R-PRV-001,,,
-00caa9c63b64033305b1215c87eb4ec5a1ed4b28,R-PER-001,,,
-005385ccc93cc7e1f639dd68a937feb50d2eb98e,R-PRV-001,,,
-01348557947626d0ce55cf7f116ec485a5a7dce6,R-PRV-001,,,
-01348557947626d0ce55cf7f116ec485a5a7dce6,R-CRD-001,,,
-00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-RCE-001,,,
-00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-PRV-001,,,
-00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-CRD-001,,,
-00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-EXE-001,,,
-00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-PER-001,,,
-00ea6859ec401daba356d225daae6934a2a1b147,R-PRV-001,,,
-015df8ab568b16d7ef450e2305073c5dbf6b6957,R-RCE-001,,,
-009af39c2bf0e784b734a3cf94f50fc933dc53aa,R-RCE-001,,,
-00ec38e83d812dffa4f8703a75fdd42b74d1e7a1,R-RCE-002,,,
-00ec38e83d812dffa4f8703a75fdd42b74d1e7a1,R-PRV-001,,,
-00f0552a7806e849169210ee835bc0cc72822c27,R-RCE-001,,,
-006a6819d2017767bda0ead242110d26b999d7e9,R-RCE-001,,,
-006a6819d2017767bda0ead242110d26b999d7e9,R-PRV-001,,,
-0063349ac55691bf1ee3dc6201f6423c9f63a67e,R-RCE-001,,,
-0063349ac55691bf1ee3dc6201f6423c9f63a67e,R-TGR-001,,,
-0181eb5b1f83f5e267ccdfc2fafefa76a74af8e7,R-RCE-001,,,
-01b171950767dbc4174a9132af29070417f10c64,R-RCE-001,,,
-01b171950767dbc4174a9132af29070417f10c64,R-DST-001,,,
-01b171950767dbc4174a9132af29070417f10c64,R-OVR-001,,,
-01ae9236e64f5e17d1814b1c27b6e74d1ffd27f7,R-RCE-001,,,
-01ae9236e64f5e17d1814b1c27b6e74d1ffd27f7,R-PRV-001,,,
-004c35c74a73e6758b585711e39e2a2e58798053,R-RCE-001,,,
-004c35c74a73e6758b585711e39e2a2e58798053,R-DST-001,,,
-01369250537c50aa5502537dc00c32597b990bd4,R-TGR-001,,,
-00d25df89d76a986feec0dc9699bbc8ceea6eba7,R-TGR-001,,,
-00fa4a5504db1f8e1f68f041faa1487d194a5ee4,R-TGR-001,,,
-00da80fbb97b9679cba1aabaf7cbe617f0ccc239,R-TGR-001,,,
-002a73e0e64cd23de788acb5553a7edb292c6478,R-TGR-001,,,
-00297fdffe77365da3e85b7a6fa06090550d6ee8,R-TGR-001,,,
-00eb2c5a24ade57d375ab2f81ed77262b85c9771,R-TGR-001,,,
-0020b759b0aa0ece8a11450d55dcd1526ee2cf54,R-TGR-001,,,
-00ba3593e2794a175ca0282c122f0cee16116a63,R-TGR-001,,,
-00dfdd092a4a569a89b20da8de0adb77f3426994,R-DST-001,,,
-00dfdd092a4a569a89b20da8de0adb77f3426994,R-PRV-001,,,
-00dfdd092a4a569a89b20da8de0adb77f3426994,R-TGR-001,,,
-002400d9852242415bdb8921a9341a87c34dccb7,NONE,,,
-01a2dc21afb9af543bd797314a0aa6eb179be817,NONE,,,
-00d3a82ff67fe00b448ee3d6d606168f2e92bb8e,NONE,,,
-015a6c2792b83d944bf3f094647b534495740c91,NONE,,,
-0038063c8b1c87c01c4e9ab24a449e8dfd70b62d,NONE,,,
-008f9cbfe0876839b7193ce9305511e17f94283d,NONE,,,
-008b1af727ed534f0bbe0ac4802d0b5c776a2656,NONE,,,
-01a0327f7009f467f748bb02f01d87d900bc9a99,NONE,,,
-00ba5a30b0e4c39f6bfb0f54a3be06eecdb80192,NONE,,,
-000f71ab5ab3938d3de311c73cdf5c4980d2a6a5,NONE,,,
-0199fe6fc3fa2577eb9217448692f339ad506640,NONE,,,
-01221afa5a2cc3578315817beb7bdea77eaedf2b,NONE,,,
-0092579ff10902b3112893536d800835ba2c213d,NONE,,,
-012c901e0b47840fc8d5bf32a84804446bf6fa8d,NONE,,,
-01b2be7e9119226afebc97e5f7a86fe3b287f22d,NONE,,,
-00651b4b920babceb06e5e6ee418e3e0c7b2f838,NONE,,,
-0128837ca203fbb82ff073907e14e8fcc4d7bdc8,NONE,,,
-00f12a4b0059df2a8db77ac97905162e1aa64e19,NONE,,,
-001fd1078abe50f09098a80e4597786bd3878ebc,NONE,,,
-009ef91175e359217e23c207442750b06a864c9f,NONE,,,
-00bb66a8ac61142ab63d215bac373ca14ebe2059,NONE,,,
-01a092b2782d1165424a7fafdec29a32d8ac6a10,NONE,,,
-011b368e35c0c7b0c35fc227426b20ea0c264de5,NONE,,,
-00a7e44803603a7290ca43cfe02fb1b60d68de85,NONE,,,
-0129bf04a1b23a0416b7e85a48c67f150c492195,NONE,,,
-015c3f1dd78c1f2e307eeecf21291ae2a0bc6023,NONE,,,
-01a9a7848043d0d2f720fed6dca2ba3c77015c7f,NONE,,,
-0153ef63ee5cc1f987de1440607005def6b85178,NONE,,,
-002ced0fc91358c066406eda5ff7a535acde06ab,NONE,,,
-0019964e2744c5d406cfa00bdf47c4c04f0fc2ba,NONE,,,
-00ebd6ab61b66f0e38607994a1bd118ef80d0ea3,NONE,,,
-00891eaa4f662dffe326174d3b41edb66b860743,NONE,,,
-00ccfa98c26e8bccbd1a6c26b5179a1089cf8e45,NONE,,,
-0018067e73c2f62a9d18320d2ec6e12146306a02,NONE,,,
-018fbe0079a3578589ea0d18323dfa1e36e9246a,NONE,,,
-00bb386ab8e17d6124d9c8ec814079f37c728ae8,NONE,,,
-00c38e57393674d37f805dcb70bc81816483a295,NONE,,,
-0045d07b359fc7597a0aeb51d5a44e87b32dcff4,NONE,,,
-00299f37c371e957b4ebacef4c8db96151273382,NONE,,,
-00a14f3cef782493e39ff03c62c56715b886452a,NONE,,,
+01570f1ae5a1d813af27dd2d8f3089e7fd7b46c6,R-CRD-001,NOT_PRESENT,,"The SSH config is checked only to resolve a host alias, not to read keys or credentials."
+00ba580d3441a17cc93c5da4b0cb904022640eec,R-CRD-001,NOT_PRESENT,,"The credential paths and AWS keys are decoy honeytoken locations and fake credentials, not real secret handling."
+0067c2d984987704e79ec14bd2d55ebb44dfcf9b,R-DST-001,RISKY,,The setup commands recursively force-delete the staging directory without a confirmation gate.
+0067c2d984987704e79ec14bd2d55ebb44dfcf9b,R-CRD-001,NOT_PRESENT,,"The .npmrc file is package-manager supply-chain configuration, not a credential file."
+012eda01ab668a6f461371cbbd543606d5cf70cd,R-RCE-001,BENIGN_CONTEXT,,The skill explicitly forbids running remote installers and only permits printing the command for the user.
+012eda01ab668a6f461371cbbd543606d5cf70cd,R-CRD-001,NOT_PRESENT,,The .npmrc entries control package scripts and release age; they do not read or handle credentials.
+012ce4e12f6594a56f6b86bf68196074fd446e03,R-DST-001,BENIGN_CONTEXT,,The recursive deletion pattern appears in denied-tool and block lists intended to prevent its use.
+012ce4e12f6594a56f6b86bf68196074fd446e03,R-CRD-001,BENIGN_CONTEXT,,Credential-file edit patterns are listed as denied operations in the permission-control configuration.
+012ce4e12f6594a56f6b86bf68196074fd446e03,R-TGR-001,RISKY,,"Front matter grants an unscoped Bash tool alongside Read and Glob, with no narrowing or confirmation gate."
+017f98ab84a380c3edf30b470d1ca43448254a99,R-NET-002,RISKY,,The text instructs access to cloud instance metadata from a compromised host; the endpoint detail is truncated.
+017f98ab84a380c3edf30b470d1ca43448254a99,R-PRV-001,RISKY,,The steps enumerate sudo rights and use sudo-enabled binaries to obtain a root shell without a safety gate.
+017f98ab84a380c3edf30b470d1ca43448254a99,R-CRD-001,RISKY,,The steps direct extraction of password hashes and database credentials after privilege escalation.
+017f98ab84a380c3edf30b470d1ca43448254a99,R-PER-001,NOT_PRESENT,,The commands only enumerate cron entries and scheduled tasks; they do not create or modify persistence.
+0004314a114a096862e9a3a835acdda28b8b1692,R-RCE-001,BENIGN_CONTEXT,,"The pipe-to-shell installer is part of a Dockerized task/test setup, so execution is confined to the task container."
+0004314a114a096862e9a3a835acdda28b8b1692,R-DST-001,BENIGN_CONTEXT,,"The recursive deletion only removes apt package lists during a Docker image build, not files on the host."
+0004314a114a096862e9a3a835acdda28b8b1692,R-CRD-001,BENIGN_CONTEXT,,"The SSH key generation is an example task and solution intended for the Dockerized test environment, not the user host."
+00f5ecd39875bea42d3ca1c7ae1c9c3cdb7b9d6d,R-CRD-001,RISKY,,"The command table provides modules for dumping keychains, browser credentials, cookies, and private SSH keys."
+01453c2297b7e3af88e29f3d91424d6891fe1240,R-CRD-001,BENIGN_CONTEXT,,The shadow-file audit command is commented out; disabled or commented examples are benign under guideline 2.4.
+0035fe1d82573786ed18d01e5f30ebda01ceec2b,R-CRD-001,BENIGN_CONTEXT,,The credential-related paths appear in an explicit block list that protects them from access.
+00652eb326b2a7a67d09bfa0a161a6ab0b4ab885,R-DST-001,BENIGN_CONTEXT,,Force push is explicitly blocking and every mutation requires a human click; the agent only surfaces the command.
+001e5344cd831468474b8d49437dc9ede02efc52,R-DST-001,RISKY,,The rollback steps permit hard reset and force push when deemed necessary without user confirmation.
+005dc0cb2c08aa3dc10144ee2e291a332219c543,R-DST-001,RISKY,,"Despite warning against plain force push, the steps explicitly instruct force-with-lease history rewriting after rebasing."
+000e79c10ed3d61b4c2015b9531e8b4c4abea08a,R-DST-001,RISKY,,The reset instructions use hard reset and forced recursive cleaning of submodule files without a confirmation gate.
+0028d31a7a876a8c253a34f62a0290fe8eee3129,R-DST-001,RISKY,,The commands recursively delete a cache directory on multiple remote hosts over SSH without confirmation.
+0028d31a7a876a8c253a34f62a0290fe8eee3129,R-PRV-001,RISKY,,The server setup repeatedly uses sudo to install packages and modify NFS exports without a confirmation gate.
+00477027e3301176ab85207f28837f9828932bfb,R-DST-001,RISKY,,The clean target recursively force-deletes dist and node_modules as an executable maintenance step.
+002b02be65803cd852f813b6b77c1e45c39afafb,R-DST-001,NOT_PRESENT,,The visible text only discusses rebuilds and CRX downloads; no destructive operation is shown. Truncated.
+002b02be65803cd852f813b6b77c1e45c39afafb,R-PRV-001,RISKY,,The maintenance commands use sudo to read service logs without any confirmation or scope limitation.
+00ae3b3fc1689a5a8a6c187ed1c50e6c78fb5c8f,R-DST-001,RISKY,,The workflow instructs force-with-lease pushes and forced worktree removal without a human confirmation gate.
+0036fb0494de2d83b4c38db8e5fee7592ba6eb1c,R-DST-001,BENIGN_CONTEXT,,The skill explicitly says to use git revert rather than git reset --hard for rollbacks.
+0044b086eccf3b98fffa6486d769a310a27fd6cd,R-DST-001,BENIGN_CONTEXT,,The optional deletion is narrowly scoped to a local test cache directory used to clear accumulated entries.
+007b5a93ad53dc1b010d6ffbc4169f84e42acb95,R-EXE-001,BENIGN_CONTEXT,,"The eval entry is in a checklist of dangerous DOM sinks to identify, not an instruction to execute code."
+01345cc3135ee8d4cd460b23ef5a5e3b81ca4160,R-EXE-001,NOT_PRESENT,,"This is a Scheme interpreter recursively evaluating parsed expressions, not host-side evaluation of generated or remote code."
+0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-RCE-001,RISKY,,The advanced-feature steps pipe a downloaded setup script directly into bash without review or confirmation.
+0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-NET-002,BENIGN_CONTEXT,,The callback endpoint belongs to telemetry configuration that is explicitly disabled with telemetry: false.
+0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-EXE-001,RISKY,,"The command decodes a base64 payload and executes it with Python exec, with no warning or safety gate."
+0058b51aff02bee6bf6785c573bacbf8a0dc6162,R-OBF-001,RISKY,,The initialization command decodes an obfuscated payload and pipes it directly into bash for execution.
+0194dd4f1795cd981a366438a9da281341963d7d,R-EXE-001,NOT_PRESENT,,"EVAL here means an LLM quality evaluation in a test-planning matrix, not dynamic code evaluation."
+0085dd75cbfaf6f76e5861096e2373ec3526a83c,R-EXE-001,NOT_PRESENT,,"The match is the name of a skill-evaluation helper script, not evaluation of generated code."
+005a55cad3182b3563ecdf07c2b1568cc87e38f2,R-EXE-001,NOT_PRESENT,,"The text concerns evaluation-run errors and retries, not executing dynamically generated code."
+00d08c06fb54aa2f4dbba9872836ab40781cd6e7,R-EXE-001,BENIGN_CONTEXT,,The code comments explicitly prohibit eval and exec on user input.
+00b9907e823c1b38356887ca1a87aa83244bc078,R-EXE-001,NOT_PRESENT,,"The match is JavaScript RegExp.exec used for font parsing, not dynamic code execution."
+0027b42bc41bbc83d233ec745dbcd5f72c3743a3,R-EXE-001,BENIGN_CONTEXT,,The security checklist requires preventing eval or exec with user input; these are patterns to reject.
+006c9cf761ef0ffdff357c8201533fcaad5b0f5a,R-EXE-001,NOT_PRESENT,,The visible PyTorch guidance concerns model training and evaluation rather than dynamic code execution; the match is truncated.
+01962e498754aa9211ebad91489b037ed99b6d77,R-EXF-001,NOT_PRESENT,,"The URL is a placeholder avatar image and no data is sent to a capture, tunnel, or paste endpoint."
+00e063fc4ead798d3e611cf6871ba8eaf1a326ce,R-EXF-001,NOT_PRESENT,,"The Discord webhook URL is shown only as a token-format example, not as a destination for sending data."
+007c3c15edcb9b6934edd2f6bfc8d28bd18a359e,R-EXF-001,RISKY,,The submission instructions allow deliverables to be shared through a public Pastebin link without data restrictions or confirmation.
+011bfc816f400af136ac4237d20172d79476fc0a,R-EXF-001,RISKY,,The steps expose port 8000 through an ngrok tunnel and disable request inspection without a test-only gate or shutdown step.
+011bfc816f400af136ac4237d20172d79476fc0a,R-PRV-001,RISKY,,The setup uses sudo to install a package and a system service on the teacher VM without a confirmation gate.
+013e0ce725b42417fb8b7d16ce292a101ebcf042,R-EXF-001,BENIGN_CONTEXT,,"The ngrok tunnel is used for local webhook development: register a test callback, trigger an event, and inspect logs."
+01b065442f611250b8d752ccd0c93b9571ead154,R-EXF-001,RISKY,,"The actionable Atomic Red Team test posts secret-like content to Pastebin, with no restriction to a local or offline environment."
+00a6a4e1278c16f268112b378b4e44bed435737a,R-EXF-001,NOT_PRESENT,,The text only searches public Pastebin dumps; it does not send data to a paste or capture endpoint.
+0077b1365b555c819d738c3e9df531b59c57744f,R-EXF-001,BENIGN_CONTEXT,,"The webhook destination is supplied by the user and used only for an explicit send action, not a hidden hard-coded transfer."
+008542dd354bf706359b901ab6c1e3a7506457d3,R-NET-002,BENIGN_CONTEXT,,The hard-coded Cloudflare address is used only for DNS verification during an explicitly sandboxed setup.
+00024699e4d03826491317625028f238c14c2acf,R-NET-002,BENIGN_CONTEXT,,The firmware upload and verification commands target a private LAN workbench in a local ESP32 homelab setup.
+01163b19e79c84930fd023e7f9325727d25fdad7,R-NET-002,BENIGN_CONTEXT,,The hard-coded address is the private LAN destination of an explicitly named development cluster.
+01163b19e79c84930fd023e7f9325727d25fdad7,R-PRV-001,BENIGN_CONTEXT,,The sudo commands are scoped to a private development cluster and use placeholder secret values.
+0019b3797f0b5df52eafd190bdc6f55b0445c6cd,R-NET-002,BENIGN_CONTEXT,,"The commands only query a private LAN Calibre library, with the password supplied through an environment variable."
+00e708bf654afde15ef1f3b0b00049fad61463b3,R-NET-002,BENIGN_CONTEXT,,The link-local metadata request only checks spot-instance interruption and does not access credential paths or send data out.
+00e708bf654afde15ef1f3b0b00049fad61463b3,R-TGR-001,RISKY,,"The FinOps skill grants unscoped Bash together with Read and Edit, without narrowing the permitted commands."
+018a7039f60727befcd0d2974c5986b5763f9d8d,R-NET-002,BENIGN_CONTEXT,,The requests run in short-lived test pods explicitly created to validate egress and metadata reachability.
+018a7039f60727befcd0d2974c5986b5763f9d8d,R-OBF-001,RISKY,,"The command reads a Kubernetes secret value and decodes the password directly, without a safety gate."
+003f518f937bc77673988c60edd081adbdeb4b51,R-NET-002,RISKY,,The steps download configuration from a hard-coded public IP into the home directory and make it executable.
+003f518f937bc77673988c60edd081adbdeb4b51,R-PER-001,RISKY,,"The skill explicitly describes integrating the downloaded configuration with .bashrc for persistence, without confirmation."
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-NET-002,RISKY,,"The SSRF instructions target collaborator and cloud metadata credential endpoints, including role keys."
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-DST-001,BENIGN_CONTEXT,,The recursive deletion string is shown as a filename-injection attack to prevent through sanitization.
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-OVR-001,RISKY,,"The skill instructs constructing prompt-injection chains and requires chaining them to real impact, not merely warning about them."
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-EXE-001,BENIGN_CONTEXT,,"The eval call is listed as a high-risk DOM sink to avoid or remediate, not a step to perform."
+00ace9d57c3d371bd1890eec3125d6f1445db136,R-NET-002,BENIGN_CONTEXT,,The hard-coded address is a private LAN LM Studio server in a documented remote-node setup.
+003e5a83501939ea7b15469ec67239693ea624b4,R-OBF-001,BENIGN_CONTEXT,,This is ordinary base64 decoding of an inline PNG response into an image file; guideline 2.3 treats image decoding as benign.
+002194ad6704567be98bdd7fa035c5d541000c7c,R-OBF-001,BENIGN_CONTEXT,,"The commands decode CI-held signing certificates, profiles, and keystores for a build; no decoded payload is executed."
+018a1106dd7b21ce94f3f571769980af930db1b7,R-OBF-001,BENIGN_CONTEXT,,The command only decodes a GitHub API response containing a YAML configuration file; it does not execute the result.
+002902fa2e573e91a32607e01eaa642ce18d4b8e,R-PRV-001,RISKY,,The installation steps use sudo to move a binary into /usr/local/bin without user confirmation.
+002902fa2e573e91a32607e01eaa642ce18d4b8e,R-TGR-001,RISKY,,"Front matter grants broad Read, Write, Edit, and unscoped Bash permissions without command restrictions."
+002902fa2e573e91a32607e01eaa642ce18d4b8e,R-OBF-001,RISKY,,The steps retrieve and decode the Harbor administrator password from a Kubernetes secret to access the UI.
+01618fca1be4a40eed0e73da6fe7a640b4f50aa1,R-PRV-001,RISKY,,The analysis steps use sudo packet capture and execute a malware sample without an explicit sandbox or confirmation gate.
+01618fca1be4a40eed0e73da6fe7a640b4f50aa1,R-TGR-001,RISKY,,"The malware-analysis skill grants broad Bash, Read, and Write access and explicitly supports tool installation and sample execution."
+01618fca1be4a40eed0e73da6fe7a640b4f50aa1,R-OBF-001,BENIGN_CONTEXT,,The encoded command and decoding expression are shown as malware-obfuscation patterns to recognize during analysis.
+0166b05473998bc705c5a82b0195878f5b09eff3,R-OBF-001,BENIGN_CONTEXT,,The admin-secret decoding is scoped to a localtest.me Keycloak deployment in a local cluster setup.
+002f6408d8ec1d54e8d1e13303637c8462a7e027,R-DST-001,BENIGN_CONTEXT,,The forced deletion is trapped on exit and limited to a freshly created mktemp directory.
+002f6408d8ec1d54e8d1e13303637c8462a7e027,R-OBF-001,BENIGN_CONTEXT,,"The base64 operation decodes a signature file for checksum verification, not an executable payload."
+0032b004c1f1175e52833c65d87faba53e26a8ff,R-EXE-001,NOT_PRESENT,,Splunk eval only calculates and formats query fields; it does not dynamically execute code.
+0032b004c1f1175e52833c65d87faba53e26a8ff,R-OBF-001,NOT_PRESENT,,The Splunk query only detects obfuscation-related strings in logs; it does not decode or execute a payload.
+0039127e3b0c4755c70f85e9f35bd271844b75a9,R-EXE-001,RISKY,,The alternative setup decodes a hidden command and passes it to os.system for execution without a safety gate.
+0039127e3b0c4755c70f85e9f35bd271844b75a9,R-OBF-001,RISKY,,The formatter initialization decodes an obfuscated remote-download command and pipes it directly into bash.
+01b150d16b5b0b51cb6ff5f4ac669abd43b266f0,R-OBF-001,BENIGN_CONTEXT,,The command only decodes a GitHub API response containing SKILL.md so it can be compared with a local file.
+0069cb965f50c0238e6d9742af544f26471e5817,R-OVR-001,NOT_PRESENT,,The text strengthens oversight by requiring presentation and validation before output files are written.
+00db746d4cf8e949cc30a991e883e6ec39e429dc,R-OVR-001,BENIGN_CONTEXT,,The prompt-injection phrases are listed under an explicit instruction to ignore all such patterns.
+00db746d4cf8e949cc30a991e883e6ec39e429dc,R-PER-001,RISKY,,The steps install a recurring crontab entry that runs an update script every six hours without confirmation.
+000afb47313b200a3c6e26a2ab642a71975f7c8b,R-OVR-001,RISKY,,The skill auto-routes tasks to codex exec --yolo unsandboxed; diff review does not gate machine or network access.
+007d5239991ef5b5595db7e884f28cfc4eccacf5,R-OVR-001,NOT_PRESENT,,The sentence only avoids telling the user to inspect installation internals; it does not hide agent actions or bypass confirmation.
+00f496c220edd2ca3e40b26aa721a293fe3ac258,R-OVR-001,RISKY,,The autonomy-mode table associates full-auto operation with bypassPermissions for the autonomous loop.
+0140f945da3ad0f2620f1e31c11a566e5081d75c,R-OVR-001,BENIGN_CONTEXT,,The skill explicitly treats browser content as untrusted data and forbids following instructions embedded in it.
+01600fa7c46fec93474821db96e8d68906cafc45,R-TGR-001,RISKY,,"Front matter grants broad file, Bash, and agent-control tools and advertises automatic and bypass-oriented options."
+01600fa7c46fec93474821db96e8d68906cafc45,R-OVR-001,RISKY,,The permission policy explicitly treats bypassPermissions as the shipped default for the automation workflow.
+01510439087dbf714f1a48883230000290e1776d,R-TGR-001,RISKY,,"The front matter is truncated, but this row is an unscoped tool-grant match for a skill that orchestrates local coding CLIs; no safe gate is visible."
+01510439087dbf714f1a48883230000290e1776d,R-OVR-001,RISKY,,Reviewers run auto-approving or allow-all-tools modes against a live repository while only the prompt asks them not to write.
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-CRD-001,BENIGN_CONTEXT,,"Credential reads are shown as critical audit findings, with instructions to remove the private-key access."
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-OVR-001,BENIGN_CONTEXT,,Instruction-override phrases are listed as critical patterns for a security auditor to detect.
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-EXE-001,BENIGN_CONTEXT,,The eval example is a critical audit finding and the skill recommends replacing it with safe parsing.
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-PER-001,BENIGN_CONTEXT,,Persistence-related patterns appear in a security-audit detection checklist rather than as installation steps; the excerpt is truncated.
+009ee53551a8cbd44dff8bffd06b45bcd382b75c,R-OVR-001,NOT_PRESENT,,The instruction only avoids asking for a file location; it does not hide actions or override safety confirmation.
+00ea56ba11ec66e647a61f420937a56025bda0fc,R-PRV-001,RISKY,,The installation instructions use sudo apt-get to install packages without an explicit user-confirmation gate.
+00ea56ba11ec66e647a61f420937a56025bda0fc,R-PER-001,NOT_PRESENT,,The command only reloads .zshrc after installation; it does not modify a startup file or scheduler.
+0168dfd5e92fbc7b490598fdc3c5dc74ba1e63b6,R-PER-001,BENIGN_CONTEXT,,The skill explicitly says to document the crontab lines and not auto-install them.
+011272af4ea186d6aac29a705b2bb93e0a346b60,R-TGR-001,RISKY,,Front matter grants unscoped Bash plus Write to the audit skill without restricting commands or requiring confirmation.
+011272af4ea186d6aac29a705b2bb93e0a346b60,R-PER-001,RISKY,,The script is intended for .git/hooks/pre-commit and therefore runs automatically on future commits; installation is not gated.
+00ffaec6208faf7436da10a0603798709ca4747b,R-RCE-001,RISKY,,The prerequisite and setup steps pipe a downloaded CLI installer directly into sh without review or confirmation.
+00ffaec6208faf7436da10a0603798709ca4747b,R-PER-001,RISKY,,The Git Hook Integration step installs an executable pre-push hook that will run automatically on later pushes.
+01137be9c2d14078aebf79a6de5b050ddded64fa,R-PRV-001,BENIGN_CONTEXT,,The blocked-patterns section explicitly prohibits sudo pip and unsafe service execution.
+01137be9c2d14078aebf79a6de5b050ddded64fa,R-PER-001,RISKY,,"The service setup runs daemon-reload and enable --now, installing a persistent systemd service without confirmation."
+001a3130fa03b7fccaec899cf0bb82fe9cfef54a,R-OVR-001,BENIGN_CONTEXT,,The skill requires an explicit human yes for outward actions and explicitly forbids dangerously-skip-permissions.
+001a3130fa03b7fccaec899cf0bb82fe9cfef54a,R-PER-001,RISKY,,The scheduler installs a fully autonomous launchd or cron loop with no human gate at fire time.
+0034bac287deee6453f505e3c9083196216e5a67,R-PER-001,BENIGN_CONTEXT,,"The shell function is presented as user shell-integration configuration for .zshrc or .bashrc, not an automated file modification."
+014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-DST-001,BENIGN_CONTEXT,,"Destructive commands are red-lined for interception, audit, and mandatory human authorization."
+014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-PRV-001,RISKY,,The policy permits sudo operations to execute with logging only; no human approval is required before elevation.
+014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-CRD-001,BENIGN_CONTEXT,,The credential-reading commands are attack test cases that the skill expects to reject.
+014634f92f1be9eeef0087f4d6d25ecf1613ebaa,R-PER-001,BENIGN_CONTEXT,,Persistence mechanisms and malicious startup-file aliases are red-lined for refusal or audit.
+018e643720d2542286315aafc26dcdab69324515,R-PRV-001,RISKY,,The Orange Pi examples and setup commands repeatedly invoke sudo for configuration and installation without a confirmation gate.
+018e643720d2542286315aafc26dcdab69324515,R-CRD-001,RISKY,,"The steps generate SSH private keys, install deploy keys, and disable password authentication without explicit confirmation."
+018e643720d2542286315aafc26dcdab69324515,R-PER-001,RISKY,,The deployment and maintenance steps enable persistent systemd services and reboot the device without confirmation.
+00989bc8116f5af3421805aa37d79b381bb930a5,R-PER-001,BENIGN_CONTEXT,,"The startup-file line is shown as optional shell configuration for the user, with no automated append or installation step."
+0138b50a0454dccbae78c9aa666c1773ef003746,R-PRV-001,RISKY,,"Although the forensic workflow is read-only, the tool-installation steps still invoke sudo package managers without confirmation."
+005515f5cb4c8171faeb3ef2aa5eda3979245a1b,R-PRV-001,RISKY,,"The codec setup includes a direct sudo apt-get installation step, not only the commented parallel-install example."
+000bf0d8cc78c00c772df3d712a72d34ce017c08,R-PRV-001,RISKY,,The capture commands use sudo tcpdump to write live network traffic to files without an authorization or confirmation gate.
+001466745dc2d62a2c95ac6d011b42c83a8d6d13,R-PRV-001,BENIGN_CONTEXT,,The skill tells the user that they must manually execute the sudo codesign command rather than running it itself.
+00d01b0936a3bc2ec372e7060db5ae57df67ad6d,R-DST-001,RISKY,,The cleanup example recursively force-deletes an old skill output directory without confirmation.
+00d01b0936a3bc2ec372e7060db5ae57df67ad6d,R-PRV-001,BENIGN_CONTEXT,,The solution explicitly says not to use sudo and instead performs a user-scoped pip install.
+00caa9c63b64033305b1215c87eb4ec5a1ed4b28,R-DST-001,RISKY,,"The update sequence recursively deletes the prior output directory before extracting the new release, without confirmation."
+00caa9c63b64033305b1215c87eb4ec5a1ed4b28,R-PRV-001,RISKY,,The optional dependency logic automatically invokes sudo package installs with noninteractive flags and suppresses failures.
+00caa9c63b64033305b1215c87eb4ec5a1ed4b28,R-PER-001,RISKY,,"The installer appends PATH exports directly to .bashrc and .zshrc, creating persistent shell configuration changes."
+005385ccc93cc7e1f639dd68a937feb50d2eb98e,R-PRV-001,RISKY,,The dependency instructions include sudo apt-get installation of LibreOffice and Poppler without a confirmation gate.
+01348557947626d0ce55cf7f116ec485a5a7dce6,R-PRV-001,NOT_PRESENT,,The decision tree explicitly offers a git-only path for which no sudo is needed; it does not elevate privileges.
+01348557947626d0ce55cf7f116ec485a5a7dce6,R-CRD-001,RISKY,,The setup generates an unencrypted private SSH key and handles the key files without a confirmation gate.
+00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-RCE-001,RISKY,,The generic CI bootstrap pipes the mise installer directly into sh without review or confirmation.
+00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-PRV-001,RISKY,,The configuration explicitly enables sudo for system-package operations without requiring user approval.
+00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-CRD-001,NOT_PRESENT,,"The AWS credential chain and dotfile paths are authentication reference material, not instructions to read or transmit credential files."
+00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-EXE-001,RISKY,,The template configuration supports exec(command=...) and documents it as executing a shell command and returning stdout.
+00972a0049e05e0ea8d8d4e63a371b66f51828f6,R-PER-001,RISKY,,The dotfiles apply workflow modifies startup files and supports --yes and --force rather than requiring review of each change.
+00ea6859ec401daba356d225daae6934a2a1b147,R-PRV-001,RISKY,,The Ubuntu setup directly runs sudo apt update and installs Python without confirmation.
+015df8ab568b16d7ef450e2305073c5dbf6b6957,R-RCE-001,RISKY,,The Linux/macOS installation instruction pipes a downloaded bohr installer directly into sh.
+009af39c2bf0e784b734a3cf94f50fc933dc53aa,R-RCE-001,RISKY,,The quick start pipes a remote installer into sh and immediately continues into account login.
+00ec38e83d812dffa4f8703a75fdd42b74d1e7a1,R-RCE-002,RISKY,,The PowerShell example downloads and executes a reverse-shell script with IEX in a hidden process.
+00ec38e83d812dffa4f8703a75fdd42b74d1e7a1,R-PRV-001,RISKY,,The setup and time-synchronization instructions invoke sudo package and system commands without confirmation.
+00f0552a7806e849169210ee835bc0cc72822c27,R-RCE-001,BENIGN_CONTEXT,,The skill flags curl-to-shell and wget-to-shell patterns as Dockerfile problems to detect.
+006a6819d2017767bda0ead242110d26b999d7e9,R-RCE-001,RISKY,,The installation command pipes a remote installer directly into sudo sh for a system-wide install.
+006a6819d2017767bda0ead242110d26b999d7e9,R-PRV-001,RISKY,,The same installer executes with sudo and writes into /usr/local/bin without a separate confirmation gate.
+0063349ac55691bf1ee3dc6201f6423c9f63a67e,R-RCE-001,RISKY,,The troubleshooting guidance tells the agent to install uv with a curl-to-shell command when it is missing.
+0063349ac55691bf1ee3dc6201f6423c9f63a67e,R-TGR-001,RISKY,,"The front matter is truncated, but this is an unscoped tool-grant match for a PDF utility that runs local conversion scripts; no safe gate is visible."
+0181eb5b1f83f5e267ccdfc2fafefa76a74af8e7,R-RCE-001,RISKY,,The recommended setup installs uv by piping a downloaded script directly into sh.
+01b171950767dbc4174a9132af29070417f10c64,R-RCE-001,BENIGN_CONTEXT,,"The curl-to-shell installer is commented out inside the shell block, so it is a disabled example under guideline 2.4."
+01b171950767dbc4174a9132af29070417f10c64,R-DST-001,BENIGN_CONTEXT,,The recursive deletion command is commented out as an optional reset example and is not active script code.
+01b171950767dbc4174a9132af29070417f10c64,R-OVR-001,RISKY,,Headless launch automatically bypasses permissions; the remaining control is only post-hoc elicitation and audit.
+01ae9236e64f5e17d1814b1c27b6e74d1ffd27f7,R-RCE-001,RISKY,,The Linux installation instruction pipes the Tailscale installer directly into sh without review or confirmation.
+01ae9236e64f5e17d1814b1c27b6e74d1ffd27f7,R-PRV-001,RISKY,,The setup uses sudo for package installation and tailscale up; only the browser login is delegated to the user.
+004c35c74a73e6758b585711e39e2a2e58798053,R-RCE-001,BENIGN_CONTEXT,,The curl-to-shell string appears in a quoted set of dangerous command patterns rather than as a step to execute.
+004c35c74a73e6758b585711e39e2a2e58798053,R-DST-001,BENIGN_CONTEXT,,"The destructive patterns are explicitly listed under always_block, preventing their execution."
+01369250537c50aa5502537dc00c32597b990bd4,R-TGR-001,RISKY,,Front matter grants unscoped Bash alongside file-reading tools and exposes mutating close/delete options.
+00d25df89d76a986feec0dc9699bbc8ceea6eba7,R-TGR-001,RISKY,,"Front matter grants broad file, Bash, web, and MCP permissions without scoping the shell commands."
+00fa4a5504db1f8e1f68f041faa1487d194a5ee4,R-TGR-001,RISKY,,"The subagent is granted python, bash, read_file, and write_file with no restriction on commands or paths."
+00da80fbb97b9679cba1aabaf7cbe617f0ccc239,R-TGR-001,RISKY,,The backtest skill grants unscoped Bash and file-write tools while generating and executing a complete analysis script.
+002a73e0e64cd23de788acb5553a7edb292c6478,R-TGR-001,RISKY,,The market skill grants unscoped Bash alongside Read and Grep without narrowing commands.
+00297fdffe77365da3e85b7a6fa06090550d6ee8,R-TGR-001,RISKY,,The design-exploration skill grants unscoped Bash and editing tools without a command allowlist.
+00eb2c5a24ade57d375ab2f81ed77262b85c9771,R-TGR-001,RISKY,,"The design skill grants Bash, Agent, and file-edit permissions; user invocation does not scope the resulting shell access."
+0020b759b0aa0ece8a11450d55dcd1526ee2cf54,R-TGR-001,RISKY,,"The front matter is truncated, but this is an unscoped tool-grant match for a broad code-review skill and no command restriction is visible."
+00ba3593e2794a175ca0282c122f0cee16116a63,R-TGR-001,RISKY,,"Bash(*) explicitly permits every shell command, alongside broad file-edit and web tools."
+00dfdd092a4a569a89b20da8de0adb77f3426994,R-DST-001,RISKY,,The optional cleanup recursively deletes a Desktop directory selected by a broad name pattern without confirmation.
+00dfdd092a4a569a89b20da8de0adb77f3426994,R-PRV-001,RISKY,,"The GUI installation steps use sudo dpkg, apt-get, and rpm for system-wide package installation without confirmation."
+00dfdd092a4a569a89b20da8de0adb77f3426994,R-TGR-001,RISKY,,"The installation assistant automatically downloads and installs software with unscoped Bash, file-edit, and web-fetch permissions."
+002400d9852242415bdb8921a9341a87c34dccb7,NONE,NONE_PRESENT,,Go language guidance and a reference-reading index only; no high-risk capability is shown.
+01a2dc21afb9af543bd797314a0aa6eb179be817,NONE,NONE_PRESENT,,The visible workflow reviews AI output and restores human judgment; no high-risk capability is shown. Truncated.
+00d3a82ff67fe00b448ee3d6d606168f2e92bb8e,NONE,NONE_PRESENT,,"The visible text covers research, search, and memory write-back steps; no high-risk capability is shown. Truncated."
+015a6c2792b83d944bf3f094647b534495740c91,NONE,NONE_PRESENT,,"Only linting, type-checking, auditing, and test-fix loops are visible; shell use alone is context, not high risk. Truncated."
+0038063c8b1c87c01c4e9ab24a449e8dfd70b62d,NONE,NONE_PRESENT,,The visible tools build and test an Unreal project and drive gameplay scenarios; no high-risk capability is shown. Truncated.
+008f9cbfe0876839b7193ce9305511e17f94283d,NONE,NONE_PRESENT,,"The visible guidance concerns GenAI design, prompts, RAG, and validation; no high-risk capability is shown. Truncated."
+008b1af727ed534f0bbe0ac4802d0b5c776a2656,NONE,NONE_PRESENT,,The complete example only prints a greeting and contains placeholder TODO sections; no high-risk capability is present.
+01a0327f7009f467f748bb02f01d87d900bc9a99,NONE,NONE_PRESENT,,The visible procedure records media-progress decisions and verification steps; no high-risk capability is shown. Truncated.
+00ba5a30b0e4c39f6bfb0f54a3be06eecdb80192,NONE,NONE_PRESENT,,The visible text delegates resume tailoring to a slash command and asks clarification when ambiguous; no high-risk capability is shown. Truncated.
+000f71ab5ab3938d3de311c73cdf5c4980d2a6a5,NONE,NONE_PRESENT,,The visible content covers React form structure and validation only; no high-risk capability is shown. Truncated.
+0199fe6fc3fa2577eb9217448692f339ad506640,NONE,NONE_PRESENT,,The visible content teaches Next.js routing and server/client boundaries; no high-risk capability is shown. Truncated.
+01221afa5a2cc3578315817beb7bdea77eaedf2b,NONE,NONE_PRESENT,,The visible content selects and authors a visual presentation template; no high-risk capability is shown. Truncated.
+0092579ff10902b3112893536d800835ba2c213d,NONE,NONE_PRESENT,,The visible rules require fresh verification evidence before completion claims; no high-risk capability is shown. Truncated.
+012c901e0b47840fc8d5bf32a84804446bf6fa8d,NONE,NONE_PRESENT,,The visible sequence bootstraps and documents a new Sails workspace; no high-risk capability is shown. Truncated.
+01b2be7e9119226afebc97e5f7a86fe3b287f22d,NONE,NONE_PRESENT,,The visible text describes advertising-domain use cases and exclusions; no high-risk capability is shown. Truncated.
+00651b4b920babceb06e5e6ee418e3e0c7b2f838,NONE,NONE_PRESENT,,The visible text is legal analysis and source-verification guidance; no high-risk capability is shown. Truncated.
+0128837ca203fbb82ff073907e14e8fcc4d7bdc8,NONE,NONE_PRESENT,,The visible text is a code-area index for interview-evaluation functions; no high-risk capability is shown. Truncated.
+00f12a4b0059df2a8db77ac97905162e1aa64e19,NONE,NONE_PRESENT,,The visible initialization scans a project and writes architecture/context documentation; no high-risk capability is shown. Truncated.
+001fd1078abe50f09098a80e4597786bd3878ebc,NONE,NONE_PRESENT,,The visible text explains journal fit and clinical-evidence requirements; no high-risk capability is shown. Truncated.
+009ef91175e359217e23c207442750b06a864c9f,NONE,NONE_PRESENT,,The visible steps create and test full-stack code with ordinary commits; no high-risk capability is shown. Truncated.
+00bb66a8ac61142ab63d215bac373ca14ebe2059,NONE,NONE_PRESENT,,The visible text fetches vendor documentation or local snapshots for deployment guidance; no high-risk capability is shown. Truncated.
+01a092b2782d1165424a7fafdec29a32d8ac6a10,NONE,NONE_PRESENT,,The visible content only coordinates parallel Task calls for efficiency; no high-risk capability is shown. Truncated.
+011b368e35c0c7b0c35fc227426b20ea0c264de5,NONE,NONE_PRESENT,,The visible text gives generic Optuna study-creation guidance; no high-risk capability is shown. Truncated.
+00a7e44803603a7290ca43cfe02fb1b60d68de85,NONE,NONE_PRESENT,,"The visible text covers legal intake, deadlines, and work products; no high-risk capability is shown. Truncated."
+0129bf04a1b23a0416b7e85a48c67f150c492195,NONE,NONE_PRESENT,,The visible workflow is a strict test-driven development loop; no high-risk capability is shown. Truncated.
+015c3f1dd78c1f2e307eeecf21291ae2a0bc6023,NONE,NONE_PRESENT,,The visible content concerns marketing psychology and domain metadata; no high-risk capability is shown. Truncated.
+01a9a7848043d0d2f720fed6dca2ba3c77015c7f,NONE,NONE_PRESENT,,The visible workflow identifies and blurs sensitive screenshot regions defensively; no high-risk capability is shown. Truncated.
+0153ef63ee5cc1f987de1440607005def6b85178,NONE,NONE_PRESENT,,The visible code instruments an application with OpenTelemetry using configured endpoints; no high-risk capability is shown. Truncated.
+002ced0fc91358c066406eda5ff7a535acde06ab,NONE,NONE_PRESENT,,"The visible review flow covers data quality, privacy, reproducibility, and rollback; no high-risk capability is shown. Truncated."
+0019964e2744c5d406cfa00bdf47c4c04f0fc2ba,NONE,NONE_PRESENT,,The visible content adds Adaptive Card templates to MCP plugins; no high-risk capability is shown. Truncated.
+00ebd6ab61b66f0e38607994a1bd118ef80d0ea3,NONE,NONE_PRESENT,,The visible utilities read proxy environment configuration and construct proxy agents; no high-risk capability is shown. Truncated.
+00891eaa4f662dffe326174d3b41edb66b860743,NONE,NONE_PRESENT,,The visible rules preserve a local audio dataset and require reproducible manifests; no high-risk capability is shown. Truncated.
+00ccfa98c26e8bccbd1a6c26b5179a1089cf8e45,NONE,NONE_PRESENT,,The visible text describes sales-pipeline tracking and proposal workflows; no high-risk capability is shown. Truncated.
+0018067e73c2f62a9d18320d2ec6e12146306a02,NONE,NONE_PRESENT,,The visible workflow creates web animations with Anime.js; no high-risk capability is shown. Truncated.
+018fbe0079a3578589ea0d18323dfa1e36e9246a,NONE,NONE_PRESENT,,The visible memory gate writes structured notes and indexes inside a project memory directory; no high-risk capability is shown. Truncated.
+00bb386ab8e17d6124d9c8ec814079f37c728ae8,NONE,NONE_PRESENT,,The visible content is a work/rest decision model with no machine or account actions; no high-risk capability is shown. Truncated.
+00c38e57393674d37f805dcb70bc81816483a295,NONE,NONE_PRESENT,,"The visible procedure updates session notes, handoffs, and research records; no high-risk capability is shown. Truncated."
+0045d07b359fc7597a0aeb51d5a44e87b32dcff4,NONE,NONE_PRESENT,,The visible reference builds an organization-authenticated report embed URL without tokens or service principals; no high-risk capability is shown. Truncated.
+00299f37c371e957b4ebacef4c8db96151273382,NONE,NONE_PRESENT,,The visible configuration generates migration guidance from project-version differences; no high-risk capability is shown. Truncated.
+00a14f3cef782493e39ff03c62c56715b886452a,NONE,NONE_PRESENT,,"The visible procedure designs guardrails, contract tests, and E2E coverage; no high-risk capability is shown. Truncated."

@@ -1,0 +1,2 @@
+scope,n_labelled,stratum_size,missed,miss_rate,ci_low,ci_high,population_no_signal,est_missed,est_missed_low,est_missed_high,label_file
+ALL,40,40,0,0.0,0.0,0.08762453925039232,7540,0.0,0.0,660.689025947958,signals_jd_r1.csv

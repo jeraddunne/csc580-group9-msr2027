@@ -16,4 +16,174 @@ Do not edit a label file to make a rule look better. Proposals become issues and
 are applied in a later round, and the report says which round produced which
 numbers.
 
-No false positives labelled yet. Label some signal rows, then rerun.
+## R-EXE-001
+Labelled matches: 15 | false positives: 12 | observed precision: 0.20
+Label spread: BENIGN_CONTEXT=5, NOT_PRESENT=7, RISKY=3
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `007b5a93` BENIGN_CONTEXT: The eval entry is in a checklist of dangerous DOM sinks to identify, not an instruction to execute code.
+- `01345cc3` NOT_PRESENT: This is a Scheme interpreter recursively evaluating parsed expressions, not host-side evaluation of generated or remote code.
+- `0194dd4f` NOT_PRESENT: EVAL here means an LLM quality evaluation in a test-planning matrix, not dynamic code evaluation.
+- `0085dd75` NOT_PRESENT: The match is the name of a skill-evaluation helper script, not evaluation of generated code.
+- `005a55ca` NOT_PRESENT: The text concerns evaluation-run errors and retries, not executing dynamically generated code.
+- `00d08c06` BENIGN_CONTEXT: The code comments explicitly prohibit eval and exec on user input.
+- `00b9907e` NOT_PRESENT: The match is JavaScript RegExp.exec used for font parsing, not dynamic code execution.
+- `0027b42b` BENIGN_CONTEXT: The security checklist requires preventing eval or exec with user input; these are patterns to reject.
+- ... and 4 more
+
+## R-CRD-001
+Labelled matches: 15 | false positives: 11 | observed precision: 0.27
+Label spread: BENIGN_CONTEXT=6, NOT_PRESENT=5, RISKY=4
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `01570f1a` NOT_PRESENT: The SSH config is checked only to resolve a host alias, not to read keys or credentials.
+- `00ba580d` NOT_PRESENT: The credential paths and AWS keys are decoy honeytoken locations and fake credentials, not real secret handling.
+- `0067c2d9` NOT_PRESENT: The .npmrc file is package-manager supply-chain configuration, not a credential file.
+- `012eda01` NOT_PRESENT: The .npmrc entries control package scripts and release age; they do not read or handle credentials.
+- `012ce4e1` BENIGN_CONTEXT: Credential-file edit patterns are listed as denied operations in the permission-control configuration.
+- `0004314a` BENIGN_CONTEXT: The SSH key generation is an example task and solution intended for the Dockerized test environment, not the user host.
+- `01453c22` BENIGN_CONTEXT: The shadow-file audit command is commented out; disabled or commented examples are benign under guideline 2.4.
+- `0035fe1d` BENIGN_CONTEXT: The credential-related paths appear in an explicit block list that protects them from access.
+- ... and 3 more
+
+## R-DST-001
+Labelled matches: 21 | false positives: 11 | observed precision: 0.48
+Label spread: BENIGN_CONTEXT=10, NOT_PRESENT=1, RISKY=10
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `012ce4e1` BENIGN_CONTEXT: The recursive deletion pattern appears in denied-tool and block lists intended to prevent its use.
+- `0004314a` BENIGN_CONTEXT: The recursive deletion only removes apt package lists during a Docker image build, not files on the host.
+- `00652eb3` BENIGN_CONTEXT: Force push is explicitly blocking and every mutation requires a human click; the agent only surfaces the command.
+- `002b02be` NOT_PRESENT: The visible text only discusses rebuilds and CRX downloads; no destructive operation is shown. Truncated.
+- `0036fb04` BENIGN_CONTEXT: The skill explicitly says to use git revert rather than git reset --hard for rollbacks.
+- `0044b086` BENIGN_CONTEXT: The optional deletion is narrowly scoped to a local test cache directory used to clear accumulated entries.
+- `015b31aa` BENIGN_CONTEXT: The recursive deletion string is shown as a filename-injection attack to prevent through sanitization.
+- `002f6408` BENIGN_CONTEXT: The forced deletion is trapped on exit and limited to a freshly created mktemp directory.
+- ... and 3 more
+
+## R-NET-002
+Labelled matches: 11 | false positives: 8 | observed precision: 0.27
+Label spread: BENIGN_CONTEXT=8, RISKY=3
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `0058b51a` BENIGN_CONTEXT: The callback endpoint belongs to telemetry configuration that is explicitly disabled with telemetry: false.
+- `008542dd` BENIGN_CONTEXT: The hard-coded Cloudflare address is used only for DNS verification during an explicitly sandboxed setup.
+- `00024699` BENIGN_CONTEXT: The firmware upload and verification commands target a private LAN workbench in a local ESP32 homelab setup.
+- `01163b19` BENIGN_CONTEXT: The hard-coded address is the private LAN destination of an explicitly named development cluster.
+- `0019b379` BENIGN_CONTEXT: The commands only query a private LAN Calibre library, with the password supplied through an environment variable.
+- `00e708bf` BENIGN_CONTEXT: The link-local metadata request only checks spot-instance interruption and does not access credential paths or send data out.
+- `018a7039` BENIGN_CONTEXT: The requests run in short-lived test pods explicitly created to validate egress and metadata reachability.
+- `00ace9d5` BENIGN_CONTEXT: The hard-coded address is a private LAN LM Studio server in a documented remote-node setup.
+
+## R-OBF-001
+Labelled matches: 12 | false positives: 8 | observed precision: 0.33
+Label spread: BENIGN_CONTEXT=7, NOT_PRESENT=1, RISKY=4
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `003e5a83` BENIGN_CONTEXT: This is ordinary base64 decoding of an inline PNG response into an image file; guideline 2.3 treats image decoding as benign.
+- `002194ad` BENIGN_CONTEXT: The commands decode CI-held signing certificates, profiles, and keystores for a build; no decoded payload is executed.
+- `018a1106` BENIGN_CONTEXT: The command only decodes a GitHub API response containing a YAML configuration file; it does not execute the result.
+- `01618fca` BENIGN_CONTEXT: The encoded command and decoding expression are shown as malware-obfuscation patterns to recognize during analysis.
+- `0166b054` BENIGN_CONTEXT: The admin-secret decoding is scoped to a localtest.me Keycloak deployment in a local cluster setup.
+- `002f6408` BENIGN_CONTEXT: The base64 operation decodes a signature file for checksum verification, not an executable payload.
+- `0032b004` NOT_PRESENT: The Splunk query only detects obfuscation-related strings in logs; it does not decode or execute a payload.
+- `01b150d1` BENIGN_CONTEXT: The command only decodes a GitHub API response containing SKILL.md so it can be compared with a local file.
+
+## R-OVR-001
+Labelled matches: 13 | false positives: 7 | observed precision: 0.46
+Label spread: BENIGN_CONTEXT=4, NOT_PRESENT=3, RISKY=6
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `0069cb96` NOT_PRESENT: The text strengthens oversight by requiring presentation and validation before output files are written.
+- `00db746d` BENIGN_CONTEXT: The prompt-injection phrases are listed under an explicit instruction to ignore all such patterns.
+- `007d5239` NOT_PRESENT: The sentence only avoids telling the user to inspect installation internals; it does not hide agent actions or bypass confirmation.
+- `0140f945` BENIGN_CONTEXT: The skill explicitly treats browser content as untrusted data and forbids following instructions embedded in it.
+- `00ecf9cc` BENIGN_CONTEXT: Instruction-override phrases are listed as critical patterns for a security auditor to detect.
+- `009ee535` NOT_PRESENT: The instruction only avoids asking for a file location; it does not hide actions or override safety confirmation.
+- `001a3130` BENIGN_CONTEXT: The skill requires an explicit human yes for outward actions and explicitly forbids dangerously-skip-permissions.
+
+## R-PER-001
+Labelled matches: 16 | false positives: 7 | observed precision: 0.56
+Label spread: BENIGN_CONTEXT=5, NOT_PRESENT=2, RISKY=9
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `017f98ab` NOT_PRESENT: The commands only enumerate cron entries and scheduled tasks; they do not create or modify persistence.
+- `00ecf9cc` BENIGN_CONTEXT: Persistence-related patterns appear in a security-audit detection checklist rather than as installation steps; the excerpt is truncated.
+- `00ea56ba` NOT_PRESENT: The command only reloads .zshrc after installation; it does not modify a startup file or scheduler.
+- `0168dfd5` BENIGN_CONTEXT: The skill explicitly says to document the crontab lines and not auto-install them.
+- `0034bac2` BENIGN_CONTEXT: The shell function is presented as user shell-integration configuration for .zshrc or .bashrc, not an automated file modification.
+- `014634f9` BENIGN_CONTEXT: Persistence mechanisms and malicious startup-file aliases are red-lined for refusal or audit.
+- `00989bc8` BENIGN_CONTEXT: The startup-file line is shown as optional shell configuration for the user, with no automated append or installation step.
+
+## R-EXF-001
+Labelled matches: 8 | false positives: 5 | observed precision: 0.38
+Label spread: BENIGN_CONTEXT=2, NOT_PRESENT=3, RISKY=3
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `01962e49` NOT_PRESENT: The URL is a placeholder avatar image and no data is sent to a capture, tunnel, or paste endpoint.
+- `00e063fc` NOT_PRESENT: The Discord webhook URL is shown only as a token-format example, not as a destination for sending data.
+- `013e0ce7` BENIGN_CONTEXT: The ngrok tunnel is used for local webhook development: register a test callback, trigger an event, and inspect logs.
+- `00a6a4e1` NOT_PRESENT: The text only searches public Pastebin dumps; it does not send data to a paste or capture endpoint.
+- `0077b136` BENIGN_CONTEXT: The webhook destination is supplied by the user and used only for an explicit send action, not a hidden hard-coded transfer.
+
+## R-PRV-001
+Labelled matches: 25 | false positives: 5 | observed precision: 0.80
+Label spread: BENIGN_CONTEXT=4, NOT_PRESENT=1, RISKY=20
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `01163b19` BENIGN_CONTEXT: The sudo commands are scoped to a private development cluster and use placeholder secret values.
+- `01137be9` BENIGN_CONTEXT: The blocked-patterns section explicitly prohibits sudo pip and unsafe service execution.
+- `00146674` BENIGN_CONTEXT: The skill tells the user that they must manually execute the sudo codesign command rather than running it itself.
+- `00d01b09` BENIGN_CONTEXT: The solution explicitly says not to use sudo and instead performs a user-scoped pip install.
+- `01348557` NOT_PRESENT: The decision tree explicitly offers a git-only path for which no sudo is needed; it does not elevate privileges.
+
+## R-RCE-001
+Labelled matches: 14 | false positives: 5 | observed precision: 0.64
+Label spread: BENIGN_CONTEXT=5, RISKY=9
+
+Why it misfires: TODO
+What I would do: TODO
+
+Evidence rows:
+
+- `012eda01` BENIGN_CONTEXT: The skill explicitly forbids running remote installers and only permits printing the command for the user.
+- `0004314a` BENIGN_CONTEXT: The pipe-to-shell installer is part of a Dockerized task/test setup, so execution is confined to the task container.
+- `00f0552a` BENIGN_CONTEXT: The skill flags curl-to-shell and wget-to-shell patterns as Dockerfile problems to detect.
+- `01b17195` BENIGN_CONTEXT: The curl-to-shell installer is commented out inside the shell block, so it is a disabled example under guideline 2.4.
+- `004c35c7` BENIGN_CONTEXT: The curl-to-shell string appears in a quoted set of dangerous command patterns rather than as a step to execute.

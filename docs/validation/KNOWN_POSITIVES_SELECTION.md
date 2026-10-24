@@ -2,7 +2,7 @@
 
 ## Status and responsibilities
 
-- Status: Leticia Aderhold completed full-document review of all ten candidates in DB Browser for SQLite on 2026-10-21 and confirmed the listed expected capability categories. Teammate review, scanning, and scoring remain pending.
+- Status: Leticia Aderhold completed full-document review of the original ten candidates on 2026-10-21. Two candidates were replaced on 2026-10-23; Leticia reviewed the source documents in DB Browser for SQLite, as recorded in ai-use-log.md. The revised selection contains ten candidates. Teammate review, scanning, and scoring remain pending.
 
 ## Selection method
 

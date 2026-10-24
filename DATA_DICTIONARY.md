@@ -291,6 +291,31 @@ Figures: `rq1_prevalence_by_category.png` (shares with 95% Wilson intervals), `r
 
 Statistical definitions: Wilson score intervals at 95%; Mann-Whitney U is two-sided, with rank-biserial correlation `2U / (n1 n2) - 1`, positive when the high-risk group tends to have more copies; the bootstrap uses 2,000 independent resamples per group with seed 580 and percentile intervals; NB2 is `statsmodels` discrete `NegativeBinomial` on `copies - 1`, reported as incidence rate ratios; per-category p-values use the Holm step-down adjustment.
 
+### Validation scores
+
+Produced by `python scripts/annotation_kit.py score` (module `validation`) from the label files in `data/annotations/` (B.6; `docs/validation/README.md`). Primary labels are a human's round 1 file; `label_file` names the file used. Outputs hold counts, shares, and intervals only: no dataset text, file hashes, or repository names. Intervals are Wilson 95%.
+
+| File | Grain | Columns | Produced by |
+|---|---|---|---|
+| `validation_precision_by_rule.csv` | one row per high-risk rule with labelled matches | `rule_id`, `category`, `severity`, `n`, `risky`, `benign_context`, `not_present`, `strict_precision`, `strict_ci_low`, `strict_ci_high`, `capability_precision`, `capability_ci_low`, `capability_ci_high`, `label_file` | `validation.precision_by_rule` |
+| `validation_precision_by_category.csv` | one row per high-risk category with labelled matches | `category`, `max_rule_severity`, then the same count and precision columns as by rule, `label_file` | `validation.precision_by_category` |
+| `validation_recall.csv` | one row per scope (`ALL`) | `scope`, `n_labelled`, `stratum_size`, `missed`, `miss_rate`, `ci_low`, `ci_high`, `population_no_signal`, `est_missed`, `est_missed_low`, `est_missed_high`, `label_file` | `validation.recall_estimate` |
+| `validation_agreement.csv` | one row per compared pair of label files | `kind`, `comparison` (inter-rater, intra-rater, or human-vs-llm), `file_a`, `file_b`, `n`, `percent_agreement`, `kappa`, `kappa_note` | `validation.agreement` |
+| `validation_lineage.csv` | one row | `n_labelled`, `yes`, `no`, `unsure`, `lineage_precision`, `ci_low`, `ci_high`, `share_unsure`, `label_file` | `validation.lineage_precision` |
+| `validation_drift.csv` | one row per drift change type | `change_type`, `count`, `share`, `ci_low`, `ci_high`, `label_file` | `validation.drift_distribution` |
+| `fmea_category_ranking.csv` | one row per high-risk category | `category`, `S`, `validated_prevalence`, `O`, `estimated_recall`, `D`, `RPN`, `notes` | `validation.fmea_ranking` |
+
+Strict precision counts `RISKY` only; capability precision counts `RISKY` and `BENIGN_CONTEXT`. RPN = S x O x D with the scales in `docs/validation/ANNOTATION_GUIDELINE.md` section 8.
+
+### Ground-truth check
+
+Produced by `python scripts/ground_truth_check.py` (`make ground-truth`) from the known-positive selection in `docs/validation/KNOWN_POSITIVES_SELECTION.md` (#97). It writes ids, paths, and rule ids only, with no dataset text and no content hashes.
+
+| File | Grain | Columns | Produced by |
+|---|---|---|---|
+| `ground_truth_check.csv` | one row per selected skill | `candidate_id`, `skill_path`, `expected_category`, `resolved`, `rule_ids`, `categories`, `max_severity`, `detected`, `detected_high_risk`, `scripts_scanned`, `script_categories`, `detected_in_scripts` | `scripts/ground_truth_check.py` |
+| `ground_truth_summary.csv` | one row per expected category, plus `TOTAL` | `expected_category`, `candidates`, `resolved`, `detected`, `detected_high_risk`, `detected_in_scripts`, `missed` | `scripts/ground_truth_check.py` |
+
 ### Specification verification
 
 Produced by `python scripts/verify_spec.py` (`make verify-spec`) from the acceptance tests in `RESEARCH_SPEC.md`. It holds no dataset content.

@@ -18,9 +18,10 @@ How to use: every section below is required by the assignment. Numbers come only
 Convention: observation versus interpretation. Results reports only what the data shows. Discussion is
 the only place for interpretation, causal language, and implications.
 
-Status on 2026-09-14: framing, dataset, method, validation design, and unvalidated results are written.
-No labels exist yet, so every statement about whether a signal is a real capability stays pending until
-round 1 labelling in Sprint 2. Discussion and Conclusion are deliberately short until then.
+Status on 2026-10-25: framing, dataset, method, validation design, and unvalidated results are written,
+and the round 1 validation of signals and drift is in Evaluation and validation (Table 2). Lineage
+follows in #124. Discussion and Conclusion still need the comparison of validated precision with the
+unvalidated shares.
 -->
 
 # Abstract
@@ -112,15 +113,31 @@ A lineage sample of 58 variant pairs checks whether pairs really share a lineage
 
 **FMEA ranking.** Categories are ranked by severity (from the rule file), occurrence (validated prevalence), and detection (estimated miss rate), in the style of a failure mode and effects analysis. The ranking prioritises categories for review and is not a risk verdict.
 
-<!-- Table 2: Validation results. Source: results/validation_precision_by_category.csv, results/validation_agreement.csv (python scripts/annotation_kit.py score). PENDING: no labels exist yet. -->
+**Validation results (round 1).** Table 2 gives precision for each high-risk capability from the primary rater's labels of the 169 rule matches in the signal sample. Strict precision ranges from 0.20 for dynamic code execution to 1.00 for unscoped shell tool grants; only those grants and `sudo` (0.80) reach 0.80. Capability precision, which also counts matches where the capability is present but benign in context, is 0.53 or higher in every category and 1.00 for hard-coded IP endpoints, download and execute, and tool grants. <!-- results/validation_precision_by_category.csv --> None of the 40 no-signal items was labelled as missing a high-risk capability: a miss rate of 0 (95% CI 0 to 0.088), which at the upper bound would be about 661 of the 7,540 no-signal contents. <!-- results/validation_recall.csv --> For drift, the primary and second rater agreed on 15 of 18 pairs (83.3%, Cohen's kappa 0.745). The primary rater classified 8 pairs as template updates, 8 as local adaptations, and 2 as hardening, and none as a capability addition. <!-- results/validation_agreement.csv, results/validation_drift.csv --> Lineage results follow in #124. Signals have one rater; the intra-rater check follows in Sprint 3. In the FMEA ranking, credential file paths (RPN 72) and hard-coded IP endpoints (63) rank highest. With no misses in the sample, the detection score is 1 for every category, so the ranking reflects severity and occurrence only. <!-- results/fmea_category_ranking.csv -->
+
+Table 2. Validation of high-risk signals, round 1 (primary rater). <!-- results/validation_precision_by_category.csv -->
+
+| High-risk capability | Label rows | Risky / benign in context / not present | Strict precision (95% CI) | Capability precision (95% CI) |
+|---|---|---|---|---|
+| Unscoped shell tool grant | 18 | 18 / 0 / 0 | 1.00 (0.82 to 1.00) | 1.00 (0.82 to 1.00) |
+| `sudo` | 25 | 20 / 4 / 1 | 0.80 (0.61 to 0.91) | 0.96 (0.80 to 0.99) |
+| Download and execute | 15 | 10 / 5 / 0 | 0.67 (0.42 to 0.85) | 1.00 (0.80 to 1.00) |
+| Persistence locations | 16 | 9 / 5 / 2 | 0.56 (0.33 to 0.77) | 0.88 (0.64 to 0.97) |
+| Recursive forced delete or history rewrite | 21 | 10 / 10 / 1 | 0.48 (0.28 to 0.68) | 0.95 (0.77 to 0.99) |
+| Oversight bypass wording | 13 | 6 / 4 / 3 | 0.46 (0.23 to 0.71) | 0.77 (0.50 to 0.92) |
+| Request-capture or paste endpoint | 8 | 3 / 2 / 3 | 0.38 (0.14 to 0.69) | 0.63 (0.31 to 0.86) |
+| Obfuscated payload decoding | 12 | 4 / 7 / 1 | 0.33 (0.14 to 0.61) | 0.92 (0.65 to 0.99) |
+| Hard-coded IP endpoint | 11 | 3 / 8 / 0 | 0.27 (0.10 to 0.57) | 1.00 (0.74 to 1.00) |
+| Credential file paths | 15 | 4 / 6 / 5 | 0.27 (0.11 to 0.52) | 0.67 (0.42 to 0.85) |
+| Dynamic code execution | 15 | 3 / 5 / 7 | 0.20 (0.07 to 0.45) | 0.53 (0.30 to 0.75) |
 
 # Results
 
 All results in this section are unvalidated keyword signals. They describe where the rules match, not confirmed capabilities.
 
-**RQ1 Prevalence.** Of the 12,965 distinct contents in the main population, 1,159 match at least one high-risk rule: 8.9%, 95% CI 8.5% to 9.4%. Weighted by copies, 3,326 of 29,679 occurrences carry one, or 11.2%. Table 2 lists each high-risk capability. For persistence locations, `sudo`, and destructive commands, the copy-weighted share is about double the content share. Context rules match far more often: shell code blocks in 4,351 contents (33.6%), `allowed-tools` declarations in 1,282 (9.9%), secret-named environment variables in 938 (7.2%), and network tooling in 851 (6.6%). <!-- results/rq1_prevalence_by_rule.csv, results/rq1_prevalence_by_category.csv, figures/rq1_prevalence_by_category.png -->
+**RQ1 Prevalence.** Of the 12,965 distinct contents in the main population, 1,159 match at least one high-risk rule: 8.9%, 95% CI 8.5% to 9.4%. Weighted by copies, 3,326 of 29,679 occurrences carry one, or 11.2%. Table 3 lists each high-risk capability. For persistence locations, `sudo`, and destructive commands, the copy-weighted share is about double the content share. Context rules match far more often: shell code blocks in 4,351 contents (33.6%), `allowed-tools` declarations in 1,282 (9.9%), secret-named environment variables in 938 (7.2%), and network tooling in 851 (6.6%). <!-- results/rq1_prevalence_by_rule.csv, results/rq1_prevalence_by_category.csv, figures/rq1_prevalence_by_category.png -->
 
-Table 2. High-risk signals in the main population. <!-- results/rq1_prevalence_by_rule.csv; download-and-execute from results/rq1_prevalence_by_category.csv -->
+Table 3. High-risk signals in the main population. <!-- results/rq1_prevalence_by_rule.csv; download-and-execute from results/rq1_prevalence_by_category.csv -->
 
 | High-risk capability | Rule(s) | Distinct contents | Share (95% CI) | Occurrences | Copy-weighted share |
 |---|---|---|---|---|---|

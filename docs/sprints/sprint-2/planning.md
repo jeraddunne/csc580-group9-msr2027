@@ -14,7 +14,7 @@ By October 28, the team will have the core mining and analysis pipeline running 
 |---|---:|---|---|
 | Leticia Aderhold | 8 | Pending reconciliation | Preliminary-results documentation, research-report updates, drift second-rating, and pull-request reviews |
 | Jerad Dunne | 12 | Pending reconciliation | Product Owner; core implementation, automated tests, scoring, and technical integration |
-| Hina Kramer | 6 | Pending reconciliation | Scrum Master; validation protocol, lineage second-rating, coordination, retrospective, and pull-request reviews |
+| Hina Kramer | 6 | Pending reconciliation | Scrum Master; validation protocol, lineage second-rating, coordination, retrospective, and pull-request reviews. Actual time for #99: 7 hours for guideline reading, labeling, and importing; self-reported on 2026-10-24. Labels submitted in PR #121. |
 | **Total** | **26** | **Pending reconciliation** | Sprint 1 velocity: **15 points** (October 4 dashboard snapshot) |
 
 Issue #102 has an estimate of 3 story points. The total Sprint 2 commitment, committed backlog items, and allocations by member remain pending team confirmation.

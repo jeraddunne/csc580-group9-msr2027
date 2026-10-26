@@ -260,6 +260,100 @@ def test_with_severity_cutoff_changes_flags():
     ]
 
 
+def test_rq2_reach_summary_values():
+    # Expected values worked out by hand from the seven contents below.
+    frame = pd.DataFrame(
+        {
+            "high_risk": [True, True, True, False, False, False, False],
+            "copies": [1, 5, 12, 1, 1, 2, 3],
+            "repos": [1, 2, 3, 1, 1, 1, 2],
+        }
+    )
+    out = analysis.rq2_reach_summary(frame).set_index("group")
+    hr, other = out.loc["high-risk signal"], out.loc["no high-risk signal"]
+    assert (hr["contents"], hr["occurrences"], hr["max_copies"]) == (3, 18, 12)
+    assert (hr["mean_copies"], hr["median_copies"]) == (6.0, 5.0)
+    assert hr["share_copied_2plus"] == pytest.approx(0.6667)
+    assert hr["share_copied_5plus"] == pytest.approx(0.6667)
+    assert hr["share_copied_10plus"] == pytest.approx(0.3333)
+    assert hr["share_cross_repo"] == pytest.approx(0.6667)
+    assert (other["contents"], other["occurrences"], other["max_copies"]) == (4, 7, 3)
+    assert (other["mean_copies"], other["median_copies"]) == (1.75, 1.5)
+    assert other["share_copied_2plus"] == pytest.approx(0.5)
+    assert other["share_copied_5plus"] == 0.0 and other["share_copied_10plus"] == 0.0
+    assert other["share_cross_repo"] == pytest.approx(0.25)
+
+    # The Mann-Whitney and bootstrap tables compare the same two groups.
+    mw = analysis.rq2_mannwhitney(frame).set_index("outcome")
+    assert (mw.loc["copies", "n_group"], mw.loc["copies", "n_reference"]) == (3, 4)
+    assert (mw.loc["copies", "mean_group"], mw.loc["copies", "mean_reference"]) == (6.0, 1.75)
+    assert (mw.loc["repos", "mean_group"], mw.loc["repos", "mean_reference"]) == (2.0, 1.25)
+    boot = analysis.rq2_bootstrap(frame, n_boot=200, seed=1).set_index("metric")
+    assert boot.loc["difference_in_mean_copies", "estimate"] == pytest.approx(4.25)
+    assert boot.loc["difference_in_share_copied_2plus", "estimate"] == pytest.approx(2 / 3 - 0.5)
+
+    # A group with no contents reports zeros and undefined means rather than failing.
+    empty = analysis.rq2_reach_summary(frame[~frame["high_risk"]]).set_index("group")
+    none = empty.loc["high-risk signal"]
+    assert (none["contents"], none["occurrences"], none["max_copies"]) == (0, 0, 0)
+    assert math.isnan(none["mean_copies"]) and none["share_copied_2plus"] == 0.0
+
+
+def _sensitivity_frame() -> pd.DataFrame:
+    # R-PRV-002 is severity 5, R-PRV-001 severity 6, R-PER-001 severity 7 or more, so the
+    # main cutoff (6) flags PRV-001 and PER-001; cutoff 5 adds PRV-002; cutoff 7 keeps PER-001.
+    rows = [
+        # file_sha, rule_ids, name, frontmatter_valid, copies
+        ("a", "R-PER-001", "skill-creator", True, 100),
+        ("b", "R-PRV-001", "alpha", True, 90),
+        ("c", "R-PRV-002", "beta", True, 80),
+        ("d", "", "gamma", True, 70),
+        ("e", "R-PRV-001", "Skill-Creator", False, 60),
+        ("f", "", "delta", True, 50),
+        ("g", "R-PRV-002", "epsilon", False, 40),
+        ("h", "", "zeta", True, 30),
+        ("i", "R-PER-001", "eta", True, 20),
+        ("j", "", "theta", False, 10),
+        ("k", "", "iota", True, 5),
+        ("l", "R-PRV-002", "kappa", True, 4),
+        ("m", "", "lambda", True, 3),
+        ("n", "R-PRV-001", "mu", True, 2),
+    ]
+    frame = pd.DataFrame(
+        rows, columns=["file_sha", "rule_ids", "name", "frontmatter_valid", "copies"]
+    )
+    frame["high_risk"] = frame["rule_ids"].isin(["R-PRV-001", "R-PER-001"])
+    return frame
+
+
+def test_sensitivity_summary_membership_and_results():
+    out = analysis.sensitivity_summary(_sensitivity_frame(), load_rules()).set_index("scenario")
+    # scenario: (contents, high-risk contents, mean copies high-risk, mean copies other).
+    # Membership: cutoff 5 adds c, g, l; cutoff 7 keeps a, i; the front-matter subset drops
+    # e, g, j; the top-10 exclusion keeps k, l, m, n; the template exclusion drops a and e.
+    expected = {
+        "main (severity 6, main population)": (14, 5, 272 / 5, 292 / 9),
+        "severity cutoff 5": (14, 8, 396 / 8, 168 / 6),
+        "severity cutoff 7": (14, 2, 120 / 2, 444 / 12),
+        "front-matter-valid subset": (11, 4, 212 / 4, 242 / 7),
+        "excluding top 10 most-copied contents": (4, 1, 2.0, 12 / 3),
+        "excluding template families": (12, 3, 112 / 3, 292 / 9),
+    }
+    assert list(out.index) == list(expected)
+    for scenario, (n, k, mean_high, mean_other) in expected.items():
+        row = out.loc[scenario]
+        assert (row["contents"], row["high_risk_contents"]) == (n, k), scenario
+        assert row["high_risk_share"] == pytest.approx(round(k / n, 4)), scenario
+        assert row["share_ci_low"] < k / n < row["share_ci_high"], scenario
+        assert row["mean_copies_high_risk"] == pytest.approx(mean_high), scenario
+        assert row["mean_copies_other"] == pytest.approx(mean_other), scenario
+        assert row["mean_copies_ratio"] == pytest.approx(mean_high / mean_other), scenario
+    # With a single high-risk content left, the test is not run, but the means still are.
+    top = out.loc["excluding top 10 most-copied contents"]
+    assert math.isnan(top["mwu_p_copies"]) and math.isnan(top["rank_biserial_copies"])
+    assert 0.0 <= out.loc["severity cutoff 5", "mwu_p_copies"] <= 1.0
+
+
 def test_cli_analyze_writes_outputs(data_root: Path):
     assert cli.main(["analyze", "--seed", "580"]) == 0
     results = data_root / "results"
@@ -329,3 +423,85 @@ def test_high_risk_by_category_excludes_context_rules():
     assert row["high_risk_contents"] == 1
     assert row["high_risk_occurrences"] == 3
     assert row["high_risk_share"] < row["content_share"]
+
+
+def test_rq1_prevalence_by_rule_values():
+    from msr_pipeline import skill_risk
+
+    rules = skill_risk.rules_from_dict(
+        {
+            "categories": {"TOOL_GRANT": "x"},
+            "rules": [
+                {
+                    "id": "HI",
+                    "category": "TOOL_GRANT",
+                    "severity": 6,
+                    "patterns": ["Bash[(][*][)]"],
+                },
+                {
+                    "id": "LO",
+                    "category": "TOOL_GRANT",
+                    "severity": 1,
+                    "patterns": ["allowed-tools"],
+                },
+            ],
+        }
+    )
+    reps = pd.DataFrame(
+        {
+            "file_sha": ["a", "b", "c", "d"],
+            "content": [
+                "allowed-tools: Bash(*)",
+                "allowed-tools: Read",
+                "plain text",
+                "run Bash(*)",
+            ],
+        }
+    )
+    scan = skill_risk.scan_contents(reps, rules)
+    counts = pd.DataFrame({"file_sha": list("abcd"), "copies": [3, 1, 1, 5], "repos": [1, 1, 1, 1]})
+    by_rule, _ = analysis.rq1_tables(scan, counts, rules)
+    by_rule = by_rule.set_index("rule_id")
+    # rule: (contents, content share, occurrences, occurrence share) over 4 contents, 10 copies
+    expected = {"HI": (2, 0.5, 8, 0.8), "LO": (2, 0.5, 4, 0.4), "ANY_HIGH_RISK": (2, 0.5, 8, 0.8)}
+    low, high = analysis.wilson_ci(2, 4)
+    for rule_id, (contents, share, occ, occ_share) in expected.items():
+        row = by_rule.loc[rule_id]
+        assert (row["contents"], row["occurrences"]) == (contents, occ), rule_id
+        assert row["content_share"] == pytest.approx(share), rule_id
+        assert row["occurrence_share"] == pytest.approx(occ_share), rule_id
+        assert row["content_ci_low"] == pytest.approx(round(low, 4)), rule_id
+        assert row["content_ci_high"] == pytest.approx(round(high, 4)), rule_id
+
+
+def test_population_flow_counts_each_step():
+    reps = pd.DataFrame(
+        {
+            "file_sha": list("abcdef"),
+            "content": [
+                "../shared/skills/foo/SKILL.md",
+                "Use the tool.",
+                "---\nname: x\n---\nbody",
+                float("nan"),
+                "docs/SKILL.md",
+                "Use the tool.",
+            ],
+            "frontmatter_valid": [0, 0, 1, None, 0, 1],
+            "content_sha_ok": [1, 1, 2, 1, 1, 0],
+        }
+    )
+    copies = {"a": 2, "b": 3, "c": 1, "d": 2, "e": 1, "f": 4}
+    occurrences = pd.DataFrame(
+        [(sha, f"repo{i}") for sha, n in copies.items() for i in range(n)],
+        columns=["file_sha", "repo_full_name"],
+    )
+    flow = analysis.population_flow(reps, population_flags(reps), occurrences).set_index("step")
+    # a and e are symlink stubs, d has no text, f was not recovered; b and c remain.
+    assert flow[["distinct_contents", "occurrences"]].to_dict("index") == {
+        "all_occurrences": {"distinct_contents": 6, "occurrences": 13},
+        "with_content": {"distinct_contents": 5, "occurrences": 11},
+        "excluded_symlink_stubs": {"distinct_contents": 2, "occurrences": 3},
+        "excluded_unrecovered_content": {"distinct_contents": 1, "occurrences": 4},
+        "main_population": {"distinct_contents": 2, "occurrences": 4},
+        "frontmatter_valid_subset": {"distinct_contents": 1, "occurrences": 1},
+    }

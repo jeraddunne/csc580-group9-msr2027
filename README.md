@@ -72,6 +72,8 @@ make test           # pytest, runs offline
 make pipeline       # P-01 analysis: results/rq*_*.csv, results/sensitivity_*.csv, figures/rq*_*.png
 ```
 
+Which tests check each table and figure in the report: [docs/TEST_MAP.md](docs/TEST_MAP.md).
+
 Other ways to run it, each tested in [docs/REPRODUCE.md](docs/REPRODUCE.md):
 
 - **A documented container**, no Python needed on the host: `docker build -t group9-p01 https://github.com/jeraddunne/csc580-group9-msr2027.git#main`, then `docker run --rm -v group9-data:/app/data/samples group9-p01`. It runs the tests and the analysis and compares the results with the committed ones.

@@ -67,6 +67,18 @@ def test_cohen_kappa_degenerate_and_empty():
         v.cohen_kappa(["a"], [])
 
 
+@pytest.mark.parametrize("swap", [False, True])
+def test_cohen_kappa_notes_one_rater_with_a_single_category(swap):
+    # 57 of 58 agree, but one rater said YES every time, so kappa is 0 by construction.
+    a, b = ["YES"] * 58, ["YES"] * 57 + ["UNSURE"]
+    if swap:
+        a, b = b, a
+    kappa, note = v.cohen_kappa(a, b)
+    assert kappa == pytest.approx(0.0)
+    assert "one rater used a single category" in note
+    assert v.percent_agreement(a, b) == pytest.approx(57 / 58)
+
+
 # ---------------------------------------------------------------------------
 # Label files
 # ---------------------------------------------------------------------------
@@ -221,6 +233,34 @@ def test_lineage_and_drift_summaries():
     assert dist.loc["TEMPLATE_UPDATE", "count"] == 2
     assert dist.loc["CAPABILITY_ADDITION", "count"] == 0
     assert dist["count"].sum() == 3
+
+
+def test_primary_file_prefers_the_primary_rater_on_a_tie():
+    kit = _kit()
+
+    def lineage(labels: list[str]) -> pd.DataFrame:
+        return pd.DataFrame(
+            [
+                {"file_sha_a": str(i), "file_sha_b": "x", "same_lineage": lab, "notes": ""}
+                for i, lab in enumerate(labels)
+            ]
+        )
+
+    full, partial = lineage(["YES", "YES", "NO"]), lineage(["YES", "", ""])
+
+    def pick(*named: tuple[str, pd.DataFrame]) -> str:
+        files = [(v.parse_label_filename(name), df) for name, df in named]
+        return kit._primary(files, "lineage")[0].name
+
+    # A tie on labelled rows goes to the primary rater, although "hk" sorts before "jd".
+    assert pick(("lineage_hk_r1.csv", full), ("lineage_jd_r1.csv", full)) == "lineage_jd_r1.csv"
+    # More labelled rows still win, and round 1 beats a later round.
+    assert pick(("lineage_hk_r1.csv", full), ("lineage_jd_r1.csv", partial)) == "lineage_hk_r1.csv"
+    assert pick(("lineage_jd_r2.csv", full), ("lineage_hk_r1.csv", partial)) == "lineage_hk_r1.csv"
+    # A non-human rater is never primary.
+    assert pick(("lineage_llm-model_r1.csv", full), ("lineage_jd_r1.csv", partial)) == (
+        "lineage_jd_r1.csv"
+    )
 
 
 # ---------------------------------------------------------------------------

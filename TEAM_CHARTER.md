@@ -140,7 +140,6 @@ By adding your date and pull request number below, in your own pull request, you
 | Jerad Dunne | 2026-09-15 | #49 |
 | Allie Hodges | Not signed; left the course in Sprint 2 (D-025) | none |
 | Hina Kramer | 2026-10-01 | [#77](https://github.com/jeraddunne/csc580-group9-msr2027/pull/77) |
-| Hina Kramer | 2026-10-03 | #52 |
 
 Each member signs by adding the date and their onboarding pull request number in their own pull request.
 

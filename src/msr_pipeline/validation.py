@@ -287,6 +287,8 @@ def cohen_kappa(labels_a: Sequence[str], labels_b: Sequence[str]) -> tuple[float
 
     Returns (kappa, note). The note is empty for a normal result and explains why kappa
     is undefined (nan) otherwise, for example when both raters used a single category.
+    When only one rater used a single category, kappa is 0 however often the raters
+    agree, and the note says so.
     """
     if len(labels_a) != len(labels_b):
         raise ValueError("label sequences must have the same length")
@@ -302,7 +304,12 @@ def cohen_kappa(labels_a: Sequence[str], labels_b: Sequence[str]) -> tuple[float
     pe = float(np.sum(table.sum(axis=1) * table.sum(axis=0))) / (n * n)
     if math.isclose(pe, 1.0):
         return (math.nan, "undefined: both raters used a single category")
-    return (float((po - pe) / (1 - pe)), "")
+    kappa = float((po - pe) / (1 - pe))
+    used_a = np.count_nonzero(table.sum(axis=1))
+    used_b = np.count_nonzero(table.sum(axis=0))
+    if min(used_a, used_b) == 1:
+        return (kappa, "one rater used a single category, so kappa is 0 whatever the agreement")
+    return (kappa, "")
 
 
 def _rule_maps(rules) -> tuple[dict[str, str], dict[str, int]]:

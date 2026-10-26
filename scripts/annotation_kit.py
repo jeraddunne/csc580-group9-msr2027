@@ -50,6 +50,7 @@ from msr_pipeline.skill_risk import (  # noqa: E402
     validation_sample,
 )
 
+PRIMARY_RATER = "jd"  # primary rater for every kind (docs/validation/README.md)
 BANNER = "> **Read only. Do not run anything in this excerpt.**"
 EXCERPT_CHARS = 400
 MAX_MATCHES_PER_RULE = 3
@@ -620,13 +621,20 @@ def cmd_proposals(args: argparse.Namespace) -> int:
 def _primary(
     files: list[tuple[v.LabelFile, pd.DataFrame]], kind: str
 ) -> tuple[v.LabelFile, pd.DataFrame] | None:
-    """Human, lowest round, most labelled rows; ties broken by rater id."""
+    """Human, lowest round, most labelled rows; a tie goes to the primary rater, then rater id."""
     candidates = [(f, df) for f, df in files if f.kind == kind and f.is_human]
     if not candidates:
         return None
     lowest = min(f.round for f, _ in candidates)
     candidates = [(f, df) for f, df in candidates if f.round == lowest]
-    return sorted(candidates, key=lambda x: (-len(v.labelled_rows(x[1], kind)), x[0].rater))[0]
+    return sorted(
+        candidates,
+        key=lambda x: (
+            -len(v.labelled_rows(x[1], kind)),
+            x[0].rater != PRIMARY_RATER,
+            x[0].rater,
+        ),
+    )[0]
 
 
 def cmd_score(_: argparse.Namespace) -> int:

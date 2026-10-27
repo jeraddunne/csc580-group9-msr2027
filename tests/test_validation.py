@@ -310,6 +310,44 @@ def test_fmea_ranking_orders_by_rpn_and_notes_missing_data():
     assert no_recall["notes"].str.contains("no recall estimate").all()
 
 
+def test_fmea_applies_precision_to_high_risk_counts():
+    # Precision comes from high-risk rule matches only, so it must scale the high-risk
+    # counts, not counts that include context-rule matches (review on #127).
+    prevalence = pd.DataFrame(
+        {
+            "category": ["CREDENTIALS"],
+            "contents": [1000],
+            "content_share": [0.0771],
+            "high_risk_contents": [65],
+            "high_risk_share": [0.0050],
+        }
+    )
+    labels = signals(
+        [
+            ("a", "R-CRD-001", "RISKY", ""),
+            ("b", "R-CRD-001", "BENIGN_CONTEXT", ""),
+            ("c", "R-CRD-001", "NOT_PRESENT", ""),
+        ]
+        + [(f"n{i}", "NONE", "NONE_PRESENT", "") for i in range(9)]
+        + [("m", "NONE", "MISSED_RISKY", "CREDENTIALS")]
+    )
+    precision = v.precision_by_category(labels, RULES)
+    recall = v.recall_estimate(labels, 40, 1000)
+    cred = v.fmea_ranking(prevalence, precision, recall, RULES).set_index("category")
+    cred = cred.loc["CREDENTIALS"]
+    # validated prevalence 0.0050 x 2/3 = 0.0033 -> O 5 (the all-rule 0.0771 gave O 9);
+    # recall (65 x 2/3) / (65 x 2/3 + 1/10 x 1000) = 0.30 -> D 8 (1000 contents gave D 3)
+    assert cred["validated_prevalence"] == pytest.approx(0.0050 * 2 / 3)
+    assert (cred["S"], cred["O"], cred["D"]) == (8, 5, 8)
+    assert cred["notes"] == ""
+    # A table without the high-risk columns (the pilot table) falls back and says so.
+    pilot = prevalence.drop(columns=["high_risk_contents", "high_risk_share"])
+    old = v.fmea_ranking(pilot, precision, recall, RULES).set_index("category")
+    old = old.loc["CREDENTIALS"]
+    assert (old["O"], old["D"]) == (9, 3)
+    assert "all-rule prevalence" in old["notes"]
+
+
 # ---------------------------------------------------------------------------
 # Kit end to end on the tiny fixture database
 # ---------------------------------------------------------------------------

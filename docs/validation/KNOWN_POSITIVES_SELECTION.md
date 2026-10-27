@@ -2,7 +2,7 @@
 
 ## Status and responsibilities
 
-- Status: Leticia Aderhold completed full-document review of the original ten candidates on 2026-10-21. Two candidates were replaced on 2026-10-23; Leticia reviewed the source documents in DB Browser for SQLite, as recorded in ai-use-log.md. The revised selection contains ten candidates. Teammate review, scanning, and scoring remain pending.
+- Status: Leticia Aderhold completed full-document review of the original ten candidates on 2026-10-21. Two candidates were replaced on 2026-10-23; Leticia reviewed the source documents in DB Browser for SQLite, as recorded in ai-use-log.md. The revised selection contains ten candidates. Jerad Dunne ran the scanner check on 2026-10-27 with `make ground-truth` on commit 8e2ce36; the results are under Results below. Teammate review of the results remains pending.
 
 ## Selection method
 
@@ -68,16 +68,51 @@ On 2026-10-21, Leticia Aderhold reviewed the complete stored SKILL.md text for a
 - [x] The selection and expected categories are committed before scanning.
 - [x] AI assistance is recorded in ai-use-log.md.
 - [x] Validation-sample overlap check confirms zero overlap for the revised ten-candidate selection.
-- [ ] Jerad retrieves the selected records using the documented IDs.
-- [ ] Jerad runs the scanner using a committed, reproducible command.
-- [ ] A results CSV records expected categories, reported categories, hits, and misses.
-- [ ] Misses are documented in docs/validation/RULE_CHANGE_PROPOSALS.md or a new issue.
+- [x] Jerad retrieves the selected records using the documented IDs.
+- [x] Jerad runs the scanner using a committed, reproducible command.
+- [x] A results CSV records expected categories, reported categories, hits, and misses.
+- [x] Misses are documented in docs/validation/RULE_CHANGE_PROPOSALS.md or a new issue. No candidate was missed; the five detected only below the high-risk cutoff are tracked in #132.
+
+## Results (2026-10-27)
+
+Command: `make ground-truth` (`python scripts/ground_truth_check.py`) on commit 8e2ce36. Outputs: `results/ground_truth_check.csv` (one row per candidate) and `results/ground_truth_summary.csv` (one row per expected category, plus a total).
+
+All ten candidates were found in the sample by their IDs, and for each one a rule of the expected category matched the SKILL.md text: 10 detected, 0 missed. Five were detected at high risk, meaning a matching rule of that category has severity 6 or more: both PERSISTENCE candidates, the PRIVILEGE and DESTRUCTIVE candidates, and one of the two TOOL_GRANT candidates. The other five matched only context rules below severity 6: both CREDENTIALS candidates (`R-CRD-002`, severity 5), both NETWORK candidates (`R-NET-001`, severity 4), and one TOOL_GRANT candidate (`R-TGR-002`, severity 1). In the review workflow (`docs/research/REVIEW_WORKFLOW.md`, step 4), those five would take the "no high-risk signal" path: their matches appear only in the context section of the scan report, and no finding would be triaged. Two candidates have bundled scripts; one candidate's scripts matched CREDENTIALS and NETWORK rules, and no category was reported for the other's.
+
+What these five mean for the rules or for the severity cutoff is not decided here; it is tracked in #132.
+
+| Expected category | Candidates | Detected | Detected at high risk | Missed |
+|---|---:|---:|---:|---:|
+| CREDENTIALS | 2 | 2 | 0 | 0 |
+| DESTRUCTIVE | 1 | 1 | 1 | 0 |
+| NETWORK | 2 | 2 | 0 | 0 |
+| PERSISTENCE | 2 | 2 | 2 | 0 |
+| PRIVILEGE | 1 | 1 | 1 | 0 |
+| TOOL_GRANT | 2 | 2 | 1 | 0 |
+| Total | 10 | 10 | 5 | 0 |
+
+| ID | Expected category | Rules of that category that matched SKILL.md (severity) | Detected at high risk | Bundled scripts scanned | Categories in bundled scripts |
+|---|---|---|---|---|---|
+| f699537c00478727 | NETWORK | `R-NET-001` (4) | no | 0 | - |
+| 46aa89b2bc8739e4 | CREDENTIALS | `R-CRD-002` (5) | no | 0 | - |
+| 04a39183afa5b330 | PERSISTENCE | `R-PER-001` (7) | yes | 4 | - |
+| cb461d437eb8c5c0 | PERSISTENCE | `R-PER-001` (7) | yes | 0 | - |
+| e7bc62332ad87df6 | PRIVILEGE | `R-PRV-001` (6) | yes | 0 | - |
+| f12dc9a8c0ca8d37 | TOOL_GRANT | `R-TGR-001` (6), `R-TGR-002` (1) | yes | 0 | - |
+| 99552d3ddeb0ce04 | DESTRUCTIVE | `R-DST-001` (6) | yes | 0 | - |
+| 4bcf122319412600 | CREDENTIALS | `R-CRD-002` (5) | no | 0 | - |
+| 0ecf482604f02042 | TOOL_GRANT | `R-TGR-002` (1) | no | 0 | - |
+| e7d2878c01a255b3 | NETWORK | `R-NET-001` (4) | no | 2 | CREDENTIALS; NETWORK |
 
 ## Limitations
 
 The ten candidates cover six capability categories. They do not cover
 every threat-model category and cannot establish overall scanner recall.
 
-The expected categories have been confirmed by Leticia's full-document review for this targeted capability check. Teammate review and comparison with scanner results remain pending.
+The expected categories have been confirmed by Leticia's full-document review for this targeted capability check. The comparison with scanner results is under Results; teammate review of it is pending.
+
+"Detected" means a rule of the expected category matched somewhere in the SKILL.md text. The check does not confirm that the match is on the lines cited in the candidates table.
+
+The selection-bias limitation under Selection method applies to the detection count: candidates found through capability-related searches may favour wording the rules match, so 10 of 10 detected may be optimistic.
 Issue #97 remains open until scanning, scoring, review, and the other
 acceptance criteria are complete.

@@ -27,6 +27,7 @@ Sprint 1 values below are historical figures recorded in its review. Sprint 2 po
 | Stand-ups posted / expected | Not specified | Not recorded in the reviewed source | Pending verified posted count and agreed expected count | Pending | Not assessed |
 | Contribution share per member (min / max) | Each share 0.15–0.45 | 0.00 / 0.65, historical four-member roster | Pending Sprint 2-only calculation for the three-member roster | Not directly comparable after roster change | Not assessed; historical shares outside target band |
 | Hours logged per member (min / max) | Not specified | Not recorded in the reviewed source | Pending complete actual-hours records for all three members | Pending | Not assessed |
+
 The historical aggregate KPIs from the October 7 Sprint 1 review cover September 10–October 7 and reflect the review-day snapshot. The [Sprint 1 retrospective](../sprint-1/retrospective.md) records full-sprint figures through the evening of October 7: 8 of 21 merges lacked an approving review, and 18 of 18 CI runs passed. These snapshots have different cutoffs.
 
 ### Measurement limitations

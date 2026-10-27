@@ -1,0 +1,11 @@
+candidate_id,skill_path,expected_category,resolved,rule_ids,categories,max_severity,detected,detected_high_risk,scripts_scanned,script_categories,detected_in_scripts
+f699537c00478727,.claude/skills/hyperframes-registry/SKILL.md,NETWORK,True,R-SHL-001;R-NET-001,NETWORK;SHELL,4,True,False,0,,False
+46aa89b2bc8739e4,.claude/skills/managing-credentials/SKILL.md,CREDENTIALS,True,R-CRD-002;R-TGR-002,CREDENTIALS;TOOL_GRANT,5,True,False,0,,False
+04a39183afa5b330,agent-skills/skills/launchd-cron-installer/SKILL.md,PERSISTENCE,True,R-SHL-001;R-PER-001,PERSISTENCE;SHELL,7,True,True,4,,False
+cb461d437eb8c5c0,skills/k5rs4n/api-cost-tracker/SKILL.md,PERSISTENCE,True,R-SHL-001;R-CRD-002;R-PER-001,CREDENTIALS;PERSISTENCE;SHELL,7,True,True,0,,False
+e7bc62332ad87df6,internal/skills/defaults/docx/SKILL.md,PRIVILEGE,True,R-SHL-001;R-PRV-001,PRIVILEGE;SHELL,6,True,True,0,,False
+f12dc9a8c0ca8d37,skills/find-replace/SKILL.md,TOOL_GRANT,True,R-SHL-001;R-TGR-001;R-TGR-002,SHELL;TOOL_GRANT,6,True,True,0,,False
+99552d3ddeb0ce04,skills/eric-e2e-testing/SKILL.md,DESTRUCTIVE,True,R-SHL-001;R-DST-001,DESTRUCTIVE;SHELL,6,True,True,0,,False
+4bcf122319412600,skills/jeremylongshore/claude-code-plugins-plus-skills/attio-debug-bundle/SKILL.md,CREDENTIALS,True,R-SHL-001;R-NET-001;R-DST-001;R-CRD-002;R-TGR-002,CREDENTIALS;DESTRUCTIVE;NETWORK;SHELL;TOOL_GRANT,6,True,False,0,,False
+0ecf482604f02042,SKILL.md,TOOL_GRANT,True,R-SHL-001;R-TGR-002,SHELL;TOOL_GRANT,3,True,False,0,,False
+e7d2878c01a255b3,.claude/skills/building-vulnerability-dashboard-with-defectdojo/SKILL.md,NETWORK,True,R-SHL-001;R-NET-001;R-CRD-002,CREDENTIALS;NETWORK;SHELL,5,True,False,2,CREDENTIALS;NETWORK,True

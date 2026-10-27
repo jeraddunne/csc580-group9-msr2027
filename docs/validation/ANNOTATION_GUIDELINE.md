@@ -139,8 +139,8 @@ An LLM may label a copy of the sample to show how it compares with human labels.
 The kit ranks high-risk capability categories by RPN = S x O x D.
 
 - **S (severity)** is the highest rule severity in the category (from `rules/skill_risk_rules.yaml`).
-- **O (occurrence)** scores validated prevalence (content share times capability precision): 10 at 10% or more, 9 at 5%, 8 at 2%, 7 at 1%, 6 at 0.5%, 5 at 0.2%, 4 at 0.1%, 3 at 0.05%, 2 at 0.01%, otherwise 1.
-- **D (detection)** scores estimated recall, detected / (detected + missed): 1 at 95% or more, 2 at 90%, 3 at 80%, 4 at 70%, 5 at 60%, 6 at 50%, 7 at 40%, 8 at 30%, 9 at 20%, otherwise 10. With no labelled no-signal items, D is 10 and the ranking notes "no recall estimate".
+- **O (occurrence)** scores validated prevalence (the share of contents matching a high-risk rule in the category, times capability precision). Signal labels cover only high-risk rule matches, so the precision is not applied to context-rule matches. Scores: 10 at 10% or more, 9 at 5%, 8 at 2%, 7 at 1%, 6 at 0.5%, 5 at 0.2%, 4 at 0.1%, 3 at 0.05%, 2 at 0.01%, otherwise 1.
+- **D (detection)** scores estimated recall, detected / (detected + missed), where detected is the high-risk content count times capability precision: 1 at 95% or more, 2 at 90%, 3 at 80%, 4 at 70%, 5 at 60%, 6 at 50%, 7 at 40%, 8 at 30%, 9 at 20%, otherwise 10. With no labelled no-signal items, D is 10 and the ranking notes "no recall estimate".
 
 The ranking prioritises follow-up work. It is not a verdict on any skill.
 
@@ -151,3 +151,4 @@ The ranking prioritises follow-up work. It is not a verdict on any skill.
 | 2026-09-14 | 1.0 | First version, written before any labelling |
 | 2026-09-15 | 1.1 | Added second-rater independence, the blindness rule, and the rule that an LLM rater never replaces the teammate second rater (ADR-0006). Label definitions and the decision order are unchanged, so round 1 labels made under 1.0 stay valid |
 | 2026-09-17 | 1.2 | Required a written reason for labels that disagree with the detector or are uncertain (signals `NOT_PRESENT`, `BENIGN_CONTEXT`, `MISSED_RISKY`; lineage `NO`, `UNSURE`; drift `HARDENING`, `CAPABILITY_ADDITION`), enforced by the kit and the labelling page. Added `RULE_CHANGE_PROPOSALS.md` for rule-level fixes. Label definitions and the decision order are unchanged, and no labels existed under 1.1, so nothing needs relabelling |
+| 2026-10-27 | 1.3 | FMEA occurrence and detection now use the high-risk counts (`high_risk_share`, `high_risk_contents`) instead of counts that include context-rule matches, because precision is measured on high-risk matches only (review on #127). Label definitions are unchanged, so no labels need redoing |

@@ -586,12 +586,19 @@ def fmea_ranking(
     """Rank high-risk capability categories by RPN = S x O x D.
 
     * S: maximum rule severity in the category (from the rule file).
-    * O: ``occurrence_score(content_share x capability_precision)``; if the category has
-      no labels, the unvalidated content share is used and noted.
+    * O: ``occurrence_score(high_risk_share x capability_precision)``; if the category has
+      no labels, the unvalidated share is used and noted.
     * D: ``detection_score(recall)`` where recall is estimated as
-      detected / (detected + missed), detected = contents x capability_precision and
-      missed = the category's miss rate among NO_SIGNAL items x the NO_SIGNAL population.
-      When no NO_SIGNAL items are labelled, D = 10 with the note "no recall estimate".
+      detected / (detected + missed), detected = high_risk_contents x capability_precision
+      and missed = the category's miss rate among NO_SIGNAL items x the NO_SIGNAL
+      population. When no NO_SIGNAL items are labelled, D = 10 with the note "no recall
+      estimate".
+
+    Precision is measured only on high-risk rule matches (signal labels have no rows for
+    context rules), so it is applied to the high-risk counts, not to ``contents`` and
+    ``content_share``, which also count context-rule matches. A prevalence table without
+    the high-risk columns (the pilot table) falls back to them, with the note
+    "all-rule prevalence".
     """
     max_sev: dict[str, int] = {}
     for r in rules:
@@ -605,15 +612,23 @@ def fmea_ranking(
     recall_all = recall_df[recall_df["scope"] == "ALL"] if len(recall_df) else recall_df
     have_recall = len(recall_all) and int(recall_all["n_labelled"].iloc[0]) > 0
     by_scope = recall_df.set_index("scope") if len(recall_df) else pd.DataFrame()
+    high_risk_cols = {"high_risk_share", "high_risk_contents"} <= set(prev.columns)
+    share_col, count_col = (
+        ("high_risk_share", "high_risk_contents")
+        if high_risk_cols
+        else ("content_share", "contents")
+    )
     out = []
     for cat in sorted(c for c, s in max_sev.items() if s >= high_risk_severity):
         notes = []
-        share = float(prev.loc[cat, "content_share"]) if cat in prev.index else math.nan
+        share = float(prev.loc[cat, share_col]) if cat in prev.index else math.nan
         contents = (
-            float(prev.loc[cat, "contents"])
-            if cat in prev.index and "contents" in prev.columns
+            float(prev.loc[cat, count_col])
+            if cat in prev.index and count_col in prev.columns
             else math.nan
         )
+        if cat in prev.index and not high_risk_cols:
+            notes.append("all-rule prevalence")
         cap = math.nan
         if cat in prec.index and int(prec.loc[cat, "n"]) > 0:
             cap = float(prec.loc[cat, "capability_precision"])

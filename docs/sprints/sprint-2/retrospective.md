@@ -9,28 +9,41 @@ Date: 2026-10-28. Facilitator: Hina Kramer. Attendees: [ ] Leticia Aderhold [ ] 
 
 ## 1. Data first
 
-Populate Sprint 1 and Sprint 2 values from `docs/lean-six-sigma/metrics/DASHBOARD.md`. Leave unavailable values pending; do not estimate.
+Sources: [Sprint 1 review](../sprint-1/review.md#velocity-and-kpis-at-the-october-7-review) and [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated October 25, 2026.
+
+Sprint 1 values below are historical figures recorded in its review. Sprint 2 points are an interim October 25 snapshot, not final sprint totals. Other Sprint 2 measurements remain pending because the dashboard's aggregate figures cover September 10–October 25 rather than Sprint 2 alone.
+
+“In control?” remains unassessed: meeting a target alone does not establish statistical process control.
 
 | KPI | Target | Sprint 1 | Sprint 2 | Trend | In control? |
 |---|---|---|---|---|---|
-| Points completed / planned | 0.80 | Pending | Pending | Pending | Pending |
-| Median issue cycle time (days) | 5 | Pending | Pending | Pending | Pending |
-| Median PR first-review turnaround (hours) | 48 | Pending | Pending | Pending | Pending |
-| Median PR open-to-merge time (hours) | 96 | Pending | Pending | Pending | Pending |
-| PRs merged without an approving review from another member | 0 | Pending | Pending | Pending | Pending |
-| CI pass rate on main | 0.90 | Pending | Pending | Pending | Pending |
-| Rework items (`rework` label) | Not specified | Pending | Pending | Pending | Pending |
-| Stand-ups posted / expected | Not specified | Pending | Pending | Pending | Pending |
-| Contribution share per member (min / max) | 0.15 to 0.45 | Pending | Pending | Pending | Pending |
-| Hours logged per member (min / max) | Not specified | Pending | Pending | Pending | Pending |
+| Points completed / planned | >= 0.80 | 18 / 22 = 0.82, as recorded at the October 7 review | 3 / 16 = 0.19, interim October 25 snapshot | Lower so far; Sprint 2 incomplete | Not assessed; interim Sprint 2 value below target |
+| Median issue cycle time (days) | <= 5 | 1.22, recorded sample n=27 | Pending Sprint 2-specific measurement | Pending | Not assessed |
+| Median PR first-review turnaround (hours) | <= 48 | 51.14, recorded sample n=14 | Pending Sprint 2-specific measurement | Pending | Not assessed; Sprint 1 value above target |
+| Median PR open-to-merge time (hours) | <= 96 | 15.89, recorded sample n=25 | Pending Sprint 2-specific measurement | Pending | Not assessed |
+| PRs merged without an approving review from another member | 0 | 8 of 18 Sprint 1 merges, as recorded in the review | Pending Sprint 2 PR/review audit | Pending | Not assessed; Sprint 1 count above target |
+| CI pass rate on main | >= 0.90 | 15 / 15 completed CI runs = 1.00; two cancelled runs excluded | Pending Sprint 2 main-only measurement | Pending | Not assessed |
+| Rework items (`rework` label) | Not specified | 1 in the historical review's 30-closed-issue measurement window | Pending Sprint 2-specific count | Not comparable yet | Not assessed |
+| Stand-ups posted / expected | Not specified | Not recorded in the reviewed source | Pending verified posted count and agreed expected count | Pending | Not assessed |
+| Contribution share per member (min / max) | Each share 0.15–0.45 | 0.00 / 0.65, historical four-member roster | Pending Sprint 2-only calculation for the three-member roster | Not directly comparable after roster change | Not assessed; historical shares outside target band |
+| Hours logged per member (min / max) | Not specified | Not recorded in the reviewed source | Pending complete actual-hours records for all three members | Pending | Not assessed |
 
-## 2. Did the Sprint 1 kaizen actions work?
+### Measurement limitations
+
+- The October 25 dashboard retrospectively lists Sprint 1 as 19 completed / 22 planned points, while the October 7 review records 18 / 22. Keep the review-day value identified above and reconcile the difference before making a final comparison.
+- Dashboard medians of 4.10 days for issue cycle time, 21.48 hours for first review, and 11.90 hours for PR merge time cover September 10–October 25. They are not Sprint 2-only measurements.
+- The dashboard's CI rate of 522 / 525 completed runs is an aggregate figure; it does not establish the Sprint 2 pass rate on main.
+- Dashboard contribution shares of Leticia 0.29, Jerad 0.58, and Hina 0.13 cover the dashboard window, not Sprint 2 alone.
+- Available capacity hours are planned availability, not actual hours logged.
+- Refresh and verify final Sprint 2 measurements after the sprint closes, retaining the source, date window, counting rules, and any unavailable values.
 
 | Kaizen issue # | Action | Owner | Effect seen in the data? | Keep / adjust / drop |
 |---|---|---|---|---|
-| TBD | Maintain the 48-hour pull-request review goal | Hina Kramer | Complete from the Sprint 2 first-review turnaround metric | TBD at retrospective |
-| TBD | Monitor contribution balance at each check-in | Hina Kramer | Complete from the Sprint 2 contribution-share metric | TBD at retrospective |
-| TBD | Require tests and CI evidence for pipeline changes | Jerad Dunne | Complete from the Sprint 2 CI pass rate and rework count | TBD at retrospective |
+| Pending confirmation of original issue | Maintain the 48-hour pull-request review goal | Hina Kramer | October 25 dashboard reports a repository-wide median first-review time of 21.48 hours. This is below the target, but the window covers September 10–October 25; it does not establish Sprint 2-only performance or prove the action caused improvement. | Pending team decision October 28 |
+| Pending confirmation of original issue | Monitor contribution balance at each check-in | Hina Kramer | October 25 dashboard reports shares of Leticia 0.29, Jerad 0.58, and Hina 0.13. Jerad and Hina are outside the 0.15–0.45 target band. These are repository-window figures, not Sprint 2-only shares; effectiveness of check-in monitoring remains unconfirmed. | Pending team decision October 28 |
+| Pending confirmation of original issue | Require tests and CI evidence for pipeline changes | Jerad Dunne | Merged PR #125 records 216 passing tests and adds four report-output value tests plus docs/TEST_MAP.md. This demonstrates additional test evidence; Sprint 2 main-only CI pass rate and rework measurements are still pending. | Pending team decision October 28 |
+
+Sources: [October 25 dashboard](../../lean-six-sigma/metrics/DASHBOARD.md) and [PR #125](https://github.com/jeraddunne/csc580-group9-msr2027/pull/125). Confirm the original Sprint 1 kaizen issue links against the [kaizen backlog](../../lean-six-sigma/KAIZEN_BACKLOG.md). Final effectiveness assessments and keep/adjust/drop decisions will be recorded at the retrospective.
 
 ## 3. What went well
 

@@ -53,3 +53,4 @@ Owners follow the Sprint 2 planning (Product Owner Jerad Dunne, Scrum Master Hin
 | F8 | Report obstacles | "Obstacles" section in the Sprint 2 review: a member left the course, one primary rater, the 14-day gap for intra-rater signals (round 2 moves to Sprint 3, #101), the failed metrics workflow (#103) | Hina Kramer | #102 | `docs/sprints/sprint-2/review.md` |
 | F9 | AI-use log current | Every member logs Sprint 2 AI use, or states that none was used | Everyone | #104 | `ai-use-log.md` |
 | F10 | Anything new in the feedback video | Watch the video and add rows here | Jerad Dunne | this page | this page |
+docs/102-sprint-2-review-evidence

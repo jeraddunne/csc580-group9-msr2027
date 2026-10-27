@@ -15,12 +15,14 @@ Source: October 4, 2026 baseline snapshot in docs/lean-six-sigma/metrics/DASHBOA
 | Median issue cycle time (days) | 5 | 0.03 | No—signals reported | Median meets target, but the dashboard reports beyond-limit observations and eight observations on the same side. |
 | Median PR first-review turnaround (hours) | 48 | 33.38 | Not established | Median meets target; four open PRs exceeded 48 hours at the snapshot. |
 | Median PR open-to-merge time (hours) | 96 | 1.17 | Not assessed | Meets target; 17 merged PRs measured. |
-| PRs merged without an approving review from another member | 0 | Verification pending | Not assessed | Dashboard reports 13 unreviewed merged PRs; confirm approval status and Sprint 1 scope. |
-| CI pass rate on main | 0.90 | Main-only rate pending | Not assessed | Dashboard reports 0.99 (171 / 172 completed runs); confirm branch scope. |
-| Rework items (`rework` label) | — | Sprint 1 count pending | Not assessed | Dashboard reports 0 rework items among 21 closed issues across its reporting scope. |
+| PRs merged without an approving review from another member | 0 | 8 of 21 | Not assessed | Above target. Measured 2026-10-27 from the GitHub API for PRs merged Sept 17 to Oct 7: 13 had an approving review from another member before the merge; 8 did not (#54, #55, #62, #63, #64, #70, #72, #74, all authored by Jerad Dunne; the review on #55 was dismissed). The October 7 review recorded 18 merged and 10 approved at 20:01 UTC; the three PRs merged later that evening (#86, #88, #89) were all approved, so both counts leave the same 8. The dashboard's 13 uses a different period. |
+| CI pass rate on main | 0.90 | 1.00 (18 / 18) | Not assessed | Meets target. Measured 2026-10-27: completed runs of the CI workflow on branch `main` in the Sprint 1 dates, with 2 cancelled runs excluded. The October 7 review recorded 15 of 15 at 20:01 UTC. With the dashboard's wider definition (every workflow except LSS metrics), 69 of 69. |
+| Rework items (`rework` label) | — | 1 (#14) | Not assessed | Counted 2026-10-27 with the dashboard's definition (closed issues that carry `rework` or were reopened): #14 was reopened Sept 26 and closed Oct 6. No issue has the `rework` label. #20 was reopened Oct 6 but closed only on Oct 27, so it is not a Sprint 1 closed issue. The October 7 review recorded 1 of 30 closed issues. |
 | Stand-ups posted / expected | — | Not available in dashboard | Not assessed | Confirm totals from stand-up records. |
 | Contribution share per member (min / max) | 0.15 to 0.45 | 0.00 / 0.71 | Not assessed | Outside target band. Shares: Leticia 0.15, Jerad 0.71, Allie 0.00, Hina 0.14. |
 | Hours logged per member (min / max) | — | Not available in dashboard | Not assessed | Confirm totals from members’ time records. |
+
+The three rows measured on 2026-10-27 use Sprint 1's dates (Sept 17 to Oct 7, Eastern time); the GitHub API queries are in #19.
 
 
 ## 2. What went well

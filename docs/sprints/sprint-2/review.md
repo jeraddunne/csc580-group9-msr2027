@@ -94,7 +94,7 @@ Source: [Sprint 2 instructor feedback](instructor-feedback.md). These are tracke
 | Start with known-positive skills | Select about ten skills independently of rule patterns and report detections and misses | Leticia: skill selection; Jerad: scanner check and results | #97 |
 | Explain rule provenance | Document each rule's rationale, example, source, and known false positives | Jerad | #95 |
 | Analyze applicability | Explain which established rules apply to skill text or bundled scripts; [Applicability comparison](../../research/APPLICABILITY.md) (PR #107) | Leticia | #96 |
-| Define intended use | Document the human-in-the-loop risk-review workflow and diagrams | Jerad; reviewed by Hina and Leticia | #98 |
+| Define intended use | Document the human-in-the-loop risk-review workflow and diagrams | Jerad; reviewed by Hina and Leticia | #98; [review workflow](../../research/REVIEW_WORKFLOW.md) revised in PR #126 |
 | Document team process | Maintain check-in notes, retrospective, obstacles, and contributions | Hina and Leticia | #102, #26 |
 | Define task completion | Include acceptance criteria and a definition of done for each open Sprint 2 task | Hina | #102 |
 | Report obstacles | Record reduced capacity, validation timing constraints, and metrics-workflow problems | Hina | #102, #101, #103 |

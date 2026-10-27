@@ -15,7 +15,7 @@ Met: [ ] Yes [ ] Partly [ ] No
 
 The Sprint 2 review must include:
 
-- [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. A fresh Sprint 2 reproduction remains pending.
+- [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. Hina completed the Sprint 2 reproduction on October 27; all 14 analysis tables matched. See the Gemba walk below.
 - [x] Automated tests for the implemented method. Evidence: issue #22 records 179 tests passing in 38.96 seconds on commit `ee52bce` and successful CI run #114. [`docs/TEST_MAP.md`](../../TEST_MAP.md) maps every table and figure in the report to the tests that check its values; PR #125 added value checks for the four outputs that had none (population flow, prevalence by rule, reach summary, sensitivity summary), and CI runs them on every pull request. On 2026-10-27, `make test` passed 219 tests on `main` (8e2ce36), and [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556) passed; issue #22 closed on October 26.
 - [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md` document the frozen sample, annotation workflow, and rater assignments: 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Merged PR #119 reports drift inter-rater agreement across 18 pairs: 83.3% agreement and Cohen’s kappa 0.745 (`results/validation_agreement.csv`). Lineage: Hina’s labels merged in PR #121 and Jerad’s in PR #124; the raters agree on 57 of 58 pairs (98.3%), and Cohen’s kappa is 0 because one rater used a single label, so percent agreement is the lineage figure (`results/validation_agreement.csv`). Signals intra-rater round 2 is deferred to Sprint 3 (#101). Ground truth (#97): on 2026-10-27 the scanner detected all ten known-positive skills Leticia selected, 0 missed, five of them at high risk ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27), `results/ground_truth_summary.csv`).
 - [x] Preliminary results with reproducible figures or tables. Evidence: issue #24 records Leticia’s October 10 verification of the September 23 run. That historical verification is separate from the current `ANALYSIS_MANIFEST.json`, which records an October 24 run. See the committed outputs under `results/` and `figures/`.
@@ -77,16 +77,8 @@ Commands run after installation:
 - Dataset: `.\.venv\Scripts\python.exe scripts\download_samples.py --dataset gitskills`
 - Reproduction: `.\.venv\Scripts\python.exe scripts\fresh_run_check.py`
 
-| Field | Evidence |
-|---|---|
-| Status | Pending new Sprint 2 run |
-| Person and environment | Pending |
-| Run date | Pending |
-| Commit SHA | Pending; capture using `git rev-parse HEAD` |
-| README steps and commands followed | Pending; record the actual commands |
-| Time to first result | Pending; measure during the run |
-| Generated output and comparison | Pending; link output and compare with the expected result |
-| Problems and resolutions | Pending |
+A fresh Sprint 2 reproduction remains pending. → Hina completed the Sprint 2 reproduction on October 27; all 14 analysis tables matched. See the Gemba walk below.
+Met; October 27 reproduction passed → Met; October 27 reproduction passed
 
 ## Historical Sprint 1 reproduction record — September 26
 

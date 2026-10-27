@@ -23,10 +23,11 @@ Sprint 1 values below are historical figures recorded in its review. Sprint 2 po
 | Median PR open-to-merge time (hours) | <= 96 | 15.89, recorded sample n=25 | Pending Sprint 2-specific measurement | Pending | Not assessed |
 | PRs merged without an approving review from another member | 0 | 8 of 18 Sprint 1 merges, as recorded in the review | Pending Sprint 2 PR/review audit | Pending | Not assessed; Sprint 1 count above target |
 | CI pass rate on main | >= 0.90 | 15 / 15 completed CI runs = 1.00; two cancelled runs excluded | Pending Sprint 2 main-only measurement | Pending | Not assessed |
-| Rework items (`rework` label) | Not specified | 1 in the historical review's 30-closed-issue measurement window | Pending Sprint 2-specific count | Not comparable yet | Not assessed |
+| Rework items (reopened issues) | Not specified | 1: [issue #14](https://github.com/jeraddunne/csc580-group9-msr2027/issues/14), reopened September 26 and closed October 6, in the historical review's 30-closed-issue measurement window; no issue carries the `rework` label | Pending Sprint 2-specific count | Not comparable yet | Not assessed |
 | Stand-ups posted / expected | Not specified | Not recorded in the reviewed source | Pending verified posted count and agreed expected count | Pending | Not assessed |
 | Contribution share per member (min / max) | Each share 0.15–0.45 | 0.00 / 0.65, historical four-member roster | Pending Sprint 2-only calculation for the three-member roster | Not directly comparable after roster change | Not assessed; historical shares outside target band |
 | Hours logged per member (min / max) | Not specified | Not recorded in the reviewed source | Pending complete actual-hours records for all three members | Pending | Not assessed |
+The historical aggregate KPIs from the October 7 Sprint 1 review cover September 10–October 7 and reflect the review-day snapshot. The [Sprint 1 retrospective](../sprint-1/retrospective.md) records full-sprint figures through the evening of October 7: 8 of 21 merges lacked an approving review, and 18 of 18 CI runs passed. These snapshots have different cutoffs.
 
 ### Measurement limitations
 
@@ -39,13 +40,16 @@ Sprint 1 values below are historical figures recorded in its review. Sprint 2 po
 
 ## 2. Did the Sprint 1 kaizen actions work?
 
-| Kaizen issue # | Action | Owner | Effect seen in the data? | Keep / adjust / drop |
-|---|---|---|---|---|
-| Pending confirmation of original issue | Maintain the 48-hour pull-request review goal | Hina Kramer | October 25 dashboard reports a repository-wide median first-review time of 21.48 hours. This is below the target, but the window covers September 10–October 25; it does not establish Sprint 2-only performance or prove the action caused improvement. | Pending team decision October 28 |
-| Pending confirmation of original issue | Monitor contribution balance at each check-in | Hina Kramer | October 25 dashboard reports shares of Leticia 0.29, Jerad 0.58, and Hina 0.13. Jerad and Hina are outside the 0.15–0.45 target band. These are repository-window figures, not Sprint 2-only shares; effectiveness of check-in monitoring remains unconfirmed. | Pending team decision October 28 |
-| Pending confirmation of original issue | Require tests and CI evidence for pipeline changes | Jerad Dunne | Merged PR #125 records 216 passing tests and adds four report-output value tests plus docs/TEST_MAP.md. This demonstrates additional test evidence; Sprint 2 main-only CI pass rate and rework measurements are still pending. | Pending team decision October 28 |
+The four actions below were recorded in [Sprint 1 retrospective, Section 6](../sprint-1/retrospective.md). Their issue entries were “To be created”; none was created as a kaizen issue.
 
-Sources: [October 25 dashboard](../../lean-six-sigma/metrics/DASHBOARD.md) and [PR #125](https://github.com/jeraddunne/csc580-group9-msr2027/pull/125). Confirm the original Sprint 1 kaizen issue links against the [kaizen backlog](../../lean-six-sigma/KAIZEN_BACKLOG.md). Final effectiveness assessments and keep/adjust/drop decisions will be recorded at the retrospective.
+| Sprint 1 action | Evidence to assess | Assessment and decision |
+|---|---|---|
+| Use the GitHub checklist | Check Sprint 2 issues and PRs for completed checklists | Pending team assessment |
+| Give a progress update at each check-in | Check Sprint 2 meeting notes for progress updates | Pending team assessment |
+| Assign a reviewer when each PR opens | Check PR timelines for reviewer assignments and their timing | Pending team assessment |
+| Check deadlines three days ahead | Check meeting notes and issue history for advance deadline checks | Pending team assessment |
+
+Final effectiveness assessments and keep/adjust/drop decisions will be recorded at the October 28 retrospective.
 
 ## 3. What went well
 

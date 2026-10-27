@@ -1,80 +1,93 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1070' height='1010' viewBox='0 0 1070 1010' role='img' aria-label='Activity diagram: human-in-the-loop skill risk review'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1170' height='1110' viewBox='0 0 1170 1110' role='img' aria-label='Activity diagram: human-in-the-loop skill risk review'>
 <title>Activity diagram: human-in-the-loop skill risk review</title>
 <defs>
 <marker id='open' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='9' markerHeight='9' orient='auto'><path d='M0,0 L10,5 L0,10' fill='none' stroke='#1f2328' stroke-width='1.4'/></marker>
 <marker id='solid' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='8' markerHeight='8' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#1f2328'/></marker>
 </defs>
-<rect width='1070' height='1010' fill='#ffffff'/>
-<rect x='10' y='10' width='210' height='990' fill='none' stroke='#1f2328' stroke-width='1.2'/>
-<rect x='10' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='115.0' y='29.0'>Developer</tspan></text>
-<rect x='220' y='10' width='210' height='990' fill='none' stroke='#1f2328' stroke-width='1.2'/>
-<rect x='220' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='325.0' y='29.0'>Scanner (automated)</tspan></text>
-<rect x='430' y='10' width='210' height='990' fill='none' stroke='#1f2328' stroke-width='1.2'/>
-<rect x='430' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='535.0' y='29.0'>Security reviewer</tspan></text>
-<rect x='640' y='10' width='210' height='990' fill='none' stroke='#1f2328' stroke-width='1.2'/>
-<rect x='640' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='745.0' y='29.0'>Skill author</tspan></text>
-<rect x='850' y='10' width='210' height='990' fill='none' stroke='#1f2328' stroke-width='1.2'/>
-<rect x='850' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='955.0' y='29.0'>Rule maintainer</tspan></text>
-<circle cx='115.0' cy='80' r='10' fill='#1f2328'/>
-<path d='M115.0,90 L115.0,113' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='20.0' y='113.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='115.0' y='132.5'>Propose a skill:</tspan><tspan x='115.0' y='147.5'>new, or a changed copy</tspan></text>
-<path d='M210.0,140 L309.0,140' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<polygon points='325.0,124 341.0,140 325.0,156 309.0,140' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
-<path d='M325.0,156 L325.0,193' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='230.0' y='193.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='325.0' y='212.5'>Scan SKILL.md and bundled</tspan><tspan x='325.0' y='227.5'>scripts (static; nothing runs)</tspan></text>
-<path d='M325.0,247 L325.0,283' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='230.0' y='283.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='325.0' y='302.5'>Report each rule match:</tspan><tspan x='325.0' y='317.5'>rule, category, severity</tspan></text>
-<path d='M325.0,337 L325.0,374' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<polygon points='325.0,374 341.0,390 325.0,406 309.0,390' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='333.0' y='424.0'>[no match with</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='333.0' y='438.0'>severity ≥ 6]</tspan></text>
-<path d='M325.0,406 L325.0,473' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='230.0' y='473.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='325.0' y='492.5'>Record: no high-risk</tspan><tspan x='325.0' y='507.5'>signal; attach report</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='347.0' y='362.0'>[match with</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='347.0' y='376.0'>severity ≥ 6]</tspan></text>
-<path d='M341.0,390 L440.0,390' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='440.0' y='358.0' width='190' height='64' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='535.0' y='375.0'>Label each finding:</tspan><tspan x='535.0' y='390.0'>RISKY, BENIGN_CONTEXT,</tspan><tspan x='535.0' y='405.0'>or NOT_PRESENT</tspan></text>
-<path d='M535.0,422 L535.0,474' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<polygon points='535.0,474 551.0,490 535.0,506 519.0,490' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='559.0' y='506.0'>[any RISKY]</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='559.0' y='520.0'>block, or ask</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='559.0' y='534.0'>for a change</tspan></text>
-<path d='M551.0,490 L650.0,490' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='650.0' y='463.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='745.0' y='490.0'>Revise the skill</tspan></text>
-<path d='M840.0,490 L845.0,490 L845.0,100 L325.0,100 L325.0,124' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a' font-style='italic'><tspan x='837.0' y='300.0'>rescan</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='527.0' y='540.0'>[no RISKY]</tspan></text>
-<path d='M535.0,506 L535.0,573' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='440.0' y='573.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='535.0' y='592.5'>Approve; record labels</tspan><tspan x='535.0' y='607.5'>and the reason</tspan></text>
-<path d='M535.0,627 L535.0,664' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='445.0' y='664' width='180' height='6' fill='#1f2328'/>
-<path d='M475.0,670 L475.0,720 L131.0,720' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<path d='M325.0,527 L325.0,560 L115.0,560 L115.0,704' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<polygon points='115.0,704 131.0,720 115.0,736 99.0,720' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
-<path d='M115.0,736 L115.0,773' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='20.0' y='773.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='115.0' y='800.0'>Enable the skill</tspan></text>
-<path d='M115.0,827 L115.0,858' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<circle cx='115.0' cy='872' r='12' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><circle cx='115.0' cy='872' r='7' fill='#1f2328'/>
-<path d='M595.0,670 L595.0,700 L955.0,700 L955.0,724' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<polygon points='955.0,724 971.0,740 955.0,756 939.0,740' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='977.0' y='726.0'>[none]</tspan></text>
-<path d='M971.0,740 L1025.0,740 L1025.0,769' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<circle cx='1025.0' cy='781' r='11' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><line x1='1017.3' y1='773.3' x2='1032.7' y2='788.7' stroke='#1f2328' stroke-width='1.5'/><line x1='1017.3' y1='788.7' x2='1032.7' y2='773.3' stroke='#1f2328' stroke-width='1.5'/>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='947.0' y='774.0'>[any false</tspan></text>
-<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='947.0' y='788.0'>positive]</tspan></text>
-<path d='M955.0,756 L955.0,813' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='860.0' y='813.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='955.0' y='832.5'>Log the false positives in</tspan><tspan x='955.0' y='847.5'>the rule-change proposals</tspan></text>
-<path d='M955.0,867 L955.0,893' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<rect x='860.0' y='889.0' width='190' height='62' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='955.0' y='905.0'>Change the rule by pull</tspan><tspan x='955.0' y='920.0'>request: status proposed,</tspan><tspan x='955.0' y='935.0'>regression examples</tspan></text>
-<path d='M955.0,951 L955.0,969' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
-<circle cx='955.0' cy='981' r='11' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><line x1='947.3' y1='973.3' x2='962.7' y2='988.7' stroke='#1f2328' stroke-width='1.5'/><line x1='947.3' y1='988.7' x2='962.7' y2='973.3' stroke='#1f2328' stroke-width='1.5'/>
-<path d='M227.0,610 L411.0,610 L423.0,622 L423.0,694 L227.0,694 z' fill='#fff8c5' stroke='#1f2328' stroke-width='1'/><path d='M411.0,610 L411.0,622 L423.0,622' fill='none' stroke='#1f2328' stroke-width='1'/><text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='237.0' y='624.5'>No-signal path: risky skills</tspan><tspan x='237.0' y='638.2'>the rules miss go this way.</tspan><tspan x='237.0' y='652.0'>The validation miss rate</tspan><tspan x='237.0' y='665.8'>(validation_recall.csv)</tspan><tspan x='237.0' y='679.5'>estimates how often.</tspan></text>
-<line x1='385.0' y1='610' x2='385.0' y2='527' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4'/>
-<path d='M437.0,140 L621.0,140 L633.0,152 L633.0,248 L437.0,248 z' fill='#fff8c5' stroke='#1f2328' stroke-width='1'/><path d='M621.0,140 L621.0,152 L633.0,152' fill='none' stroke='#1f2328' stroke-width='1'/><text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='447.0' y='159.6'>Triage uses the same labels</tspan><tspan x='447.0' y='173.4'>as the validation study</tspan><tspan x='447.0' y='187.1'>(ANNOTATION_GUIDELINE.md).</tspan><tspan x='447.0' y='200.9'>Rule precision estimates how</tspan><tspan x='447.0' y='214.6'>many findings a reviewer will</tspan><tspan x='447.0' y='228.4'>clear as false alarms.</tspan></text>
-<line x1='535.0' y1='248' x2='535.0' y2='358' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4'/>
+<rect width='1170' height='1110' fill='#ffffff'/>
+<rect x='10' y='10' width='200' height='1090' fill='none' stroke='#1f2328' stroke-width='1.2'/>
+<rect x='10' y='10' width='200' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='110.0' y='29.0'>Developer</tspan></text>
+<rect x='210' y='10' width='210' height='1090' fill='none' stroke='#1f2328' stroke-width='1.2'/>
+<rect x='210' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='315.0' y='29.0'>Scanner (automated)</tspan></text>
+<rect x='420' y='10' width='340' height='1090' fill='none' stroke='#1f2328' stroke-width='1.2'/>
+<rect x='420' y='10' width='340' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='590.0' y='29.0'>Security reviewer</tspan></text>
+<rect x='760' y='10' width='190' height='1090' fill='none' stroke='#1f2328' stroke-width='1.2'/>
+<rect x='760' y='10' width='190' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='855.0' y='29.0'>Skill author</tspan></text>
+<rect x='950' y='10' width='210' height='1090' fill='none' stroke='#1f2328' stroke-width='1.2'/>
+<rect x='950' y='10' width='210' height='38' fill='#eaeef2' stroke='#1f2328' stroke-width='1.2'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='13' text-anchor='middle' dominant-baseline='middle' font-weight='bold' fill='#1f2328'><tspan x='1055.0' y='29.0'>Rule maintainer</tspan></text>
+<circle cx='110.0' cy='80' r='10' fill='#1f2328'/>
+<path d='M110.0,90 L110.0,113' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='20.0' y='113.0' width='180' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='110.0' y='132.5'>Propose a skill:</tspan><tspan x='110.0' y='147.5'>new, or a changed copy</tspan></text>
+<path d='M200.0,140 L299.0,140' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='315.0,124 331.0,140 315.0,156 299.0,140' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<path d='M315.0,156 L315.0,193' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='220.0' y='193.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='315.0' y='212.5'>Scan SKILL.md and bundled</tspan><tspan x='315.0' y='227.5'>scripts (static; nothing runs)</tspan></text>
+<path d='M315.0,247 L315.0,278' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='220.0' y='278.0' width='190' height='64' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='315.0' y='295.0'>Report each match: rule,</tspan><tspan x='315.0' y='310.0'>category, severity; context</tspan><tspan x='315.0' y='325.0'>matches listed apart</tspan></text>
+<path d='M315.0,342 L315.0,384' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='315.0,384 331.0,400 315.0,416 299.0,400' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='337.0' y='371.1'>[scan</tspan><tspan x='337.0' y='384.9'>incomplete]</tspan></text>
+<path d='M331.0,400 L430,400' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='430.0' y='373.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='525' y='392.5'>Resolve the gap, or read</tspan><tspan x='525' y='407.5'>the unscanned files by hand</tspan></text>
+<path d='M525,427 L525,474' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='307.0' y='429.1'>[scan</tspan><tspan x='307.0' y='442.9'>complete]</tspan></text>
+<path d='M315.0,416 L315.0,474' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='315.0,474 331.0,490 315.0,506 299.0,490' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='337.0' y='461.1'>[match with</tspan><tspan x='337.0' y='474.9'>severity ≥ 6]</tspan></text>
+<path d='M331.0,490 L509,490' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='525,474 541,490 525,506 509,490' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='307.0' y='515.1'>[no match with</tspan><tspan x='307.0' y='528.9'>severity ≥ 6]</tspan></text>
+<path d='M315.0,506 L315.0,548' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='220.0' y='548.0' width='190' height='64' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='315.0' y='565.0'>Record &quot;no high-risk</tspan><tspan x='315.0' y='580.0'>signal&quot; (not &quot;safe&quot;);</tspan><tspan x='315.0' y='595.0'>attach the report</tspan></text>
+<path d='M315.0,612 L315.0,830 L509,830' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<path d='M525,506 L525,543' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='430.0' y='543.0' width='190' height='64' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='525' y='560.0'>Label each high-risk finding:</tspan><tspan x='525' y='575.0'>RISKY, BENIGN_CONTEXT,</tspan><tspan x='525' y='590.0'>or NOT_PRESENT</tspan></text>
+<path d='M525,607 L525,633' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='430.0,633.0 604.0,633.0 620.0,660 604.0,687.0 430.0,687.0' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='517' y='652.5'>Send the labels to</tspan><tspan x='517' y='667.5'>the rule maintainer</tspan></text>
+<path d='M525,687 L525,729' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='525,729 541,745 525,761 509,745' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='547' y='731.0'>[any RISKY]</tspan></text>
+<path d='M541,745 L674,745' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='690,729 706,745 690,761 674,745' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='707' y='713.1'>[change</tspan><tspan x='707' y='726.9'>requested]</tspan></text>
+<path d='M706,745 L780.0,745' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='780.0' y='718.0' width='150' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='855.0' y='745.0'>Revise the skill</tspan></text>
+<path d='M930.0,745 L940.0,745 L940.0,100 L315.0,100 L315.0,124' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a' font-style='italic'><tspan x='933.0' y='420.0'>rescan</tspan></text>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='698' y='784.0'>[block]</tspan></text>
+<path d='M690,761 L690,803' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='625.0' y='803.0' width='130' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='690' y='822.5'>Block the skill;</tspan><tspan x='690' y='837.5'>record the reason</tspan></text>
+<path d='M690,857 L690,888' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<circle cx='690' cy='900' r='11' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><line x1='682.3' y1='892.3' x2='697.7' y2='907.7' stroke='#1f2328' stroke-width='1.5'/><line x1='682.3' y1='907.7' x2='697.7' y2='892.3' stroke='#1f2328' stroke-width='1.5'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='517' y='788.0'>[no RISKY]</tspan></text>
+<path d='M525,761 L525,814' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='525,814 541,830 525,846 509,830' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<path d='M525,846 L525,883' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='430.0' y='883.0' width='190' height='64' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='525' y='900.0'>Approve: record reviewer,</tspan><tspan x='525' y='915.0'>skill version, labels,</tspan><tspan x='525' y='930.0'>and the reason</tspan></text>
+<path d='M525,947 L525,1000 L200.0,1000' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='20.0' y='973.0' width='180' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='110.0' y='1000.0'>Enable the skill</tspan></text>
+<path d='M110.0,1027 L110.0,1053' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<circle cx='110.0' cy='1065' r='11' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><line x1='102.3' y1='1057.3' x2='117.7' y2='1072.7' stroke='#1f2328' stroke-width='1.5'/><line x1='102.3' y1='1072.7' x2='117.7' y2='1057.3' stroke='#1f2328' stroke-width='1.5'/>
+<polygon points='960.0,633.0 1150.0,633.0 1150.0,687.0 960.0,687.0 976.0,660' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='1063.0' y='660.0'>Labels received</tspan></text>
+<path d='M1055.0,687 L1055.0,729' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<polygon points='1055.0,729 1071.0,745 1055.0,761 1039.0,745' fill='#ffffff' stroke='#1f2328' stroke-width='1.3'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='1077.0' y='731.0'>[none]</tspan></text>
+<path d='M1071.0,745 L1125.0,745 L1125.0,774' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<circle cx='1125.0' cy='786' r='11' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><line x1='1117.3' y1='778.3' x2='1132.7' y2='793.7' stroke='#1f2328' stroke-width='1.5'/><line x1='1117.3' y1='793.7' x2='1132.7' y2='778.3' stroke='#1f2328' stroke-width='1.5'/>
+<text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='end' dominant-baseline='middle' font-weight='normal' fill='#57606a'><tspan x='1047.0' y='777.1'>[any false</tspan><tspan x='1047.0' y='790.9'>positive]</tspan></text>
+<path d='M1055.0,761 L1055.0,803' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='960.0' y='803.0' width='190' height='54' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='1055.0' y='822.5'>Log the false positives in</tspan><tspan x='1055.0' y='837.5'>the rule-change proposals</tspan></text>
+<path d='M1055.0,857 L1055.0,889' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<rect x='960.0' y='889.0' width='190' height='62' rx='14' fill='#f6f8fa' stroke='#1f2328' stroke-width='1.3'/><text font-family='Helvetica, Arial, sans-serif' font-size='12' text-anchor='middle' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='1055.0' y='905.0'>Change the rule by pull</tspan><tspan x='1055.0' y='920.0'>request: status proposed,</tspan><tspan x='1055.0' y='935.0'>regression examples</tspan></text>
+<path d='M1055.0,951 L1055.0,978' fill='none' stroke='#1f2328' stroke-width='1.3' marker-end='url(#solid)'/>
+<circle cx='1055.0' cy='990' r='11' fill='#ffffff' stroke='#1f2328' stroke-width='1.5'/><line x1='1047.3' y1='982.3' x2='1062.7' y2='997.7' stroke='#1f2328' stroke-width='1.5'/><line x1='1047.3' y1='997.7' x2='1062.7' y2='982.3' stroke='#1f2328' stroke-width='1.5'/>
+<path d='M20.0,470 L188.0,470 L200.0,482 L200.0,566 L20.0,566 z' fill='#fff8c5' stroke='#1f2328' stroke-width='1'/><path d='M188.0,470 L188.0,482 L200.0,482' fill='none' stroke='#1f2328' stroke-width='1'/><text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='30.0' y='490.5'>No-signal path: risky</tspan><tspan x='30.0' y='504.2'>skills the rules miss go</tspan><tspan x='30.0' y='518.0'>this way. The miss rate</tspan><tspan x='30.0' y='531.8'>in validation_recall.csv</tspan><tspan x='30.0' y='545.5'>estimates how often.</tspan></text>
+<line x1='200.0' y1='530' x2='220.0' y2='572' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4'/>
+<path d='M626,520 L742,520 L754,532 L754,632 L626,632 z' fill='#fff8c5' stroke='#1f2328' stroke-width='1'/><path d='M742,520 L742,532 L754,532' fill='none' stroke='#1f2328' stroke-width='1'/><text font-family='Helvetica, Arial, sans-serif' font-size='11' text-anchor='start' dominant-baseline='middle' font-weight='normal' fill='#1f2328'><tspan x='636' y='548.5'>Same labels as the</tspan><tspan x='636' y='562.2'>validation study.</tspan><tspan x='636' y='576.0'>1 - strict precision</tspan><tspan x='636' y='589.8'>is the share of</tspan><tspan x='636' y='603.5'>findings not RISKY.</tspan></text>
+<line x1='620' y1='575' x2='626' y2='575' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='6 4'/>
 </svg>

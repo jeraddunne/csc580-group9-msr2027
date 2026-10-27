@@ -101,6 +101,10 @@ The pipeline runs with `python -m msr_pipeline analyze` (or `make pipeline`). It
 
 <!-- Figure 1: Pipeline overview (load, scan, link variants, analyze, validate, report). To draw in Sprint 2. -->
 
+**Intended use.** The scanner is meant to support a person's decision, not to make it. `docs/research/REVIEW_WORKFLOW.md` describes the proposed workflow, shown in Figure 2. When a pull request adds or changes a skill, CI scans it. A reviewer who did not propose the skill labels each high-risk finding with the labels used in the validation study, then approves the skill, blocks it, or asks for a change; a revised skill is scanned again. An incomplete scan is read by hand rather than treated as clean, and a skill with no high-risk signal still needs the reviewer's approval, because no signal does not mean safe. Every set of labels goes to a rule maintainer, who turns false positives into rule-change proposals. Each validation result measures one step of this workflow: strict precision is the share of findings a reviewer would label risky, the miss rate is how often a risky skill takes the no-signal path, and inter-rater agreement shows whether two reviewers reach the same label. Only the batch pipeline is implemented; the workflow is a design.
+
+![Figure 2. Proposed human-in-the-loop review of a skill, as a UML activity diagram with one swimlane per role. Drawn by `scripts/make_workflow_diagrams.py`.](../docs/research/figures/review_workflow_activity.svg)
+
 # Evaluation and validation
 
 **Automated tests.** The test suite covers every rule's documented examples, the scanner, variant linking and ordering, missing-value handling, the statistics helpers, and the validation scoring. It runs offline against small fixtures.

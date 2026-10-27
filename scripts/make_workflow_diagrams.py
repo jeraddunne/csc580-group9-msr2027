@@ -111,7 +111,7 @@ def use_case_diagram() -> str:
         "U3": (340, 240, ["Read the scan report"]),
         "U5": (630, 280, ["Approve, block, or", "request a change"]),
         "U6": (340, 400, ["Revise the skill"]),
-        "U4": (630, 420, ["Triage each finding", "(RISKY / BENIGN / NOT_PRESENT)"]),
+        "U4": (630, 420, ["Triage each finding", "(RISKY / BENIGN_CONTEXT /", "NOT_PRESENT)"]),
         "U7": (630, 550, ["Propose a rule change"]),
     }
     rx = {"U4": 140}
@@ -161,19 +161,43 @@ def use_case_diagram() -> str:
 
 # ---------------------------------------------------------------- activity diagram
 
-LANES = ["Developer", "Scanner (automated)", "Security reviewer", "Skill author", "Rule maintainer"]
-LANE_W = 210
+# (name, width). The reviewer lane is wider: its right column holds the block-or-revise branch.
+LANES = [
+    ("Developer", 200),
+    ("Scanner (automated)", 210),
+    ("Security reviewer", 340),
+    ("Skill author", 190),
+    ("Rule maintainer", 210),
+]
 LEFT = 10
 
 
-def lane_x(i: int) -> float:
-    return LEFT + LANE_W * i + LANE_W / 2
+def lane_left(i: int) -> float:
+    return LEFT + sum(w for _, w in LANES[:i])
 
 
 def action(x: float, y: float, label: list[str], w: int = 190, h: int = 54) -> str:
     return (
         f"<rect x='{x - w / 2}' y='{y - h / 2}' width='{w}' height='{h}' rx='14' fill='#f6f8fa' "
         f"stroke='{INK}' stroke-width='1.3'/>" + text(x, y, label, size=12)
+    )
+
+
+def send_signal(x: float, y: float, label: list[str], w: int = 190, h: int = 54) -> str:
+    """UML send signal action: a box with a pointed right side."""
+    left, right, top, bottom = x - w / 2, x + w / 2, y - h / 2, y + h / 2
+    pts = f"{left},{top} {right - 16},{top} {right},{y} {right - 16},{bottom} {left},{bottom}"
+    return f"<polygon points='{pts}' fill='#f6f8fa' stroke='{INK}' stroke-width='1.3'/>" + text(
+        x - 8, y, label, size=12
+    )
+
+
+def accept_event(x: float, y: float, label: list[str], w: int = 190, h: int = 54) -> str:
+    """UML accept event action: a box with a notch cut into its left side."""
+    left, right, top, bottom = x - w / 2, x + w / 2, y - h / 2, y + h / 2
+    pts = f"{left},{top} {right},{top} {right},{bottom} {left},{bottom} {left + 16},{y}"
+    return f"<polygon points='{pts}' fill='#f6f8fa' stroke='{INK}' stroke-width='1.3'/>" + text(
+        x + 8, y, label, size=12
     )
 
 
@@ -186,13 +210,6 @@ def diamond(x: float, y: float, r: int = 16) -> str:
 
 def start(x: float, y: float) -> str:
     return f"<circle cx='{x}' cy='{y}' r='10' fill='{INK}'/>"
-
-
-def final(x: float, y: float) -> str:
-    return (
-        f"<circle cx='{x}' cy='{y}' r='12' fill='#ffffff' stroke='{INK}' stroke-width='1.5'/>"
-        f"<circle cx='{x}' cy='{y}' r='7' fill='{INK}'/>"
-    )
 
 
 def flow_final(x: float, y: float) -> str:
@@ -216,79 +233,134 @@ def note(x: float, y: float, w: int, h: int, lines: list[str]) -> str:
     )
 
 
+def guard(x: float, y: float, lines: list[str] | str, anchor: str = "start") -> str:
+    return text(x, y, lines, size=11, anchor=anchor, color=MUTED)
+
+
 def activity_diagram() -> str:
-    W, H = LEFT * 2 + LANE_W * len(LANES), 1010
-    dev, scn, rev, aut, rul = (lane_x(i) for i in range(5))
+    W, H = LEFT * 2 + sum(w for _, w in LANES), 1110
+    dev = lane_left(0) + LANES[0][1] / 2
+    scn = lane_left(1) + LANES[1][1] / 2
+    rv = lane_left(2) + 105  # reviewer: main column
+    rb = lane_left(2) + 270  # reviewer: block-or-revise column
+    aut = lane_left(3) + LANES[3][1] / 2
+    rul = lane_left(4) + LANES[4][1] / 2
     b = []
-    for i, name in enumerate(LANES):
-        x0 = LEFT + LANE_W * i
+    for i, (name, w) in enumerate(LANES):
+        x0 = lane_left(i)
         b.append(
-            f"<rect x='{x0}' y='10' width='{LANE_W}' height='{H - 20}' fill='none' "
+            f"<rect x='{x0}' y='10' width='{w}' height='{H - 20}' fill='none' "
             f"stroke='{INK}' stroke-width='1.2'/>"
         )
         b.append(
-            f"<rect x='{x0}' y='10' width='{LANE_W}' height='38' fill='#eaeef2' "
+            f"<rect x='{x0}' y='10' width='{w}' height='38' fill='#eaeef2' "
             f"stroke='{INK}' stroke-width='1.2'/>"
         )
-        b.append(text(x0 + LANE_W / 2, 29, name, size=13, weight="bold"))
+        b.append(text(x0 + w / 2, 29, name, size=13, weight="bold"))
 
     # Developer proposes; merge node M1 also receives revised skills.
     b.append(start(dev, 80))
     b.append(path([(dev, 90), (dev, 113)]))
-    b.append(action(dev, 140, ["Propose a skill:", "new, or a changed copy"]))
-    b.append(path([(dev + 95, 140), (scn - 16, 140)]))
+    b.append(action(dev, 140, ["Propose a skill:", "new, or a changed copy"], w=180))
+    b.append(path([(dev + 90, 140), (scn - 16, 140)]))
     b.append(diamond(scn, 140))  # M1 merge
     b.append(path([(scn, 156), (scn, 193)]))
     b.append(action(scn, 220, ["Scan SKILL.md and bundled", "scripts (static; nothing runs)"]))
-    b.append(path([(scn, 247), (scn, 283)]))
-    b.append(action(scn, 310, ["Report each rule match:", "rule, category, severity"]))
-    b.append(path([(scn, 337), (scn, 374)]))
-    b.append(diamond(scn, 390))  # D1
-    b.append(text(scn + 8, 424, "[no match with", size=11, anchor="start", color=MUTED))
-    b.append(text(scn + 8, 438, "severity ≥ 6]", size=11, anchor="start", color=MUTED))
-    b.append(path([(scn, 406), (scn, 473)]))
-    b.append(action(scn, 500, ["Record: no high-risk", "signal; attach report"]))
-    b.append(text(scn + 22, 362, "[match with", size=11, anchor="start", color=MUTED))
-    b.append(text(scn + 22, 376, "severity ≥ 6]", size=11, anchor="start", color=MUTED))
-    b.append(path([(scn + 16, 390), (rev - 95, 390)]))
+    b.append(path([(scn, 247), (scn, 278)]))
     b.append(
-        action(rev, 390, ["Label each finding:", "RISKY, BENIGN_CONTEXT,", "or NOT_PRESENT"], h=64)
+        action(
+            scn,
+            310,
+            ["Report each match: rule,", "category, severity; context", "matches listed apart"],
+            h=64,
+        )
     )
-    b.append(path([(rev, 422), (rev, 474)]))
-    b.append(diamond(rev, 490))  # D2
-    b.append(text(rev + 24, 506, "[any RISKY]", size=11, anchor="start", color=MUTED))
-    b.append(text(rev + 24, 520, "block, or ask", size=11, anchor="start", color=MUTED))
-    b.append(text(rev + 24, 534, "for a change", size=11, anchor="start", color=MUTED))
-    b.append(path([(rev + 16, 490), (aut - 95, 490)]))
-    b.append(action(aut, 490, ["Revise the skill"]))
-    # loop back to merge M1, along the right edge of the author lane
-    b.append(path([(aut + 95, 490), (aut + 100, 490), (aut + 100, 100), (scn, 100), (scn, 124)]))
-    b.append(text(aut + 92, 300, "rescan", size=11, anchor="end", color=MUTED, italic=True))
-    b.append(text(rev - 8, 540, "[no RISKY]", size=11, anchor="end", color=MUTED))
-    b.append(path([(rev, 506), (rev, 573)]))
-    b.append(action(rev, 600, ["Approve; record labels", "and the reason"]))
-    b.append(path([(rev, 627), (rev, 664)]))
-    b.append(f"<rect x='{rev - 90}' y='664' width='180' height='6' fill='{INK}'/>")  # fork
-    # fork branch 1: to merge M2 in the Developer lane
-    b.append(path([(rev - 60, 670), (rev - 60, 720), (dev + 16, 720)]))
-    # no-signal path also goes to M2
-    b.append(path([(scn, 527), (scn, 560), (dev, 560), (dev, 704)]))
-    b.append(diamond(dev, 720))  # M2 merge
-    b.append(path([(dev, 736), (dev, 773)]))
-    b.append(action(dev, 800, ["Enable the skill"]))
-    b.append(path([(dev, 827), (dev, 858)]))
-    b.append(final(dev, 872))
-    # fork branch 2: rule maintainer
-    b.append(path([(rev + 60, 670), (rev + 60, 700), (rul, 700), (rul, 724)]))
-    b.append(diamond(rul, 740))  # D3
-    b.append(text(rul + 22, 726, "[none]", size=11, anchor="start", color=MUTED))
-    b.append(path([(rul + 16, 740), (rul + 70, 740), (rul + 70, 769)]))
-    b.append(flow_final(rul + 70, 781))
-    b.append(text(rul - 8, 774, "[any false", size=11, anchor="end", color=MUTED))
-    b.append(text(rul - 8, 788, "positive]", size=11, anchor="end", color=MUTED))
-    b.append(path([(rul, 756), (rul, 813)]))
-    b.append(action(rul, 840, ["Log the false positives in", "the rule-change proposals"]))
-    b.append(path([(rul, 867), (rul, 893)]))
+    b.append(path([(scn, 342), (scn, 384)]))
+
+    # D0: an incomplete scan never takes the no-signal path.
+    b.append(diamond(scn, 400))
+    b.append(guard(scn + 22, 378, ["[scan", "incomplete]"]))
+    b.append(path([(scn + 16, 400), (rv - 95, 400)]))
+    b.append(action(rv, 400, ["Resolve the gap, or read", "the unscanned files by hand"]))
+    b.append(path([(rv, 427), (rv, 474)]))
+    b.append(guard(scn - 8, 436, ["[scan", "complete]"], anchor="end"))
+    b.append(path([(scn, 416), (scn, 474)]))
+
+    # D1: severity threshold.
+    b.append(diamond(scn, 490))
+    b.append(guard(scn + 22, 468, ["[match with", "severity ≥ 6]"]))
+    b.append(path([(scn + 16, 490), (rv - 16, 490)]))
+    b.append(diamond(rv, 490))  # M3 merge
+    b.append(guard(scn - 8, 522, ["[no match with", "severity ≥ 6]"], anchor="end"))
+    b.append(path([(scn, 506), (scn, 548)]))
+    b.append(
+        action(
+            scn,
+            580,
+            ['Record "no high-risk', 'signal" (not "safe");', "attach the report"],
+            h=64,
+        )
+    )
+    # the no-signal path still needs the reviewer's approval
+    b.append(path([(scn, 612), (scn, 830), (rv - 16, 830)]))
+
+    # Triage, then the labels go to the rule maintainer as a signal.
+    b.append(path([(rv, 506), (rv, 543)]))
+    b.append(
+        action(
+            rv,
+            575,
+            ["Label each high-risk finding:", "RISKY, BENIGN_CONTEXT,", "or NOT_PRESENT"],
+            h=64,
+        )
+    )
+    b.append(path([(rv, 607), (rv, 633)]))
+    b.append(send_signal(rv, 660, ["Send the labels to", "the rule maintainer"]))
+    b.append(path([(rv, 687), (rv, 729)]))
+    b.append(diamond(rv, 745))  # D2
+    b.append(guard(rv + 22, 731, "[any RISKY]"))
+    b.append(path([(rv + 16, 745), (rb - 16, 745)]))
+    b.append(diamond(rb, 745))  # D3: block, or ask for a change
+    b.append(guard(rb + 17, 720, ["[change", "requested]"]))
+    b.append(path([(rb + 16, 745), (aut - 75, 745)]))
+    b.append(action(aut, 745, ["Revise the skill"], w=150))
+    # rescan: back to merge M1 along the right edge of the author lane
+    b.append(path([(aut + 75, 745), (aut + 85, 745), (aut + 85, 100), (scn, 100), (scn, 124)]))
+    b.append(text(aut + 78, 420, "rescan", size=11, anchor="end", color=MUTED, italic=True))
+    b.append(guard(rb + 8, 784, "[block]"))
+    b.append(path([(rb, 761), (rb, 803)]))
+    b.append(action(rb, 830, ["Block the skill;", "record the reason"], w=130))
+    b.append(path([(rb, 857), (rb, 888)]))
+    b.append(flow_final(rb, 900))
+
+    b.append(guard(rv - 8, 788, "[no RISKY]", anchor="end"))
+    b.append(path([(rv, 761), (rv, 814)]))
+    b.append(diamond(rv, 830))  # M4 merge
+    b.append(path([(rv, 846), (rv, 883)]))
+    b.append(
+        action(
+            rv,
+            915,
+            ["Approve: record reviewer,", "skill version, labels,", "and the reason"],
+            h=64,
+        )
+    )
+    b.append(path([(rv, 947), (rv, 1000), (dev + 90, 1000)]))
+    b.append(action(dev, 1000, ["Enable the skill"], w=180))
+    b.append(path([(dev, 1027), (dev, 1053)]))
+    b.append(flow_final(dev, 1065))
+
+    # Rule maintenance runs on its own, started by the labels.
+    b.append(accept_event(rul, 660, ["Labels received"]))
+    b.append(path([(rul, 687), (rul, 729)]))
+    b.append(diamond(rul, 745))  # D4
+    b.append(guard(rul + 22, 731, "[none]"))
+    b.append(path([(rul + 16, 745), (rul + 70, 745), (rul + 70, 774)]))
+    b.append(flow_final(rul + 70, 786))
+    b.append(guard(rul - 8, 784, ["[any false", "positive]"], anchor="end"))
+    b.append(path([(rul, 761), (rul, 803)]))
+    b.append(action(rul, 830, ["Log the false positives in", "the rule-change proposals"]))
+    b.append(path([(rul, 857), (rul, 889)]))
     b.append(
         action(
             rul,
@@ -297,43 +369,42 @@ def activity_diagram() -> str:
             h=62,
         )
     )
-    b.append(path([(rul, 951), (rul, 969)]))
-    b.append(flow_final(rul, 981))
+    b.append(path([(rul, 951), (rul, 978)]))
+    b.append(flow_final(rul, 990))
 
     # notes tying the workflow to the validation study
     b.append(
         note(
-            scn - 98,
-            610,
-            196,
-            84,
+            dev - 90,
+            470,
+            180,
+            96,
             [
-                "No-signal path: risky skills",
-                "the rules miss go this way.",
-                "The validation miss rate",
-                "(validation_recall.csv)",
+                "No-signal path: risky",
+                "skills the rules miss go",
+                "this way. The miss rate",
+                "in validation_recall.csv",
                 "estimates how often.",
             ],
         )
     )
-    b.append(line(scn + 60, 610, scn + 60, 527, dashed=True))
+    b.append(line(dev + 90, 530, scn - 95, 572, dashed=True))
     b.append(
         note(
-            rev - 98,
-            140,
-            196,
-            108,
+            rb - 64,
+            520,
+            128,
+            112,
             [
-                "Triage uses the same labels",
-                "as the validation study",
-                "(ANNOTATION_GUIDELINE.md).",
-                "Rule precision estimates how",
-                "many findings a reviewer will",
-                "clear as false alarms.",
+                "Same labels as the",
+                "validation study.",
+                "1 - strict precision",
+                "is the share of",
+                "findings not RISKY.",
             ],
         )
     )
-    b.append(line(rev, 248, rev, 358, dashed=True))
+    b.append(line(rv + 95, 575, rb - 64, 575, dashed=True))
     return svg(W, H, b, "Activity diagram: human-in-the-loop skill risk review")
 
 

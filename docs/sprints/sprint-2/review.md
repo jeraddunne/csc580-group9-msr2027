@@ -57,18 +57,19 @@ Preserve rater independence and follow the documented blindness protocol.
 
 ## Sprint 2 Gemba walk: fresh-clone reproduction
 
-A new Sprint 2 run is required. The historical Sprint 1 record below does not satisfy this requirement.
+A fresh Sprint 2 reproduction was completed on October 27, 2026.
 
 | Field | Evidence |
 |---|---|
-| Status | Pending new Sprint 2 run |
-| Person and environment | Pending |
-| Run date | Pending |
-| Commit SHA | Pending; capture using `git rev-parse HEAD` |
-| README steps and commands followed | Pending; record the actual commands |
-| Time to first result | Pending; measure during the run |
-| Generated output and comparison | Pending; link output and compare with the expected result |
-| Problems and resolutions | Pending |
+| Status | Completed successfully |
+| Person and environment | Leticia Aderhold; Windows 11 Pro 10.0.26300; Python 3.12.1 |
+| Run date | 2026-10-27 |
+| Commit SHA | `4c6a8bc2335476213d839c8711b25d24bb177fce` |
+| README steps and commands followed | Fresh clone; ran `windows/1-set-up.bat`, then `windows/2-run-pipeline.bat`, following `windows/README.md` |
+| Time recorded | Analysis: 2.2 minutes. Total recorded session: 17 minutes 23 seconds, including setup, instruction review, and reporting |
+| Generated output and comparison | Local report: `build/fresh_run/REPORT.md`. All 14 compared CSV files matched committed results, ignoring line endings. Main population: 12,965; skills with a high-risk signal: 1,159 |
+| Problems and resolutions | No errors reported; `git status --short` returned no changes |
+
 
 ## Historical Sprint 1 reproduction record — September 26
 

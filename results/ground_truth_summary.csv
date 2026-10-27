@@ -1,0 +1,8 @@
+expected_category,candidates,resolved,detected,detected_high_risk,detected_in_scripts,missed
+CREDENTIALS,2,2,2,0,0,0
+DESTRUCTIVE,1,1,1,1,0,0
+NETWORK,2,2,2,0,1,0
+PERSISTENCE,2,2,2,2,0,0
+PRIVILEGE,1,1,1,1,0,0
+TOOL_GRANT,2,2,2,1,0,0
+TOTAL,10,10,10,5,1,0

@@ -57,7 +57,25 @@ Preserve rater independence and follow the documented blindness protocol.
 
 ## Sprint 2 Gemba walk: fresh-clone reproduction
 
-A new Sprint 2 run is required. The historical Sprint 1 record below does not satisfy this requirement.
+Hina completed an independent Sprint 2 reproduction on October 27 using a commit-specific ZIP download and a new project virtual environment.
+
+| Field | Evidence |
+|---|---|
+| Status | Passed: all 14 generated analysis tables matched the committed outputs. |
+| Person and environment | Hina (@hinak786); Windows 11 (10.0.26300), Python 3.12.10; PowerShell. |
+| Run date | 2026-10-27; report saved at 15:31:37 local time. |
+| Commit SHA | `4c6a8bc2335476213d839c8711b25d24bb177fce`, identified from the commit-specific ZIP filename. |
+| README steps and commands followed | Extracted the ZIP into `C:\dev`; entered the project folder; ran `py -3.12 -m venv .venv`, `.\.venv\Scripts\python.exe -m pip install --upgrade pip`, and `.\.venv\Scripts\python.exe -m pip install -e ".[dev]"`; then ran the test, download, and reproduction commands listed below. |
+| Time to first result | 71 minutes 36 seconds elapsed from 14:20:01 to 15:31:37, including setup, downloads, tests, and pauses between commands. Analysis runtime: 2.1 minutes. |
+| Automated tests | 220 passed in 46.73 seconds; 97% statement coverage. |
+| Generated output and comparison | Local report: `build/fresh_run/REPORT.md`. All 14 CSV files had matching row counts and identical SHA-256 hashes after normalizing line endings. Main population: 12,965; skills with a high-risk signal: 1,159; both matched committed results. |
+| Problems and resolutions | `C:\dev` initially did not exist; extracting the ZIP there resolved the folder issue. Tests and output comparisons passed. The commands below document the actual PowerShell steps instead of the generated report's default `.bat` description. |
+
+Commands run after installation:
+
+- Tests: `.\.venv\Scripts\python.exe -m pytest -q --cov=msr_pipeline --cov-report=term-missing`
+- Dataset: `.\.venv\Scripts\python.exe scripts\download_samples.py --dataset gitskills`
+- Reproduction: `.\.venv\Scripts\python.exe scripts\fresh_run_check.py`
 
 | Field | Evidence |
 |---|---|

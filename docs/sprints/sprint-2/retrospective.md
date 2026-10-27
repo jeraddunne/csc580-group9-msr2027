@@ -15,6 +15,8 @@ Sprint 1 values below are historical figures recorded in its review. Sprint 2 po
 
 “In control?” remains unassessed: meeting a target alone does not establish statistical process control.
 
+## 2. Did the Sprint 1 kaizen actions work?
+
 | KPI | Target | Sprint 1 | Sprint 2 | Trend | In control? |
 |---|---|---|---|---|---|
 | Points completed / planned | >= 0.80 | 18 / 22 = 0.82, as recorded at the October 7 review | 3 / 16 = 0.19, interim October 25 snapshot | Lower so far; Sprint 2 incomplete | Not assessed; interim Sprint 2 value below target |

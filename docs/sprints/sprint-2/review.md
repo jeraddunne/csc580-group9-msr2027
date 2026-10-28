@@ -56,8 +56,18 @@ Preserve rater independence and follow the documented blindness protocol.
 | Known failure and Sprint 3 plan | 1 min | Jerad |
 
 ## Sprint 2 Gemba walk: fresh-clone reproduction
+A fresh ZIP reproduction was completed on 2026-10-27. All 14 compared CSV files matched the committed snapshot results.
 
-A new Sprint 2 run is required. The historical Sprint 1 record below does not satisfy this requirement.
+| Field | Evidence |
+|---|---|
+| Status | Fresh ZIP reproduction completed; 14/14 compared CSV files identical |
+| Person and environment | Hina (@hinak786); Windows 11 (10.0.26300-SP0); Python 3.12.10 |
+| Run date | 2026-10-27 |
+| Commit SHA | ZIP snapshot identifier: `4c6a8bc2335476213d839c8711b25d24bb177fce`, taken from the extracted archive folder name; Git metadata was unavailable |
+| README steps and commands followed | Extracted a fresh ZIP; created the virtual environment with `py -3.12 -m venv .venv`; installed dependencies; ran pytest; downloaded the GitSkills sample using `scripts/download_samples.py --dataset gitskills`; ran `scripts/fresh_run_check.py` to regenerate and compare outputs |
+| Time to first result | Recorded elapsed time to the completed comparison report: 71.6 minutes, from 14:20:01 to 15:31:37, including setup, downloads, tests, and any pauses. Analysis runtime: 2.1 minutes |
+| Generated output and comparison | All 14 CSV files compared by the checker were identical to their committed counterparts, with matching row counts. Local comparison report: `build/fresh_run/REPORT.md` |
+| Problems and resolutions | The initial missing `C:\dev` location was resolved by extracting the ZIP there. The completed fresh-run comparison reported no problems |
 
 | Field | Evidence |
 |---|---|

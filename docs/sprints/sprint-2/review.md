@@ -69,17 +69,6 @@ A fresh ZIP reproduction was completed on 2026-10-27. All 14 compared CSV files 
 | Generated output and comparison | All 14 CSV files compared by the checker were identical to their committed counterparts, with matching row counts. Local comparison report: `build/fresh_run/REPORT.md` |
 | Problems and resolutions | The initial missing `C:\dev` location was resolved by extracting the ZIP there. The completed fresh-run comparison reported no problems |
 
-| Field | Evidence |
-|---|---|
-| Status | Pending new Sprint 2 run |
-| Person and environment | Pending |
-| Run date | Pending |
-| Commit SHA | Pending; capture using `git rev-parse HEAD` |
-| README steps and commands followed | Pending; record the actual commands |
-| Time to first result | Pending; measure during the run |
-| Generated output and comparison | Pending; link output and compare with the expected result |
-| Problems and resolutions | Pending |
-
 ## Historical Sprint 1 reproduction record — September 26
 
 | Field | Evidence |

@@ -1,6 +1,6 @@
 # Sprint 2 review: implementation and validation
 
-Status: Preliminary draft. Attendance, completion, metrics, validation results, and Sprint 2 reproduction evidence remain pending verification.
+Status: Preliminary draft. Sprint 2 fresh-clone reproduction completed on October 27, 2026; evidence is linked below. Attendance, final completion decisions, metrics, and validation review remain pending verification.
 Date: 2026-10-28. Product Owner: Jerad Dunne. Scrum Master: Hina Kramer.
 
 Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer [ ] Instructor
@@ -18,9 +18,12 @@ The Sprint 2 review must include:
 - [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. Hina completed the fresh Sprint 2 ZIP reproduction on October 27; all 14 compared CSV files matched. See the Gemba walk below
 - [x] Automated tests for the implemented method. Evidence: issue #22 records 179 tests passing in 38.96 seconds on commit `ee52bce` and successful CI run #114. [`docs/TEST_MAP.md`](../../TEST_MAP.md) maps every table and figure in the report to the tests that check its values; PR #125 added value checks for the four outputs that had none (population flow, prevalence by rule, reach summary, sensitivity summary), and CI runs them on every pull request. On 2026-10-27, `make test` passed 219 tests on `main` (8e2ce36), and [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556) passed; issue #22 closed on October 26.
 - [ ] Validation sample and protocol. Evidence: issue #23 and `docs/validation/README.md` document the frozen sample, annotation workflow, and rater assignments: 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Merged PR #119 reports drift inter-rater agreement across 18 pairs: 83.3% agreement and Cohen’s kappa 0.745 (`results/validation_agreement.csv`). Lineage: Hina’s labels merged in PR #121 and Jerad’s in PR #124; the raters agree on 57 of 58 pairs (98.3%), and Cohen’s kappa is 0 because one rater used a single label, so percent agreement is the lineage figure (`results/validation_agreement.csv`). Signals intra-rater round 2 is deferred to Sprint 3 (#101). Ground truth (#97): on 2026-10-27 the scanner detected all ten known-positive skills Leticia selected, 0 missed, five of them at high risk ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27), `results/ground_truth_summary.csv`).
+- [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. A fresh Sprint 2 reproduction completed successfully on October 27, 2026; see the [reproduction report](evidence/reproduction-2026-10-27.md).
+- [x] Automated tests for the implemented method. Evidence: [issue #22](https://github.com/jeraddunne/csc580-group9-msr2027/issues/22), [report-to-test map](../../TEST_MAP.md), and [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556). The Python 3.12.15 job reports 219 tests passed in 30.72 seconds with 97% total coverage on commit `8e2ce36`.
+- [x] Validation sample and protocol. Evidence: issue #23 and [validation protocol](../../validation/README.md) document the frozen sample, annotation workflow, and rater assignments: 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Merged PR #119 reports drift inter-rater agreement across 18 pairs: 83.3% agreement and Cohen’s kappa 0.745 (`results/validation_agreement.csv`). Lineage: Hina’s labels merged in PR #121 and Jerad’s in PR #124; the raters agree on 57 of 58 pairs (98.3%), and Cohen’s kappa is 0 because one rater used a single label, so percent agreement is the lineage figure (`results/validation_agreement.csv`). Signals intra-rater round 2 is deferred to Sprint 3 (#101). Ground truth (#97): on 2026-10-27 the scanner detected all ten known-positive skills Leticia selected, 0 missed, five of them at high risk ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27), `results/ground_truth_summary.csv`).
 - [x] Preliminary results with reproducible figures or tables. Evidence: issue #24 records Leticia’s October 10 verification of the September 23 run. That historical verification is separate from the current `ANALYSIS_MANIFEST.json`, which records an October 24 run. See the committed outputs under `results/` and `figures/`.
 - [x] At least one pull request reviewed by a member other than its author. Evidence: [PR #90](https://github.com/jeraddunne/csc580-group9-msr2027/pull/90), authored by Leticia Aderhold, received Hina Kramer’s approving file-validity review and was merged into `main`. The review preserved the independently submitted labels; three checks passed.
-- [ ] Updated research report. Evidence: issue #25 and `report/draft.md`.
+- [x] Updated research report. Evidence: issue #25 and `report/draft.md`.
 - [ ] Sprint 2 retrospective. Evidence: issue #26 and `docs/sprints/sprint-2/retrospective.md`.
 
 ## Sprint 2 acceptance criteria
@@ -29,6 +32,8 @@ The Sprint 2 review must include:
 |---|---|---|
 | Core implementation runs end-to-end on the approved sample | Met; fresh-ZIP reproduction completed | Issue #21, closed by PR #44. `results/ANALYSIS_MANIFEST.json` records the latest run of `python -m msr_pipeline analyze` on 2026-10-24 (102.8 s); it does not record a commit SHA, so the fresh-clone run below supplies one |
 | Method has automated tests | Met | Issue #22 (closed October 26); 219 tests passed on `main` (8e2ce36) on 2026-10-27, [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556); [`docs/TEST_MAP.md`](../../TEST_MAP.md) maps every report table and figure to its tests |
+| Core implementation runs end-to-end on the approved sample | Met; fresh-clone reproduction completed October 27 | Issue #21, closed by PR #44. `results/ANALYSIS_MANIFEST.json` records the latest run of `python -m msr_pipeline analyze` on 2026-10-24 (102.8 s); it does not record a commit SHA, so the fresh-clone run below supplies one |
+| Method has automated tests | Met | Issue #22; 219 tests passed in 30.72 seconds with 97% total coverage using Python 3.12.15 on `main` (`8e2ce36`) on 2026-10-27; [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556). [Report-to-test map](../../TEST_MAP.md) maps report tables and figures to their tests. |
 | Group can explain why the method is trustworthy and where it may fail | Evidence linked; discuss at the review | Precision per category with Wilson intervals, miss rate, and drift and lineage agreement (`results/validation_*.csv`; report Table 2, PR #127); ground truth on ten known positives (#97); a rule card with rationale and references for every rule ([`RULE_CATALOG.md`](../../research/RULE_CATALOG.md), #95); applicability of established tools ([`APPLICABILITY.md`](../../research/APPLICABILITY.md), #96); `THREATS_TO_VALIDITY.md`. Known weak points: strict precision of 0.20 for dynamic code execution and 0.27 for credential file paths and hard-coded IP endpoints, and five known positives detected only by context rules |
 | Preliminary analysis is supported by generated evidence rather than screenshots alone | Met | Issue #24 (closed). Tables in `results/` and figures in `figures/` are written by `make pipeline` and `python scripts/annotation_kit.py score`; [`docs/TEST_MAP.md`](../../TEST_MAP.md) names the function and tests behind each; `results/spec_verification.csv` NFR-02 confirms that two runs give identical outputs |
 
@@ -68,6 +73,20 @@ A fresh ZIP reproduction was completed on 2026-10-27. All 14 compared CSV files 
 | Time to first result | Recorded elapsed time to the completed comparison report: 71.6 minutes, from 14:20:01 to 15:31:37, including setup, downloads, tests, and any pauses. Analysis runtime: 2.1 minutes |
 | Generated output and comparison | All 14 CSV files compared by the checker were identical to their committed counterparts, with matching row counts. Local comparison report: `build/fresh_run/REPORT.md` |
 | Problems and resolutions | The initial missing `C:\dev` location was resolved by extracting the ZIP there. The completed fresh-run comparison reported no problems |
+
+A fresh Sprint 2 reproduction was completed on October 27, 2026.
+
+| Field | Evidence |
+|---|---|
+| Status | Completed successfully |
+| Person and environment | Leticia Aderhold; Windows 11 Pro 10.0.26300; Python 3.12.1 |
+| Run date | 2026-10-27 |
+| Commit SHA | `4c6a8bc2335476213d839c8711b25d24bb177fce` |
+| README steps and commands followed | Fresh clone; ran `windows/1-set-up.bat`, then `windows/2-run-pipeline.bat`, following `windows/README.md` |
+| Time recorded | Analysis: 2.2 minutes. Total recorded session: 17 minutes 23 seconds, including setup, instruction review, and reporting |
+| Generated output and comparison | [Reproduction report and all 14 file comparisons](evidence/reproduction-2026-10-27.md). All 14 compared CSV files matched committed results, ignoring line endings. Main population: 12,965; skills with a high-risk signal: 1,159 |
+| Problems and resolutions | No errors reported; `git status --short` returned no changes |
+
 
 ## Historical Sprint 1 reproduction record — September 26
 
@@ -132,7 +151,7 @@ Record documented contributions separately from planned responsibilities. Open P
 | CI pass rate | Pending dashboard verification | Pending aggregate metrics; individual passing PR checks do not establish the sprint pass rate |
 | Rework items | Pending dashboard verification | Pending metrics output |
 | Contribution share per member (min / max) | Pending dashboard verification | Pending verified contribution counts |
-| Test count / coverage | Pending recorded test results | Pending test and coverage results for the reviewed commit |
+| Test count / coverage | Pending recorded test results | 219 passed in 30.72 seconds; 97% total coverage; Python 3.12.15; commit `8e2ce36`; [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556) |
 
 ### October 22 process snapshot
 

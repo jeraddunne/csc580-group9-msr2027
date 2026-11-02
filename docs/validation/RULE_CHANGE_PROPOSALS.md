@@ -20,8 +20,9 @@ numbers.
 Labelled matches: 15 | false positives: 12 | observed precision: 0.20
 Label spread: BENIGN_CONTEXT=5, NOT_PRESENT=7, RISKY=3
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: The evidence rows show matches on unrelated meanings of “eval” and “exec,” including quality evaluation, helper-script names, Scheme expression evaluation, and JavaScript RegExp.exec. Other matches occur in security checklists or instructions explicitly prohibiting dynamic execution.
+
+What I would do: Propose distinguishing executable eval/exec calls from unrelated names and evaluation terminology, and identifying prohibited or quoted examples for contextual review. Test candidate changes against both the documented false positives and existing RISKY examples before adopting them in a later round.
 
 Evidence rows:
 

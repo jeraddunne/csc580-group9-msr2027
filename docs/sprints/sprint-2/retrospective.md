@@ -21,14 +21,27 @@ Sprint 1 values below are historical figures recorded in its review. Sprint 2 po
 | Median issue cycle time (days) | <= 5 | 1.22, recorded sample n=27 | Pending Sprint 2-specific measurement | Pending | Not assessed |
 | Median PR first-review turnaround (hours) | <= 48 | 51.14, recorded sample n=14 | Pending Sprint 2-specific measurement | Pending | Not assessed; Sprint 1 value above target |
 | Median PR open-to-merge time (hours) | <= 96 | 15.89, recorded sample n=25 | Pending Sprint 2-specific measurement | Pending | Not assessed |
-| PRs merged without an approving review from another member | 0 | 8 of 18 Sprint 1 merges, as recorded in the review | Pending Sprint 2 PR/review audit | Pending | Not assessed; Sprint 1 count above target |
+| PRs merged without an approving review from another member | 0 | 8 / 21 (38.1%), full Sprint 1 window | 0 / 36 (0%), full Sprint 2 window | Decreased by 38.1 percentage points | Not assessed; Sprint 2 met the target |
 | CI pass rate on main | >= 0.90 | 15 / 15 completed CI runs = 1.00; two cancelled runs excluded | Pending Sprint 2 main-only measurement | Pending | Not assessed |
 | Rework items (reopened issues) | Not specified | 1: [issue #14](https://github.com/jeraddunne/csc580-group9-msr2027/issues/14), reopened September 26 and closed October 6, in the historical review's 30-closed-issue measurement window; no issue carries the `rework` label | Pending Sprint 2-specific count | Not comparable yet | Not assessed |
 | Stand-ups posted / expected | Not specified | Not recorded in the reviewed source | Pending verified posted count and agreed expected count | Pending | Not assessed |
 | Contribution share per member (min / max) | Each share 0.15–0.45 | 0.00 / 0.65, historical four-member roster | Pending Sprint 2-only calculation for the three-member roster | Not directly comparable after roster change | Not assessed; historical shares outside target band |
 | Hours logged per member (min / max) | Not specified | Not recorded in the reviewed source | Pending complete actual-hours records for all three members | Pending | Not assessed |
 
-The historical aggregate KPIs from the October 7 Sprint 1 review cover September 10–October 7 and reflect the review-day snapshot. The [Sprint 1 retrospective](../sprint-1/retrospective.md) records full-sprint figures through the evening of October 7: 8 of 21 merges lacked an approving review, and 18 of 18 CI runs passed. These snapshots have different cutoffs.
+The historical aggregate KPIs from the October 7 Sprint 1 review cover September 10–October 7 and reflect the review-day snapshot. The [Sprint 1 retrospective](../sprint-1/retrospec
+Insights
+Settings
+Files
+Go to file
+t
+T
+.github
+app
+data
+docker
+docs
+decisions
+lean-six-sigmative.md) records full-sprint figures through the evening of October 7: 8 of 21 merges lacked an approving review, and 18 of 18 CI runs passed. These snapshots have different cutoffs.
 
 ### Measurement limitations
 
@@ -50,7 +63,9 @@ The four actions below were recorded in [Sprint 1 retrospective, Section 6](../s
 | Assign a reviewer when each PR opens | Check PR timelines for reviewer assignments and their timing | Pending team assessment |
 | Check deadlines three days ahead | Check meeting notes and issue history for advance deadline checks | Pending team assessment |
 
-Final effectiveness assessments and keep/adjust/drop decisions will be recorded at the October 28 retrospective.
+Final effectiveness assessments and keep/adjust/drop decisions remain pending team confirmation.
+
+**PR approval evidence, audited November 2, 2026.** For merges into `main`, 8 of 21 PRs (38.1%) lacked a standing approving review from another member during Sprint 1 (September 17–October 7), compared with 0 of 36 (0%) during Sprint 2 (October 8–28), a decrease of 38.1 percentage points. Both windows use Eastern Time. The Sprint 1 baseline is documented in [PR #134](https://github.com/jeraddunne/csc580-group9-msr2027/pull/134). The Sprint 2 audit checked each PR's approval, dismissal, and merge events; dismissed approvals counted only when replaced by a qualifying approval before merge. Bot-authored PRs were included. This supports improved approval-before-merge practice; it does not establish that reviewers were assigned when each PR opened. The team's effectiveness assessment and keep/adjust/drop decision remain pending.
 
 ## 3. What went well
 

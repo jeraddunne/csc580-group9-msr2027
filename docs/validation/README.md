@@ -54,8 +54,7 @@ python scripts/annotation_kit.py import data/annotations/work/labelling_jd_r1.xl
 # 3. Check progress at any time.
 python scripts/annotation_kit.py status
 
-# 4. Optional round 2 (intra-rater subset only, shuffled).
-python scripts/annotation_kit.py sheet --rater jd --round 2
+# 4. Round 2 (required for signals; optional for lineage and drift; shuffled intra-rater subset).
 
 # 5. Score everything that has been committed and labelled so far.
 python scripts/annotation_kit.py score
@@ -96,7 +95,7 @@ Never open another rater's label files, including `*_jd_r1.csv`, and do not disc
 
 The sample drawn on 2026-09-14 (seed 580, rule file sha256 recorded in `data/annotations/samples/SAMPLE_MANIFEST.json`):
 
-| Sample | Items | Optional round 2 subset | Labelling effort per rater |
+| Sample | Items | Round 2 subset | Labelling effort per rater |
 |---|---|---|---|
 | Signals: flagged skills (up to 10 per high-risk category) plus no-signal skills | 147 items (40 with no signal), 209 label rows | 45 items | about 7 to 8 hours |
 | Lineage: all differing pairs plus 40 random near-duplicate pairs | 58 pairs (18 differing, 40 random) | 18 pairs | about 2 hours |

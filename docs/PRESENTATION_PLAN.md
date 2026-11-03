@@ -37,13 +37,21 @@ Reproducibility is shown by running the demo from a fresh clone rather than a wo
 
 | Rehearsal | Date | Goal | Timed length | Fixes |
 |---|---|---|---|---|
-| 1 | Thu 2026-11-12 | Structure, timing, speaker hand-offs; slides draft | | |
+| 1 | Thu 2026-11-12 | Full end-to-end demo from a fresh clone; draft slides, timing, and speaker hand-offs | | |
 | 2 | Mon 2026-11-30 | Full run with live demo on a fresh clone | | |
 | 3 | Thu 2026-12-03 | Final run; test the backup path; record the demo | | |
 
+### Rehearsal evidence
+
+Complete this record after each rehearsal.
+
+| Date | Participants | Commit or release tag | Commands run | Outcome and output links | Duration | Problems and follow-up |
+|---|---|---|---|---|---|---|
+| Pending | Pending | Pending | Pending | Not yet run | Pending | Pending |
+
 ## Slide checklist
 
-- [ ] Title slide: project title, the four member names, Group 9, course, date, repository URL and release tag.
+- [ ] Title slide: project title, the three current member names (Jerad Dunne, Leticia Aderhold, and Hina Kramer), Group 9, course, date, repository URL and release tag.
 - [ ] Research question slide with the competing explanation.
 - [ ] Data slide with snapshot statement and sample description.
 - [ ] Pipeline diagram (stages, inputs, outputs, tests).

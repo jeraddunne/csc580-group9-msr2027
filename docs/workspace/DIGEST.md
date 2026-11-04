@@ -1,36 +1,16 @@
 # Team workspace digest
 
-Generated 2026-10-25 10:21 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-11-01 12:16 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
-### @angel06la (4)
+### @jeraddunne (20)
 
 | Issue | Title | Milestone |
 |---|---|---|
-| [#104](https://github.com/jeraddunne/csc580-group9-msr2027/issues/104) | S2: AI-use log current for every member | Sprint 2 |
-| [#97](https://github.com/jeraddunne/csc580-group9-msr2027/issues/97) | S2: ground-truth check on about ten known-positive skills | Sprint 2 |
-| [#96](https://github.com/jeraddunne/csc580-group9-msr2027/issues/96) | S2: applicability analysis of established static-analysis rules for agent skills | Sprint 2 |
-| [#25](https://github.com/jeraddunne/csc580-group9-msr2027/issues/25) | S2: updated research report (background, method, implementation, preliminary results) | Sprint 2 |
-
-### @hinak786 (4)
-
-| Issue | Title | Milestone |
-|---|---|---|
-| [#104](https://github.com/jeraddunne/csc580-group9-msr2027/issues/104) | S2: AI-use log current for every member | Sprint 2 |
-| [#102](https://github.com/jeraddunne/csc580-group9-msr2027/issues/102) | S2: process evidence: check-in notes, definition of done, obstacles, contributions | Sprint 2 |
-| [#99](https://github.com/jeraddunne/csc580-group9-msr2027/issues/99) | S2: lineage round 1 labels, second rater Hina Kramer (hk) | Sprint 2 |
-| [#22](https://github.com/jeraddunne/csc580-group9-msr2027/issues/22) | S2: automated tests for parsing, transformation, matching, or metric functions | Sprint 2 |
-
-### @jeraddunne (27)
-
-| Issue | Title | Milestone |
-|---|---|---|
-| [#104](https://github.com/jeraddunne/csc580-group9-msr2027/issues/104) | S2: AI-use log current for every member | Sprint 2 |
+| [#132](https://github.com/jeraddunne/csc580-group9-msr2027/issues/132) | S3: five known positives detected only by context rules (#97 follow-up) | Sprint 3 |
 | [#101](https://github.com/jeraddunne/csc580-group9-msr2027/issues/101) | S3: signals round 2 re-rating (intra-rater kappa) | Sprint 3 |
 | [#100](https://github.com/jeraddunne/csc580-group9-msr2027/issues/100) | S2: primary round 1 labels (drift, lineage, signals) and validation scoring | Sprint 2 |
-| [#98](https://github.com/jeraddunne/csc580-group9-msr2027/issues/98) | S2: finalise the human-in-the-loop risk-review workflow and add it to the report | Sprint 2 |
-| [#97](https://github.com/jeraddunne/csc580-group9-msr2027/issues/97) | S2: ground-truth check on about ten known-positive skills | Sprint 2 |
 | [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: Group 9 project workspace (P-01) | Formation |
 | [#40](https://github.com/jeraddunne/csc580-group9-msr2027/issues/40) | Final: AI-use log and disclosure complete | Finalization |
 | [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection (one per member) | Finalization |
@@ -47,12 +27,7 @@ Generated 2026-10-25 10:21 UTC by `scripts/workspace_digest.py` from `jeraddunne
 | [#28](https://github.com/jeraddunne/csc580-group9-msr2027/issues/28) | S3: robustness checks, sensitivity analysis, or comparison across meaningful subgroups | Sprint 3 |
 | [#27](https://github.com/jeraddunne/csc580-group9-msr2027/issues/27) | S3: final or near-final results addressing the research question | Sprint 3 |
 | [#26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26) | S2: sprint review package and retrospective recording changes to question, method, scope, or interpretation | Sprint 2 |
-| [#25](https://github.com/jeraddunne/csc580-group9-msr2027/issues/25) | S2: updated research report (background, method, implementation, preliminary results) | Sprint 2 |
 | [#23](https://github.com/jeraddunne/csc580-group9-msr2027/issues/23) | S2: validation sample, manual annotation protocol, or other evaluation design | Sprint 2 |
-| [#22](https://github.com/jeraddunne/csc580-group9-msr2027/issues/22) | S2: automated tests for parsing, transformation, matching, or metric functions | Sprint 2 |
-| [#20](https://github.com/jeraddunne/csc580-group9-msr2027/issues/20) | S1: sprint review package and retrospective | Sprint 1 |
-| [#19](https://github.com/jeraddunne/csc580-group9-msr2027/issues/19) | S1: baseline process metrics captured (Measure phase) | Sprint 1 |
-| [#1](https://github.com/jeraddunne/csc580-group9-msr2027/issues/1) | Formation: team working agreement v2.0 signed by all four members | Formation |
 
 ## Work sign-ups
 

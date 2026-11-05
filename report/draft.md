@@ -134,7 +134,7 @@ Table 2. Validation of high-risk signals, round 1 (primary rater). <!-- results/
 | Credential file paths | 15 | 4 / 6 / 5 | 0.27 (0.11 to 0.52) | 0.67 (0.42 to 0.85) |
 | Dynamic code execution | 15 | 3 / 5 / 7 | 0.20 (0.07 to 0.45) | 0.53 (0.30 to 0.75) |
 
-**Known-positive check.** The October 27 ground-truth check on commit `8e2ce36` matched the expected category for all 10 selected known-positive skills, but only 5 matched an expected-category rule at severity 6 or above. The remaining 5 matched context rules only; their outcomes are pending under issue #132. See the [ground-truth results](../results/ground_truth_check.csv) and [selection and summary](../docs/validation/KNOWN_POSITIVES_SELECTION.md).
+**Known-positive check.** The October 27 ground-truth check on commit `8e2ce36` matched the expected category for all 10 selected known-positive skills, but only 5 matched an expected-category rule at severity 6 or above. The remaining 5 matched only context rules within their expected categories; their outcomes are pending under issue #132. See the [ground-truth results](../results/ground_truth_check.csv) and [selection and summary](../docs/validation/KNOWN_POSITIVES_SELECTION.md).
 
 # Results
 

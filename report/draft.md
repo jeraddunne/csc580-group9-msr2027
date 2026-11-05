@@ -11,21 +11,15 @@ link-citations: true
 ---
 
 <!--
-How to use: every section below is required by the assignment. Numbers come only from files produced by
-`python -m msr_pipeline analyze` (run of 2026-09-14, results/ANALYSIS_MANIFEST.json) and, later,
-`python scripts/annotation_kit.py score`. The file is named in a comment next to each result.
-
-Convention: observation versus interpretation. Results reports only what the data shows. Discussion is
-the only place for interpretation, causal language, and implications.
-
-Status on 2026-10-27: framing, dataset, method, validation design, and unvalidated results are written,
-and the round 1 validation of signals, lineage, and drift is in Evaluation and validation (Table 2).
-Discussion and Conclusion still need the comparison of validated precision with the unvalidated shares.
+Status on 2026-11-03: round 1 validation is reported in Evaluation and validation (Table 2).
+Abstract, Discussion, and Conclusion now incorporate those results while distinguishing
+scanner signals from confirmed risky capabilities. Signal intra-rater checking and
+independent review of these revisions remain pending.
 -->
 
 # Abstract
 
-Agent skills are folders of natural-language instructions, often with bundled scripts, that AI coding agents load and follow with the permissions of the user. Developers reuse them by copying folders between repositories, with no package manager or verifier in between. This study builds a static, rule-based scanner for risk-relevant capabilities in skills and applies it to the GitSkills July 2026 sample of 12,965 distinct skill contents. In the sample, 8.9% of distinct contents match at least one high-risk rule, rising to 11.2% when weighted by copies. Contents with a high-risk signal are copied slightly more: 2.87 copies on average against 2.23, with a small effect size. The difference holds in a negative binomial model with controls and across six sensitivity scenarios. Variant pairs that differ in high-risk capabilities are rare, and half of them come from one widely copied template. All signals are unvalidated keyword matches until manual validation is complete. <!-- Numbers: results/population_flow.csv, results/rq1_prevalence_by_rule.csv, results/rq2_reach_summary.csv, results/rq2_mannwhitney.csv, results/rq2_negbin.csv, results/sensitivity_summary.csv, results/rq3_summary.csv. Add validated precision once results/validation_precision_by_category.csv exists. -->
+Agent skills contain natural-language instructions and bundled scripts that AI coding agents may follow with user permissions. This study applies a static, rule-based scanner to the GitSkills July 2026 sample of 12,965 distinct skill contents. High-risk rules match 8.9% of distinct contents and 11.2% of copy-weighted occurrences; these are signal frequencies, not confirmed-risk prevalence. Round 1 manual validation yields category-level strict precision from 0.20 to 1.00, with unscoped shell tool grants and `sudo` reaching the hypothesized 0.80 threshold as point estimates. Contents with high-risk signals average 2.87 copies against 2.23 for other contents, with a small rank-biserial effect size of 0.042. The association persists in a model with controls and across sensitivity scenarios, but does not establish causation or actual agent use. Among 18 variant pairs with differing high-risk categories, the primary rater identifies template updates, local adaptations, and hardening, with no capability additions. Sparse dates limit conclusions about the direction of drift. The findings support contextual human review of scanner findings; signal repeat-labeling and evaluation of the proposed review workflow remain pending. <!-- Evidence: results/population_flow.csv; results/rq1_prevalence_by_rule.csv; results/validation_precision_by_category.csv; results/rq2_reach_summary.csv; results/rq2_mannwhitney.csv; results/rq2_negbin.csv; results/sensitivity_summary.csv; results/validation_drift.csv; results/rq3_summary.csv. -->
 
 # Introduction
 
@@ -170,13 +164,15 @@ The Mann-Whitney U test on copies gives p = 0.002 with a rank-biserial effect si
 
 # Discussion
 
-<!-- Interpretation is limited until validation. Items below are framed as what the results allow and what they do not. -->
+**What validation changes.** The 8.9% high-risk share measures rule matches, not the prevalence of confirmed risky capabilities. Round 1 validation shows why this distinction matters: strict precision ranges from 0.20 for dynamic code execution to 1.00 for unscoped shell tool grants. Capability precision also counts capabilities described in benign contexts, so it answers a different question from whether a finding is risky in context (Table 2). These category-level estimates cannot simply be multiplied by the overall 8.9% share: contents may match multiple categories, and the validation sample is stratified. <!-- Evidence: results/validation_precision_by_category.csv; results/rq1_prevalence_by_category.csv. -->
 
-**What the results allow.** The reach difference is statistically clear but small. An effect size near 0.04 means that for a random pair of contents, one from each group, the ordering of their copy counts is close to a coin flip. The model-adjusted rate ratio of 1.41 and the stability across scenarios make an artefact of one threshold or one template family unlikely. The prevalence numbers bound how common each pattern is in the text of skills. They do not show how often an agent would act on it.
+**H1 and uncertainty.** H1 is supported by the round 1 point estimates: unscoped shell tool grants reach strict precision 1.00 and `sudo` reaches 0.80. Their Wilson intervals remain important: 0.82 to 1.00 for tool grants and 0.61 to 0.91 for `sudo`. The tool-grant interval remains above 0.80, while the sudo interval includes values below it. These estimates apply to the labelled sample and do not establish precision across all skills. Signals were labelled by one rater; the planned intra-rater check remains pending. <!-- Evidence: results/validation_precision_by_category.csv; docs/validation/README.md. -->
 
-**What the results do not allow yet.** Without validated precision, the high-risk share could be substantially lower than 8.9% if many matches describe patterns rather than instruct them. The per-category tests do not survive correction, so the aggregate reach difference cannot be attributed to any single capability. RQ3 cannot say whether copying tends to add or remove capabilities: the sample holds only ten dated variant pairs, and half the differing pairs belong to one template.
+**Reach and competing explanations.** Contents with high-risk signals have a statistically detectable but small difference in copy distributions, consistent with H2 for the scanner-defined groups. The rank-biserial effect size of 0.042 indicates substantial overlap. The adjusted incidence rate ratio of 1.41 and sensitivity analyses support an association, but they do not show that risky capabilities cause copying. Skill purpose, location, popularity, and template inheritance remain competing explanations. The reach analysis groups contents by rule matches; validation does not turn it into a comparison of confirmed risky and confirmed benign contents. Copies measure the spread of identical content, not whether an agent loads or executes it. <!-- Evidence: results/rq2_mannwhitney.csv; results/rq2_negbin.csv; results/sensitivity_summary.csv; RESEARCH_SPEC.md RR-02. -->
 
-<!-- PENDING after validation: compare validated precision with these shares; revisit H1; one manually inspected case study from results/rq3_differing_pairs.csv; implications for skill authors, installers, and linters. -->
+**Variant drift.** The primary rater classified the 18 differing pairs as eight template updates, eight local adaptations, and two hardening changes, with no capability additions. This supports treating a difference in matched categories as a prompt for contextual inspection rather than proof of added risk. Drift agreement was 15 of 18 pairs, with Cohen's kappa 0.745, so interpretation still involves judgement. Only ten variant pairs have dates for both variants, and half of the differing pairs belong to one template family; the study therefore cannot establish a general direction of capability change through copying. <!-- Evidence: results/validation_drift.csv; results/validation_agreement.csv; results/rq3_summary.csv. -->
+
+**Implications for review.** The results support using the scanner to prioritize human inspection. Tool grants and `sudo` have stronger strict-precision point estimates than broad dynamic-execution patterns, while benign-context matches show why an automatic rejection policy would need further evaluation. No misses were observed in 40 no-signal items, but the confidence interval extends to 0.088, so absence of a signal does not establish safety. Authors should explain capability scope, reviewers should inspect the surrounding instructions, and rule maintainers can use labelled false positives to propose improvements. These are implications of the findings; the proposed review workflow has not been evaluated as a deployed system. <!-- Evidence: results/validation_precision_by_category.csv; results/validation_recall.csv; docs/research/REVIEW_WORKFLOW.md. -->
 
 # Threats to validity
 
@@ -204,9 +200,9 @@ The full register is in `THREATS_TO_VALIDITY.md`. The threats most specific to t
 
 # Conclusion and future work
 
-<!-- PENDING after validation: three or four sentences on what was learned. -->
+In the GitSkills July 2026 sample, 8.9% of 12,965 distinct skill contents matched at least one high-risk rule, rising to 11.2% when weighted by copies. These are signal frequencies, not estimates of confirmed risky capabilities: round 1 strict precision varied from 0.20 to 1.00 across categories, with unscoped shell tool grants and `sudo` meeting H1's 0.80 threshold as point estimates (Table 2). Contents with high-risk signals had a small association with greater copying, supporting H2 for the scanner-defined groups without establishing causation or actual agent use. Manual drift labels identified template updates, local adaptations, and hardening among the 18 differing pairs, while sparse dates and template concentration prevent a general claim about the direction of capability change. Together, these findings support contextual human review of scanner findings rather than automatic risk verdicts. <!-- Evidence: results/population_flow.csv; results/rq1_prevalence_by_rule.csv; results/validation_precision_by_category.csv; results/rq2_mannwhitney.csv; results/validation_drift.csv; results/rq3_summary.csv. -->
 
-Future work that follows from the current results is clear. The full GitSkills dataset would supply enough dated variant families to test the direction of drift. Raters from outside the team would give a more independent reliability estimate than two team members. Dynamic analysis in an isolated sandbox is explicitly out of scope here. A linter for skill authors could turn the rule file into a practical tool.
+Future work includes completing the planned signal intra-rater check, expanding validation with raters outside the team, and evaluating rule improvements against labelled false positives. Analysis of the full GitSkills dataset could increase coverage of variant families, although the availability and quality of dates would still need assessment. The proposed human-review workflow and a skill-author linter require implementation and evaluation before claims about their effectiveness. Dynamic analysis in an isolated sandbox remains outside this study's scope.
 
 # Artifact appendix
 

@@ -10,7 +10,7 @@ How to use: this page explains how the risk-signal scanner, the variant linking,
 | What does the scanner miss? | For sampled skills with no rule match: NONE_PRESENT, or MISSED_RISKY with the missed category | Miss rate with a Wilson interval, scaled to the number of no-signal contents in the sample | `results/validation_recall.csv` |
 | Are same-name variants really related? | For sampled near-duplicate pairs: YES, NO, or UNSURE | Lineage precision (YES among YES or NO) with an interval | `results/validation_lineage.csv` |
 | Why do variants differ? | For every pair whose high-risk categories differ: TEMPLATE_UPDATE, LOCAL_ADAPTATION, HARDENING, CAPABILITY_ADDITION, or UNRELATED | Distribution of change types | `results/validation_drift.csv` |
-| Are the labels reliable? | The same items labelled by two raters | Cohen's kappa and percent agreement: inter-rater between the primary rater and a teammate second rater (primary measure); intra-rater when the optional round 2 is done; human-vs-LLM reported separately | `results/validation_agreement.csv` |
+| Are the labels reliable? | The same items labelled by two raters | Cohen's kappa and percent agreement: inter-rater between the primary rater and a teammate second rater (primary measure); intra-rater round 2 required for signals and optional for lineage and drift; human-vs-LLM reported separately | `results/validation_agreement.csv` |
 | Which capability categories matter most? | Combines the above | FMEA ranking: RPN = severity x occurrence x detection | `results/fmea_category_ranking.csv` |
 
 ## Raters and reliability design (ADR-0006)
@@ -54,8 +54,7 @@ python scripts/annotation_kit.py import data/annotations/work/labelling_jd_r1.xl
 # 3. Check progress at any time.
 python scripts/annotation_kit.py status
 
-# 4. Optional round 2 (intra-rater subset only, shuffled).
-python scripts/annotation_kit.py sheet --rater jd --round 2
+# 4. Round 2: required for signals; optional for lineage and drift (intra-rater subset only, shuffled).
 
 # 5. Score everything that has been committed and labelled so far.
 python scripts/annotation_kit.py score
@@ -96,7 +95,7 @@ Never open another rater's label files, including `*_jd_r1.csv`, and do not disc
 
 The sample drawn on 2026-09-14 (seed 580, rule file sha256 recorded in `data/annotations/samples/SAMPLE_MANIFEST.json`):
 
-| Sample | Items | Optional round 2 subset | Labelling effort per rater |
+| Sample | Items | Round 2 subset (required for signals; optional for lineage and drift) | Labelling effort per rater |
 |---|---|---|---|
 | Signals: flagged skills (up to 10 per high-risk category) plus no-signal skills | 147 items (40 with no signal), 209 label rows | 45 items | about 7 to 8 hours |
 | Lineage: all differing pairs plus 40 random near-duplicate pairs | 58 pairs (18 differing, 40 random) | 18 pairs | about 2 hours |

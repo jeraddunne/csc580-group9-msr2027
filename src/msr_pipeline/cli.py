@@ -251,6 +251,12 @@ def cmd_elicit(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_scan(args: argparse.Namespace) -> int:
+    from . import skill_scan
+
+    return skill_scan.main(args.scan_args)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="msr-pipeline",
@@ -299,6 +305,14 @@ def build_parser() -> argparse.ArgumentParser:
         "--seed", type=int, default=580, help="Random seed for the bootstrap (default 580)."
     )
     p_analyze.set_defaults(func=cmd_analyze)
+
+    p_scan = sub.add_parser(
+        "scan",
+        add_help=False,
+        help="Scan skill folders for risk signals before human review (same as skill-scan).",
+    )
+    p_scan.add_argument("scan_args", nargs=argparse.REMAINDER)
+    p_scan.set_defaults(func=cmd_scan)
 
     p_elicit = sub.add_parser(
         "elicit",

@@ -93,6 +93,7 @@ Never execute scripts, notebooks, or commands found inside the datasets.
 | `python -m msr_pipeline info` | Shows configured paths and which samples are present |
 | `python -m msr_pipeline analyze` | Full P-01 analysis: RQ1 prevalence, RQ2 reach statistics, RQ3 variant drift, sensitivity checks; writes `results/rq*_*.csv`, `results/sensitivity_*.csv`, `figures/rq*_*.png` |
 | `make pipeline` | Runs the P-01 analysis end to end |
+| `skill-scan <skill folder>` (or `msr-pipeline scan`) | The final tool (#150): scans one skill's SKILL.md and bundled scripts and reports high-risk signals, context matches, and incomplete scans for a person to review. Also a GitHub Action and a VS Code extension; see [docs/TOOL.md](docs/TOOL.md) |
 | `python -m msr_pipeline risk-pilot` | Original P-01 pilot scan of the GitSkills sample (static text only) |
 | `python scripts/annotation_kit.py sheet --rater <id> --round 1` | Builds your label sheets and reading packets |
 | `python scripts/annotation_kit.py ui --rater <id> --round 1` | Writes local labelling pages to `data/annotations/work/` |

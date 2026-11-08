@@ -2,6 +2,8 @@
 
 How to use: this page explains how the risk-signal scanner, the variant linking, and the drift classification are checked against human judgement. It lists the raters, the commands, the schedule, and where the numbers end up. The labelling rules are in [ANNOTATION_GUIDELINE.md](ANNOTATION_GUIDELINE.md); the step-by-step routine for a labelling session, offline work, and the Excel workbook is in [LABELLING_WORKFLOW.md](LABELLING_WORKFLOW.md).
 
+See [Error analysis](ERROR_ANALYSIS.md) for the five manually inspected examples and their limitations.
+
 ## What is being validated
 
 | Question | What a label says | Metric | Output |

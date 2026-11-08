@@ -4,6 +4,17 @@ How to use: this is a living register, required by the assignment. The research 
 
 Status values: Active: P-01 (with stage: identified, mitigation planned, mitigated, accepted, open), Not applicable. Question numbers (Q1 to Q15) refer to the assignment's proposed research questions. The project is run by the four-person Group 9 (ADR-0006). Rows with Jerad Dunne as Owner were assigned while one member held every role (ADR-0005); owners are reassigned at Sprint 1 planning.
 
+## Coverage of the six areas the assignment names
+
+| Area | Register rows | Mirrored in the report |
+|---|---|---|
+| Dataset bias | E1, E2, P8 | Threats to validity, "Dataset bias" |
+| Measurement error | P1, P6, C2, C3, N5 | "Measurement error" |
+| Confounding | P3, I1 | "Confounding" |
+| Missing data | P10, I4, R2 | "Missing data" |
+| Reproducibility | R1, R3, R4 | "Reproducibility" |
+| Generalizability | E1, E2, E4, P8 | "Generalizability" |
+
 ## P-01 specific threats
 
 | ID | Threat | Type | Mitigation | Evidence | Status |
@@ -91,4 +102,5 @@ Status values: Active: P-01 (with stage: identified, mitigation planned, mitigat
 | 2026-09-23 | Sprint 1 | Interview findings folded in (#60): P5, I3, I4 cite NB-Q06 and V11 and the RR-03 location split; P6, N5 follow D-022 (intra-rater agreement for lineage and signals); C3 adds "script" and NB-Q14; new P9 (reach is not use, NB-Q15) and P10 (unread bundled files, DR-04); R2 adds unrecovered content; X1 notes the anonymisation source conflict (V15) | Jerad Dunne, drafted with Claude Code |
 | 2026-10-16 | Sprint 2 | P6, N5 follow D-024: Hina Kramer second-rates lineage, so lineage and drift report inter-rater kappa and only signals rely on intra-rater agreement | Jerad Dunne, drafted with Claude Code |
 | 2026-10-25 | Sprint 2 | P6: lineage kappa is 0 by construction because one rater used a single category, so percent agreement is the lineage figure (#100) | Jerad Dunne, drafted with Claude Code |
+| 2026-11-08 | Sprint 3 | Coverage table for the six areas the assignment names (dataset bias, measurement error, confounding, missing data, reproducibility, generalizability), each mapped to register rows and mirrored by name in the report's Threats to validity section (#32) | Jerad Dunne, drafted with Claude Code |
 | 2026-11-03 | Sprint 3 | R4 updated with Leticia's fresh-clone reproduction of commit 2cc7407: all 14 compared CSV files matched on Windows 11 / Python 3.12.1; environment scope and remaining limitation stated (refs #32, #33) | Leticia Aderhold, drafted with ChatGPT |

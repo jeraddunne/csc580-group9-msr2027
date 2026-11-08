@@ -186,6 +186,15 @@ The full register is in `THREATS_TO_VALIDITY.md`. The threats most specific to t
 - **Conclusion.** Copy distributions are heavily skewed, so non-parametric tests, bootstrap intervals, and a count model are used together, and the Holm correction covers the per-category tests.
 - **Reproducibility.** Results depend on the dataset snapshot and the rule file version, both recorded by hash for every run.
 
+**The six areas the assignment names.**
+
+- **Dataset bias.** The sample is the 13,000 lowest content hashes, about 0.7% of distinct contents, drawn from a population that GitHub code search limits to default branches, files under 384 KB and few forks, so it is a lower bound (E1, E2, P8).
+- **Measurement error.** A keyword match is not a capability (P1). Human labels carry rater bias, which inter-rater agreement measures for drift and lineage and intra-rater agreement for signals (P6). The similarity threshold that defines reuse is swept from 0.3 to 0.8 (C2).
+- **Confounding.** Popular setup and DevOps skills both use shell commands and are copied more, so signals and reach can move together without one causing the other (P3, I1).
+- **Missing data.** 2,547 bundled script files have no text and were not scanned, against 5,153 that were (P10). Commit history covers every standard-location skill but only a size-stratified sample of the rest (I4). Rows without text are counted, not dropped (R2).
+- **Reproducibility.** The dataset snapshot and the rule file are recorded by hash for every run (R1), sampling uses fixed seeds (R3), and release v0.9.0-rc1 was reproduced on a fresh GitHub runner and from a fresh clone on Windows: 14 of 14 result tables matched (R4, #33).
+- **Generalizability.** The data is a July 2026 snapshot of formats that are still changing quickly (E4), and the drift results describe the hash-based sample only (E2).
+
 # Related work and references
 
 **Agent skills.** GitSkills is the first dataset of agent skills on GitHub. It retains every file occurrence with its content hash, which makes copy-based reuse directly measurable [@gitskills2027]. SpecMine, the companion MSR 2027 dataset, covers specification-driven development artifacts [@specmine2027].

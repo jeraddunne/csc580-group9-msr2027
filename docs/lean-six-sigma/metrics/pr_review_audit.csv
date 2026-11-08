@@ -1,0 +1,4 @@
+sprint,start,end,merged_prs,merged_without_nonauthor_approval,without_approval_share,without_approval_prs,bot_prs,member_prs,median_first_review_hours,median_open_to_merge_hours
+Sprint 1,2026-09-17,2026-10-07,21,8,0.381,#54 #55 #62 #63 #64 #70 #72 #74,0,21,51.1,48.1
+Sprint 2,2026-10-08,2026-10-28,36,0,0.000,,2,34,4.2,16.7
+Sprint 3,2026-10-29,2026-11-18,5,0,0.000,,1,4,14.4,37.0

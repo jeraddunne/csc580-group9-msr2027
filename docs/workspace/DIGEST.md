@@ -1,16 +1,15 @@
 # Team workspace digest
 
-Generated 2026-11-01 12:16 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-11-08 12:25 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
-### @jeraddunne (20)
+### @jeraddunne (18)
 
 | Issue | Title | Milestone |
 |---|---|---|
 | [#132](https://github.com/jeraddunne/csc580-group9-msr2027/issues/132) | S3: five known positives detected only by context rules (#97 follow-up) | Sprint 3 |
 | [#101](https://github.com/jeraddunne/csc580-group9-msr2027/issues/101) | S3: signals round 2 re-rating (intra-rater kappa) | Sprint 3 |
-| [#100](https://github.com/jeraddunne/csc580-group9-msr2027/issues/100) | S2: primary round 1 labels (drift, lineage, signals) and validation scoring | Sprint 2 |
 | [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: Group 9 project workspace (P-01) | Formation |
 | [#40](https://github.com/jeraddunne/csc580-group9-msr2027/issues/40) | Final: AI-use log and disclosure complete | Finalization |
 | [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection (one per member) | Finalization |
@@ -27,7 +26,6 @@ Generated 2026-11-01 12:16 UTC by `scripts/workspace_digest.py` from `jeraddunne
 | [#28](https://github.com/jeraddunne/csc580-group9-msr2027/issues/28) | S3: robustness checks, sensitivity analysis, or comparison across meaningful subgroups | Sprint 3 |
 | [#27](https://github.com/jeraddunne/csc580-group9-msr2027/issues/27) | S3: final or near-final results addressing the research question | Sprint 3 |
 | [#26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26) | S2: sprint review package and retrospective recording changes to question, method, scope, or interpretation | Sprint 2 |
-| [#23](https://github.com/jeraddunne/csc580-group9-msr2027/issues/23) | S2: validation sample, manual annotation protocol, or other evaluation design | Sprint 2 |
 
 ## Work sign-ups
 

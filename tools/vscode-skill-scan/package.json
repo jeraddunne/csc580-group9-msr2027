@@ -1,0 +1,89 @@
+{
+  "name": "skill-scan",
+  "displayName": "Skill Scan (CSC 580 Group 9)",
+  "description": "Shows skill-scan risk signals for agent skills (SKILL.md and bundled scripts) as editor diagnostics, with each rule's reviewer guidance. A rule match is a signal, not a verdict.",
+  "version": "0.1.0",
+  "publisher": "csc580-group9",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeraddunne/csc580-group9-msr2027"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "keywords": [
+    "agent skills",
+    "SKILL.md",
+    "security",
+    "review"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "workspaceContains:**/SKILL.md",
+    "workspaceContains:**/skill.md",
+    "onCommand:skillScan.scanFile",
+    "onCommand:skillScan.scanWorkspace"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "skillScan.scanFile",
+        "title": "Skill Scan: Scan the skill of the current file"
+      },
+      {
+        "command": "skillScan.scanWorkspace",
+        "title": "Skill Scan: Scan every skill in the workspace"
+      },
+      {
+        "command": "skillScan.clear",
+        "title": "Skill Scan: Clear findings"
+      }
+    ],
+    "configuration": {
+      "title": "Skill Scan",
+      "properties": {
+        "skillScan.command": {
+          "type": "string",
+          "default": "skill-scan",
+          "description": "The skill-scan command. Install it with `pip install -e .` in the Group 9 repository, or give a full path such as .venv/Scripts/skill-scan.exe."
+        },
+        "skillScan.rulesPath": {
+          "type": "string",
+          "default": "",
+          "description": "Rule file (rules/skill_risk_rules.yaml). Empty uses the command's default."
+        },
+        "skillScan.cutoff": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "default": null,
+          "description": "High-risk severity cutoff. Empty uses the rule file's value (6)."
+        },
+        "skillScan.runOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scan when a SKILL.md or a script inside a skill folder is saved."
+        },
+        "skillScan.runOnOpen": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scan when a SKILL.md or a script inside a skill folder is opened."
+        },
+        "skillScan.showContext": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show context matches (below the cutoff) as information diagnostics."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}

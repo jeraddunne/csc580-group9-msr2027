@@ -75,4 +75,4 @@ Leticia Aderhold and Hina Kramer reviewed the draft on 2026-10-24 (#98). Their a
 | Label names | BENIGN_CONTEXT in both diagrams, as in the guideline |
 | Interpretation of the validation numbers | One minus strict precision is the share of findings not labelled RISKY, not reviewer time; drift agreement is not triage agreement (section 5) |
 
-**Not built:** a command that scans one skill folder and prints a report; storage for reviewer decisions; any enforcement in an agent runtime. The batch pipeline (`python -m msr_pipeline analyze`) is what exists. This page describes the proposed workflow, not the implemented pipeline.
+**Built (#150):** `skill-scan`, a command that scans one skill folder and prints a report with the outcomes of steps 2 to 4 (high-risk signal, no high-risk signal with context listed separately, incomplete scan), a Markdown triage table and review record for steps 5 and 7, a GitHub Action for the CI pipeline actor, and a VS Code extension ([`docs/TOOL.md`](../TOOL.md)). **Not built:** storage for reviewer decisions beyond the pull request itself, and any enforcement in an agent runtime.

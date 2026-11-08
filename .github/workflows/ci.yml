@@ -76,3 +76,7 @@ jobs:
       - name: Run the app's tests
         working-directory: app
         run: npm test
+
+      - name: Run the VS Code extension's tests
+        working-directory: tools/vscode-skill-scan
+        run: npm test

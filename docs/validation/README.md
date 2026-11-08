@@ -55,6 +55,7 @@ python scripts/annotation_kit.py import data/annotations/work/labelling_jd_r1.xl
 python scripts/annotation_kit.py status
 
 # 4. Round 2: required for signals; optional for lineage and drift (intra-rater subset only, shuffled).
+python scripts/annotation_kit.py sheet --rater jd --round 2
 
 # 5. Score everything that has been committed and labelled so far.
 python scripts/annotation_kit.py score

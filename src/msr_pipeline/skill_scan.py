@@ -648,11 +648,13 @@ def to_sarif(reports: Sequence[SkillReport], ruleset: RuleSet) -> dict:
                 "fullDescription": {"text": info.description or info.title},
                 "help": {"text": " ".join(x for x in (info.description, info.note) if x)},
                 "helpUri": RULE_CATALOG_URL,
+                # No "security-severity": GitHub would rate a severity-9 rule "critical" and
+                # fail the pull request's code-scanning check. The scan reports and a person
+                # decides, so findings upload as warnings (high-risk) and notes (context).
                 "properties": {
                     "category": info.category,
                     "severity": info.severity,
-                    "security-severity": f"{float(info.severity):.1f}",
-                    "tags": ["security", info.category.lower()],
+                    "tags": ["skill-risk", info.category.lower()],
                 },
             }
         )

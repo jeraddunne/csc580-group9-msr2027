@@ -58,7 +58,7 @@ jobs:
         with: { sarif_file: "${{ steps.scan.outputs.sarif-file }}", category: skill-scan }
 ```
 
-On a pull request it scans only the skills the pull request adds or changes. The Markdown report goes to the job summary, with the triage table the reviewer fills in. The SARIF upload shows each finding as an annotation on the changed line. Inputs: `paths` (default `changed`), `fail-on` (default `never`), `cutoff`, `rules`, `sarif-file`. Outputs: `outcome`, `high-risk-findings`, `sarif-file`. This repository runs it on itself in [`.github/workflows/skill-scan.yml`](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/.github/workflows/skill-scan.yml); a manual run scans the examples.
+On a pull request it scans only the skills the pull request adds or changes. The Markdown report goes to the job summary, with the triage table the reviewer fills in. The SARIF upload shows each finding as an annotation on the changed line: high-risk signals as warnings, context matches as notes. The SARIF leaves out GitHub's `security-severity` rating on purpose, so the code-scanning check annotates without failing; a team that wants a gate sets `fail-on`. Inputs: `paths` (default `changed`), `fail-on` (default `never`), `cutoff`, `rules`, `sarif-file`. Outputs: `outcome`, `high-risk-findings`, `sarif-file`. This repository runs it on itself in [`.github/workflows/skill-scan.yml`](https://github.com/jeraddunne/csc580-group9-msr2027/blob/main/.github/workflows/skill-scan.yml); a manual run scans the examples.
 
 ### VS Code extension, while editing
 

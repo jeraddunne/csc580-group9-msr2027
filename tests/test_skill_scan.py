@@ -216,6 +216,8 @@ def test_sarif_levels_and_rule_index(ruleset, monkeypatch):
         assert result["level"] in {"warning", "note"}
     levels = {r["ruleId"]: r["level"] for r in run["results"]}
     assert levels["R-RCE-001"] == "warning" and levels["R-SHL-001"] == "note"
+    # Without security-severity, GitHub code scanning annotates but does not fail the check.
+    assert all("security-severity" not in r["properties"] for r in rules)
 
 
 def test_exit_codes_and_extra_outputs(tmp_path, monkeypatch, capsys):

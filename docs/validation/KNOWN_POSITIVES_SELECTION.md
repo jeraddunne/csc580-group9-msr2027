@@ -71,17 +71,21 @@ On 2026-10-21, Leticia Aderhold reviewed the complete stored SKILL.md text for a
 - [x] Jerad retrieves the selected records using the documented IDs.
 - [x] Jerad runs the scanner using a committed, reproducible command.
 - [x] A results CSV records expected categories, reported categories, hits, and misses.
-- [x] Misses are documented in docs/validation/RULE_CHANGE_PROPOSALS.md or a new issue. No candidate was missed; the five detected only below the high-risk cutoff are tracked in #132.
-
+- [x] Misses are documented in `docs/validation/RULE_CHANGE_PROPOSALS.md` or a new issue. All ten candidates matched a rule in their expected category. The five without a high-risk match in their expected category are tracked in #132.
+      
 ## Results (2026-10-27)
 
 Command: `make ground-truth` (`python scripts/ground_truth_check.py`) on commit 8e2ce36. Outputs: `results/ground_truth_check.csv` (one row per candidate) and `results/ground_truth_summary.csv` (one row per expected category, plus a total).
 
-All ten candidates were found in the sample by their IDs, and for each one a rule of the expected category matched the SKILL.md text: 10 detected, 0 missed. Five were detected at high risk, meaning a matching rule of that category has severity 6 or more: both PERSISTENCE candidates, the PRIVILEGE and DESTRUCTIVE candidates, and one of the two TOOL_GRANT candidates. The other five matched only context rules below severity 6: both CREDENTIALS candidates (`R-CRD-002`, severity 5), both NETWORK candidates (`R-NET-001`, severity 4), and one TOOL_GRANT candidate (`R-TGR-002`, severity 1). In the review workflow (`docs/research/REVIEW_WORKFLOW.md`, step 4), those five would take the "no high-risk signal" path: their matches appear only in the context section of the scan report, and no finding would be triaged. Two candidates have bundled scripts; one candidate's scripts matched CREDENTIALS and NETWORK rules, and no category was reported for the other's.
+All ten candidates were found by ID and matched at least one rule in their expected category in `SKILL.md`. Five matched a rule at severity 6 or above in their expected category. The other five matched only context rules in their expected categories: two CREDENTIALS candidates (`R-CRD-002`, severity 5), two NETWORK candidates (`R-NET-001`, severity 4), and one TOOL_GRANT candidate (`R-TGR-002`, severity 1).
+
+Of those five, four had no high-risk match in the recorded `SKILL.md` scan. Candidate `4bcf122319412600` also matched `R-DST-001` (DESTRUCTIVE, severity 6), so it would enter the high-risk review path in step 4 of `docs/research/REVIEW_WORKFLOW.md`. Its expected category, CREDENTIALS, matched only `R-CRD-002` at severity 5.
+
+Two candidates had bundled scripts. One candidate's scripts matched CREDENTIALS and NETWORK rules. The other candidate's scripts produced no category matches.
 
 What these five mean for the rules or for the severity cutoff is not decided here; it is tracked in #132.
 
-| Expected category | Candidates | Detected | Detected at high risk | Missed |
+| Expected category | Candidates | Detected | High-risk match in expected category | Missed |
 |---|---:|---:|---:|---:|
 | CREDENTIALS | 2 | 2 | 0 | 0 |
 | DESTRUCTIVE | 1 | 1 | 1 | 0 |

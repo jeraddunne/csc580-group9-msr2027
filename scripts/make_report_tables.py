@@ -61,9 +61,7 @@ def precision_rows():
     ordered = sorted(rows.values(), key=lambda row: -float(row["strict_precision"]))
     for row in ordered:
         label, _ = CAPABILITIES[row["category"]]
-        counts = " / ".join(
-            count(row[key]) for key in ("risky", "benign_context", "not_present")
-        )
+        counts = " / ".join(count(row[key]) for key in ("risky", "benign_context", "not_present"))
         yield (
             label,
             count(row["n"]),
@@ -105,9 +103,7 @@ def prevalence_rows():
 def replace_rows(report, number, rows):
     pattern = rf"(^Table {number}\. [^\n]+\n\n\|[^\n]+\n\|[^\n]+\n)(?:\|[^\n]*\n)+"
     body = "".join("| " + " | ".join(row) + " |\n" for row in rows)
-    report, matches = re.subn(
-        pattern, lambda match: match[1] + body, report, flags=re.MULTILINE
-    )
+    report, matches = re.subn(pattern, lambda match: match[1] + body, report, flags=re.MULTILINE)
     if matches != 1:
         raise SystemExit(f"Expected one Markdown table for Table {number}, found {matches}.")
     return report

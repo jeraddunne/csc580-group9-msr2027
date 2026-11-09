@@ -1,6 +1,6 @@
 # Error analysis and inspected examples
 
-Status: 2026-11-03. Partial evidence for issue #29. False-negative investigation and independent review remain pending.
+Status (2026-11-09). Partial evidence for issue #29. One false-negative example is documented. Review of the remaining candidates and independent review of this update are pending.
 
 ## Scope and evidence
 
@@ -108,12 +108,14 @@ Limitation: The excerpts do not prove effective container isolation or establish
 
 The existing round 1 no-signal annotations contain 40 `NONE_PRESENT` judgments and no recorded misses. Many notes identify truncated excerpts. This supports reporting no misses observed in the inspected excerpts; it does not establish that the scanner has no false negatives.
 
-No confirmed false-negative worked example is documented here yet. The known-positive selection and its corresponding check results still need examination. Any confirmed miss must be recorded with its item identifier, expected capability, observed scanner result, inspected evidence, and failure explanation. False negatives must not be invented to satisfy the acceptance criterion.
+### Unrestricted Bash missed in a multiline tool declaration
+
+Manual inspection of candidate `0ecf482604f02042` found unrestricted `Bash` on source line 9 as a YAML list item under `allowed-tools` on line 8. The [recorded ground-truth scan](../../results/ground_truth_check.csv) matched `R-TGR-002` (severity 1) in the `TOOL_GRANT` category and missed the expected `R-TGR-001` match (severity 6). The plain-Bash pattern checks the same line as the `allowed-tools` key, so it missed the grant at the high-risk cutoff. The rule investigation is tracked in [issue #132](https://github.com/jeraddunne/csc580-group9-msr2027/issues/132).
 
 ## Remaining work
 
-- Examine known-positive check results and inspect any confirmed misses.
-- Document a worked example for each confirmed false-negative failure category.
+- Review the four remaining known-positive cases tracked in issue #132.
+- Document a worked example for each additional confirmed false-negative failure category.
 - Obtain review from a member other than the author.
 - Link this document from issue #29.
 - Keep issue #29 open until its acceptance criteria are verified.

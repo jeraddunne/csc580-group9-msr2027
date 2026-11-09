@@ -115,8 +115,7 @@ No confirmed false-negative worked example is documented here yet. The known-pos
 - Examine known-positive check results and inspect any confirmed misses.
 - Document a worked example for each confirmed false-negative failure category.
 - Obtain review from a member other than the author.
-- Record AI assistance in `ai-use-log.md`.
-- Link this document from the validation README and issue #29.
+- Link this document from issue #29.
 - Keep issue #29 open until its acceptance criteria are verified.
 
 ## References

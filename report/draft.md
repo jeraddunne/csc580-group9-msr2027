@@ -5,16 +5,16 @@ author:
   - Leticia Aderhold
   - Jerad Dunne
   - Hina Kramer
-date: "Draft, updated 2026-09-14"
+date: "Draft, updated 2026-11-09"
 bibliography: references.bib
 link-citations: true
 ---
 
 <!--
-Status on 2026-11-03: round 1 validation is reported in Evaluation and validation (Table 2).
-Abstract, Discussion, and Conclusion now incorporate those results while distinguishing
-scanner signals from confirmed risky capabilities. Signal intra-rater checking and
-independent review of these revisions remain pending.
+Status on 2026-11-09: round 1 validation is reported in Evaluation and validation
+(Table 2). The Abstract, Discussion, and Conclusion distinguish scanner signals
+from confirmed risky capabilities. Hina Kramer approved the round 1 report
+revisions in PR #144. Signal intra-rater checking remains pending under issue #101.
 -->
 
 # Abstract

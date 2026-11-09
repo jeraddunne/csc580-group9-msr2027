@@ -73,10 +73,10 @@ pipeline: analyze ## Run the research pipeline end to end (P-01 analysis)
 figures: analyze ## Regenerate every research table and figure
 
 validation-score: ## Regenerate validation tables from committed labels
- $(PY) scripts/annotation_kit.py score
+	$(PY) scripts/annotation_kit.py score
 
 workflow-diagrams: ## Regenerate the workflow SVGs
- $(PY) scripts/make_workflow_diagrams.py
+	$(PY) scripts/make_workflow_diagrams.py
 
 # Requirements engineering (RESEARCH_SPEC.md, elicitation/).
 notebook-sources: ## Build the elicitation notebook's source pack into build/notebook_sources

@@ -29,6 +29,8 @@ exclude_docs: |
   /app/tests/
   /app/package.json
   /app/README.md
+  /examples/
+  /tools/
   *.py
   *.ipynb
   *.bat
@@ -102,6 +104,7 @@ nav:
       - Threat model: docs/research/THREAT_MODEL.md
       - Rule catalog: docs/research/RULE_CATALOG.md
       - Review workflow (draft): docs/research/REVIEW_WORKFLOW.md
+      - "Final tool: skill-scan": docs/TOOL.md
       - Threats to validity: THREATS_TO_VALIDITY.md
       - Results: results/README.md
       - Figures: figures/README.md

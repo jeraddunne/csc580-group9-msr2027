@@ -1,0 +1,132 @@
+name: "Skill scan"
+description: >-
+  Scan agent skills (SKILL.md and their bundled scripts) for risk signals with Group 9's
+  validated rule file, and report them for a person to review. A rule match is a signal,
+  not a verdict, so by default the action never fails the check.
+author: "CSC 580 Group 9"
+branding:
+  icon: "shield"
+  color: "blue"
+
+inputs:
+  paths:
+    description: >-
+      What to scan, separated by spaces or new lines. "changed" (the default) scans the skills
+      that a pull request adds or changes; on any other event it scans the whole repository.
+    required: false
+    default: "changed"
+  fail-on:
+    description: "Fail the step on: never (default), high-risk, incomplete, or any."
+    required: false
+    default: "never"
+  cutoff:
+    description: "High-risk severity cutoff. Empty uses the rule file's value (6)."
+    required: false
+    default: ""
+  rules:
+    description: "Rule file. Empty uses the rule file shipped with this action."
+    required: false
+    default: ""
+  sarif-file:
+    description: "Where to write the SARIF report for code scanning. Empty skips it."
+    required: false
+    default: "skill-scan.sarif"
+  python-version:
+    description: "Python version used to run the scanner."
+    required: false
+    default: "3.12"
+
+outputs:
+  outcome:
+    description: "high_risk, incomplete, no_high_risk_signal, or none (nothing to scan)."
+    value: ${{ steps.scan.outputs.outcome }}
+  high-risk-findings:
+    description: "Number of high-risk findings across all scanned skills."
+    value: ${{ steps.scan.outputs.high_risk_findings }}
+  sarif-file:
+    description: "Path of the SARIF report, or empty when none was written."
+    value: ${{ steps.scan.outputs.sarif_file }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install skill-scan
+      shell: bash
+      run: |
+        root="$(cd "$GITHUB_ACTION_PATH/../../.." && pwd)"
+        python -m pip install --quiet --disable-pip-version-check "pyyaml>=6" "pandas>=2.2"
+        python -m pip install --quiet --disable-pip-version-check --no-deps "$root"
+        echo "SKILL_SCAN_ROOT=$root" >> "$GITHUB_ENV"
+
+    - name: Scan
+      id: scan
+      shell: bash
+      env:
+        INPUT_PATHS: ${{ inputs.paths }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_CUTOFF: ${{ inputs.cutoff }}
+        INPUT_RULES: ${{ inputs.rules }}
+        INPUT_SARIF: ${{ inputs.sarif-file }}
+        EVENT_NAME: ${{ github.event_name }}
+        BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      run: |
+        set -euo pipefail
+        rules="${INPUT_RULES:-$SKILL_SCAN_ROOT/rules/skill_risk_rules.yaml}"
+        args=(--rules "$rules")
+        [ -n "$INPUT_CUTOFF" ] && args+=(--cutoff "$INPUT_CUTOFF")
+
+        targets=()
+        if [ "$INPUT_PATHS" = "changed" ]; then
+          if [ "$EVENT_NAME" = "pull_request" ] || [ "$EVENT_NAME" = "pull_request_target" ]; then
+            git fetch --no-tags --depth=1 origin "$BASE_SHA" >/dev/null 2>&1 || true
+            while IFS= read -r file; do
+              [ -f "$file" ] && targets+=("$file")
+            done < <(git diff --name-only --diff-filter=d "$BASE_SHA" HEAD)
+            args+=(--skills-only)
+          else
+            targets=(.)
+          fi
+        else
+          read -r -a targets <<< "$(echo "$INPUT_PATHS" | tr '\n' ' ')"
+        fi
+
+        if [ "${#targets[@]}" -eq 0 ]; then
+          echo "## Skill scan" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "No changed files to scan." >> "$GITHUB_STEP_SUMMARY"
+          { echo "outcome=none"; echo "high_risk_findings=0"; echo "sarif_file="; } >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        writes=(--write "markdown:skill-scan.md" --write "json:skill-scan.json")
+        [ -n "$INPUT_SARIF" ] && writes+=(--write "sarif:$INPUT_SARIF")
+
+        status=0
+        skill-scan "${targets[@]}" "${args[@]}" "${writes[@]}" --fail-on "$INPUT_FAIL_ON" || status=$?
+        if [ "$status" -ge 2 ]; then
+          echo "::error::skill-scan could not run (exit $status)"
+          exit "$status"
+        fi
+
+        cat skill-scan.md >> "$GITHUB_STEP_SUMMARY"
+        python - <<'PY' >> "$GITHUB_OUTPUT"
+        import json
+        s = json.load(open("skill-scan.json", encoding="utf-8"))["summary"]
+        if s["units"] == 0:
+            outcome = "none"
+        elif s["high_risk"] or s["with_high_risk_findings"]:
+            outcome = "high_risk"
+        elif s["incomplete"]:
+            outcome = "incomplete"
+        else:
+            outcome = "no_high_risk_signal"
+        print(f"outcome={outcome}")
+        print(f"high_risk_findings={s['high_risk_findings']}")
+        PY
+        echo "sarif_file=$INPUT_SARIF" >> "$GITHUB_OUTPUT"
+        exit "$status"

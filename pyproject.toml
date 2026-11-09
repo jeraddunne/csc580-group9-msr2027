@@ -47,6 +47,7 @@ dev = [
 
 [project.scripts]
 msr-pipeline = "msr_pipeline.cli:main"
+skill-scan = "msr_pipeline.skill_scan:main"
 
 [project.urls]
 Repository = "https://github.com/jeraddunne/csc580-group9-msr2027"

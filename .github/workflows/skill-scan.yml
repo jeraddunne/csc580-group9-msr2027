@@ -1,0 +1,62 @@
+name: Skill scan
+
+# Runs the skill-scan action (#150) on pull requests that add or change agent skills, writes the
+# report to the job summary, and uploads SARIF so findings show as pull-request annotations.
+# It reports; it does not block (fail-on: never). A person reviews the findings
+# (docs/research/REVIEW_WORKFLOW.md). Manual runs scan the synthetic examples.
+
+on:
+  pull_request:
+    paths:
+      - "**/SKILL.md"
+      - "**/skill.md"
+      - "**/skills/**"
+      - "examples/skill-scan/**"
+      - "rules/skill_risk_rules.yaml"
+      - "src/msr_pipeline/skill_scan.py"
+      - ".github/actions/skill-scan/**"
+      - ".github/workflows/skill-scan.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    name: Scan changed skills
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan
+        id: scan
+        uses: ./.github/actions/skill-scan
+        with:
+          paths: ${{ github.event_name == 'pull_request' && 'changed' || 'examples/skill-scan' }}
+          fail-on: never
+
+      - name: Upload SARIF to code scanning
+        if: always() && steps.scan.outputs.sarif-file != ''
+        uses: github/codeql-action/upload-sarif@v3
+        continue-on-error: true
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif-file }}
+          category: skill-scan
+
+      - name: Keep the reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-scan-report
+          path: |
+            skill-scan.md
+            skill-scan.json
+            skill-scan.sarif
+          if-no-files-found: ignore
+          retention-days: 14

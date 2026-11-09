@@ -20,7 +20,7 @@ PY ?= $(if $(wildcard $(VENV_PY)),$(VENV_PY),$(BOOTSTRAP_PY))
 
 .PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec ground-truth scan-examples
 
-.PHONY: validation-score workflow-diagrams
+.PHONY: validation-score workflow-diagrams report-tables
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-12s %s\n", $$1, $$2}'
@@ -77,6 +77,9 @@ validation-score: ## Regenerate validation tables from committed labels
 
 workflow-diagrams: ## Regenerate the workflow SVGs
 	$(PY) scripts/make_workflow_diagrams.py
+
+report-tables: ## Regenerate the numbered Markdown tables from the source CSVs
+	$(PY) scripts/make_report_tables.py
 
 # Requirements engineering (RESEARCH_SPEC.md, elicitation/).
 notebook-sources: ## Build the elicitation notebook's source pack into build/notebook_sources

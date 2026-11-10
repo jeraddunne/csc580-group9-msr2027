@@ -139,14 +139,16 @@ Record documented contributions separately from planned responsibilities. Open P
 |---|---|---|
 | Points planned / completed | October 22 dashboard: 19 committed / 16 completed | October 22 dashboard: 16 committed / 3 completed; reconcile with planning PR #92; final review totals pending |
 | Issues closed | Pending dashboard verification | Pending dated Sprint 2 metrics snapshot |
-| PRs merged / merged with an approving review from another member | Pending dashboard verification | Pending verification of merged PRs and approving reviews |
-| Median PR first-review turnaround (hours) | Pending dashboard verification | Pending metrics output |
+| PRs merged / merged with an approving review from another member | 21 merged / 13 approved before merge | 36 merged / 36 approved before merge |
+| Median PR first-review turnaround (hours) | 51.1 | 4.2 |
 | Median cycle time (days) | Pending dashboard verification | Pending metrics output |
-| Median PR open-to-merge time (hours) | Pending dashboard verification | Pending metrics output |
+| Median PR open-to-merge time (hours) | 48.1 | 16.7 |
 | CI pass rate | Pending dashboard verification | Pending aggregate metrics; individual passing PR checks do not establish the sprint pass rate |
 | Rework items | Pending dashboard verification | Pending metrics output |
 | Contribution share per member (min / max) | Pending dashboard verification | Pending verified contribution counts |
 | Test count / coverage | Pending recorded test results | 219 passed in 30.72 seconds; 97% total coverage; Python 3.12.15; commit `8e2ce36`; [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556) |
+
+The three PR metrics come from the [PR review audit](../../lean-six-sigma/metrics/pr_review_audit.csv). The Sprint 2 audit window was October 8–28, 2026, Eastern Time. Approval counts include bot-authored PRs. Timing medians cover PRs authored by team members.
 
 ### October 22 process snapshot
 
@@ -160,7 +162,7 @@ Source: [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated Oc
 | Contribution shares | Leticia 0.28; Jerad 0.60; Hina 0.11 |
 | Aggregate CI pass rate | Unavailable: no workflow runs captured |
 
-Final October 28 review measurements remain pending.
+The sprint-specific PR metrics are recorded in the table above. The other pending review measurements still need verification.
 
 ## Backlog changes proposed for review
 

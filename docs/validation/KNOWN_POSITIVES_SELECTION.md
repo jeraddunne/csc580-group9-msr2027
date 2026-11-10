@@ -95,7 +95,7 @@ What these five mean for the rules or for the severity cutoff is not decided her
 | TOOL_GRANT | 2 | 2 | 1 | 0 |
 | Total | 10 | 10 | 5 | 0 |
 
-| ID | Expected category | Rules of that category that matched SKILL.md (severity) | Detected at high risk | Bundled scripts scanned | Categories in bundled scripts |
+| ID | Expected category | Rules of that category that matched SKILL.md (severity) | High-risk match in expected | Bundled scripts scanned | Categories in bundled scripts |
 |---|---|---|---|---|---|
 | f699537c00478727 | NETWORK | `R-NET-001` (4) | no | 0 | - |
 | 46aa89b2bc8739e4 | CREDENTIALS | `R-CRD-002` (5) | no | 0 | - |

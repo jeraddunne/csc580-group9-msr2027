@@ -1,6 +1,6 @@
 # Error analysis and inspected examples
 
-Status (2026-11-09). Partial evidence for issue #29. One false-negative example is documented. Review of the remaining candidates and independent review of this update are pending.
+Status (2026-11-10). The Bash false-negative example and the review of four additional known-positive cases are documented for issue #29. The Loa and Attio high-risk classifications are pending teammate review.
 
 ## Scope and evidence
 
@@ -112,11 +112,21 @@ The existing round 1 no-signal annotations contain 40 `NONE_PRESENT` judgments a
 
 Manual inspection of candidate `0ecf482604f02042` found unrestricted `Bash` on source line 9 as a YAML list item under `allowed-tools` on line 8. The [recorded ground-truth scan](../../results/ground_truth_check.csv) matched `R-TGR-002` (severity 1) in the `TOOL_GRANT` category and missed the expected `R-TGR-001` match (severity 6). The plain-Bash pattern checks the same line as the `allowed-tools` key, so it missed the grant at the high-risk cutoff. The rule investigation is tracked in [issue #132](https://github.com/jeraddunne/csc580-group9-msr2027/issues/132).
 
+### Review of the four remaining known-positive cases
+
+The source text was inspected in the local SQLite sample and compared with the [recorded ground-truth scan](../../results/ground_truth_check.csv). The review used the existing scan results and did not execute any candidate commands.
+
+| Candidate ID | Source lines | Recorded match in expected category | Outcome | Reason |
+|---|---|---|---|---|
+| `f699537c00478727` | 99 | `R-NET-001` (severity 4) | Context match appropriate | The discovery command fetches a registry manifest over HTTPS from `raw.githubusercontent.com`. The command shows no upload, credential use, or execution of the response. |
+| `46aa89b2bc8739e4` | 51, 69 and the surrounding `set` workflow | `R-CRD-002` (severity 5) | High-risk classification needs review | The skill checks credential status and documents encrypted storage. Its `set` example places a value placeholder in a Python command argument. Substituting a real secret there could expose it before encryption. |
+| `4bcf122319412600` | 47–59 and the packaging step | `R-CRD-002` (severity 5) | High-risk classification needs review | The script authenticates to Attio's API and records the key's first three characters and total length in `summary.txt`. The support archive includes that summary. |
+| `e7d2878c01a255b3` | 140–150 and the CI/CD example | `R-NET-001` (severity 4) | Context match appropriate for the documented workflow | The skill uploads scanner reports to a configured DefectDojo API. The CI/CD example gets the destination from a repository secret. The actual destination and its authorization were not verified. |
+
 ## Remaining work
 
-- Review the four remaining known-positive cases tracked in issue #132.
+- Ask a teammate to assess whether the Loa credential-handling example and the Attio debug-bundle example meet the high-risk criteria. Add a worked example for each newly confirmed false-negative failure category.
 - Document a worked example for each additional confirmed false-negative failure category.
-- Obtain review from a member other than the author.
 - Link this document from issue #29.
 - Keep issue #29 open until its acceptance criteria are verified.
 

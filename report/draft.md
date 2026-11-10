@@ -217,11 +217,23 @@ Future work includes completing the planned signal intra-rater check, expanding 
 
 - **Repository.** https://github.com/jeraddunne/csc580-group9-msr2027. The release tag is to be set at the Sprint 3 review.
 - **Setup and data.** Run `make setup`, then `make data`. The GitSkills sample downloads to `data/samples/` and is not redistributed.
-- **Reproduce every table and figure.** Run `python -m msr_pipeline analyze` (286 seconds on a laptop).
 - **Validation.** Run `python scripts/annotation_kit.py sample`, then `sheet --rater <id> --round 1`, label, then `score`. Label files live in `data/annotations/`, and reading packets are generated locally and never committed.
 - **Pilot.** `python -m msr_pipeline risk-pilot` reproduces the proposal's pilot tables.
 - **Data availability.** GitSkills full dataset: doi:10.5281/zenodo.21875637; sample: the dataset authors' GitHub repository. Dataset content is not redistributed in this repository.
 - **Process.** The project was run as Scrum with a Lean Six Sigma overlay [@schwaber2020; @george2002], by a four-person team that became three when Allie Hodges left the course in Sprint 2 (D-025), with rotating Product Owner and Scrum Master roles (ADR-0006). The most important process improvement, with before-and-after numbers, is to be added at the Sprint 3 retrospective.
 - **AI-use disclosure.** AI assistance is logged in `ai-use-log.md`, including what was generated and how it was verified.
+
+ ## Table and figure sources
+
+Run `make figures`, `make validation-score`, `make workflow-diagrams`, and `make report-tables` in that order after setting up the repository and downloading the sample.
+
+| Report item | Source | Generation target |
+|---|---|---|
+| Research-question summary | Authored research questions and measures in this report | Pending reviewer confirmation on whether this prose table needs a generator |
+| Table 1 — Population flow | `results/population_flow.csv` | `make figures`, then `make report-tables` |
+| Table 2 — Validation of high-risk signals | `results/validation_precision_by_category.csv` | `make validation-score`, then `make report-tables` |
+| Table 3 — High-risk signals | `results/rq1_prevalence_by_rule.csv`, `results/rq1_prevalence_by_category.csv`, and `results/population_flow.csv` | `make figures`, then `make report-tables` |
+| Figure 2 — Review workflow activity diagram | `scripts/make_workflow_diagrams.py` | `make workflow-diagrams` |
+| Supporting research plots | `figures/rq1_prevalence_by_category.png`, `figures/rq2_copies_by_group.png`, and `figures/rq3_threshold_sweep.png` | `make figures` |
 
 # References

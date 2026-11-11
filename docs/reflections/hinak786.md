@@ -1,65 +1,86 @@
 # Individual contribution and reflection: Hina Kramer (@hinak786)
 
-Status: Working draft, updated 2026-10-01.
+Status: Working draft, updated 2026-11-10. Sprint 3 is ongoing.
 Related to [issue #39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39).
 
 ## 1. Roles held
 
-| Period | Role | Main responsibility |
+Roles follow [project.yml](../../project.yml) and the [team charter](../../TEAM_CHARTER.md).
+
+| Period | Role | Main responsibility or status |
 |---|---|---|
-| Formation (Sep 10–16) | To confirm from team records | To document |
-| Sprint 1 (Sep 17–Oct 7) | Formal role to confirm | Onboarding documentation and GitHub workflow practice |
-| Sprint 2 (Oct 8–28) | Period not started | Update after participation |
-| Sprint 3 (Oct 29–Nov 18) | Period not started | Update after participation |
-| Finalization (Nov 30–Dec 4) | Period not started | Update after participation |
+| Formation (Sep 10–16) | Developer/Researcher in the recorded rotation | Participation details not yet documented here |
+| Sprint 1 (Sep 17–Oct 7) | Developer/Researcher | Onboarding, guided reproduction, documentation, and peer review |
+| Sprint 2 (Oct 8–28) | Scrum Master and Researcher | Process tracking, lineage second-rating, reproduction, and peer review |
+| Sprint 3 (Oct 29–Nov 18) | Developer/Researcher | Report and PR reviews, evidence checks, and follow-up; ongoing |
+| Finalization (Nov 30–Dec 4) | Product Owner in the planned rotation | Period has not started |
 
 ## 2. Contribution summary
+
 | Area | What I did | Evidence | Sprint |
 |---|---|---|---|
-| Process and team documentation | Updated my member profile, added my charter signature, and disclosed AI assistance. | [PR #77](https://github.com/jeraddunne/csc580-group9-msr2027/pull/77) | 1 |
-| Reproduction and testing | Used the documented Windows workflow with ChatGPT guidance to reproduce all 14 result files. Ran the local test suite: 166 passed, with 96% code coverage. | [PR #79](https://github.com/jeraddunne/csc580-group9-msr2027/pull/79) | 1 |
-| Peer review | Requested clarification of conflicting meeting availability in PR #75. Suggested clearer PowerShell activation instructions and an explicit repository-root starting point in PR #76. | [PR #75](https://github.com/jeraddunne/csc580-group9-msr2027/pull/75) · [PR #76](https://github.com/jeraddunne/csc580-group9-msr2027/pull/76)  | 1 |
+| Team documentation | Updated my profile and charter signature, started this reflection, and recorded my October 2 stand-up. | [PR #77][77], [PR #78][78], [PR #83][83] | 1 |
+| Reproduction and testing | Used the Windows workflow with ChatGPT guidance. All 14 compared result files matched; my recorded local test run passed 166 tests with 96% coverage. | [PR #79][79] | 1 |
+| Validation | Selected and submitted round 1 lineage labels for all 58 frozen sample pairs as rater `hk`. I chose the labels and supplied the observation in my uncertainty note. | [PR #121][121] | 2 |
+| Fresh reproduction | Reproduced the analysis from a fresh ZIP snapshot on Windows 11 with Python 3.12.10. All 14 compared CSVs matched. Analysis took 2.1 minutes; recorded elapsed time was 71.6 minutes, including setup and pauses. | [PR #136][136] | 2 |
+| Validation review | Reviewed the validity of the submitted drift-label file with Codex assistance while preserving the rater’s judgments. | [PR #90][90] | 2 |
+| Calculation review | With Codex assistance, identified that the FMEA calculation mixed context-match counts with precision measured on high-risk matches. Requested a correction and regression test, then approved the corrected version after documented rechecks. | [PR #127][127] | 2 |
+| Report review | Reviewed numerical claims and interpretation with Codex assistance, including the distinction between scanner signals and validated findings. Approved the revised report after the merge conflict was resolved. | [PR #144][144] | 3 |
+| Regeneration review | Reviewed Make targets, source mapping, and AI-use disclosures. Requested restoration of an earlier log entry and correction of the PR description; recorded the follow-up checks. Full clean-checkout verification remains pending under #30. | [PR #153][153] | 3 |
 
-At the time of this update, PR #77 was awaiting teammate approval and merge.
-
-Additional contributions will be recorded with evidence links.
-
-Approximate hours: not yet compiled from stand-up files. No total is claimed in this draft.
+Hours have not yet been totaled from the stand-up records. The reproduction session duration above is not a total contribution-hours figure.
 
 ## 3. What I learned
 
-I practiced editing Markdown on a branch, committing changes, preparing a pull request, checking automated results, and requesting teammate review.
+I practiced editing Markdown on a branch, committing changes, preparing pull requests, and following up on review feedback.
 
-I learned that passing automated checks and receiving a teammate's approval are separate steps. Contribution records should also distinguish between work that has been prepared, submitted, reviewed, and merged.
+Reproducing the outputs helped me connect commands, environments, and evidence. I learned why the snapshot identifier, Python version, analysis runtime, and total elapsed time need to be recorded separately.
 
-My reflections on the dataset, research reasoning, and Scrum/Lean Six Sigma metrics will be expanded after the relevant work.
+The validation work helped me distinguish scanner matches from human-validated findings. The FMEA review showed why the population used in a calculation must match the population used to measure precision.
+
+I also learned that passing automated checks, receiving approval, and meeting an issue’s acceptance criteria are separate steps. Before-and-after process metrics show changes, but do not establish their cause by themselves.
 
 ## 4. What I would change
 
-- My own work: use a short checklist and record evidence links as I complete each task.
-- Team workflow: clarify differences between deadlines listed in issues and repository documents.
-- Project design: provide a small guided walkthrough that connects a research question, a dataset example, and a pipeline output.
+- Record evidence links and work time as I complete each task.
+- Clarify conflicting deadlines and acceptance criteria earlier.
+- Use a short walkthrough connecting each research question to its inputs, command, output, and limitations.
 
 ## 5. Honest self-assessment
 
-Ratings will be completed using evidence from the full project.
+Personal ratings remain pending my final review.
 
-| Question | Answer (1–5) | Evidence or current status |
+| Question | Rating (1–5) | Evidence to consider |
 |---|---|---|
-| I delivered what I committed to in sprint planning | Not yet rated | Compare completed work with sprint commitments |
-| My work was reviewed and I reviewed others' work | Not yet rated | PR #77 review pending; add submitted review links |
-| I raised blockers early | Not yet rated | Add relevant issue or stand-up evidence |
-| My contributions are traceable in the repository | Not yet rated | PR #77 links the current documentation changes |
-| I understood the results well enough to present any part | Not yet rated | Assess after reviewing the research results |
+| I delivered what I committed to | Pending | Compare sprint commitments with the contribution table |
+| My work was reviewed and I reviewed others’ work | Pending | [PR #121][121], [PR #136][136], and the linked reviews |
+| I raised blockers early | Pending | Review the timing of concerns in [PR #127][127] and [PR #153][153] |
+| My contributions are traceable | Pending | Evidence links in Section 2 |
+| I understood the results well enough to present them | Pending | Confirm through presentation preparation and rehearsal |
 
 ## 6. AI use statement
 
-- Tools used: ChatGPT assisted with onboarding explanations, documentation drafting, GitHub workflow guidance, review feedback preparation, and this reflection draft. Model version was not recorded.
-- Verification: final accuracy review of this reflection is pending. Its disclosure must be reflected in `ai-use-log.md` before submission for review.
-- Independent input: I supplied my personal availability. Additional work completed without AI assistance will be identified with evidence.
+ChatGPT/Codex assisted with Windows setup guidance, documentation drafting, GitHub workflow explanations, review preparation, source checks, and this update.
+
+I selected the lineage labels and supplied my uncertainty observation. The assistance and material shared during that work are described in [PR #121][121].
+
+I performed the recorded Windows reproduction runs locally. Checks executed by Codex are identified as such in the linked reviews.
+
+This reflection and [ai-use-log.md](../../ai-use-log.md) must remain consistent. My personal accuracy review and teammate review of this update are pending.
 
 ## 7. Signature
 
 Name: Hina Kramer
 
-Final confirmation and signature date are pending my accuracy review.
+Final accuracy confirmation and signature date: pending.
+
+[77]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/77
+[78]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/78
+[79]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/79
+[83]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/83
+[90]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/90
+[121]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/121
+[127]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/127
+[136]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/136
+[144]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/144
+[153]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/153

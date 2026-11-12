@@ -31,6 +31,8 @@ from msr_pipeline.skill_risk import (
 RULE_FILE = read_rule_file()
 RULES = load_rules()
 BY_ID = {r.id: r for r in RULES}
+# Proposed and retired rules do not run, but their examples are still enforced.
+ALL_BY_ID = {r.id: r for r in load_rules(include_inactive=True)}
 
 
 def _raw_rules():
@@ -40,7 +42,7 @@ def _raw_rules():
 @pytest.mark.parametrize("rid,raw", _raw_rules(), ids=[r for r, _ in _raw_rules()])
 def test_rule_examples(rid, raw):
     """Every rule's documented examples behave as documented (rule regression test)."""
-    rule = BY_ID[rid]
+    rule = ALL_BY_ID[rid]
     examples = raw.get("examples") or {}
     assert examples.get("match"), f"{rid} needs at least one match example"
     for text in examples.get("match", []):
@@ -54,6 +56,39 @@ def test_rule_file_is_consistent():
     assert len(ids) == len(set(ids))
     assert set(r.category for r in RULES) <= set(RULE_FILE["categories"])
     assert RULE_FILE["high_risk_severity"] == 6
+
+
+LIST_FORM_BASH = "---\nname: demo\nallowed-tools:\n  - Read\n  - Bash\n---\nBody text.\n"
+
+
+@pytest.mark.parametrize(
+    "front_matter,expected",
+    [
+        ("allowed-tools:\n  - Read\n  - Bash\n", True),
+        ("allowed-tools:\n  - Bash\n  - Read\n", True),
+        ("allowed-tools:\r\n  - Read\r\n  - Bash\r\n", True),
+        ("allowed-tools:\n  - 'Bash'\n", True),
+        ("allowed-tools:\n  - Read\n  - Bash(git status:*)\n", False),
+        ("allowed-tools:\n  - Read\n  - Bash(npm test)\n  - Grep\n", False),
+        ("allowed-tools:\n  - Read\nhooks:\n  - Bash\n", False),
+        ("allowed-tools:\n  - Read\n\nRun this in Bash\n", False),
+        ("allowed-tools: Read, Bash\n", False),
+    ],
+)
+def test_proposed_list_form_tool_grant(front_matter, expected):
+    """R-TGR-003 (proposed, #132): unscoped Bash as an item of an allowed-tools list."""
+    rule = ALL_BY_ID["R-TGR-003"]
+    assert rule.status == "proposed"
+    assert rule.matches(f"---\nname: demo\n{front_matter}---\nBody.\n") is expected
+
+
+def test_proposed_rule_does_not_run():
+    """A proposed rule changes no result: the active scan ignores it, and R-TGR-001 still misses."""
+    assert "R-TGR-003" not in BY_ID
+    active_hits = scan_text(LIST_FORM_BASH, RULES)
+    assert "R-TGR-003" not in active_hits
+    assert "R-TGR-001" not in active_hits and "R-TGR-002" in active_hits
+    assert "R-TGR-003" in scan_text(LIST_FORM_BASH, list(ALL_BY_ID.values()))
 
 
 def test_rules_from_dict_validation():

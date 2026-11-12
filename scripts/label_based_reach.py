@@ -57,9 +57,7 @@ def main():
     ).reset_index()
 
     label_sets = grouped.agg(set)
-    mixed = label_sets.map(
-        lambda values: "NONE_PRESENT" in values and len(values) > 1
-    )
+    mixed = label_sets.map(lambda values: "NONE_PRESENT" in values and len(values) > 1)
     if mixed.any():
         raise SystemExit("NONE_PRESENT is mixed with other labels for a content.")
 
@@ -86,25 +84,23 @@ def main():
         raise SystemExit(f"Unmatched labeled contents: {unmatched}")
 
     joined["group"] = "Flagged sample: no recorded RISKY finding"
-    joined.loc[joined["no_signal_judgment"], "group"] = (
-        "No-signal sample: NONE_PRESENT judgment"
-    )
-    joined.loc[joined["recorded_risky"], "group"] = (
-        "At least one recorded RISKY finding"
-    )
+    joined.loc[joined["no_signal_judgment"], "group"] = "No-signal sample: NONE_PRESENT judgment"
+    joined.loc[joined["recorded_risky"], "group"] = "At least one recorded RISKY finding"
 
-    summary = joined.groupby("group", sort=True).agg(
-        contents=("file_sha", "size"),
-        mean_copies=("copies", "mean"),
-        median_copies=("copies", "median"),
-    ).reset_index()
+    summary = (
+        joined.groupby("group", sort=True)
+        .agg(
+            contents=("file_sha", "size"),
+            mean_copies=("copies", "mean"),
+            median_copies=("copies", "median"),
+        )
+        .reset_index()
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     summary.to_csv(output_path, index=False, float_format="%.6f")
 
-    commit = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-    ).strip()
+    commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     metadata = {
         "input_commit": commit,
         "labels_path": labels_path.relative_to(ROOT).as_posix(),
@@ -130,9 +126,7 @@ def main():
             "Independent reproduction and acceptance review remain pending.",
         ],
     }
-    metadata_path.write_text(
-        json.dumps(metadata, indent=2) + "\n", encoding="utf-8"
-    )
+    metadata_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
 
     print(f"Matched labeled contents: {len(joined)}")
     print(f"Unmatched labeled contents: {unmatched}")

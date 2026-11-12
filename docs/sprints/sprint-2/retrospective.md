@@ -10,7 +10,7 @@ Date: 2026-10-28. Scrum Master: Hina Kramer. Review format: asynchronous; live a
 
 ## 1. Data first
 
-Sources: [Sprint 1 review](../sprint-1/review.md#velocity-and-kpis-at-the-october-7-review) and [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated October 25, 2026.
+Sources: [Sprint 1 review](../sprint-1/review.md#velocity-and-kpis-at-the-october-7-review) and the saved [October 25, 2026 snapshot](../../lean-six-sigma/metrics/snapshots/2026-10-25.json). The live [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md) now shows later data.
 
 Sprint 1 historical review-day figures and dated interim dashboard figures are retained with their original measurement windows. Verified full-sprint PR metrics are reported separately using the PR audit linked below. Other Sprint 2 measurements without dated sprint-specific evidence are unavailable; they are not zero.
 

@@ -1,6 +1,6 @@
 # Error analysis and inspected examples
 
-Status (2026-11-10). The Bash false-negative example and the review of four additional known-positive cases are documented for issue #29. The Loa and Attio high-risk classifications are pending teammate review.
+Status (2026-11-12). The Bash false-negative example and four additional known-positive cases are documented for issue #29. Jerad's source review classified Loa as context only and Attio as a confirmed CREDENTIALS false negative. The Attio worked example is included below. PR approval and issue acceptance verification remain pending.
 
 ## Scope and evidence
 
@@ -119,14 +119,31 @@ The source text was inspected in the local SQLite sample and compared with the [
 | Candidate ID | Source lines | Recorded match in expected category | Outcome | Reason |
 |---|---|---|---|---|
 | `f699537c00478727` | 99 | `R-NET-001` (severity 4) | Context match appropriate | The discovery command fetches a registry manifest over HTTPS from `raw.githubusercontent.com`. The command shows no upload, credential use, or execution of the response. |
-| `46aa89b2bc8739e4` | 51, 69 and the surrounding `set` workflow | `R-CRD-002` (severity 5) | High-risk classification needs review | The skill checks credential status and documents encrypted storage. Its `set` example places a value placeholder in a Python command argument. Substituting a real secret there could expose it before encryption. |
-| `4bcf122319412600` | 47–59 and the packaging step | `R-CRD-002` (severity 5) | High-risk classification needs review | The script authenticates to Attio's API and records the key's first three characters and total length in `summary.txt`. The support archive includes that summary. |
+| `46aa89b2bc8739e4` | 48–76, especially 68–69 | `R-CRD-002` (severity 5) | Context only; not a false negative | Jerad's source review found that line 68 prohibits credentials as command arguments and requires prompting with AskUserQuestion. Line 69 uses a VALUE placeholder. The status command reports configured/missing without printing credential values. |
+| `4bcf122319412600` | 52 and 122–123 | `R-CRD-002` (severity 5) | Confirmed CREDENTIALS false negative | Jerad's source review confirmed that partial API-key material is written to summary.txt and packaged in a support archive. The file already triggered `R-DST-001` at severity 6; the miss concerns CREDENTIALS rather than the overall high-risk review path. |
 | `e7d2878c01a255b3` | 140–150 and the CI/CD example | `R-NET-001` (severity 4) | Context match appropriate for the documented workflow | The skill uploads scanner reports to a configured DefectDojo API. The CI/CD example gets the destination from a repository secret. The actual destination and its authorization were not verified. |
+
+### Partial credential material written to a shareable artifact
+
+- Candidate: `4bcf122319412600` (Attio debug bundle).
+- Evidence: source line 52 and packaging lines 122–123.
+- Human classification: Jerad Dunne's [source review in PR #162](https://github.com/jeraddunne/csc580-group9-msr2027/pull/162).
+
+Observation: On the normal code path, line 52 writes the API key's length and first three characters into `summary.txt`. Lines 122–123 package that file into the support archive.
+
+Interpretation: Jerad classified this as a confirmed high-risk CREDENTIALS false negative because partial secret material is included by design in an artifact intended for sharing. The instructions against logging or sharing the full key do not prevent this partial disclosure.
+
+Scanner outcome: The recorded CREDENTIALS match was `R-CRD-002` at severity 5. The file separately matched `R-DST-001` at severity 6, so it already entered high-risk review for another category.
+
+Failure mode: Partial secret material written to a shareable artifact.
+
+Proposed improvement: Evaluate detection of partial credential values flowing into logs, summaries, and support bundles. Test synthetic positive and negative examples before adopting a rule change.
+
+Limitation: This documents the reviewed source behavior and existing scan results. No candidate commands were executed, no scanner fix was implemented, and no scanner rerun is claimed.
 
 ## Remaining work
 
-- Ask a teammate to assess whether the Loa credential-handling example and the Attio debug-bundle example meet the high-risk criteria. Add a worked example for each newly confirmed false-negative failure category.
-- Document a worked example for each additional confirmed false-negative failure category.
+- Obtain teammate review of the updated case outcomes and Attio worked example.
 - Link this document from issue #29.
 - Keep issue #29 open until its acceptance criteria are verified.
 

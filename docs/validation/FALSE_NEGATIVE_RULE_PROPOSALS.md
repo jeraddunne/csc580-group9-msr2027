@@ -12,6 +12,12 @@ Like every proposal, these become a decision issue and apply in a later round. A
 
 **Cost to state in the report.** Precision for the current pattern is 18 of 18 RISKY in round 1. A wider pattern adds matches that are not labelled, so that 1.00 applies only to the current pattern until the new matches are labelled.
 
+**Status (2026-11-12, D-027).** Added as a separate rule, `R-TGR-003`, with `status: proposed`. The active `R-TGR-001` is unchanged, so no result changes. The rule file holds its match and no-match examples, and `tests/test_skill_risk.py` checks the list form, the scoped form, a list under another key, and that the active scan ignores the rule.
+
+**What activation would change.** `make proposed-rule-impact` writes `results/proposed_rule_impact.csv`. In the main population of 12,965 contents, `R-TGR-003` matches 169 contents (393 occurrences). Fifteen are already high risk under another rule and 154 are not, so the high-risk count would go from 1,159 to 1,313 and the share from 8.9% to 10.1%. It matches the known positive `0ecf482604f02042`. None of the 169 matches has been labelled.
+
+**What activation needs.** A decision issue, a re-sample and labelling of the TOOL_GRANT stratum (D-017), and a regenerated analysis, report, and slides. Whether it stays a separate rule or merges into `R-TGR-001` is decided then.
+
 ## R-CRD-004: new rule (partial secret in shared output, severity 6)
 
 **What it misses.** Candidate `4bcf122319412600` writes an API key's first three characters and its length into a summary file. That file is packaged into an archive built for support tickets. The verdict is high risk, a confirmed false negative (PR #162). The only CREDENTIALS rule that matches is R-CRD-002, which matches the variable name alone at severity 5.

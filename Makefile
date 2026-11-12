@@ -18,7 +18,7 @@ endif
 # nobody has to activate it first (issue #71). Override with `make test PY=...`.
 PY ?= $(if $(wildcard $(VENV_PY)),$(VENV_PY),$(BOOTSTRAP_PY))
 
-.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec ground-truth scan-examples
+.PHONY: help setup data data-all test lint format explore analyze metrics tally reproduce clean pipeline figures notebook-sources interview interview-checks verify-spec ground-truth scan-examples proposed-rule-impact
 
 .PHONY: validation-score workflow-diagrams report-tables
 
@@ -93,6 +93,9 @@ interview-checks: ## Check the interview's data claims against the sample (V01 t
 
 ground-truth: ## Check the scanner against the known-positive skills (#97); writes results/ground_truth_*.csv
 	$(PY) scripts/ground_truth_check.py
+
+proposed-rule-impact: ## Count what each proposed rule would add if activated (#132); writes results/proposed_rule_impact.csv
+	$(PY) scripts/proposed_rule_impact.py
 
 scan-examples: ## Run skill-scan, the final tool (#150), on the synthetic example skills
 	$(PY) -m msr_pipeline scan examples/skill-scan

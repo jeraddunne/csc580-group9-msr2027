@@ -40,8 +40,8 @@ Evidence rows:
 Labelled matches: 15 | false positives: 11 | observed precision: 0.27
 Label spread: BENIGN_CONTEXT=6, NOT_PRESENT=5, RISKY=4
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: The pattern fires on any mention of a credential path, not on a read or transfer of the file. Of the 11 false positives, 6 are context: the path sits in a deny or block list, an audit finding or an attack test to reject (`012ce4e1`, `0035fe1d`, `00ecf9cc`, `014634f9`), a commented-out command (`01453c22`), or a sandboxed exercise (`0004314a`). The other 5 are not secret handling at all: `.npmrc` used for package-manager settings (`0067c2d9`, `012eda01`), `~/.ssh` read only to resolve a host alias (`01570f1a`), decoy credentials (`00ba580d`) and authentication reference text (`00972a00`). Round 2 changed 2 of the 6 re-rated rows (`00ba580d` NOT_PRESENT to BENIGN_CONTEXT, `01348557` RISKY to BENIGN_CONTEXT), because the guideline does not say how to label an agent that generates a new key pair or plants decoy credentials.
+What I would do: Keep severity 8 and the read-the-file intent, but take `.npmrc` and `.pypirc` out of the high-risk pattern (or keep them only on a line that names an auth token), and require a key file name after `~/.ssh` (for example `id_*` or `authorized_keys`) or a copy or archive command on the same line. That targets the `.npmrc` rows (`0067c2d9`, `012eda01`) and the host-alias row (`01570f1a`); check it against the 4 RISKY rows before adoption, and expect a small gain, because most false positives here are context, not wording. Add guideline 2.4 examples first: generating a new key pair and showing only the public key is BENIGN_CONTEXT, reading or sending an existing private key is RISKY, and planted decoy credentials get a stated label. Score the changed rule on a fresh sample (validation README, After a rule change).
 
 Evidence rows:
 
@@ -59,8 +59,8 @@ Evidence rows:
 Labelled matches: 21 | false positives: 11 | observed precision: 0.48
 Label spread: BENIGN_CONTEXT=10, NOT_PRESENT=1, RISKY=10
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: Half the matches are context, not damage. The 10 BENIGN_CONTEXT rows put the command in a deny, block or always-block list, an attack string to sanitise, or advice against it (`012ce4e1`, `015b31aa`, `014634f9`, `004c35c7`, `0036fb04`), in a comment (`01b17195`), in a container, temp or test-cache directory (`0004314a`, `0044b086`, `002f6408`), or behind a human click (`00652eb3`). The one NOT_PRESENT (`002b02be`) is noted as truncated: the packet did not show a destructive command. The rule also mixes two behaviours: 6 of the 10 RISKY rows are `rm -rf` on a staging, output, cache or broad Desktop path, and 4 are git history rewrites (hard reset, forced clean, force or force-with-lease push). Round 2 moved 2 of the 9 re-rated rows, both an unprompted `rm -rf` of regenerable build or output folders (`00477027`, `00d01b09`), from RISKY to BENIGN_CONTEXT; the guideline does not settle that case, and round 1 itself labelled a scoped test-cache deletion BENIGN_CONTEXT (`0044b086`).
+What I would do: Split the rule: move the git history patterns (`reset --hard`, `clean -f`, `push --force`, which also matches `--force-with-lease`) to a new id so each half gets its own precision, and keep `rm -rf` and its PowerShell and cmd forms at severity 6. Before re-scoring, rule in guideline 2.3 whether an unprompted `rm -rf` of a fixed, regenerable path (build output, `node_modules`, the skill's own temp directory) is BENIGN_CONTEXT or RISKY, and keep paths built from variables or wildcards RISKY (the ShellCheck SC2115 case the rule card cites). Show deny-list and comment context to the reviewer rather than suppressing it in the pattern; the same context produces false positives in R-CRD-001, R-RCE-001 and R-EXE-001.
 
 Evidence rows:
 
@@ -78,8 +78,8 @@ Evidence rows:
 Labelled matches: 11 | false positives: 8 | observed precision: 0.27
 Label spread: BENIGN_CONTEXT=8, RISKY=3
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: Every match was a real hard-coded address (no NOT_PRESENT, capability precision 1.00), so the pattern finds what it describes; most of the addresses are harmless. 4 of the 8 BENIGN_CONTEXT rows are private LAN hosts in homelab or development setups (`00024699`, `01163b19`, `0019b379`, `00ace9d5`), the false positive the rule note already names; the others are a disabled telemetry callback (`0058b51a`), a public resolver used inside a sandboxed setup (`008542dd`), and two metadata-address checks in a test pod or a spot-instance check (`018a7039`, `00e708bf`). Two of the 3 RISKY rows are also cloud-metadata requests, made from a compromised host or as SSRF (`017f98ab`, `015b31aa`); the third downloads configuration from a public IP (`003f518f`).
+What I would do: Exclude the RFC 1918 ranges (10/8, 172.16/12, 192.168/16) in the pattern the way loopback already is, and add them as no_match examples; on the notes this targets the 4 private-LAN rows and none of the 3 RISKY rows. Keep link-local addresses in, because the metadata endpoint appears on both sides (2 RISKY, 2 BENIGN_CONTEXT), and consider a separate cloud-metadata rule in CREDENTIALS, since the risk there is credential theft rather than an unnamed host. Keep severity 7. With 11 rows (strict 95% CI 0.10 to 0.57), score the changed rule on a fresh sample before the report quotes a new precision.
 
 Evidence rows:
 
@@ -96,8 +96,8 @@ Evidence rows:
 Labelled matches: 12 | false positives: 8 | observed precision: 0.33
 Label spread: BENIGN_CONTEXT=7, NOT_PRESENT=1, RISKY=4
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: Decoding is common and usually harmless. 7 of the 8 false positives are BENIGN_CONTEXT: data decoding (an image, CI signing certificates, API responses holding a config file or a SKILL.md, a signature file: `003e5a83`, `002194ad`, `018a1106`, `01b150d1`, `002f6408`), a local-cluster admin secret (`0166b054`), or malware patterns shown for analysis (`01618fca`). The NOT_PRESENT row is a detection query that only names the decoder (`0032b004`); round 2 re-labelled it BENIGN_CONTEXT. Only 2 of the 4 RISKY rows are obfuscation in the threat-model sense, a decoded payload piped into a shell (`0058b51a`, `0039127e`); the other 2 decode an administrator password from a cluster secret (`018a7039`, `002902fa`), which is credential exposure, not hidden code.
+What I would do: Split by what happens to the decoded output. Keep severity 7 only for decoding followed by execution on the same line (piped to a shell or interpreter, or passed to exec or Invoke-Expression), which covers both obfuscation RISKY rows in the notes, and keep the hex-escape pattern. Move plain `base64 -d` and `FromBase64String` to a context rule below 6. Move cluster-secret decoding (a secret read piped to `base64 -d`) to CREDENTIALS as its own rule, since that is where its risk sits. Settle in guideline 2.1 whether detection or hunting content that only names an encoding is NOT_PRESENT or BENIGN_CONTEXT (the `0032b004` disagreement).
 
 Evidence rows:
 
@@ -114,8 +114,8 @@ Evidence rows:
 Labelled matches: 13 | false positives: 7 | observed precision: 0.46
 Label spread: BENIGN_CONTEXT=4, NOT_PRESENT=3, RISKY=6
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: The four patterns behave differently. The permission-bypass flags (`--yolo`, `bypassPermissions`, a headless launch that skips permissions) carry 4 of the 6 RISKY rows (`000afb47`, `00f496c2`, `01600fa7`, `01b17195`), and the one BENIGN_CONTEXT flag row forbids the flag (`001a3130`). The instruction-override phrase mostly appears where a skill tells the agent to ignore such phrases or lists them for an auditor (`00db746d`, `00ecf9cc`, `0140f945`). All 3 NOT_PRESENT rows are oversight wording that hides nothing: a sentence that adds a check before files are written (`0069cb96`), one that avoids asking for a file location (`009ee535`), and one that tells the agent not to send the user to inspect install internals (`007d5239`). Round 2 changed 2 of the 5 re-rated rows in opposite directions: `007d5239` NOT_PRESENT to RISKY and `01b17195` RISKY to BENIGN_CONTEXT.
+What I would do: Split the rule. Give the permission-bypass flags their own id at severity 8 (in the notes they hold 4 RISKY rows and 1 BENIGN_CONTEXT row). Keep the instruction-override phrase and the two wording patterns ("do not tell the user", "without asking the user") together under the existing id and re-score them. Tighten the wording so a negated form ("never ... without asking the user") does not match; decide first, with `007d5239`, whether "do not tell the user to <inspect something>" is oversight suppression, and exclude "tell the user to" only if it is not. Add guideline 2.3 examples that separate text describing a bypass mode as a known limitation (`01b17195`) from text that turns the mode on.
 
 Evidence rows:
 
@@ -131,8 +131,8 @@ Evidence rows:
 Labelled matches: 16 | false positives: 7 | observed precision: 0.56
 Label spread: BENIGN_CONTEXT=5, NOT_PRESENT=2, RISKY=9
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: The persistence verbs are precise; the location mentions are not. All 4 rows that enable a systemd service or install a git hook are RISKY (`01137be9`, `018e6437`, `011272af`, `00ffaec6`). The false positives come from crontab and startup-file mentions: the 2 NOT_PRESENT rows only list cron entries or reload `.zshrc` after an install (`017f98ab`, `00ea56ba`), and the 5 BENIGN_CONTEXT rows show the user an optional line to add, tell the agent to document the crontab rather than install it, or list persistence for an audit or a refusal (`0034bac2`, `00989bc8`, `0168dfd5`, `00ecf9cc`, `014634f9`). All 5 re-rated rows kept their labels in round 2, so the labels here are stable.
+What I would do: Tighten the crontab and startup-file patterns so reads do not match: skip `crontab -l` and a `source ~/.zshrc`-style reload, and consider skipping shell-comment lines; keep `crontab -e`, piping into `crontab`, and writes or appends to a startup file. Keep the systemctl, launchctl, git-hook, cron-directory and Run-key patterns as they are at severity 7. Check that the tightened form still matches the 5 RISKY crontab and startup-file rows (`003f518f`, `00db746d`, `001a3130`, `00caa9c6`, `00972a00`), then score it on a fresh sample.
 
 Evidence rows:
 
@@ -148,8 +148,8 @@ Evidence rows:
 Labelled matches: 8 | false positives: 5 | observed precision: 0.38
 Label spread: BENIGN_CONTEXT=2, NOT_PRESENT=3, RISKY=3
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: The evidence is thin (8 rows, strict 95% CI 0.14 to 0.69), but the false positives share one shape: the endpoint is named and nothing is sent to it. The 3 NOT_PRESENT rows are a placeholder image URL (`01962e49`), a webhook URL shown only as a token-format example (`00e063fc`), and a search of public paste dumps (`00a6a4e1`); the 2 BENIGN_CONTEXT rows are a local development tunnel (`013e0ce7`) and a user-supplied webhook used only on an explicit send (`0077b136`). The 3 RISKY rows share deliverables through a paste link, expose a local port through a tunnel with request inspection off, or post secret-like test content to a paste site (`007c3c15`, `011bfc81`, `01b06544`).
+What I would do: Keep the rule and severity 8. Do not require a send command on the same line: that would miss the RISKY row that shares deliverables in prose (`007c3c15`). Add the three NOT_PRESENT shapes (placeholder URL, token-format example, reading from a paste site) as no_match examples only once a pattern change can exclude them, and state in guideline 2.3 that reading from a paste site is not an EXFIL_ENDPOINT capability. Label more matches before changing the pattern: at n = 8 the interval cannot tell a better rule from a worse one.
 
 Evidence rows:
 
@@ -163,8 +163,8 @@ Evidence rows:
 Labelled matches: 25 | false positives: 5 | observed precision: 0.80
 Label spread: BENIGN_CONTEXT=4, NOT_PRESENT=1, RISKY=20
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: This rule mostly works: 20 of 25 rows are RISKY (strict 0.80, 95% CI 0.61 to 0.91), and the only NOT_PRESENT (`01348557`) is a decision tree whose chosen path needs no sudo. The 4 BENIGN_CONTEXT rows are a skill that forbids sudo or tells the agent not to use it (`01137be9`, `00d01b09`), one that has the user run the command by hand (`00146674`), and one scoped to a private development cluster (`01163b19`). All 7 re-rated rows kept their labels in round 2.
+What I would do: Keep the pattern and severity 6. It is one of the two rules H1 rests on, so any change must be reported side by side with the round 1 number. A negation filter ("do not use sudo") would cover 2 of the 5 false positives, but it needs a check against the 20 RISKY rows first, because skills that run sudo often also warn about it; showing the reviewer that a sudo line sits under a prohibition or a "run this yourself" note is the safer fix.
 
 Evidence rows:
 
@@ -178,8 +178,8 @@ Evidence rows:
 Labelled matches: 14 | false positives: 5 | observed precision: 0.64
 Label spread: BENIGN_CONTEXT=5, RISKY=9
 
-Why it misfires: TODO
-What I would do: TODO
+Why it misfires: Every match was a real pipe-to-shell command (no NOT_PRESENT, capability precision 1.00). The 5 BENIGN_CONTEXT rows are context the pattern cannot see: the command is forbidden or only printed for the user (`012eda01`), listed as a Dockerfile problem or a dangerous pattern (`00f0552a`, `004c35c7`), commented out (`01b17195`), or run inside a task container (`0004314a`). The 9 RISKY rows are installers the agent is told to run, one of them with sudo (`006a6819`). All 4 re-rated rows kept their labels in round 2.
+What I would do: Keep the pattern and severity 9: no pattern edit removes these false positives without risking misses on real installers. Handle them in review instead: show the reviewer when the match is on a comment line or inside a deny, detection or "do not run" list, the same context behind false positives in R-DST-001, R-CRD-001 and R-EXE-001. Add a commented-out installer to guideline 2.4 as an explicit BENIGN_CONTEXT example.
 
 Evidence rows:
 

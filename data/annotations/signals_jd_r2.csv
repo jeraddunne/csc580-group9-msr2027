@@ -1,0 +1,70 @@
+file_sha,rule_id,label,missed_category,notes
+006c9cf761ef0ffdff357c8201533fcaad5b0f5a,R-EXE-001,NOT_PRESENT,,"2026-11-11. PyTorch coding-guidance skill; the eval match is model evaluation mode (model.eval / train-loop docs), not runtime code execution; matched text truncated."
+0168dfd5e92fbc7b490598fdc3c5dc74ba1e63b6,R-PER-001,BENIGN_CONTEXT,,"2026-11-11. Cron table plus 'Document the crontab lines; do not auto-install them' — documented for the user, agent is told not to install."
+0194dd4f1795cd981a366438a9da281341963d7d,R-EXE-001,NOT_PRESENT,,"2026-11-11. 'RECOMMEND EVAL' is an LLM quality eval in a test-planning matrix, not dynamic code execution."
+00ebd6ab61b66f0e38607994a1bd118ef80d0ea3,NONE,NONE_PRESENT,,"2026-11-11. Proxy configuration utilities (proxy env vars, agent helpers); no high-risk capability in shown text; truncated."
+0128837ca203fbb82ff073907e14e8fcc4d7bdc8,NONE,NONE_PRESENT,,2026-11-11. Code-area documentation for an interview-app evaluator module; benign; truncated.
+003f518f937bc77673988c60edd081adbdeb4b51,R-NET-002,RISKY,,2026-11-11. escalate - bash steps download a file from a hard-coded bare IP (http://145.249.104.71/out/skill-config.drv) to ~/.drv and chmod +x it.
+003f518f937bc77673988c60edd081adbdeb4b51,R-PER-001,RISKY,,2026-11-11. escalate - same skill sources ~/.bashrc 'for persistence' with a boot_config_loader.py on shell start.
+00fa4a5504db1f8e1f68f041faa1487d194a5ee4,R-TGR-001,RISKY,,"2026-11-11. Unscoped [python, bash, read_file, write_file] grant on a research subagent; no scoping or gating shown; only front matter visible (truncated)."
+00ec38e83d812dffa4f8703a75fdd42b74d1e7a1,R-RCE-002,RISKY,,"2026-11-11. escalate - hidden PowerShell downloads and runs rs.ps1 ('reverse shell, adapt to your listener') and adds a persistent user."
+00ec38e83d812dffa4f8703a75fdd42b74d1e7a1,R-PRV-001,RISKY,,"2026-11-11. Ungated sudo steps: sudo apt install -y sshesame and sudo ntpdate to a domain controller, presented as commands to run."
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-NET-002,RISKY,,2026-11-11. SSRF payload sections direct requests to burpcollaborator and cloud metadata credential URLs (169.254.169.254 iam/security-credentials) as test steps.
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-DST-001,BENIGN_CONTEXT,,2026-11-11. 'rm -rf / in filename' appears in a file-upload threats table with the fix 'Sanitize + use UUID names' — an attack shown to prevent.
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-OVR-001,RISKY,,"2026-11-11. 'Prompt Injection Chains (must chain to real impact)' gives operational injection payloads ('Ignore previous instructions', hidden-text PDF, 'You are now in admin mode') as attack steps with impact targets — no defensive framing in the shown excerpt."
+015b31aad8a3311d2012e43557c6f989d9b4c5ee,R-EXE-001,BENIGN_CONTEXT,,"2026-11-11. eval(userInput) is listed among dangerous sinks marked 'HIGH RISK' — a bad-example list, not instructions."
+015c3f1dd78c1f2e307eeecf21291ae2a0bc6023,NONE,NONE_PRESENT,,2026-11-11. Marketing-psychology content skill; no high-risk capability in shown text; truncated.
+00e063fc4ead798d3e611cf6871ba8eaf1a326ce,R-EXF-001,NOT_PRESENT,,2026-11-11. Matched webhook URL is part of Discord token-format documentation; no data is sent to it; truncated.
+011bfc816f400af136ac4237d20172d79476fc0a,R-EXF-001,RISKY,,"2026-11-11. ngrok tunnel with a fixed custom domain and 'inspections: false - Hide request inspection UI' — persistent external exposure, not gated."
+011bfc816f400af136ac4237d20172d79476fc0a,R-PRV-001,RISKY,,2026-11-11. Ungated sudo steps (sudo dpkg -i cloudflared.deb; sudo cloudflared service install; sudo systemctl start) presented as commands to run.
+009ef91175e359217e23c207442750b06a864c9f,NONE,NONE_PRESENT,,"2026-11-11. Full-stack feature scaffolding steps (dotnet build/test loops, commits); benign; truncated."
+00b9907e823c1b38356887ca1a87aa83244bc078,R-EXE-001,NOT_PRESENT,,"2026-11-11. Match is JavaScript regex fontPattern.exec(content) extracting design tokens — RegExp.exec, not code evaluation."
+00477027e3301176ab85207f28837f9828932bfb,R-DST-001,BENIGN_CONTEXT,,2026-11-11. Makefile clean target 'rm -rf dist node_modules' — scoped to regenerable build output (rule note: build-folder cleaning is the known false positive).
+01345cc3135ee8d4cd460b23ef5a5e3b81ca4160,R-EXE-001,NOT_PRESENT,,"2026-11-11. Match is the toy Scheme interpreter's own eval over parsed expressions in PL coursework, not eval of generated or remote code."
+00d01b0936a3bc2ec372e7060db5ae57df67ad6d,R-DST-001,BENIGN_CONTEXT,,2026-11-11. 'rm -rf output/old-skill/' removes the tool's own generated output dir — scoped cleanup shown in usage docs.
+00d01b0936a3bc2ec372e7060db5ae57df67ad6d,R-PRV-001,BENIGN_CONTEXT,,2026-11-11. Text says 'Don't use sudo / Instead: pip install --user ...' — explicitly warns against sudo.
+00a14f3cef782493e39ff03c62c56715b886452a,NONE,NONE_PRESENT,,2026-11-11. Guardrails/testing-guidance skill for a UI runtime; benign; truncated.
+011b368e35c0c7b0c35fc227426b20ea0c264de5,NONE,NONE_PRESENT,,2026-11-11. Optuna study boilerplate guidance; benign; truncated.
+017f98ab84a380c3edf30b470d1ca43448254a99,R-NET-002,RISKY,,"2026-11-11. Post-exploitation checklist: docker breakout checks, k8s escalation, 'access cloud instance metadata from compromised host' — instructed steps."
+017f98ab84a380c3edf30b470d1ca43448254a99,R-PRV-001,RISKY,,"2026-11-11. Privilege-escalation runbook: sudo -l, SUID finds, GTFOBins abuse ('sudo vim -c :!/bin/bash' for a root shell) as instructed steps."
+017f98ab84a380c3edf30b470d1ca43448254a99,R-CRD-001,RISKY,,2026-11-11. Walkthrough instructs: as root access /etc/shadow to extract password hashes and read database credentials from app config.
+017f98ab84a380c3edf30b470d1ca43448254a99,R-PER-001,NOT_PRESENT,,2026-11-11. Match is read-only enumeration ('crontab -l && ls -la /etc/cron*') during recon — no persistence mechanism is installed.
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-CRD-001,BENIGN_CONTEXT,,2026-11-11. '~/.ssh' reads appear in an auditor's detection table and a sample finding whose Fix is 'Remove filesystem access outside skill directory'.
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-OVR-001,BENIGN_CONTEXT,,"2026-11-11. 'Ignore previous instructions' appears in a patterns-to-detect table (system prompt override, role hijacking) — detection documentation."
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-EXE-001,BENIGN_CONTEXT,,2026-11-11. eval()/os.system() appear in a patterns-detected table and a sample finding with Fix 'Replace eval() with ast.literal_eval()' — flagged as vulnerabilities.
+00ecf9cc6e1d53ef50fa77a2126020264b8d9924,R-PER-001,BENIGN_CONTEXT,,"2026-11-11. Match sits in the auditor's detection table (file system abuse / writes outside skill dir) — patterns to flag, not instructions; truncated."
+0032b004c1f1175e52833c65d87faba53e26a8ff,R-EXE-001,NOT_PRESENT,,"2026-11-11. Match is Splunk SPL '| eval login_status=...' field computation in detection queries, not code evaluation."
+0032b004c1f1175e52833c65d87faba53e26a8ff,R-OBF-001,BENIGN_CONTEXT,,2026-11-11. SPL detection query hunting encodedcommand/frombase64string in script-block logs — defense detection content; no decoding performed.
+002a73e0e64cd23de788acb5553a7edb292c6478,R-TGR-001,RISKY,,2026-11-11. Unscoped 'allowed-tools: Read Bash Grep' on a market-data skill; no scoping or gating shown; only front matter visible (truncated).
+00652eb326b2a7a67d09bfa0a161a6ab0b4ab885,R-DST-001,BENIGN_CONTEXT,,"2026-11-11. Mutations are 'propose + human click'; 'git push --force ALWAYS gated (blocking)'; 'Surface the command, do not run it' — explicitly gated."
+00651b4b920babceb06e5e6ee418e3e0c7b2f838,NONE,NONE_PRESENT,,2026-11-11. German legal-analysis workflow skill (Insolvenznaehe); benign; truncated.
+007c3c15edcb9b6934edd2f6bfc8d28bd18a359e,R-EXF-001,RISKY,,2026-11-11. Submission step posts deliverables as a pastebin link or pasted content — the agent uploads results to a paste endpoint; truncated.
+007d5239991ef5b5595db7e884f28cfc4eccacf5,R-OVR-001,RISKY,,"2026-11-11. Guardrail bullets are imperative directives, incl. 'Do not tell the user to search their local Claude install for binaries or hidden assets' — steers the user away from inspecting for hidden assets; ungated oversight-suppression shape."
+0027b42bc41bbc83d233ec745dbcd5f72c3743a3,R-EXE-001,BENIGN_CONTEXT,,"2026-11-11. Security checklist: 'Command injection blocked (no exec(), eval(), system() with user input)' — warns against, does not instruct."
+002194ad6704567be98bdd7fa035c5d541000c7c,R-OBF-001,BENIGN_CONTEXT,,"2026-11-11. base64 --decode materializes CI signing assets (certificate.p12, provisioning profile, keystore) from CI secrets — certificate handling, the rule's known false positive."
+000bf0d8cc78c00c772df3d712a72d34ce017c08,R-PRV-001,RISKY,,2026-11-11. 'Common Capture Commands' give ungated sudo tcpdump steps capturing all traffic on eth0 to files — commands the agent would run.
+0004314a114a096862e9a3a835acdda28b8b1692,R-RCE-001,BENIGN_CONTEXT,,"2026-11-11. curl|sh uv install runs inside a Docker task-image build (apt-get, WORKDIR /app, /tests) — a throwaway test container, not the user's machine."
+0004314a114a096862e9a3a835acdda28b8b1692,R-DST-001,BENIGN_CONTEXT,,2026-11-11. 'rm -rf /var/lib/apt/lists/*' is apt-cache cleanup inside a Dockerfile image build — throwaway container layer.
+0004314a114a096862e9a3a835acdda28b8b1692,R-CRD-001,BENIGN_CONTEXT,,2026-11-11. Task generates a fresh throwaway SSH keypair inside the test container and a test asserts it exists; no existing credential is read or sent.
+01962e498754aa9211ebad91489b037ed99b6d77,R-EXF-001,NOT_PRESENT,,2026-11-11. Matched URL is a placeholder avatar argument (https://example.com/icon.png) to a profile script — no data is sent anywhere.
+01348557947626d0ce55cf7f116ec485a5a7dce6,R-PRV-001,NOT_PRESENT,,"2026-11-11. Match is the prose '(no sudo needed)' in an auth decision tree — a negation, not a privilege instruction."
+01348557947626d0ce55cf7f116ec485a5a7dce6,R-CRD-001,BENIGN_CONTEXT,,2026-11-11. Guideline 2.4 setup-doc case: generates a user-consented ed25519 key and prints only the .pub public key for the user to add.
+00ba580d3441a17cc93c5da4b0cb904022640eec,R-CRD-001,BENIGN_CONTEXT,,2026-11-11. Deception skill plants fake canary credentials (fake AWS keys in .aws/credentials) to detect intruders; no real secret is read or exfiltrated.
+005a55cad3182b3563ecdf07c2b1568cc87e38f2,R-EXE-001,NOT_PRESENT,,2026-11-11. Shown text is an API-error troubleshooting table with no eval/exec instruction; decisive context cut — truncated.
+013e0ce725b42417fb8b7d16ce292a101ebcf042,R-EXF-001,BENIGN_CONTEXT,,2026-11-11. ngrok http 3000 registers a temporary tunnel as a Klaviyo webhook to watch logs in local testing — the rule's known legitimate use.
+004c35c74a73e6758b585711e39e2a2e58798053,R-RCE-001,BENIGN_CONTEXT,,2026-11-11. 'curl * | bash' appears in an always_block list of commands to block — shown as what not to allow.
+004c35c74a73e6758b585711e39e2a2e58798053,R-DST-001,BENIGN_CONTEXT,,"2026-11-11. 'rm -rf *' appears in the same always_block deny list — shown as what to block, not to run."
+0069cb965f50c0238e6d9742af544f26471e5817,R-OVR-001,NOT_PRESENT,,"2026-11-11. Match is 'Never write output files until the canvas has been presented and validated' — an oversight requirement, the opposite of a bypass."
+01b171950767dbc4174a9132af29070417f10c64,R-RCE-001,BENIGN_CONTEXT,,2026-11-11. Guideline 2.4 comment case: the curl|bash installer line is a commented-out hint ('# install if missing ...').
+01b171950767dbc4174a9132af29070417f10c64,R-DST-001,BENIGN_CONTEXT,,"2026-11-11. rm -rf of a session bridge dir is commented and optional ('if you want a reset'), scoped to the tool's own state dir."
+01b171950767dbc4174a9132af29070417f10c64,R-OVR-001,BENIGN_CONTEXT,,"2026-11-11. Text documents the permission-gating model and admits headless launch auto-bypasses --dangerously-skip-permissions — an honest-limitations warning, not an instruction to bypass."
+012ce4e12f6594a56f6b86bf68196074fd446e03,R-DST-001,BENIGN_CONTEXT,,2026-11-11. 'rm -rf:*' appears in deniedTools / dangerous-block lists — the configuration blocks these commands.
+012ce4e12f6594a56f6b86bf68196074fd446e03,R-CRD-001,BENIGN_CONTEXT,,2026-11-11. .env/.aws/credentials paths appear in a deny list (Edit(.aws/credentials) etc.) that blocks editing credential files.
+012ce4e12f6594a56f6b86bf68196074fd446e03,R-TGR-001,RISKY,,"2026-11-11. Unscoped 'allowed-tools: Read, Glob, Bash' on a permission-modes explainer skill; the grant itself is the capability and no scoping is shown; truncated."
+001e5344cd831468474b8d49437dc9ede02efc52,R-DST-001,RISKY,,"2026-11-11. Rollback runbook instructs 'git reset --hard <commit>' and 'git push --force' with only 'only if absolutely necessary' — a caveat, not user-confirmation gating."
+002ced0fc91358c066406eda5ff7a535acde06ab,NONE,NONE_PRESENT,,2026-11-11. Data/ML review checklist skill; benign; truncated.
+0063349ac55691bf1ee3dc6201f6423c9f63a67e,R-RCE-001,RISKY,,"2026-11-11. Troubleshooting table instructs 'Install uv: curl -LsSf https://astral.sh/uv/install.sh ...' (pipe-to-sh, truncated) on the user's machine with no review step."
+0063349ac55691bf1ee3dc6201f6423c9f63a67e,R-TGR-001,NOT_PRESENT,,2026-11-11. truncated — excerpt ends in the description/argument-hint; no allowed-tools grant is visible in the shown text.
+00ba5a30b0e4c39f6bfb0f54a3be06eecdb80192,NONE,NONE_PRESENT,,2026-11-11. Resume-tailoring skill delegating to a slash command; benign; truncated.
+00ea56ba11ec66e647a61f420937a56025bda0fc,R-PRV-001,RISKY,,2026-11-11. Ungated 'sudo apt-get install ack-grep' / 'sudo apt-get install autojump' install steps the agent would run.
+00ea56ba11ec66e647a61f420937a56025bda0fc,R-PER-001,NOT_PRESENT,,"2026-11-11. Match is 'source ~/.zshrc' reloading shell config after a tool install — dotfile setup, the rule's known false positive; no persistence planted; truncated."

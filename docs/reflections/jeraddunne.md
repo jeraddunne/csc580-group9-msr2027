@@ -1,6 +1,6 @@
 # Individual contribution and reflection: Jerad Dunne (@jeraddunne)
 
-Status: Working draft, 2026-11-11. Sprint 3 is ongoing.
+Status: Draft with my self-assessment, 2026-11-12. Sprint 3 is ongoing; the final version is due 2026-12-04.
 Related to [issue #39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39).
 
 ## 1. Roles held
@@ -27,11 +27,12 @@ Roles follow [project.yml](../../project.yml) and the [team charter](../../TEAM_
 | Analysis and results | First validation scores, the ground-truth check of the ten known-positive skills, and the corrected FMEA ranking. | [#119][119], [#133][133], [#127][127] | 2 |
 | Report sections written | Validation results (Table 2), intended use, the six threat areas, and the intra-rater result. | [#127][127], [#126][126], [#149][149], [#166][166] | 2, 3 |
 | Final tool | skill-scan as a command line tool, a GitHub Action, and a VS Code extension. | [#151][151] | 3 |
+| Rule changes from the error analysis | Rule change proposals from my labels, and a proposed rule with regression tests for the missed list-form Bash grant (not activated). | [#167][167], [#173][173] | 3 |
 | Process work | Sprint 1 baseline metrics, Sprint 2 review evidence, and the Sprint 3 retrospective with a PR review audit. | [#134][134], [#135][135], [#148][148] | 2, 3 |
 | Code reviews given | Reviewed 17 teammate pull requests. | [search](https://github.com/jeraddunne/csc580-group9-msr2027/pulls?q=is%3Apr+reviewed-by%3Ajeraddunne+-author%3Ajeraddunne) | 1 to 3 |
 | Error analysis review | Judged the two pending credential cases against the threat model: one context only, one a confirmed false negative. | [PR #162 comment](https://github.com/jeraddunne/csc580-group9-msr2027/pull/162#issuecomment-6804850737) | 3 |
 
-Merged pull requests I authored: Formation 7, Sprint 1 11, Sprint 2 16, Sprint 3 3 (so far).
+Merged pull requests I authored: Formation 7, Sprint 1 11, Sprint 2 16, Sprint 3 9 (as of 2026-11-12).
 
 Hours: not totaled. The stand-up files on main hold one week (2026-09-28), so I have no recorded hours to report.
 
@@ -53,11 +54,11 @@ Hours: not totaled. The stand-up files on main hold one week (2026-09-28), so I 
 
 | Question | Answer (1 to 5) | One sentence of evidence |
 |---|---|---|
-| I delivered what I committed to in sprint planning | _ | Round 1 labels for all three kinds and the Sprint 2 review evidence merged in Sprint 2; round 2 in Sprint 3 ([#166][166]). |
-| My work was reviewed and I reviewed others' work | _ | 17 teammate PRs reviewed; from Sprint 2 on, every merge had another member's approval ([#148][148]). |
-| I raised blockers early | _ | |
-| My contributions are traceable in the repository | _ | Every row above links a PR or comment. |
-| I understood the results well enough to present any part | _ | |
+| I delivered what I committed to in sprint planning | 5 | Round 1 labels for all three kinds and the Sprint 2 review evidence merged in Sprint 2; round 2 in Sprint 3 ([#166][166]). |
+| My work was reviewed and I reviewed others' work | 5 | 17 teammate PRs reviewed; from Sprint 2 on, every merge had another member's approval ([#148][148]). |
+| I raised blockers early | 4 | I provided emails, messages, and prototypes for the work and did additional work as needed to make sure all sprint methods were accomplished. |
+| My contributions are traceable in the repository | 5 | Evidence are all the documents and creations, prs and closing pr and opening branches. Every row above links a PR or comment. |
+| I understood the results well enough to present any part | 5 | Evidence are all the documents and creations, prs and closing pr and opening branches. |
 
 ## 6. AI use statement
 
@@ -72,7 +73,7 @@ Hours: not totaled. The stand-up files on main hold one week (2026-09-28), so I 
 
 ## 7. Signature
 
-- Name: Jerad Dunne. Date: ____. I confirm this reflection is accurate and links only to my own work.
+- Name: Jerad Dunne. Date: 2026-11-12. I confirm this reflection is accurate and links only to my own work.
 
 [44]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/44
 [45]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/45
@@ -95,3 +96,5 @@ Hours: not totaled. The stand-up files on main hold one week (2026-09-28), so I 
 [149]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/149
 [151]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/151
 [166]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/166
+[167]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/167
+[173]: https://github.com/jeraddunne/csc580-group9-msr2027/pull/173

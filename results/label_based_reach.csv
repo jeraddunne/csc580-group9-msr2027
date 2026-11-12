@@ -1,0 +1,4 @@
+group,contents,mean_copies,median_copies
+At least one recorded RISKY finding,61,2.508197,1.000000
+Flagged sample: no recorded RISKY finding,46,2.695652,1.000000
+No-signal sample: NONE_PRESENT judgment,40,1.275000,1.000000

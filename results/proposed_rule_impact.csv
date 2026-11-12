@@ -1,0 +1,2 @@
+rule_id,status,category,severity,main_population,contents_matched,already_high_risk,newly_high_risk,occurrences_matched,high_risk_contents_now,high_risk_contents_if_activated,high_risk_share_now,high_risk_share_if_activated
+R-TGR-003,proposed,TOOL_GRANT,6,12965,169,15,154,393,1159,1313,0.0894,0.1013

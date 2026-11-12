@@ -434,6 +434,39 @@ rules:
         kind: platform
         relation: "Documents allowed-tools as tools the agent may use without asking permission while the skill is active"
 
+  # Proposed 2026-11-12 (D-027, #132). Not active: it does not run in the analysis, the
+  # validation sample, the ground-truth check or skill-scan until a later round activates it.
+  - id: R-TGR-003
+    category: TOOL_GRANT
+    severity: 6
+    patterns:
+      - '^allowed-tools\s*:[ \t]*(?:#[^\n]*)?\r?\n(?:[ \t]*-[ \t]*[^\n]*\n)*?[ \t]*-[ \t]*["'']?Bash["'']?[ \t]*(?:#[^\n]*)?\r?$'
+    status: proposed
+    source: error_analysis
+    examples:
+      match:
+        - "allowed-tools:\n  - Read\n  - Bash"
+        - "allowed-tools:\n- Bash\n- Read"
+        - "allowed-tools:\n  - \"Bash\"  # any command"
+      no_match:
+        - "allowed-tools:\n  - Read\n  - Bash(git status:*)"
+        - "allowed-tools:\n  - Read\ncommands:\n  - Bash"
+        - "allowed-tools: Read, Bash"
+    note: "The list form of R-TGR-001: unscoped Bash as its own item in an allowed-tools YAML list. R-TGR-001 reads only the line that holds the key, so it misses this form (known positive 0ecf482604f02042, docs/validation/ERROR_ANALYSIS.md). The one-line form stays with R-TGR-001. Precision is unmeasured: none of its matches has been labelled."
+    title: "Unscoped shell tool grant, list form"
+    description: "The front matter's allowed-tools field is a YAML list with one tool per line, and one item is Bash with no command scope. The capability is the same as R-TGR-001: while the skill is active the agent can run any shell command without asking. A scoped item such as Bash(git status:*) does not match."
+    references:
+      - id: "OWASP LLM06:2025"
+        title: "Excessive Agency"
+        url: "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+        kind: guidance
+        relation: "Names excessive functionality, permissions, and autonomy as root causes; one example is an extension that can run shell commands"
+      - id: "Claude Code docs"
+        title: "Extend Claude with skills (allowed-tools)"
+        url: "https://code.claude.com/docs/en/skills"
+        kind: platform
+        relation: "Documents allowed-tools as tools the agent may use without asking permission while the skill is active"
+
   - id: R-OVR-001
     category: OVERSIGHT_BYPASS
     severity: 8

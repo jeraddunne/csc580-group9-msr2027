@@ -127,7 +127,7 @@ The source text was inspected in the local SQLite sample and compared with the [
 
 - Candidate: `4bcf122319412600` (Attio debug bundle).
 - Evidence: source line 52 and packaging lines 122–123.
-- Human classification: Jerad Dunne's [source review in PR #162](https://github.com/jeraddunne/csc580-group9-msr2027/pull/162).
+- Human classification: Jerad Dunne's [source review in PR #162](https://github.com/jeraddunne/csc580-group9-msr2027/pull/162#issuecomment-6804850737).
 
 Observation: On the normal code path, line 52 writes the API key's length and first three characters into `summary.txt`. Lines 122–123 package that file into the support archive.
 
@@ -137,7 +137,7 @@ Scanner outcome: The recorded CREDENTIALS match was `R-CRD-002` at severity 5. T
 
 Failure mode: Partial secret material written to a shareable artifact.
 
-Proposed improvement: Evaluate detection of partial credential values flowing into logs, summaries, and support bundles. Test synthetic positive and negative examples before adopting a rule change.
+Proposed improvement: Evaluate detection of partial credential values flowing into logs, summaries, and support bundles. A draft rule, R-CRD-004, is recorded in [FALSE_NEGATIVE_RULE_PROPOSALS.md](FALSE_NEGATIVE_RULE_PROPOSALS.md) as a proposal only. Test synthetic positive and negative examples before adopting a rule change.
 
 Limitation: This documents the reviewed source behavior and existing scan results. No candidate commands were executed, no scanner fix was implemented, and no scanner rerun is claimed.
 

@@ -1,0 +1,25 @@
+{
+  "input_commit": "18892ed309486d93477f0814cd3957edc5dc617f",
+  "labels_path": "data/annotations/signals_jd_r1.csv",
+  "labels_sha256": "7e195f98b50049541a6c281977aaa9e9615b390e0f0cef57cfc93d1a28213031",
+  "database_path": "data/samples/agent_skills_sample.db",
+  "database_sha256": "683888c923a51952fb66f83f21351ed5bf1127ddddf380e517592ae27c367658",
+  "script_sha256": "2864131b0d57e13a3923b58fe8d21a8339cdb0f0b3de66d93a625d84fdabf8b0",
+  "annotation_rows": 209,
+  "distinct_labeled_contents": 147,
+  "matched_contents": 147,
+  "unmatched_contents": 0,
+  "duplicate_annotation_keys": 0,
+  "duplicate_copy_count_keys": 0,
+  "python_version": "3.12.1",
+  "pandas_version": "3.1.1",
+  "command": "python scripts/label_based_reach.py",
+  "copy_definition": "Number of artifacts rows per file_sha.",
+  "limitations": [
+    "Descriptive comparison within a category-selected validation sample.",
+    "Sample proportions are not population prevalence estimates.",
+    "No recorded RISKY finding does not establish safety.",
+    "Hina reported truncated-excerpt notes for 38 of 40 NONE_PRESENT contents.",
+    "Independent reproduction and acceptance review remain pending."
+  ]
+}

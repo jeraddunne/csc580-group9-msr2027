@@ -1,9 +1,10 @@
 # Sprint 2 retrospective
 
-How to use: the Scrum Master facilitates on Wed 2026-10-28 right after the review. Data first, then discussion, then root cause, then actions. Every agreed action becomes a `kaizen` issue and a row in `docs/lean-six-sigma/KAIZEN_BACKLOG.md`. Record changes to the research question, method, scope, or interpretation.
+The Sprint 2 review and retrospective were conducted asynchronously through GitHub and Canvas on October 28, 2026; no live meeting occurred.
 
-Status: Preliminary draft. Final metrics, attendance, outcomes, and decisions remain pending until the October 28 retrospective.
-Date: 2026-10-28. Facilitator: Hina Kramer. Attendees: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer
+Status: Closeout revision based on [Jerad's confirmation in issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26). The sprint goal was met. Recorded backlog changes and retrospective actions were confirmed. Metrics without dated supporting evidence are marked unavailable.
+
+Date: 2026-10-28. Scrum Master: Hina Kramer. Review format: asynchronous; live attendance is not applicable.
 
 > Team update: Allie Hodges dropped the course during Sprint 2. Sprint responsibilities were redistributed among the three remaining members.
 
@@ -11,22 +12,24 @@ Date: 2026-10-28. Facilitator: Hina Kramer. Attendees: [ ] Leticia Aderhold [ ] 
 
 Sources: [Sprint 1 review](../sprint-1/review.md#velocity-and-kpis-at-the-october-7-review) and [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated October 25, 2026.
 
-Sprint 1 values below are historical figures recorded in its review. Sprint 2 points are an interim October 25 snapshot, not final sprint totals. Other Sprint 2 measurements remain pending because the dashboard's aggregate figures cover September 10–October 25 rather than Sprint 2 alone.
+Sprint 1 historical review-day figures and dated interim dashboard figures are retained with their original measurement windows. Verified full-sprint PR metrics are reported separately using the PR audit linked below. Other Sprint 2 measurements without dated sprint-specific evidence are unavailable; they are not zero.
 
 “In control?” remains unassessed: meeting a target alone does not establish statistical process control.
 
 | KPI | Target | Sprint 1 | Sprint 2 | Trend | In control? |
 |---|---|---|---|---|---|
-| Points completed / planned | >= 0.80 | 18 / 22 = 0.82, as recorded at the October 7 review | 3 / 16 = 0.19, interim October 25 snapshot | Lower so far; Sprint 2 incomplete | Not assessed; interim Sprint 2 value below target |
-| Median issue cycle time (days) | <= 5 | 1.22, recorded sample n=27 | Pending Sprint 2-specific measurement | Pending | Not assessed |
-| Median PR first-review turnaround (hours) | <= 48 | 51.14, recorded sample n=14 | Pending Sprint 2-specific measurement | Pending | Not assessed; Sprint 1 value above target |
-| Median PR open-to-merge time (hours) | <= 96 | 15.89, recorded sample n=25 | Pending Sprint 2-specific measurement | Pending | Not assessed |
-| PRs merged without an approving review from another member | 0 | 8 / 21 (38.1%), full Sprint 1 window | 0 / 36 (0%), full Sprint 2 window | Decreased by 38.1 percentage points | Not assessed; Sprint 2 met the target |
-| CI pass rate on main | >= 0.90 | 15 / 15 completed CI runs = 1.00; two cancelled runs excluded | Pending Sprint 2 main-only measurement | Pending | Not assessed |
-| Rework items (reopened issues) | Not specified | 1: [issue #14](https://github.com/jeraddunne/csc580-group9-msr2027/issues/14), reopened September 26 and closed October 6, in the historical review's 30-closed-issue measurement window; no issue carries the `rework` label | Pending Sprint 2-specific count | Not comparable yet | Not assessed |
-| Stand-ups posted / expected | Not specified | Not recorded in the reviewed source | Pending verified posted count and agreed expected count | Pending | Not assessed |
-| Contribution share per member (min / max) | Each share 0.15–0.45 | 0.00 / 0.65, historical four-member roster | Pending Sprint 2-only calculation for the three-member roster | Not directly comparable after roster change | Not assessed; historical shares outside target band |
-| Hours logged per member (min / max) | Not specified | Not recorded in the reviewed source | Pending complete actual-hours records for all three members | Pending | Not assessed |
+| Points completed / planned | >= 0.80 | 18 / 22 = 0.82, October 7 review snapshot | 3 / 16 = 0.19, interim October 25 snapshot; final total unavailable | Final sprint comparison unavailable | Not assessed; interim Sprint 2 figure below target |
+| Median issue cycle time (days) | <= 5 | 1.22, historical review sample n=27 | Unavailable: no dated sprint-specific measurement identified | Not established | Not assessed |
+| Median PR first-review turnaround (hours) | <= 48 | 51.1, full-sprint PR audit | 4.2, full-sprint PR audit | Lower median turnaround | Not assessed; Sprint 2 median met target |
+| Median PR open-to-merge time (hours) | <= 96 | 48.1, full-sprint PR audit | 16.7, full-sprint PR audit | Lower median open-to-merge time | Not assessed; Sprint 2 median met target |
+| PRs merged without an approving review from another member | 0 | 8 / 21 (38.1%), full Sprint 1 window | 0 / 36 (0%), full Sprint 2 window | Decreased by 38.1 percentage points | Not assessed; Sprint 2 met target |
+| CI pass rate on main | >= 0.90 | 15 / 15 completed runs = 1.00, historical review snapshot; two cancelled runs excluded | Unavailable: no dated Sprint 2 main-only rate established | Not established | Not assessed |
+| Rework items (reopened issues) | Not specified | 1: [issue #14](https://github.com/jeraddunne/csc580-group9-msr2027/issues/14), reopened September 26 and closed October 6, in the historical review's measurement window | Unavailable: no dated sprint-specific count identified | Not established | Not assessed |
+| Stand-ups posted / expected | Not specified | Not recorded in the reviewed source | Unavailable: verified posted and expected counts not established | Not established | Not assessed |
+| Contribution share per member (min / max) | Each share 0.15–0.45 | 0.00 / 0.65, historical four-member roster | Unavailable: no verified Sprint 2-only calculation identified | Not directly comparable after roster change | Not assessed |
+| Hours logged per member (min / max) | Not specified | Not recorded in the reviewed source | Unavailable: complete actual-hours records not established | Not established | Not assessed |
+
+Full-sprint PR metrics come from the [PR review audit](../../lean-six-sigma/metrics/pr_review_audit.csv), documented in [PR #160](https://github.com/jeraddunne/csc580-group9-msr2027/pull/160). The Sprint 2 window is October 8–28, 2026, Eastern Time. Approval counts include bot-authored PRs; timing medians cover team-authored PRs. These audit figures have different cutoffs from the historical review-day snapshots.
 
 The historical aggregate KPIs from the October 7 Sprint 1 review cover September 10–October 7 and reflect the review-day snapshot. The [Sprint 1 retrospective](../sprint-1/retrospective.md) records full-sprint figures through the evening of October 7: 8 of 21 merges lacked an approving review, and 18 of 18 CI runs passed. These snapshots have different cutoffs.
 
@@ -37,7 +40,7 @@ The historical aggregate KPIs from the October 7 Sprint 1 review cover September
 - The dashboard's CI rate of 522 / 525 completed runs is an aggregate figure; it does not establish the Sprint 2 pass rate on main.
 - Dashboard contribution shares of Leticia 0.29, Jerad 0.58, and Hina 0.13 cover the dashboard window, not Sprint 2 alone.
 - Available capacity hours are planned availability, not actual hours logged.
-- Refresh and verify final Sprint 2 measurements after the sprint closes, retaining the source, date window, counting rules, and any unavailable values.
+- Final closeout records verified measurements where dated evidence exists. Unsupported Sprint 2 metrics remain unavailable, following Jerad's confirmation in issue #26.
 
 ## 2. Did the Sprint 1 kaizen actions work?
 
@@ -45,22 +48,22 @@ The four actions below were recorded in [Sprint 1 retrospective, Section 6](../s
 
 | Sprint 1 action | Evidence to assess | Assessment and decision |
 |---|---|---|
-| Use the GitHub checklist | Check Sprint 2 issues and PRs for completed checklists | Pending team assessment |
-| Give a progress update at each check-in | Check Sprint 2 meeting notes for progress updates | Pending team assessment |
-| Assign a reviewer when each PR opens | Check PR timelines for reviewer assignments and their timing | Pending team assessment |
-| Check deadlines three days ahead | Check meeting notes and issue history for advance deadline checks | Pending team assessment |
+| Use the GitHub checklist | Check Sprint 2 issues and PRs for completed checklists | Effectiveness not established by the cited evidence |
+| Give a progress update at each check-in | Check Sprint 2 meeting notes for progress updates | Effectiveness not established by the cited evidence |
+| Assign a reviewer when each PR opens | Check PR timelines for reviewer assignments and their timing | Effectiveness not established by the cited evidence |
+| Check deadlines three days ahead | Check meeting notes and issue history for advance deadline checks | Effectiveness not established by the cited evidence |
 
-Final effectiveness assessments and keep/adjust/drop decisions remain pending team confirmation.
+Jerad confirmed the recorded retrospective actions in issue #26. The available PR audit supports improved approval-before-merge practice, but it does not independently establish checklist completeness, check-in consistency, reviewer assignment at PR opening, or advance deadline checks. Effectiveness for those specific practices is not established by the cited evidence.
 
 **PR approval evidence, audited November 2, 2026.** Across all merged PRs, regardless of base branch, 8 of 21 PRs (38.1%) lacked a standing approving review from another member during Sprint 1 (September 17–October 7), compared with 0 of 36 (0%) during Sprint 2 (October 8–28), a decrease of 38.1 percentage points. Both windows use Eastern Time. The Sprint 1 baseline is documented in [PR #134](https://github.com/jeraddunne/csc580-group9-msr2027/pull/134). The Sprint 2 audit checked each PR's approval, dismissal, and merge events; dismissed approvals counted only when replaced by a qualifying approval before merge. Bot-authored PRs were included. This supports improved approval-before-merge practice; it does not establish that reviewers were assigned when each PR opened. The team's effectiveness assessment and keep/adjust/drop decision remain pending.
 
 ## 3. What went well
 
-- Expected benefit: redistributing responsibilities among the three remaining members will help maintain progress.
-- Expected benefit: repository issues and pull requests will provide traceability for completed and remaining work.
-- Expected benefit: continued documentation will support implementation, validation, and research-report evidence.
-- Confirm actual outcomes and supporting evidence during the October 28 review and retrospective.
-
+- The sprint goal was met, as confirmed by Jerad in issue #26.
+- Leticia's October 27 fresh-clone reproduction matched all 14 compared CSV files; evidence is linked from review.md.
+- Every one of the 36 Sprint 2 merged PRs had an approving review from another member before merge, according to the full-sprint PR audit.
+- The Sprint 2 package was submitted to Canvas on October 27, as recorded in issue #26.
+  
 ## 4. What did not go well
 
 - The original Sprint 2 plan still listed a member who dropped the course.
@@ -71,12 +74,12 @@ Final effectiveness assessments and keep/adjust/drop decisions remain pending te
 
 ## 5. Puzzles and open questions
 
-- Can all required Sprint 2 work be completed with three members?
-- Which incomplete items should be moved to Sprint 3?
-- Are the second-rater assignments still achievable without violating the blindness rule?
-- Are pull requests receiving reviews within the 48-hour target?
-- Does the team need to adjust its Product Owner or reviewer rotation after Allie’s departure?
-
+- Sprint goal: met, confirmed by Jerad in issue #26.
+- Carryover: signal intra-rater round 2 moved to Sprint 3 under #101.
+- Validation assignments: follow D-024 and preserve the documented independence requirements.
+- Review timing: the audited Sprint 2 median first-review turnaround was 4.2 hours; this does not mean every PR was reviewed within 48 hours.
+- Team capacity and rotation: Allie was removed under D-025.
+  
 ## 6. Root cause on the top issue (5 Whys)
 
 - **Problem statement:** The Sprint 2 plan no longer accurately represented the team’s membership, capacity, and work ownership.
@@ -90,7 +93,7 @@ Final effectiveness assessments and keep/adjust/drop decisions remain pending te
 
 ## 7. Kaizen actions
 
-These are proposed actions and deadlines, subject to team agreement on October 28.
+Jerad confirmed the recorded retrospective actions in issue #26. The dates below are the original planned deadlines, not evidence of completion. Implementation status and dedicated kaizen issue links must be recorded separately.
 
 | Action | Owner | Kaizen issue # | Due | How we will know it worked |
 |---|---|---|---|---|
@@ -117,4 +120,4 @@ The following records Sprint 2 plans and design changes responding to instructor
 ## 9. Retro on the retro
 
 - **Does the charter still fit?** Partially. Proposed change: add a procedure requiring roles, capacity, reviewers, and issue ownership to be updated within 24 hours when team membership changes.
-- **Format worked?** Pending confirmation on October 28. Proposed change: update the retrospective throughout the sprint instead of waiting until the final meeting.
+- **Format worked?** The review and retrospective were completed asynchronously through GitHub and Canvas. Jerad reviewed the package and reported no issues in #26. This does not establish a separate team-wide assessment of the format. Proposed improvement: maintain the retrospective throughout the sprint.

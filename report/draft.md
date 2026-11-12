@@ -39,11 +39,11 @@ The simpler explanation tested throughout is that keyword matches reflect docume
 
 **Main question.** In the GitSkills July 2026 sample, how prevalent are skill instructions and bundled scripts that enable risk-relevant capabilities, do skills carrying them reach more repositories through verbatim copying, and do modified variants of the same skill add or remove those capabilities?
 
-| Sub-question | Measure |
-|---|---|
-| RQ1 Prevalence | Share of distinct contents, and share of copy-weighted occurrences, with each capability category |
-| RQ2 Reach | Copies and distinct repositories per content, for contents with and without a high-risk capability |
-| RQ3 Drift | Among near-duplicate variants sharing a front-matter name, how often high-risk capabilities differ, and in which direction when both commit dates exist |
+The main question has three sub-questions, each with one measure:
+
+- **RQ1 Prevalence.** The share of distinct contents, and the share of copy-weighted occurrences, with each capability category.
+- **RQ2 Reach.** Copies and distinct repositories per content, for contents with and without a high-risk capability.
+- **RQ3 Drift.** Among near-duplicate variants sharing a front-matter name, how often high-risk capabilities differ, and in which direction when both commit dates exist.
 
 **Operationalization.** The unit of analysis is one distinct skill content, identified by `artifacts.file_sha`, together with its copies. A capability category is present when at least one active rule in that category matches the content. It is *high risk* when a matching rule has severity 6 or more on a 1 to 10 scale. Full variable definitions are in `DATA_DICTIONARY.md` Part B.
 
@@ -128,7 +128,7 @@ Table 2. Validation of high-risk signals, round 1 (primary rater). <!-- results/
 | Credential file paths | 15 | 4 / 6 / 5 | 0.27 (0.11 to 0.52) | 0.67 (0.42 to 0.85) |
 | Dynamic code execution | 15 | 3 / 5 / 7 | 0.20 (0.07 to 0.45) | 0.53 (0.30 to 0.75) |
 
-**Known-positive check.** The October 27 ground-truth check on commit `8e2ce36` matched the expected category for all 10 selected known-positive skills, but only 5 matched an expected-category rule at severity 6 or above. The remaining 5 matched only context rules within their expected categories; their outcomes are pending under issue #132. See the [ground-truth results](../results/ground_truth_check.csv) and [selection and summary](../docs/validation/KNOWN_POSITIVES_SELECTION.md).
+**Known-positive check.** The October 27 ground-truth check on commit `8e2ce36` matched the expected category for all 10 selected known-positive skills, but only 5 matched an expected-category rule at severity 6 or above. The remaining 5 matched only context rules within their expected categories; their outcomes are pending under issue #132. One of the five is a rule miss: `R-TGR-001` reads only the line that holds the `allowed-tools` key, so it misses unscoped `Bash` written as a list item. A proposed rule for the list form (`R-TGR-003`, not active, D-027) matches 169 contents in the main population, 154 of them not already high risk. Activating it would move the high-risk share from 8.9% to 10.1%. None of those matches has been labelled, so the results below keep the rules frozen for round 1 (`results/proposed_rule_impact.csv`). See the [ground-truth results](../results/ground_truth_check.csv) and [selection and summary](../docs/validation/KNOWN_POSITIVES_SELECTION.md).
 
 # Results
 
@@ -227,9 +227,10 @@ Future work includes expanding validation with raters outside the team and evalu
 
 Run `make figures`, `make validation-score`, `make workflow-diagrams`, and `make report-tables` in that order after setting up the repository and downloading the sample.
 
+Every numbered table and every figure in this report is listed below with its generation target. The research sub-questions are an authored list, not a table, and hold no generated values.
+
 | Report item | Source | Generation target |
 |---|---|---|
-| Research-question summary | Authored research questions and measures in this report | Pending reviewer confirmation on whether this prose table needs a generator |
 | Table 1 — Population flow | `results/population_flow.csv` | `make figures`, then `make report-tables` |
 | Table 2 — Validation of high-risk signals | `results/validation_precision_by_category.csv` | `make validation-score`, then `make report-tables` |
 | Table 3 — High-risk signals | `results/rq1_prevalence_by_rule.csv`, `results/rq1_prevalence_by_category.csv`, and `results/population_flow.csv` | `make figures`, then `make report-tables` |

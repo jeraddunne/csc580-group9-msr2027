@@ -39,11 +39,11 @@ The simpler explanation tested throughout is that keyword matches reflect docume
 
 **Main question.** In the GitSkills July 2026 sample, how prevalent are skill instructions and bundled scripts that enable risk-relevant capabilities, do skills carrying them reach more repositories through verbatim copying, and do modified variants of the same skill add or remove those capabilities?
 
-| Sub-question | Measure |
-|---|---|
-| RQ1 Prevalence | Share of distinct contents, and share of copy-weighted occurrences, with each capability category |
-| RQ2 Reach | Copies and distinct repositories per content, for contents with and without a high-risk capability |
-| RQ3 Drift | Among near-duplicate variants sharing a front-matter name, how often high-risk capabilities differ, and in which direction when both commit dates exist |
+**RQ1 — Prevalence.** Measure the share of distinct contents and the share of copy-weighted occurrences with each capability category.
+
+**RQ2 — Reach.** Measure copies and distinct repositories per content, comparing contents with and without a high-risk scanner signal.
+
+**RQ3 — Drift.** Among near-duplicate variants sharing a front-matter name, measure how often high-risk capability categories differ. Assess direction only where both commit dates exist.
 
 **Operationalization.** The unit of analysis is one distinct skill content, identified by `artifacts.file_sha`, together with its copies. A capability category is present when at least one active rule in that category matches the content. It is *high risk* when a matching rule has severity 6 or more on a 1 to 10 scale. Full variable definitions are in `DATA_DICTIONARY.md` Part B.
 
@@ -227,6 +227,8 @@ Future work includes expanding validation with raters outside the team and evalu
 
 Run `make figures`, `make validation-score`, `make workflow-diagrams`, and `make report-tables` in that order after setting up the repository and downloading the sample.
 
+Research questions and measure definitions are authored prose. Tables 1–3 contain generated results; their sources and generation targets are listed below. The mapping table documents provenance and is maintained as documentation.
+
 | Report item | Source | Generation target |
 |---|---|---|
 | Research-question summary | Authored research questions and measures in this report | Pending reviewer confirmation on whether this prose table needs a generator |
@@ -235,5 +237,11 @@ Run `make figures`, `make validation-score`, `make workflow-diagrams`, and `make
 | Table 3 — High-risk signals | `results/rq1_prevalence_by_rule.csv`, `results/rq1_prevalence_by_category.csv`, and `results/population_flow.csv` | `make figures`, then `make report-tables` |
 | Figure 2 — Review workflow activity diagram | `scripts/make_workflow_diagrams.py` | `make workflow-diagrams` |
 | Supporting research plots | `figures/rq1_prevalence_by_category.png`, `figures/rq2_copies_by_group.png`, and `figures/rq3_threshold_sweep.png` | `make figures` |
+
+Run `make figures`, `make validation-score`, `make workflow-diagrams`, and `make report-tables` in that order after setting up the repository and downloading the sample.
+
+Research questions and measure definitions are authored prose. Tables 1–3 contain generated results; their sources and generation targets are listed below. The mapping table documents provenance and is maintained as documentation.
+
+| Report item | Source | Generation target |
 
 # References

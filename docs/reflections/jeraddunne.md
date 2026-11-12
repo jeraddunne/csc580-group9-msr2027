@@ -57,8 +57,8 @@ Hours: not totaled. The stand-up files on main hold one week (2026-09-28), so I 
 | I delivered what I committed to in sprint planning | 5 | Round 1 labels for all three kinds and the Sprint 2 review evidence merged in Sprint 2; round 2 in Sprint 3 ([#166][166]). |
 | My work was reviewed and I reviewed others' work | 5 | 17 teammate PRs reviewed; from Sprint 2 on, every merge had another member's approval ([#148][148]). |
 | I raised blockers early | 4 | I provided emails, messages, and prototypes for the work and did additional work as needed to make sure all sprint methods were accomplished. |
-| My contributions are traceable in the repository | 5 | Every row above links a PR or comment. |
-| I understood the results well enough to present any part | 5 | |
+| My contributions are traceable in the repository | 5 | Evidence are all the documents and creations, prs and closing pr and opening branches. Every row above links a PR or comment. |
+| I understood the results well enough to present any part | 5 | Evidence are all the documents and creations, prs and closing pr and opening branches. |
 
 ## 6. AI use statement
 

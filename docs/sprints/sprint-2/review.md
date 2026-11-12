@@ -1,15 +1,13 @@
 # Sprint 2 review: implementation and validation
 
-Status: Preliminary draft. Sprint 2 fresh-clone reproduction completed on October 27, 2026; evidence is linked below. Attendance, final completion decisions, metrics, and validation review remain pending verification.
-Date: 2026-10-28. Product Owner: Jerad Dunne. Scrum Master: Hina Kramer.
-
-Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer [ ] Instructor
+Status: Sprint 2 closeout update. Fresh-clone reproduction was completed on October 27, 2026. Jerad confirmed the asynchronous review, sprint goal, and recorded backlog changes in [issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26). Metrics without a dated sprint-specific source are recorded as unavailable.
+Review format: Asynchronous through GitHub and Canvas on October 28, 2026; no live meeting occurred. See [Jerad's confirmation in issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26).
 
 ## Sprint goal check
 
 > By 2026-10-28, the team will have the core mining and analysis pipeline running end-to-end on the approved sample, automated tests, reproducible preliminary results, updated report sections, and documented validation including second-rater labels and inter-rater agreement.
 
-Met: [ ] Yes [ ] Partly [ ] No
+Met: [x] Yes [ ] Partly [ ] No — confirmed by Jerad in [issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26).
 
 ## Rubric review checklist
 
@@ -137,15 +135,15 @@ Record documented contributions separately from planned responsibilities. Open P
 
 | Metric | Sprint 1 | Sprint 2 |
 |---|---|---|
-| Points planned / completed | October 22 dashboard: 19 committed / 16 completed | October 22 dashboard: 16 committed / 3 completed; reconcile with planning PR #92; final review totals pending |
-| Issues closed | Pending dashboard verification | Pending dated Sprint 2 metrics snapshot |
+| Points planned / completed | October 22 dashboard: 19 committed / 16 completed | October 22 interim dashboard: 16 committed / 3 completed; final Sprint 2 totals unavailable from the cited snapshot |
+| Issues closed | Pending dashboard verification | Unavailable: no dated sprint-specific source identified |
 | PRs merged / merged with an approving review from another member | 21 merged / 13 approved before merge | 36 merged / 36 approved before merge |
 | Median PR first-review turnaround (hours) | 51.1 | 4.2 |
-| Median cycle time (days) | Pending dashboard verification | Pending metrics output |
+| Median cycle time (days) | Pending dashboard verification | Unavailable: no dated sprint-specific source identified |
 | Median PR open-to-merge time (hours) | 48.1 | 16.7 |
-| CI pass rate | Pending dashboard verification | Pending aggregate metrics; individual passing PR checks do not establish the sprint pass rate |
-| Rework items | Pending dashboard verification | Pending metrics output |
-| Contribution share per member (min / max) | Pending dashboard verification | Pending verified contribution counts |
+| CI pass rate | Pending dashboard verification | Unavailable: the dated snapshot captured no workflow runs; individual passing checks do not establish an aggregate sprint pass rate |
+| Rework items | Pending dashboard verification | Unavailable: no dated sprint-specific source identified |
+| Contribution share per member (min / max) | Pending dashboard verification | Unavailable: no verified sprint-specific contribution counts identified |
 | Test count / coverage | Pending recorded test results | 219 passed in 30.72 seconds; 97% total coverage; Python 3.12.15; commit `8e2ce36`; [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556) |
 
 The three PR metrics come from the [PR review audit](../../lean-six-sigma/metrics/pr_review_audit.csv). The Sprint 2 audit window was October 8–28, 2026, Eastern Time. Approval counts include bot-authored PRs. Timing medians cover PRs authored by team members.
@@ -162,10 +160,11 @@ Source: [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated Oc
 | Contribution shares | Leticia 0.28; Jerad 0.60; Hina 0.11 |
 | Aggregate CI pass rate | Unavailable: no workflow runs captured |
 
-The sprint-specific PR metrics are recorded in the table above. The other pending review measurements still need verification.
+The sprint-specific PR metrics are recorded above. The October 22 snapshot covers a broader repository period and is not a final Sprint 2 measurement. Other Sprint 2 metrics without dated supporting evidence are recorded as unavailable, following Jerad's confirmation in issue #26.
 
-## Backlog changes proposed for review
+## Confirmed backlog changes and follow-up
 
-- Added: redistribute work previously associated with Allie and update team documentation.
-- Removed/cancelled: Allie from capacity, attendance, assignments, and review rotation because she dropped the course.
-- Re-estimation proposed: reconcile remaining work and instructor-feedback tasks with three-person capacity; final estimates require team agreement.
+- Redistribute work previously associated with Allie and update team documentation.
+- Remove Allie from team capacity and role rotation under D-025.
+- Carry signal intra-rater round 2 forward to Sprint 3 under [issue #101](https://github.com/jeraddunne/csc580-group9-msr2027/issues/101).
+- These backlog changes and the recorded retrospective actions were confirmed by Jerad in [issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26). No new numerical estimates are asserted here.

@@ -1,15 +1,13 @@
 # Sprint 2 review: implementation and validation
 
-Status: Preliminary draft. Sprint 2 fresh-clone reproduction completed on October 27, 2026; evidence is linked below. Attendance, final completion decisions, metrics, and validation review remain pending verification.
-Date: 2026-10-28. Product Owner: Jerad Dunne. Scrum Master: Hina Kramer.
-
-Present: [ ] Leticia Aderhold [ ] Jerad Dunne [ ] Hina Kramer [ ] Instructor
+Status: Sprint 2 closeout update. Fresh-clone reproduction was completed on October 27, 2026. Jerad confirmed the asynchronous review, sprint goal, and recorded backlog changes in [issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26). Metrics without a dated sprint-specific source are recorded as unavailable.
+Review format: Asynchronous through GitHub and Canvas on October 28, 2026; no live meeting occurred. See [Jerad's confirmation in issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26).
 
 ## Sprint goal check
 
 > By 2026-10-28, the team will have the core mining and analysis pipeline running end-to-end on the approved sample, automated tests, reproducible preliminary results, updated report sections, and documented validation including second-rater labels and inter-rater agreement.
 
-Met: [ ] Yes [ ] Partly [ ] No
+Met: [x] Yes [ ] Partly [ ] No — confirmed by Jerad in [issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26).
 
 ## Rubric review checklist
 
@@ -17,7 +15,7 @@ The Sprint 2 review must include:
 
 - [x] Working core implementation (carried in). Evidence: [PR #44](https://github.com/jeraddunne/csc580-group9-msr2027/pull/44), merged September 14, closed issue #21. The PR records an end-to-end sample run using `python -m msr_pipeline analyze`, producing `results/population_flow.csv`, `results/ANALYSIS_MANIFEST.json`, and `figures/rq1_prevalence_by_category.png`. A fresh Sprint 2 reproduction completed successfully on October 27, 2026; see the [reproduction report](evidence/reproduction-2026-10-27.md).
 - [x] Automated tests for the implemented method. Evidence: [issue #22](https://github.com/jeraddunne/csc580-group9-msr2027/issues/22), [report-to-test map](../../TEST_MAP.md), and [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556). The Python 3.12.15 job reports 219 tests passed in 30.72 seconds with 97% total coverage on commit `8e2ce36`.
-- [x] Validation sample and protocol. Evidence: issue #23 and [validation protocol](../../validation/README.md) document the frozen sample, annotation workflow, and rater assignments: 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Merged PR #119 reports drift inter-rater agreement across 18 pairs: 83.3% agreement and Cohen’s kappa 0.745 (`results/validation_agreement.csv`). Lineage: Hina’s labels merged in PR #121 and Jerad’s in PR #124; the raters agree on 57 of 58 pairs (98.3%), and Cohen’s kappa is 0 because one rater used a single label, so percent agreement is the lineage figure (`results/validation_agreement.csv`). Signals intra-rater round 2 is deferred to Sprint 3 (#101). Ground truth (#97): on 2026-10-27 the scanner detected all ten known-positive skills Leticia selected, 0 missed, five of them at high risk ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27), `results/ground_truth_summary.csv`).
+- [x] Validation sample and protocol. Evidence: issue #23 and [validation protocol](../../validation/README.md) document the frozen sample, annotation workflow, and rater assignments: 147 signal items (209 label rows), 58 lineage pairs, and 18 drift pairs. Merged PR #119 reports drift inter-rater agreement across 18 pairs: 83.3% agreement and Cohen’s kappa 0.745 (`results/validation_agreement.csv`). Lineage: Hina’s labels merged in PR #121 and Jerad’s in PR #124; the raters agree on 57 of 58 pairs (98.3%), and Cohen’s kappa is 0 because one rater used a single label, so percent agreement is the lineage figure (`results/validation_agreement.csv`). Signals intra-rater round 2 is deferred to Sprint 3 (#101). Ground truth (#97): on 2026-10-27 the scanner detected all ten known-positive skills Leticia selected, 0 missed. Five had a high-risk match in their expected category; six had a high-risk match in any category, because the Attio candidate (expected CREDENTIALS) also matched `R-DST-001` at severity 6 ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27), `results/ground_truth_summary.csv`).
 - [x] Preliminary results with reproducible figures or tables. Evidence: issue #24 records Leticia’s October 10 verification of the September 23 run. That historical verification is separate from the current `ANALYSIS_MANIFEST.json`, which records an October 24 run. See the committed outputs under `results/` and `figures/`.
 - [x] At least one pull request reviewed by a member other than its author. Evidence: [PR #90](https://github.com/jeraddunne/csc580-group9-msr2027/pull/90), authored by Leticia Aderhold, received Hina Kramer’s approving file-validity review and was merged into `main`. The review preserved the independently submitted labels; three checks passed.
 - [x] Updated research report. Evidence: issue #25 and `report/draft.md`.
@@ -29,7 +27,7 @@ The Sprint 2 review must include:
 |---|---|---|
 | Core implementation runs end-to-end on the approved sample | Met; fresh-clone reproduction completed October 27 | Issue #21, closed by PR #44. `results/ANALYSIS_MANIFEST.json` records the latest run of `python -m msr_pipeline analyze` on 2026-10-24 (102.8 s); it does not record a commit SHA, so the fresh-clone run below supplies one |
 | Method has automated tests | Met | Issue #22; 219 tests passed in 30.72 seconds with 97% total coverage using Python 3.12.15 on `main` (`8e2ce36`) on 2026-10-27; [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556). [Report-to-test map](../../TEST_MAP.md) maps report tables and figures to their tests. |
-| Group can explain why the method is trustworthy and where it may fail | Evidence linked; discuss at the review | Precision per category with Wilson intervals, miss rate, and drift and lineage agreement (`results/validation_*.csv`; report Table 2, PR #127); ground truth on ten known positives (#97); a rule card with rationale and references for every rule ([`RULE_CATALOG.md`](../../research/RULE_CATALOG.md), #95); applicability of established tools ([`APPLICABILITY.md`](../../research/APPLICABILITY.md), #96); `THREATS_TO_VALIDITY.md`. Known weak points: strict precision of 0.20 for dynamic code execution and 0.27 for credential file paths and hard-coded IP endpoints, and five known positives detected only by context rules |
+| Group can explain why the method is trustworthy and where it may fail | Evidence linked; discuss at the review | Precision per category with Wilson intervals, miss rate, and drift and lineage agreement (`results/validation_*.csv`; report Table 2, PR #127); ground truth on ten known positives (#97); a rule card with rationale and references for every rule ([`RULE_CATALOG.md`](../../research/RULE_CATALOG.md), #95); applicability of established tools ([`APPLICABILITY.md`](../../research/APPLICABILITY.md), #96); `THREATS_TO_VALIDITY.md`. Known weak points: strict precision of 0.20 for dynamic code execution and 0.27 for credential file paths and hard-coded IP endpoints, and five known positives whose expected category matched only context rules (one of them still reached high risk through another category) |
 | Preliminary analysis is supported by generated evidence rather than screenshots alone | Met | Issue #24 (closed). Tables in `results/` and figures in `figures/` are written by `make pipeline` and `python scripts/annotation_kit.py score`; [`docs/TEST_MAP.md`](../../TEST_MAP.md) names the function and tests behind each; `results/spec_verification.csv` NFR-02 confirms that two runs give identical outputs |
 
 ## Validation status
@@ -38,7 +36,7 @@ Assignments follow D-024. Pending entries require evidence from the relevant val
 
 | Kind | Primary rater | Second rater | Label PR/date | Agreement result |
 |---|---|---|---|---|
-| Signals | Jerad (`jd`) | None; intra-rater round 2 is deferred to Sprint 3 under #101 | Round 1 labels merged in #118; first scores merged in #119 | Inter-rater kappa not applicable; intra-rater result pending |
+| Signals | Jerad (`jd`) | None; intra-rater round 2 is deferred to Sprint 3 under #101 | Round 1 labels merged in #118; first scores merged in #119 | Inter-rater kappa not applicable; intra-rater result pending at the October 28 review. Sprint 3 follow-up (2026-11-12): merged PR #166 reports 61 of 69 rule matches in agreement (88.4%), Cohen's kappa 0.839 |
 | Lineage | Jerad (`jd`) | Hina (`hk`) | Second-rater labels merged in #121; primary labels and scores in #124 | 58 pairs; 98.3% agreement; Cohen’s kappa 0 because one rater used a single label (`kappa_note`); source: `results/validation_agreement.csv` |
 | Drift | Jerad (`jd`) | Leticia (`la`) | Second-rater labels merged in #90; primary labels merged in #118; scores merged in #119 | 18 pairs; 83.3% agreement; Cohen’s kappa 0.745; source: `results/validation_agreement.csv` |
 
@@ -102,7 +100,7 @@ Source: [Sprint 2 instructor feedback](instructor-feedback.md). These are tracke
 | Feedback | Action | Owner | Issue # |
 |---|---|---|---|
 | Complete validation | Follow D-024, complete labels, score validation, and report agreement and limitations | Jerad, Hina, and Leticia | #99, #100, #90 |
-| Start with known-positive skills | Select about ten skills independently of rule patterns and report detections and misses; run 2026-10-27: 10 of 10 detected, 0 missed, 5 at high risk ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27)) | Leticia: skill selection; Jerad: scanner check and results | #97 |
+| Start with known-positive skills | Select about ten skills independently of rule patterns and report detections and misses; run 2026-10-27: 10 of 10 detected, 0 missed, 5 at high risk in the expected category and 6 in any category ([results](../../validation/KNOWN_POSITIVES_SELECTION.md#results-2026-10-27)) | Leticia: skill selection; Jerad: scanner check and results | #97 |
 | Explain rule provenance | Document each rule's rationale, example, source, and known false positives | Jerad | #95 |
 | Analyze applicability | Explain which established rules apply to skill text or bundled scripts; [Applicability comparison](../../research/APPLICABILITY.md) (PR #107) | Leticia | #96 |
 | Define intended use | Document the human-in-the-loop risk-review workflow and diagrams | Jerad; reviewed by Hina and Leticia | #98; [review workflow](../../research/REVIEW_WORKFLOW.md) revised in PR #126 |
@@ -129,30 +127,30 @@ Record documented contributions separately from planned responsibilities. Open P
 
 | Member | Planned responsibility | Documented contribution and issue/PR evidence |
 |---|---|---|
-| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Authored Sprint 2 review updates merged in PR #94. Prepared planning corrections in PR #92 and known-positive skill selection in PR #106 (#97), both pending review/merge. Completed the applicability comparison in merged PR #107 (#96). Submitted 18 independent round 1 drift labels in PR #90, approved by Hina and merged into main. |
-| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Recorded rater assignments, team-role updates, and the instructor-feedback page (merged PR #105). Wrote rule cards with verified references (merged PR #111, #95). Added the ground-truth script (merged PR #112) and ran it on Leticia's selection (#97). Fixed the metrics workflow and committed the October 22 snapshot (merged PR #113, #103). Labelled round 1 as primary rater for all three kinds and scored them: drift and signals (merged PR #118), first scores (merged PR #119), spec-check fix (merged PR #120), lineage labels and scores (merged PR #124) (#100). Wrote value tests and the report-to-test map (merged PR #125, #22). Finalized the human-in-the-loop review workflow and diagrams after both teammates' reviews (merged PR #126, #98). Wrote the validation results into the report and fixed the FMEA calculation after Hina's review (PR #127, open). Measured the pending Sprint 1 baseline values (#19). Reviewed PRs #92 and #106. |
+| Leticia Aderhold | Report and preliminary-results documentation; drift second-rating; reviews | Authored Sprint 2 review updates merged in PR #94. Prepared planning corrections in merged PR #92 and known-positive skill selection in merged PR #106 (#97); both merged on October 25, 2026 (UTC), before the review. Completed the applicability comparison in merged PR #107 (#96). Submitted 18 independent round 1 drift labels in PR #90, approved by Hina and merged into main. |
+| Jerad Dunne | Product Owner; implementation, tests, validation scoring, and technical integration | Recorded rater assignments, team-role updates, and the instructor-feedback page (merged PR #105). Wrote rule cards with verified references (merged PR #111, #95). Added the ground-truth script (merged PR #112) and ran it on Leticia's selection (#97). Fixed the metrics workflow and committed the October 22 snapshot (merged PR #113, #103). Labelled round 1 as primary rater for all three kinds and scored them: drift and signals (merged PR #118), first scores (merged PR #119), spec-check fix (merged PR #120), lineage labels and scores (merged PR #124) (#100). Wrote value tests and the report-to-test map (merged PR #125, #22). Finalized the human-in-the-loop review workflow and diagrams after both teammates' reviews (merged PR #126, #98). Wrote the validation results into the report and fixed the FMEA calculation after Hina's review (merged PR #127, October 27, 2026). Measured the pending Sprint 1 baseline values (#19). Reviewed PRs #92 and #106. |
 | Hina Kramer | Scrum Master; validation coordination, lineage second-rating, process evidence, and retrospective | Provided review feedback on PRs #92, #106, and #107. Recorded AI-assisted review activity in merged PR #114 (#104). Completed second-rater lineage labels merged in PR #121; agreement results are recorded in results/validation_agreement.csv. Remaining process evidence requires confirmation. |
 
 ## Velocity and KPIs at review
 
 | Metric | Sprint 1 | Sprint 2 |
 |---|---|---|
-| Points planned / completed | October 22 dashboard: 19 committed / 16 completed | October 22 dashboard: 16 committed / 3 completed; reconcile with planning PR #92; final review totals pending |
-| Issues closed | Pending dashboard verification | Pending dated Sprint 2 metrics snapshot |
+| Points planned / completed | October 22 dashboard: 19 committed / 16 completed | October 22 interim dashboard: 16 committed / 3 completed; final Sprint 2 totals unavailable from the cited snapshot |
+| Issues closed | Pending dashboard verification | Unavailable: no dated sprint-specific source identified |
 | PRs merged / merged with an approving review from another member | 21 merged / 13 approved before merge | 36 merged / 36 approved before merge |
 | Median PR first-review turnaround (hours) | 51.1 | 4.2 |
-| Median cycle time (days) | Pending dashboard verification | Pending metrics output |
+| Median cycle time (days) | Pending dashboard verification | Unavailable: no dated sprint-specific source identified |
 | Median PR open-to-merge time (hours) | 48.1 | 16.7 |
-| CI pass rate | Pending dashboard verification | Pending aggregate metrics; individual passing PR checks do not establish the sprint pass rate |
-| Rework items | Pending dashboard verification | Pending metrics output |
-| Contribution share per member (min / max) | Pending dashboard verification | Pending verified contribution counts |
+| CI pass rate | Pending dashboard verification | Unavailable: the dated snapshot captured no workflow runs; individual passing checks do not establish an aggregate sprint pass rate |
+| Rework items | Pending dashboard verification | Unavailable: no dated sprint-specific source identified |
+| Contribution share per member (min / max) | Pending dashboard verification | Unavailable: no verified sprint-specific contribution counts identified |
 | Test count / coverage | Pending recorded test results | 219 passed in 30.72 seconds; 97% total coverage; Python 3.12.15; commit `8e2ce36`; [CI run #276](https://github.com/jeraddunne/csc580-group9-msr2027/actions/runs/40535530556) |
 
 The three PR metrics come from the [PR review audit](../../lean-six-sigma/metrics/pr_review_audit.csv). The Sprint 2 audit window was October 8–28, 2026, Eastern Time. Approval counts include bot-authored PRs. Timing medians cover PRs authored by team members.
 
 ### October 22 process snapshot
 
-Source: [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated October 22, 2026, in merged PR #113. These figures cover September 10–October 22 across the repository, rather than either sprint separately.
+Source: the saved [October 22, 2026 snapshot](../../lean-six-sigma/metrics/snapshots/2026-10-22.json), committed in merged PR #113. The live [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md) now shows later data. These figures cover September 10–October 22 across the repository, rather than either sprint separately.
 
 | Metric | Snapshot value |
 |---|---|
@@ -162,10 +160,11 @@ Source: [LSS dashboard](../../lean-six-sigma/metrics/DASHBOARD.md), generated Oc
 | Contribution shares | Leticia 0.28; Jerad 0.60; Hina 0.11 |
 | Aggregate CI pass rate | Unavailable: no workflow runs captured |
 
-The sprint-specific PR metrics are recorded in the table above. The other pending review measurements still need verification.
+The sprint-specific PR metrics are recorded above. The October 22 snapshot covers a broader repository period and is not a final Sprint 2 measurement. Other Sprint 2 metrics without dated supporting evidence are recorded as unavailable, following Jerad's confirmation in issue #26.
 
-## Backlog changes proposed for review
+## Confirmed backlog changes and follow-up
 
-- Added: redistribute work previously associated with Allie and update team documentation.
-- Removed/cancelled: Allie from capacity, attendance, assignments, and review rotation because she dropped the course.
-- Re-estimation proposed: reconcile remaining work and instructor-feedback tasks with three-person capacity; final estimates require team agreement.
+- Redistribute work previously associated with Allie and update team documentation.
+- Remove Allie from team capacity and role rotation under D-025.
+- Carry signal intra-rater round 2 forward to Sprint 3 under [issue #101](https://github.com/jeraddunne/csc580-group9-msr2027/issues/101).
+- These backlog changes and the recorded retrospective actions were confirmed by Jerad in [issue #26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26). No new numerical estimates are asserted here.

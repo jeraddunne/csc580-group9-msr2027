@@ -15,14 +15,14 @@ Status: Prepared for the scheduled November 18 review. Attendance and the final 
 
 The Sprint 3 review must include:
 
-- [x] Final or near-final results addressing the research question. Evidence: completed #27; `report/draft.md`, Results and Evaluation and validation sections; linked result files and reviewer acceptance recorded in #27.
+- [ ] Final or near-final results addressing the research question. Evidence: completed #27; `report/draft.md`, Results and Evaluation and validation sections; linked result files and reviewer acceptance recorded in #27.
 - [x] Robustness checks, sensitivity analysis, or comparison across meaningful subgroups. Evidence: completed #28; `results/sensitivity_summary.csv`; `results/rq3_threshold_sweep.csv`; Hina's acceptance confirmation.
 - [x] Error analysis and manually inspected examples. Evidence: completed #29; `docs/validation/ERROR_ANALYSIS.md`; merged and reviewed PRs #145, #152, and #162.
 - [x] Final figures and tables generated from the repository pipeline. Evidence: #30; successful clean-checkout regeneration at `18892ed` on November 10; report table-and-figure source map.
-- [x] A complete draft report with citations and a clear separation between findings and interpretation. Evidence: #31; `report/draft.md`; confirm complete-draft review and acceptance.
+- [ ] A complete draft report with citations and a clear separation between findings and interpretation. Available draft: `report/draft.md`; complete-draft review, remaining corrections, and final acceptance are tracked under #31 and PR #177. Completion remains pending.
 - [x] A threat-to-validity section addressing dataset bias, measurement error, confounding, missing data, reproducibility, and generalizability. Evidence: completed #32; `THREATS_TO_VALIDITY.md`; report threats section; PRs #143 and #149.
 - [x] A documented release or tagged version of the repository. Evidence: completed #33; published `v0.9.0-rc1` at `5211619`; release notes and recorded reproduction evidence.
-- [x] A final demonstration plan and presentation materials. Evidence: #34; `docs/PRESENTATION_PLAN.md`; record the November 12 rehearsal outcome after it occurs.
+- [ ] A final demonstration plan and presentation materials. Available preparation: `docs/PRESENTATION_PLAN.md` and draft presentation materials. Confirm slide completion and record the actual date, participants, outcome, and any required corrections from a successful end-to-end rehearsal under #34 before marking this item complete.
 - [x] A retrospective identifying the group's most important process improvement. Evidence: completed #35; Sprint 3 retrospective Section 9; PR review audit; Jerad's confirmation and Hina's acceptance review.
 
 ## Sprint 3 acceptance criteria (verbatim)

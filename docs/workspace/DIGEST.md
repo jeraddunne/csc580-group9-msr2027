@@ -1,29 +1,22 @@
 # Team workspace digest
 
-Generated 2026-11-08 12:25 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-11-15 13:08 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
-### @jeraddunne (18)
+### @jeraddunne (11)
 
 | Issue | Title | Milestone |
 |---|---|---|
 | [#132](https://github.com/jeraddunne/csc580-group9-msr2027/issues/132) | S3: five known positives detected only by context rules (#97 follow-up) | Sprint 3 |
-| [#101](https://github.com/jeraddunne/csc580-group9-msr2027/issues/101) | S3: signals round 2 re-rating (intra-rater kappa) | Sprint 3 |
 | [#42](https://github.com/jeraddunne/csc580-group9-msr2027/issues/42) | Start here: Group 9 project workspace (P-01) | Formation |
 | [#40](https://github.com/jeraddunne/csc580-group9-msr2027/issues/40) | Final: AI-use log and disclosure complete | Finalization |
 | [#39](https://github.com/jeraddunne/csc580-group9-msr2027/issues/39) | Final: individual contribution and reflection (one per member) | Finalization |
 | [#38](https://github.com/jeraddunne/csc580-group9-msr2027/issues/38) | Final: presentation and live demonstration | Finalization |
 | [#37](https://github.com/jeraddunne/csc580-group9-msr2027/issues/37) | Final: repository release v1.0.0 and fresh-machine reproduction by a non-author | Finalization |
 | [#36](https://github.com/jeraddunne/csc580-group9-msr2027/issues/36) | Final: respond to feedback and finalize the report | Finalization |
-| [#35](https://github.com/jeraddunne/csc580-group9-msr2027/issues/35) | S3: retrospective identifying the group's most important process improvement | Sprint 3 |
 | [#34](https://github.com/jeraddunne/csc580-group9-msr2027/issues/34) | S3: final demonstration plan and presentation materials | Sprint 3 |
-| [#33](https://github.com/jeraddunne/csc580-group9-msr2027/issues/33) | S3: documented release or tagged version of the repository | Sprint 3 |
-| [#32](https://github.com/jeraddunne/csc580-group9-msr2027/issues/32) | S3: threats-to-validity section (dataset bias, measurement error, confounding, missing data, reproducibility, general... | Sprint 3 |
 | [#31](https://github.com/jeraddunne/csc580-group9-msr2027/issues/31) | S3: complete draft report with citations and clear separation of findings and interpretation | Sprint 3 |
-| [#30](https://github.com/jeraddunne/csc580-group9-msr2027/issues/30) | S3: final figures and tables generated from the repository pipeline | Sprint 3 |
-| [#29](https://github.com/jeraddunne/csc580-group9-msr2027/issues/29) | S3: error analysis and manually inspected examples | Sprint 3 |
-| [#28](https://github.com/jeraddunne/csc580-group9-msr2027/issues/28) | S3: robustness checks, sensitivity analysis, or comparison across meaningful subgroups | Sprint 3 |
 | [#27](https://github.com/jeraddunne/csc580-group9-msr2027/issues/27) | S3: final or near-final results addressing the research question | Sprint 3 |
 | [#26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26) | S2: sprint review package and retrospective recording changes to question, method, scope, or interpretation | Sprint 2 |
 

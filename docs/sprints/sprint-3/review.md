@@ -15,7 +15,7 @@ Status: Prepared for the scheduled November 18 review. Attendance and the final 
 
 The Sprint 3 review must include:
 
-- [ ] Final or near-final results addressing the research question. Evidence: completed #27; `report/draft.md`, Results and Evaluation and validation sections; linked result files and reviewer acceptance recorded in #27.
+- [ ] Final or near-final results addressing the research question. Available evidence: `report/draft.md`, committed result files, and the descriptive validation-sample comparison in PR #172. Acceptance remains pending under #27 until the validated-label requirement for RQ1/RQ2 is resolved and documented.
 - [x] Robustness checks, sensitivity analysis, or comparison across meaningful subgroups. Evidence: completed #28; `results/sensitivity_summary.csv`; `results/rq3_threshold_sweep.csv`; Hina's acceptance confirmation.
 - [x] Error analysis and manually inspected examples. Evidence: completed #29; `docs/validation/ERROR_ANALYSIS.md`; merged and reviewed PRs #145, #152, and #162.
 - [x] Final figures and tables generated from the repository pipeline. Evidence: #30; successful clean-checkout regeneration at `18892ed` on November 10; report table-and-figure source map.

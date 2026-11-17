@@ -63,10 +63,10 @@ Risk update — 2026-11-12: Confirm RPN values against the current FMEA register
 
 - [x] The improvement to the analysis (robustness, error analysis) is implemented and its effect on the answer is stated. Evidence: completed issues #28 and #29. In #28, the mean-copy ratio remains above 1 across all six sensitivity scenarios, while its magnitude and signal prevalence vary; these are scanner-defined associations, not causal findings.
 - [x] The process improvement with the largest measured effect this semester is named with before and after numbers.
-- [x] Every report figure and table is reproducible from a tagged commit.
+- [ ] Every report figure and table is reproducible from a tagged commit.
 - [x] The threats-to-validity table has a status for every row. Evidence: `THREATS_TO_VALIDITY.md`; completed issue #32.
 - [x] Control plan drafted for finalization (`docs/lean-six-sigma/CONTROL_PLAN.md`): what is checked, by whom, and when, before submission.
-- [ ] Every report figure and table is reproducible from a tagged commit.
+
 
 ## Planning meeting notes
 

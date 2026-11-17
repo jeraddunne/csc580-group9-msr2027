@@ -4,17 +4,15 @@ How to use: this is the plan for the 20% final demonstration on Fri 2026-12-04. 
 
 Target length: 12 to 15 minutes, then questions. Every member presents at least one segment.
 
-## Structure, timing, and speakers (proposed)
+## Speaker assignments
 
-| # | Segment | Time | Content | Speaker | Backup |
-|---|---|---|---|---|---|
-| 1 | Question and motivation | 1.5 min | The one-sentence P-01 research question, why copied agent skills matter for AI-native software engineering, the competing explanation tested | Jerad Dunne | Leticia Aderhold |
-| 2 | Data | 2 min | GitSkills and the exact snapshot (release, DOI, MANIFEST hash), the sample and why it is defensible, unit of analysis, key variables | Leticia Aderhold | Hina Kramer |
-| 3 | Pipeline, live | 3.5 min | Fresh clone in a clean environment, `make pipeline`, stage outputs and passing tests, the scanner and variant-linking method | Hina Kramer | Jerad Dunne |
-| 4 | Results | 3 min | RQ1 prevalence, RQ2 reach, RQ3 variant drift, and one robustness check; observations only, numbers read from generated artifacts | TBD (D-025) | Leticia Aderhold |
-| 5 | Interpretation and limitations | 2 min | What the evidence supports and what it does not; top three threats to validity; inter-rater agreement and error analysis examples | Leticia Aderhold | TBD (D-025) |
-| 6 | Process story with Lean Six Sigma metrics | 2 min | Velocity, cycle time, and contribution balance across sprints; the most important process improvement with before and after numbers | TBD (D-025) | Hina Kramer |
-| 7 | Close and questions | 0.5 min | One-sentence answer, one-sentence next step, release tag and repository URL; the Product Owner routes questions to the member closest to the topic | Hina Kramer (Finalization Product Owner) | Jerad Dunne |
+| Speaker | Slides | Allocated time | Coverage |
+|---|---|---|---|
+| Jerad Dunne | 1–4, 7, 9, 10, 16, 22 | 5:20 | Research question, requirements, pipeline, labeling, and tool |
+| Leticia Aderhold | 5, 6, 8, 11–14, 17, 18 | 5:35 | Analyzer comparison, plan, data, results, error analysis, and threats |
+| Hina Kramer | 15, 19–21, 23–27 | 5:20 | Reproduction, process, review audit, demonstration, and closing |
+
+Total allocated speaking time: 16 minutes 15 seconds. This exceeds the stated 12–15-minute target and requires adjustment or confirmation of the allowed duration.
 
 Reproducibility is shown by running the demo from a fresh clone rather than a working copy.
 
@@ -47,22 +45,22 @@ Complete this record after each rehearsal.
 
 | Date | Participants | Commit or release tag | Commands run | Outcome and output links | Duration | Problems and follow-up |
 |---|---|---|---|---|---|---|
-| Pending | Pending | Pending | Pending | Not yet run | Pending | Pending |
+| 2026-11-16 | Attendance to be confirmed | Not yet recorded | Not yet recorded | First rehearsal occurred; end-to-end demonstration outcome and output links to be confirmed | Actual duration not yet recorded | Record problems, corrections, and follow-up with the team |
 
 ## Slide checklist
 
-- [ ] Title slide: project title, the three current member names (Jerad Dunne, Leticia Aderhold, and Hina Kramer), Group 9, course, date, repository URL and release tag.
-- [ ] Research question slide with the competing explanation.
-- [ ] Data slide with snapshot statement and sample description.
-- [ ] Pipeline diagram (stages, inputs, outputs, tests).
-- [ ] Results slides: each figure or table captioned with the script that produced it.
-- [ ] Robustness or subgroup slide.
-- [ ] Limitations and threats slide, including rater agreement.
-- [ ] Process slide: KPI trend chart from `docs/lean-six-sigma/metrics/`.
-- [ ] Most important process improvement slide with before and after numbers.
-- [ ] AI-use disclosure line on the closing slide.
-- [ ] Every number on a slide can be traced to a file in the repository.
-- [ ] Slides exported to PDF and attached to the GitHub release.
+- [x] Title slide: project title, the three current member names (Jerad Dunne, Leticia Aderhold, and Hina Kramer), Group 9, course, date, repository URL and release tag.
+- [x] Research question slide with the competing explanation.
+- [x] Data slide with snapshot statement and sample description.
+- [x] Pipeline diagram (stages, inputs, outputs, tests).
+- [x] Results slides: each figure or table captioned with the script that produced it.
+- [x] Robustness or subgroup slide.
+- [x] Limitations and threats slide, including rater agreement.
+- [x] Process slide: KPI trend chart from `docs/lean-six-sigma/metrics/`.
+- [x] Most important process improvement slide with before and after numbers.
+- [x] AI-use disclosure line on the closing slide.
+- [x] Every number on a slide can be traced to a file in the repository.
+- [x] Slides exported to PDF and attached to the GitHub release.
 
 ## Likely questions to prepare
 

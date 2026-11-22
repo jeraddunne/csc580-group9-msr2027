@@ -1,10 +1,10 @@
 # Team workspace digest
 
-Generated 2026-11-15 13:08 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
+Generated 2026-11-22 13:46 UTC by `scripts/workspace_digest.py` from `jeraddunne/csc580-group9-msr2027`. Do not edit by hand; see [README.md](README.md).
 
 ## Who is working on what
 
-### @jeraddunne (11)
+### @jeraddunne (9)
 
 | Issue | Title | Milestone |
 |---|---|---|
@@ -16,9 +16,7 @@ Generated 2026-11-15 13:08 UTC by `scripts/workspace_digest.py` from `jeraddunne
 | [#37](https://github.com/jeraddunne/csc580-group9-msr2027/issues/37) | Final: repository release v1.0.0 and fresh-machine reproduction by a non-author | Finalization |
 | [#36](https://github.com/jeraddunne/csc580-group9-msr2027/issues/36) | Final: respond to feedback and finalize the report | Finalization |
 | [#34](https://github.com/jeraddunne/csc580-group9-msr2027/issues/34) | S3: final demonstration plan and presentation materials | Sprint 3 |
-| [#31](https://github.com/jeraddunne/csc580-group9-msr2027/issues/31) | S3: complete draft report with citations and clear separation of findings and interpretation | Sprint 3 |
 | [#27](https://github.com/jeraddunne/csc580-group9-msr2027/issues/27) | S3: final or near-final results addressing the research question | Sprint 3 |
-| [#26](https://github.com/jeraddunne/csc580-group9-msr2027/issues/26) | S2: sprint review package and retrospective recording changes to question, method, scope, or interpretation | Sprint 2 |
 
 ## Work sign-ups
 
